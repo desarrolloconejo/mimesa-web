@@ -3,8 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import {
-  HeartHandshake,
-  Layers,
   Sparkles,
   Utensils,
   History,
@@ -17,7 +15,6 @@ import {
   MimesaSprout,
   MimesaLeafLime,
   MimesaLeafGreen,
-  MimesaDotCyan,
 } from "@/components/ui/organic-shapes";
 
 export function QuienesSomosContent() {
@@ -26,7 +23,7 @@ export function QuienesSomosContent() {
       
       {/* Giant Parallax Watermark Text in Background */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0 overflow-hidden w-full text-center">
-        <ParallaxElement speed={-0.35} horizontalSpeed={0.15}>
+        <ParallaxElement speed={-0.35} horizontalSpeed={0.15} fadeEffect="in-out" fadeIntensity={1.0}>
           <span className="text-[120px] sm:text-[180px] md:text-[240px] font-black text-[#1a3c6a]/[0.03] uppercase tracking-tighter leading-none block">
             MIMESA
           </span>
@@ -41,37 +38,28 @@ export function QuienesSomosContent() {
         {/* Left: Text Box with Multi-Layer Parallax Reactions (6 cols) */}
         <div className="lg:col-span-6 space-y-6">
           
-          {/* Badge & Title Parallax Layer */}
-          <ParallaxElement speed={0.28}>
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#02afab]/10 border border-[#02afab]/20 text-[#1a3c6a]">
-                <Layers className="w-4 h-4 text-[#02afab]" />
-                <span className="text-xs uppercase font-bold tracking-widest text-[#1a3c6a]">
-                  Nuestra Esencia
-                </span>
-              </div>
-
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#1a3c6a] leading-[1.08] tracking-tight">
-                ¿Quiénes{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#02afab] via-[#009539] to-[#94c11e]">
-                  somos?
-                </span>
-              </h2>
-            </div>
+          {/* Title Parallax Layer */}
+          <ParallaxElement speed={0.28} fadeEffect="in-out" fadeIntensity={1.1}>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#1a3c6a] leading-[1.08] tracking-tight">
+              ¿Quiénes{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#02afab] via-[#009539] to-[#94c11e]">
+                somos?
+              </span>
+            </h2>
           </ParallaxElement>
 
           {/* Narrative Paragraph Parallax Layer */}
-          <ParallaxElement speed={0.20}>
+          <ParallaxElement speed={0.20} fadeEffect="in-out" fadeIntensity={1.0}>
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-normal">
               Somos un <strong className="text-[#1a3c6a] font-bold">grupo empresarial especializado en producción de alimentos</strong>, conformado por diversas unidades de negocio que brindan productos y soluciones para impactar vidas y ayudar a enriquecer a Venezuela.
             </p>
           </ParallaxElement>
 
           {/* Interactive Feature Panels Parallax Layer */}
-          <ParallaxElement speed={0.12}>
+          <ParallaxElement speed={0.12} fadeEffect="in-out" fadeIntensity={1.0}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-5 rounded-2xl bg-white border border-[#1a3c6a]/10 shadow-xs hover:shadow-lg hover:border-[#02afab] transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-[#02afab]/10 text-[#02afab] flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-[#02afab] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-[#02afab]/10 text-[#02afab] flex items-center justify-center mb-3 group-hover:bg-[#02afab] group-hover:text-white transition-all duration-300">
                   <Building2 className="w-6 h-6" />
                 </div>
                 <h3 className="text-base font-bold text-[#1a3c6a]">Diversas Unidades</h3>
@@ -81,7 +69,7 @@ export function QuienesSomosContent() {
               </div>
 
               <div className="p-5 rounded-2xl bg-white border border-[#1a3c6a]/10 shadow-xs hover:shadow-lg hover:border-[#94c11e] transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-[#94c11e]/15 text-[#009539] flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-[#009539] group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-[#94c11e]/15 text-[#009539] flex items-center justify-center mb-3 group-hover:bg-[#009539] group-hover:text-white transition-all duration-300">
                   <Wheat className="w-6 h-6" />
                 </div>
                 <h3 className="text-base font-bold text-[#1a3c6a]">Impacto en Vidas</h3>
@@ -99,20 +87,20 @@ export function QuienesSomosContent() {
           
           {/* Complete Mimesa Sprout floating at Top-Right */}
           <div className="absolute -top-12 -right-8 z-20 pointer-events-none hidden sm:block">
-            <ParallaxElement speed={-0.3} rotateSpeed={0.3}>
+            <ParallaxElement speed={-0.3} rotateSpeed={0.3} fadeEffect="in-out" fadeIntensity={1.1}>
               <MimesaSprout size={130} />
             </ParallaxElement>
           </div>
 
           {/* Floating Lime Leaf at Bottom-Left */}
           <div className="absolute -bottom-8 -left-6 z-20 pointer-events-none">
-            <ParallaxElement speed={0.35} rotateSpeed={-0.3}>
+            <ParallaxElement speed={0.35} rotateSpeed={-0.3} fadeEffect="in-out" fadeIntensity={1.1}>
               <MimesaLeafLime size={90} />
             </ParallaxElement>
           </div>
 
-          {/* Clean, Crisp Image with Subtle Counter-Parallax */}
-          <ParallaxElement speed={-0.08}>
+          {/* Clean, Crisp Image with Subtle Counter-Parallax and In-Out Fade */}
+          <ParallaxElement speed={-0.08} fadeEffect="in-out" fadeIntensity={0.95}>
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
               <Image
                 src="/images/food-innovation.webp"
@@ -136,7 +124,7 @@ export function QuienesSomosContent() {
 
           {/* Floating Pill with Subtle Parallax */}
           <div className="absolute -bottom-6 -left-4 z-20 hidden sm:block">
-            <ParallaxElement speed={0.25}>
+            <ParallaxElement speed={0.25} fadeEffect="in-out" fadeIntensity={1.0}>
               <div className="glass-panel p-4 rounded-2xl shadow-xl border border-white/80 flex items-center gap-3">
                 <div className="p-2.5 rounded-xl bg-[#009539] text-white">
                   <Sparkles className="w-5 h-5" />
@@ -161,7 +149,7 @@ export function QuienesSomosContent() {
           
           {/* Subtle Parallax Mimesa Green Leaf Shape */}
           <div className="absolute -top-10 -right-6 z-20 pointer-events-none">
-            <ParallaxElement speed={-0.35} rotateSpeed={-0.3}>
+            <ParallaxElement speed={-0.35} rotateSpeed={-0.3} fadeEffect="in-out" fadeIntensity={1.1}>
               <MimesaLeafGreen size={100} />
             </ParallaxElement>
           </div>
@@ -171,7 +159,7 @@ export function QuienesSomosContent() {
           </div>
 
           {/* Crisp Family Table Picture with Counter-Parallax */}
-          <ParallaxElement speed={-0.08}>
+          <ParallaxElement speed={-0.08} fadeEffect="in-out" fadeIntensity={0.95}>
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
               <Image
                 src="/images/family-table.webp"
@@ -203,7 +191,7 @@ export function QuienesSomosContent() {
 
           {/* Floating Pill */}
           <div className="absolute -bottom-6 right-6 z-20 hidden sm:block">
-            <ParallaxElement speed={0.25}>
+            <ParallaxElement speed={0.25} fadeEffect="in-out" fadeIntensity={1.0}>
               <div className="glass-panel px-5 py-3.5 rounded-2xl shadow-xl border border-white/80 flex items-center gap-3">
                 <div className="p-2.5 rounded-xl bg-[#94c11e] text-[#1a3c6a]">
                   <Utensils className="w-5 h-5" />
@@ -220,27 +208,18 @@ export function QuienesSomosContent() {
         {/* Right: Story Narrative Box with Multi-Layer Parallax (6 cols) */}
         <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
           
-          {/* Badge & Title Layer */}
-          <ParallaxElement speed={0.28}>
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#94c11e]/15 border border-[#94c11e]/30 text-[#1a3c6a]">
-                <HeartHandshake className="w-4 h-4 text-[#009539]" />
-                <span className="text-xs uppercase font-bold tracking-widest">
-                  Origen y Propósito
-                </span>
-              </div>
-
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#1a3c6a] leading-[1.08] tracking-tight">
-                ¿Por qué{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a3c6a] via-[#02afab] to-[#94c11e]">
-                  Mimesa?
-                </span>
-              </h2>
-            </div>
+          {/* Title Layer */}
+          <ParallaxElement speed={0.28} fadeEffect="in-out" fadeIntensity={1.1}>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#1a3c6a] leading-[1.08] tracking-tight">
+              ¿Por qué{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a3c6a] via-[#02afab] to-[#94c11e]">
+                Mimesa?
+              </span>
+            </h2>
           </ParallaxElement>
 
           {/* Narrative Text Layer */}
-          <ParallaxElement speed={0.20}>
+          <ParallaxElement speed={0.20} fadeEffect="in-out" fadeIntensity={1.0}>
             <div className="space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed font-normal">
               <p>
                 <strong className="text-[#1a3c6a] font-bold">Mimesa</strong> es un nombre que viene de uno de nuestros primeros productos que nos abrió las puertas al mercado venezolano. Es parte de nuestra historia y es recordado por nuestras audiencias.
@@ -252,7 +231,7 @@ export function QuienesSomosContent() {
           </ParallaxElement>
 
           {/* Pillars List Parallax Layer */}
-          <ParallaxElement speed={0.12}>
+          <ParallaxElement speed={0.12} fadeEffect="in-out" fadeIntensity={1.0}>
             <div className="pt-2 space-y-3.5">
               <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/90 border border-[#1a3c6a]/10 hover:border-[#02afab] transition-all duration-300 shadow-xs">
                 <div className="w-8 h-8 rounded-full bg-[#02afab]/10 text-[#02afab] flex items-center justify-center shrink-0 mt-0.5">
@@ -292,16 +271,13 @@ export function QuienesSomosContent() {
       {/* ========================================================
           BLOCK 3: Full-Width Corporate Statement Banner
          ======================================================== */}
-      <ParallaxElement speed={0.16}>
+      <ParallaxElement speed={0.16} fadeEffect="in-out" fadeIntensity={0.9}>
         <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#1a3c6a] via-[#122b4d] to-[#0a182b] text-white p-8 sm:p-14 lg:p-18 shadow-2xl border border-white/10">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#02afab]/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#94c11e]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              <span className="text-xs uppercase font-bold tracking-widest text-[#02afab]">
-                Visión Agroalimentaria
-              </span>
               <h3 className="text-2xl sm:text-4xl font-black text-white leading-tight">
                 Construyendo un futuro más próspero en la mesa de cada familia venezolana.
               </h3>
@@ -313,7 +289,7 @@ export function QuienesSomosContent() {
             <div className="lg:col-span-4 flex justify-start lg:justify-end">
               <a
                 href="#contacto"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-bold bg-[#02afab] hover:bg-[#30deda] text-[#0a182b] transition-all duration-300 shadow-xl shadow-[#02afab]/25 hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-bold bg-[#02afab] hover:bg-[#94c11e] text-[#0a182b] transition-all duration-300 shadow-xl shadow-[#02afab]/25 hover:shadow-[#94c11e]/30 hover:-translate-y-1 active:translate-y-0"
               >
                 <span>Contáctanos</span>
                 <ArrowRight className="w-4 h-4" />

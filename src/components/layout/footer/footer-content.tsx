@@ -104,7 +104,7 @@ export function FooterContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visitar ${social.name} de Grupo Mimesa`}
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-[#02afab] hover:text-[#0f233e] hover:scale-110 transition-all duration-300 border border-white/10 shadow-sm"
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 text-white hover:bg-[#02afab] hover:text-[#0f233e] hover:-translate-y-1 active:translate-y-0 transition-all duration-300 border border-white/10 shadow-sm"
                 >
                   {social.icon}
                 </a>
