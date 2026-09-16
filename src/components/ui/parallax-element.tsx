@@ -6,7 +6,7 @@ export type FadeEffectType = "none" | "in-out" | "fade-out" | "fade-in";
 
 interface ParallaxElementProps {
   children: React.ReactNode;
-  speed?: number; // Subtle parallax multiplier (-1.0 to 1.0)
+  speed?: number; // Parallax multiplier (-1.0 to 1.0)
   rotateSpeed?: number;
   scaleSpeed?: number;
   horizontalSpeed?: number;
@@ -43,43 +43,43 @@ export function ParallaxElement({
       const centerY = rect.top + rect.height / 2;
       const progress = (centerY - windowHeight / 2) / (windowHeight / 2);
 
-      // Subtle, elegant parallax translation (smooth dampened multiplier)
-      const translateY = progress * speed * 55;
-      const translateX = horizontalSpeed !== 0 ? progress * horizontalSpeed * 35 : 0;
-      const rotation = rotateSpeed !== 0 ? progress * rotateSpeed * 10 : 0;
-      const scale = scaleSpeed !== 0 ? 1 + progress * scaleSpeed * 0.06 : 1;
+      // Deep, fluid, responsive parallax translation
+      const translateY = progress * speed * 130;
+      const translateX = horizontalSpeed !== 0 ? progress * horizontalSpeed * 75 : 0;
+      const rotation = rotateSpeed !== 0 ? progress * rotateSpeed * 18 : 0;
+      const scale = scaleSpeed !== 0 ? 1 + progress * scaleSpeed * 0.08 : 1;
 
       setTransformStyle(
         `translate3d(${translateX.toFixed(1)}px, ${translateY.toFixed(1)}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`
       );
 
-      // Gentle, delayed appear & disappear scroll opacity (Text stays solid and readable)
+      // Dynamic appear & disappear scroll opacity for multi-layer construction
       if (fadeEffect !== "none") {
         let opacity = 1;
 
         if (fadeEffect === "in-out") {
-          // Stay 100% solid through 70% of the viewport; gentle dissolve only at extreme edges
+          // Stay solid through core of viewport; gentle dissolve at extreme edges
           const distFromCenter = Math.abs(progress);
-          if (distFromCenter <= 0.65) {
+          if (distFromCenter <= 0.70) {
             opacity = 1;
           } else {
-            const edgeRatio = (distFromCenter - 0.65) / 0.35;
+            const edgeRatio = (distFromCenter - 0.70) / 0.30;
             opacity = Math.max(0, Math.min(1, 1 - edgeRatio * 0.85 * fadeIntensity));
           }
         } else if (fadeEffect === "fade-out") {
-          // For Hero: Stay 100% solid until scrolled significantly down, then gently dissolve
-          if (progress >= -0.35) {
+          // For Hero: Stay solid until scrolled significantly down, then gently dissolve
+          if (progress >= -0.40) {
             opacity = 1;
           } else {
-            const exitRatio = (Math.abs(progress) - 0.35) / 0.65;
+            const exitRatio = (Math.abs(progress) - 0.40) / 0.60;
             opacity = Math.max(0, Math.min(1, 1 - exitRatio * 0.80 * fadeIntensity));
           }
         } else if (fadeEffect === "fade-in") {
           // Smooth fade in from bottom
-          if (progress <= 0.35) {
+          if (progress <= 0.40) {
             opacity = 1;
           } else {
-            const enterRatio = (progress - 0.35) / 0.65;
+            const enterRatio = (progress - 0.40) / 0.60;
             opacity = Math.max(0, Math.min(1, 1 - enterRatio * 0.80 * fadeIntensity));
           }
         }
@@ -107,7 +107,7 @@ export function ParallaxElement({
   return (
     <div
       ref={elementRef}
-      className={`will-change-transform transition-all duration-200 ease-out ${className}`}
+      className={`will-change-transform transition-transform duration-75 ease-out ${className}`}
       style={{
         ...style,
         transform: transformStyle || undefined,

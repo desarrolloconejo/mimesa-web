@@ -21,11 +21,11 @@
     font-family: var(--font-outfit), "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
     color: var(--brand-black);
     background-color: var(--brand-white);
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   ::selection {
@@ -182,6 +182,46 @@
 
 .glow-blue {
   box-shadow: 0 20px 50px -15px rgba(26, 60, 106, 0.35);
+}
+
+/* Botanical Organic Animations */
+@keyframes branchBreathe {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(1.5deg) scale(1.01);
+  }
+}
+
+@keyframes sapPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(2, 175, 171, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(148, 193, 30, 0.8));
+  }
+}
+
+.animate-branch-breathe {
+  animation: branchBreathe 9s ease-in-out infinite;
+}
+
+.animate-sap-pulse {
+  animation: sapPulse 4s ease-in-out infinite;
+}
+
+/* Organic Leaf Shape Cards */
+.leaf-card-left {
+  border-radius: 36px 8px 36px 8px;
+}
+
+.leaf-card-right {
+  border-radius: 8px 36px 8px 36px;
+}
+
+.leaf-card-mobile {
+  border-radius: 28px 8px 28px 8px;
 }
 
 /* Custom Scrollbar */

@@ -44,12 +44,11 @@ export function FooterContent() {
   };
 
   const navLinks = [
-    { name: "Inicio", href: "#inicio" },
-    { name: "Quiénes somos", href: "#quienes-somos" },
-    { name: "Productos", href: "#productos" },
-    { name: "Responsabilidad social", href: "#responsabilidad-social" },
-    { name: "Trabaja con nosotros", href: "#trabaja-con-nosotros" },
-    { name: "Contáctanos", href: "#contacto" },
+    { name: "Inicio", href: "/" },
+    { name: "Sobre nosotros", href: "/sobre-nosotros" },
+    { name: "Productos", href: "/productos" },
+    { name: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
+    { name: "Contacto", href: "#contacto" },
   ];
 
   const socialLinks = [

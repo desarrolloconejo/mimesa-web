@@ -50,7 +50,7 @@ export function HeaderWrapper() {
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out bg-white border-b border-gray-100 shadow-sm shadow-[#1a3c6a]/5 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${
-        isScrolled ? "py-1 shadow-md shadow-[#1a3c6a]/8" : "py-2"
+        isScrolled ? "py-0 shadow-md shadow-[#1a3c6a]/8" : "py-0.5"
       }`}
     >
       <HeaderContent isScrolled={isScrolled} />
