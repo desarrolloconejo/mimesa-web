@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
 import { X, Menu, ArrowRight, Lock, Mail, ChevronDown } from "lucide-react";
+import { ALIMENTOS_BRANDS } from "@/components/sections/productos/productos-data";
 
 interface NavItem {
   name: string;
@@ -18,6 +19,7 @@ interface MobileNavProps {
 export function MobileNav({ navItems }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [productsExpanded, setProductsExpanded] = useState(false);
+  const [alimentosExpanded, setAlimentosExpanded] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -63,15 +65,15 @@ export function MobileNav({ navItems }: MobileNavProps) {
               <Image
                 src="/LOGOMIMESA.webp"
                 alt="Logo Grupo Mimesa"
-                width={140}
-                height={42}
-                className="h-9 w-auto object-contain"
+                width={160}
+                height={48}
+                className="h-10 w-auto object-contain"
               />
             </Link>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 hover:text-[#1a3c6a] transition-colors"
+              className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 hover:text-[#1a3c6a] transition-colors cursor-pointer"
               aria-label="Cerrar menú"
             >
               <X className="w-6 h-6" />
@@ -84,42 +86,82 @@ export function MobileNav({ navItems }: MobileNavProps) {
               if (item.name === "Productos") {
                 return (
                   <div key={item.name} className="space-y-1">
-                    <button
-                      type="button"
-                      onClick={() => setProductsExpanded(!productsExpanded)}
-                      className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold text-[#1a3c6a] hover:bg-[#02afab]/10 hover:text-[#02afab] transition-all duration-200 group text-left"
-                    >
-                      <span className="flex items-center gap-2">
+                    <div className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl hover:bg-[#02afab]/10 transition-colors group">
+                      <Link
+                        href="/productos"
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center gap-2 flex-1 text-base font-semibold text-[#1a3c6a] group-hover:text-[#02afab] transition-colors"
+                      >
                         <span>{item.name}</span>
-                        <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#02afab]/15 text-[#02afab]">
-                          Marcas
+                        <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#02afab] bg-[#02afab]/10 px-2 py-0.5 rounded-md">
+                          Ver Todo
                         </span>
-                      </span>
-                      <ChevronDown
-                        className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
-                          productsExpanded ? "rotate-180 text-[#02afab]" : ""
-                        }`}
-                      />
-                    </button>
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => setProductsExpanded(!productsExpanded)}
+                        className="p-2 text-gray-400 hover:text-[#02afab] rounded-lg transition-colors cursor-pointer"
+                        aria-label="Desplegar marcas de Productos"
+                      >
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            productsExpanded ? "rotate-180 text-[#02afab]" : ""
+                          }`}
+                        />
+                      </button>
+                    </div>
 
                     {/* Expandable Accordion Panel */}
                     {productsExpanded && (
-                      <div className="pl-4 pr-2 py-2 space-y-1 bg-gray-50/80 rounded-2xl border border-gray-100 animate-fade-in text-xs">
+                      <div className="pl-3 pr-2 py-2 space-y-1.5 bg-gray-50/90 rounded-2xl border border-gray-100 animate-fade-in text-xs">
+                        {/* Sub-Accordion: Alimentos with Brands */}
+                        <div className="space-y-1">
+                          <div className="flex items-center justify-between px-3 py-2 rounded-xl text-gray-800 hover:text-[#009539] font-semibold text-xs">
+                            <Link
+                              href="/#productos"
+                              onClick={() => setIsOpen(false)}
+                              className="flex-1"
+                            >
+                              Alimentos
+                            </Link>
+                            <button
+                              type="button"
+                              onClick={() => setAlimentosExpanded(!alimentosExpanded)}
+                              className="p-1 text-gray-400 hover:text-[#009539] cursor-pointer"
+                              aria-label="Desplegar marcas de Alimentos"
+                            >
+                              <ChevronDown
+                                className={`w-4 h-4 transition-transform duration-200 ${
+                                  alimentosExpanded ? "rotate-180 text-[#009539]" : ""
+                                }`}
+                              />
+                            </button>
+                          </div>
+
+                          {/* Nested Brands List */}
+                          {alimentosExpanded && (
+                            <div className="pl-3 pr-1 py-1 space-y-0.5 bg-white rounded-xl border border-gray-100/80 animate-fade-in">
+                              {ALIMENTOS_BRANDS.map((brand) => (
+                                <Link
+                                  key={brand.id}
+                                  href="/#productos"
+                                  onClick={() => setIsOpen(false)}
+                                  className="block px-3 py-1.5 rounded-lg text-gray-700 hover:text-[#009539] hover:bg-gray-50 text-xs font-medium"
+                                >
+                                  {brand.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Produsal: Direct link, NO dropdown */}
                         <Link
                           href="/#productos"
                           onClick={() => setIsOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 rounded-xl text-gray-700 hover:text-[#02afab] font-medium"
+                          className="block px-3 py-2 rounded-xl text-gray-800 hover:text-[#02afab] font-semibold text-xs"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#009539]" />
-                          <span>Alimentos</span>
-                        </Link>
-                        <Link
-                          href="/#productos"
-                          onClick={() => setIsOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2 rounded-xl text-gray-700 hover:text-[#02afab] font-medium"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#02afab]" />
-                          <span>Produsal</span>
+                          Produsal
                         </Link>
                       </div>
                     )}
@@ -150,7 +192,7 @@ export function MobileNav({ navItems }: MobileNavProps) {
         {/* Action Button at Bottom */}
         <div className="pt-6 border-t border-gray-100 space-y-3">
           <Link
-            href="#contacto"
+            href="/contacto"
             onClick={() => setIsOpen(false)}
             className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-[#02afab] hover:bg-[#94c11e] hover:text-[#0a182b] text-white transition-all duration-300 shadow-md shadow-[#02afab]/25"
           >
@@ -173,7 +215,7 @@ export function MobileNav({ navItems }: MobileNavProps) {
         type="button"
         id="mobile-menu-toggle"
         onClick={() => setIsOpen(!isOpen)}
-        className="relative z-30 p-2.5 rounded-xl bg-white/90 border border-[#1a3c6a]/15 text-[#1a3c6a] hover:bg-[#1a3c6a] hover:text-white transition-colors duration-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-[#02afab]"
+        className="relative z-30 p-2.5 rounded-xl bg-white/90 border border-[#1a3c6a]/15 text-[#1a3c6a] hover:bg-[#1a3c6a] hover:text-white transition-colors duration-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-[#02afab] cursor-pointer"
         aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={isOpen}
       >

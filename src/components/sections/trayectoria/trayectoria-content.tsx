@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Compass } from "lucide-react";
+
 import { ParallaxElement } from "@/components/ui/parallax-element";
 import {
   MimesaSprout,
@@ -40,12 +40,9 @@ export function TrayectoriaContent() {
         
         {/* Category Pill & Main Title Parallax Layer */}
         <ParallaxElement speed={0.24} fadeEffect="in-out" fadeIntensity={1.05}>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1a3c6a]/5 border border-[#1a3c6a]/10 backdrop-blur-md mb-4">
-            <Compass className="w-4 h-4 text-[#02afab]" />
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#1a3c6a]">
-              Nuestra Trayectoria
-            </span>
-          </div>
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block mb-4">
+            Nuestra Trayectoria
+          </span>
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1a3c6a] tracking-tight leading-[1.08]">
             Hitos que forjaron la{" "}

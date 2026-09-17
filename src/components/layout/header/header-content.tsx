@@ -10,9 +10,9 @@ import { ProductsDropdown } from "./products-dropdown";
 const NAV_ITEMS = [
   { name: "Inicio", href: "/" },
   { name: "Sobre nosotros", href: "/sobre-nosotros" },
-  { name: "Productos", href: "#productos" },
-  { name: "Trabaja con nosotros", href: "#trabaja-con-nosotros" },
-  { name: "Contacto", href: "#contacto" },
+  { name: "Productos", href: "/productos" },
+  { name: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
+  { name: "Contacto", href: "/contacto" },
 ];
 
 interface HeaderContentProps {
@@ -22,7 +22,7 @@ interface HeaderContentProps {
 export function HeaderContent({ isScrolled }: HeaderContentProps) {
   return (
     <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between h-16 md:h-18 gap-3 xl:gap-4">
+      <div className="flex items-center justify-between h-16 md:h-20 gap-3 xl:gap-4 transition-all duration-300">
         {/* Brand Logo */}
         <Link
           href="/"
@@ -33,10 +33,10 @@ export function HeaderContent({ isScrolled }: HeaderContentProps) {
             <Image
               src="/LOGOMIMESA.webp"
               alt="Logo Grupo Mimesa"
-              width={145}
-              height={44}
+              width={170}
+              height={52}
               priority
-              className="h-8 md:h-9 w-auto object-contain"
+              className="h-10 md:h-12 w-auto object-contain"
             />
           </div>
         </Link>
@@ -65,7 +65,7 @@ export function HeaderContent({ isScrolled }: HeaderContentProps) {
         {/* Desktop CTA Action Button */}
         <div className="hidden lg:flex items-center flex-shrink-0 whitespace-nowrap">
           <Link
-            href="#contacto"
+            href="/contacto"
             id="btn-contactanos"
             className="group whitespace-nowrap flex items-center gap-1.5 px-5 py-2 rounded-full text-xs xl:text-sm font-semibold text-white bg-[#02afab] hover:bg-[#94c11e] hover:text-[#0a182b] transition-all duration-300 shadow-sm shadow-[#02afab]/25 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
           >

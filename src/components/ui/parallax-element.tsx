@@ -14,6 +14,7 @@ interface ParallaxElementProps {
   fadeIntensity?: number; // 0.5 to 2.0 (default 1.0)
   className?: string;
   style?: React.CSSProperties;
+  disableOnMobile?: boolean;
 }
 
 export function ParallaxElement({
@@ -26,16 +27,36 @@ export function ParallaxElement({
   fadeIntensity = 1.0,
   className = "",
   style = {},
+  disableOnMobile = true,
 }: ParallaxElementProps) {
   const elementRef = useRef<HTMLDivElement>(null);
   const [transformStyle, setTransformStyle] = useState("");
   const [opacityStyle, setOpacityStyle] = useState<number | undefined>(undefined);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 1024;
+      setIsMobile(mobile);
+      if (mobile && disableOnMobile) {
+        setTransformStyle("");
+        setOpacityStyle(undefined);
+      }
+      return mobile;
+    };
+
+    checkMobile();
+
     let animationFrameId: number;
 
     const handleScroll = () => {
       if (!elementRef.current) return;
+      if (disableOnMobile && window.innerWidth < 1024) {
+        setTransformStyle("");
+        setOpacityStyle(undefined);
+        return;
+      }
+
       const rect = elementRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
@@ -60,29 +81,29 @@ export function ParallaxElement({
         if (fadeEffect === "in-out") {
           // Stay solid through core of viewport; gentle, calm, gradual dissolve over a wide scroll range
           const distFromCenter = Math.abs(progress);
-          if (distFromCenter <= 0.40) {
+          if (distFromCenter <= 0.55) {
             opacity = 1;
           } else {
-            // Calm cosine curve over wide 0.40 - 1.15 range for velvety entrance and exit
-            const ratio = Math.min(1, Math.max(0, (distFromCenter - 0.40) / 0.72));
+            // Calm cosine curve over wide 0.55 - 1.25 range for velvety entrance and exit
+            const ratio = Math.min(1, Math.max(0, (distFromCenter - 0.55) / 0.70));
             const smoothFade = (1 + Math.cos(ratio * Math.PI)) / 2;
             opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
           }
         } else if (fadeEffect === "fade-out") {
           // For Hero: Stay solid until scrolled down, then gently dissolve calmly
-          if (progress >= -0.25) {
+          if (progress >= -0.30) {
             opacity = 1;
           } else {
-            const exitRatio = Math.min(1, Math.max(0, (Math.abs(progress) - 0.25) / 0.75));
+            const exitRatio = Math.min(1, Math.max(0, (Math.abs(progress) - 0.30) / 0.75));
             const smoothFade = (1 + Math.cos(exitRatio * Math.PI)) / 2;
             opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
           }
         } else if (fadeEffect === "fade-in") {
           // Smooth fade in from bottom
-          if (progress <= 0.25) {
+          if (progress <= 0.30) {
             opacity = 1;
           } else {
-            const enterRatio = Math.min(1, Math.max(0, (progress - 0.25) / 0.75));
+            const enterRatio = Math.min(1, Math.max(0, (progress - 0.30) / 0.75));
             const smoothFade = (1 + Math.cos(enterRatio * Math.PI)) / 2;
             opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
           }
@@ -97,25 +118,42 @@ export function ParallaxElement({
       animationFrameId = requestAnimationFrame(handleScroll);
     };
 
+    const onResize = () => {
+      checkMobile();
+      onScroll();
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
     handleScroll();
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [speed, rotateSpeed, scaleSpeed, horizontalSpeed, fadeEffect, fadeIntensity]);
+  }, [speed, rotateSpeed, scaleSpeed, horizontalSpeed, fadeEffect, fadeIntensity, disableOnMobile]);
+
+  const activeTransform = !isMobile || !disableOnMobile ? transformStyle : undefined;
+  const activeOpacity =
+    !isMobile || !disableOnMobile
+      ? opacityStyle !== undefined
+        ? opacityStyle
+        : style.opacity
+      : style.opacity;
 
   return (
     <div
       ref={elementRef}
-      className={`will-change-transform transition-[transform,opacity] duration-150 ease-out ${className}`}
+      className={`${
+        !isMobile || !disableOnMobile
+          ? "will-change-transform transition-[transform,opacity] duration-150 ease-out"
+          : ""
+      } ${className}`}
       style={{
         ...style,
-        transform: transformStyle || undefined,
-        opacity: opacityStyle !== undefined ? opacityStyle : style.opacity,
+        transform: activeTransform || undefined,
+        opacity: activeOpacity,
       }}
     >
       {children}

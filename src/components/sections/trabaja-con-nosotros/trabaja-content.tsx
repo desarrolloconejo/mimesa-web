@@ -33,7 +33,8 @@ export function TrabajaContent() {
             </ParallaxElement>
           </div>
 
-          <ParallaxElement speed={-0.08} fadeEffect="in-out" className="relative h-full w-full min-h-[440px] lg:min-h-full overflow-hidden">
+          {/* Static, solid photo without scroll translation or fade */}
+          <div className="relative h-full w-full min-h-[440px] lg:min-h-full overflow-hidden">
             <Image
               src={TRABAJA_DATA.image.src}
               alt={TRABAJA_DATA.image.alt}
@@ -45,7 +46,7 @@ export function TrabajaContent() {
             {/* Subtle Gradient Overlays for Depth */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-l from-black/10 via-transparent to-transparent pointer-events-none" />
-          </ParallaxElement>
+          </div>
 
           {/* Desktop: Continuous Undulating S-Curve continuing from Compromiso Social */}
           <svg

@@ -8,7 +8,6 @@ import {
   Zap,
   HeartHandshake,
   CheckCircle2,
-  Award,
   TrendingUp,
   Cpu,
   Search,
@@ -142,10 +141,9 @@ export function EditorialBento() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 py-24 sm:py-32">
           {/* Badge */}
           <ParallaxElement speed={0.20} fadeEffect="in-out">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-widest text-[#30deda]">
-              <Sparkles className="w-3.5 h-3.5 text-[#94c11e]" />
-              <span>{proposito.kicker}</span>
-            </div>
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda] block">
+              {proposito.kicker}
+            </span>
           </ParallaxElement>
 
           {/* Centered Title */}
@@ -190,10 +188,9 @@ export function EditorialBento() {
             {/* Left (7 cols): Nuestro Negocio */}
             <div className="lg:col-span-7 space-y-5">
               <ParallaxElement speed={0.24} fadeEffect="in-out">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#30deda]">
-                  <Sparkles className="w-3.5 h-3.5 text-[#94c11e]" />
-                  <span>{negocio.badge}</span>
-                </div>
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda] block">
+                  {negocio.badge}
+                </span>
               </ParallaxElement>
 
               <ParallaxElement speed={0.18} fadeEffect="in-out">
@@ -224,9 +221,8 @@ export function EditorialBento() {
               <ParallaxElement speed={0.08} fadeEffect="in-out">
                 <div className="relative rounded-3xl p-7 sm:p-9 bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#94c11e]/20 text-[#94c11e] text-xs font-extrabold uppercase tracking-wider">
-                      <Award className="w-3.5 h-3.5" />
-                      <span>{negocio.uniqueBadge}</span>
+                    <span className="text-xs font-extrabold uppercase tracking-widest text-[#94c11e] block">
+                      {negocio.uniqueBadge}
                     </span>
                     <div className="p-2 rounded-xl bg-white/10 text-white">
                       <MimesaSprout size={24} />
@@ -248,9 +244,9 @@ export function EditorialBento() {
             {/* Header */}
             <ParallaxElement speed={0.16} fadeEffect="in-out">
               <div className="text-center max-w-2xl mx-auto space-y-3">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold uppercase tracking-widest text-[#30deda]">
-                  <span>Nuestra Oferta de Valor</span>
-                </div>
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda] block">
+                  Nuestra Oferta de Valor
+                </span>
                 <h4 className="text-3xl sm:text-4xl font-black text-white">
                   Rueda de Valor Cuatripartita
                 </h4>
@@ -507,9 +503,9 @@ export function EditorialBento() {
           {/* Header */}
           <ParallaxElement speed={0.16} fadeEffect="in-out">
             <div className="text-center max-w-2xl mx-auto space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a3c6a]/5 border border-[#1a3c6a]/10 text-xs font-black uppercase tracking-widest text-[#1a3c6a]">
-                <span>Principios Inmutables</span>
-              </div>
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+                Principios Inmutables
+              </span>
               <h3 className="text-3xl sm:text-5xl font-black text-[#1a3c6a] tracking-tight">
                 Nuestros Valores
               </h3>
@@ -672,9 +668,9 @@ export function EditorialBento() {
           <div className="lg:col-span-6 xl:col-span-7 flex items-center py-16 sm:py-20 lg:py-24 px-6 sm:px-12 lg:pl-16 xl:pl-28 lg:pr-12 relative z-10">
             <div className="max-w-2xl space-y-6">
               <ParallaxElement speed={0.24} fadeEffect="in-out">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#009539]/10 text-[#009539] text-xs font-extrabold uppercase tracking-wider w-fit">
-                  <span>{filosofia.badge}</span>
-                </div>
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block">
+                  {filosofia.badge}
+                </span>
               </ParallaxElement>
 
               <ParallaxElement speed={0.18} fadeEffect="in-out">

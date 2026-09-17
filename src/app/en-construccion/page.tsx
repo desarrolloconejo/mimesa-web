@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, Sparkles, Construction } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { HeaderWrapper } from "@/components/layout/header/header-wrapper";
 import { FooterWrapper } from "@/components/layout/footer/footer-wrapper";
 import {
@@ -48,10 +48,9 @@ export default function EnConstruccionPage() {
           </div>
 
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#02afab]/20 border border-[#02afab]/40 text-[#30deda] text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Espacio en Desarrollo</span>
-            </div>
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda] block">
+              Espacio en Desarrollo
+            </span>
 
             <h1 className="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight">
               Estamos construyendo un nuevo espacio.

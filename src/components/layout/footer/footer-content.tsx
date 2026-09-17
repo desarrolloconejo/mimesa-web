@@ -40,10 +40,10 @@ export function FooterContent() {
   const navLinks = [
     { name: "Inicio", href: "/" },
     { name: "Sobre nosotros", href: "/sobre-nosotros" },
-    { name: "Productos", href: "/#productos" },
+    { name: "Productos", href: "/productos" },
     { name: "Compromiso Social", href: "/#compromiso" },
-    { name: "Trabaja con nosotros", href: "/#trabaja-con-nosotros" },
-    { name: "Contacto", href: "#contacto" },
+    { name: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
+    { name: "Contacto", href: "/contacto" },
   ];
 
   const socialLinks = [
@@ -80,13 +80,13 @@ export function FooterContent() {
           
           {/* Col 1: Brand Logo & Short Info (5 cols) */}
           <div className="md:col-span-5 space-y-4">
-            <div className="p-2 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 inline-block">
+            <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 inline-block transition-transform duration-300 hover:scale-105">
               <Image
                 src="/LOGOMIMESA.webp"
                 alt="Logo Grupo Mimesa"
-                width={170}
-                height={52}
-                className="h-9 w-auto brightness-0 invert object-contain"
+                width={220}
+                height={68}
+                className="h-11 sm:h-12 md:h-14 w-auto brightness-0 invert object-contain"
               />
             </div>
             <p className="text-sm text-gray-300 font-light max-w-sm leading-relaxed">
@@ -153,7 +153,7 @@ export function FooterContent() {
                 type="button"
                 id="btn-scroll-to-top"
                 onClick={scrollToTop}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-white/10 hover:bg-[#02afab] text-white hover:text-[#0c223f] border border-white/20 transition-all duration-300 group"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-white/10 hover:bg-[#02afab] text-white hover:text-[#0c223f] border border-white/20 transition-all duration-300 group cursor-pointer"
               >
                 <span>Volver al inicio</span>
                 <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -167,7 +167,7 @@ export function FooterContent() {
             "GRUPO MIMESA" Typography - Clearly Visible, Centered & Responsive
            ======================================================== */}
         <div className="pt-6 pb-2 text-center overflow-hidden">
-          <h3 className="font-black text-white/30 tracking-[0.12em] sm:tracking-[0.18em] uppercase text-2xl sm:text-4xl md:text-5xl lg:text-6xl select-none transition-opacity duration-300 hover:text-white/45">
+          <h3 className="font-black text-white/20 tracking-tight uppercase text-2xl sm:text-4xl md:text-5xl lg:text-6xl select-none pointer-events-none">
             GRUPO MIMESA
           </h3>
         </div>

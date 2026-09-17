@@ -28,9 +28,9 @@ export function AtributosContent() {
             {/* Header / Intro Badge */}
             <div className="space-y-4">
               <ParallaxElement speed={0.24} fadeEffect="in-out">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a3c6a]/10 text-[#1a3c6a] text-xs font-extrabold uppercase tracking-wider w-fit">
-                  <span>Pilares de Acción</span>
-                </div>
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+                  Pilares de Acción
+                </span>
               </ParallaxElement>
 
               <ParallaxElement speed={0.18} fadeEffect="in-out">
@@ -118,8 +118,8 @@ export function AtributosContent() {
            ======================================================== */}
         <div className="lg:col-span-6 xl:col-span-5 relative min-h-[500px] sm:min-h-[600px] lg:min-h-full overflow-hidden flex flex-col bg-slate-100">
           
-          {/* Main Photo with subtle counter-parallax */}
-          <ParallaxElement speed={-0.08} fadeEffect="in-out" className="relative h-full w-full min-h-[500px] lg:min-h-full">
+          {/* Main Photo: Solid, crisp, static view without scroll fade/parallax */}
+          <div className="relative h-full w-full min-h-[500px] lg:min-h-full overflow-hidden">
             <Image
               src="/images/atributos-talento.webp"
               alt="Talento humano y equipo de producción agroindustrial Grupo Mimesa"
@@ -129,9 +129,9 @@ export function AtributosContent() {
               priority={false}
             />
             {/* Subtle Gradient Overlays for Depth and Contrast */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a3c6a]/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a3c6a]/40 via-transparent to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/15 pointer-events-none" />
-          </ParallaxElement>
+          </div>
 
           {/* Floating Sprout sobresaliendo over Top-Left */}
           <div className="absolute top-8 left-8 z-30 pointer-events-none hidden sm:block">

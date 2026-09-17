@@ -41,7 +41,8 @@ export function CompromisoSocialContent() {
             </ParallaxElement>
           </div>
 
-          <ParallaxElement speed={-0.08} fadeEffect="in-out" className="relative h-full w-full min-h-[420px] lg:min-h-full overflow-hidden">
+          {/* Static, solid photo without scroll translation or fade */}
+          <div className="relative h-full w-full min-h-[420px] lg:min-h-full overflow-hidden">
             <Image
               src={COMPROMISO_SOCIAL_DATA.image.src}
               alt={COMPROMISO_SOCIAL_DATA.image.alt}
@@ -53,7 +54,7 @@ export function CompromisoSocialContent() {
             {/* Subtle Gradient Overlays for Depth */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-l from-black/10 via-transparent to-transparent pointer-events-none" />
-          </ParallaxElement>
+          </div>
 
           {/* Desktop: Continuous Undulating S-Curve on RIGHT edge of the left image */}
           <svg
@@ -123,7 +124,7 @@ export function CompromisoSocialContent() {
                 <button
                   type="button"
                   onClick={handleScrollTop}
-                  className="px-8 py-3 rounded-full bg-[#1b3c66] hover:bg-[#142e4e] text-white text-sm font-semibold shadow-md shadow-[#1b3c66]/20 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#02afab]"
+                  className="px-8 py-3 rounded-full bg-[#1b3c66] hover:bg-[#142e4e] text-white text-sm font-semibold shadow-md shadow-[#1b3c66]/20 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#02afab] cursor-pointer"
                 >
                   {COMPROMISO_SOCIAL_DATA.ctaButtonText}
                 </button>

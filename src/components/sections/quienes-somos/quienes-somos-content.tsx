@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import {
   Sparkles,
@@ -287,13 +288,13 @@ export function QuienesSomosContent() {
             </div>
 
             <div className="lg:col-span-4 flex justify-start lg:justify-end">
-              <a
-                href="#contacto"
+              <Link
+                href="/contacto"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-bold bg-[#02afab] hover:bg-[#94c11e] text-[#0a182b] transition-all duration-300 shadow-xl shadow-[#02afab]/25 hover:shadow-[#94c11e]/30 hover:-translate-y-1 active:translate-y-0"
               >
                 <span>Contáctanos</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

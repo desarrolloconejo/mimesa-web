@@ -78,7 +78,7 @@ export function HeroContent() {
             </Link>
 
             <Link
-              href="#contacto"
+              href="/contacto"
               id="hero-cta-contacto"
               className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold text-white bg-white/10 hover:bg-white hover:text-[#1a3c6a] border border-white/30 backdrop-blur-md transition-all duration-300 hover:border-white hover:shadow-xl hover:-translate-y-1 active:translate-y-0"
             >

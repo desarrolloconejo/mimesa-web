@@ -44,9 +44,9 @@ export function ProductosContent() {
          ======================================================== */}
       <div className="relative z-10 max-w-4xl space-y-5">
         <ParallaxElement speed={0.22} fadeEffect="in-out">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1a3c6a]/10 text-[#1a3c6a] text-xs font-extrabold uppercase tracking-wider w-fit">
-            <span>{PRODUCTOS_INTRO.badge}</span>
-          </div>
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+            {PRODUCTOS_INTRO.badge}
+          </span>
         </ParallaxElement>
 
         <ParallaxElement speed={0.16} fadeEffect="in-out">

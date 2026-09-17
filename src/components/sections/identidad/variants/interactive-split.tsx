@@ -3,14 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import {
-  Compass,
   ShieldCheck,
   Zap,
   HeartHandshake,
   CheckCircle2,
   ChevronRight,
-  Sparkles,
-  ArrowRight,
   Home,
 } from "lucide-react";
 import { IDENTIDAD_DATA } from "../identidad-data";
@@ -42,10 +39,9 @@ export function InteractiveSplit() {
         
         {/* Left (6 cols): Purpose Narrative */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#02afab]/10 text-[#02afab] border border-[#02afab]/20 text-xs font-black uppercase tracking-wider">
-            <Compass className="w-3.5 h-3.5" />
-            <span>{proposito.kicker}</span>
-          </div>
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+            {proposito.kicker}
+          </span>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1a3c6a] tracking-tight leading-[1.08]">
             {proposito.titleLine1}{" "}
@@ -239,7 +235,7 @@ export function InteractiveSplit() {
 
         {/* Right: Narrative (7 cols) */}
         <div className="lg:col-span-7 space-y-5">
-          <span className="inline-block px-3 py-1 rounded-full bg-[#009539]/10 text-[#009539] text-xs font-extrabold uppercase tracking-wider">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block">
             {filosofia.badge}
           </span>
 

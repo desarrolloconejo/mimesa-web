@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Droplets, Mountain, Sun, Factory, Sparkles } from "lucide-react";
+import { ArrowUpRight, Mountain, Sun, Factory } from "lucide-react";
 import { PRODUSAL_DATA } from "./productos-data";
 import { ParallaxElement } from "@/components/ui/parallax-element";
 import { MimesaLeafLime } from "@/components/ui/organic-shapes";
@@ -26,10 +26,9 @@ export function ProdusalEditorial() {
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-gray-100 relative z-10">
         <div className="space-y-3 max-w-3xl">
           <ParallaxElement speed={0.24} fadeEffect="in-out">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#02afab]/10 text-[#02afab] text-xs font-extrabold uppercase tracking-wider w-fit">
-              <Droplets className="w-3.5 h-3.5" />
-              <span>02 • División Salina & Agroindustrial</span>
-            </div>
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+              02 • División Salina & Agroindustrial
+            </span>
           </ParallaxElement>
           <ParallaxElement speed={0.18} fadeEffect="in-out">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight leading-tight">
@@ -116,10 +115,9 @@ export function ProdusalEditorial() {
         <div className="absolute -bottom-4 sm:-bottom-6 inset-x-4 sm:inset-x-10 z-20 max-w-2xl pointer-events-auto">
           <ParallaxElement speed={0.26} fadeEffect="in-out">
             <div className="p-6 sm:p-8 rounded-3xl bg-white/95 backdrop-blur-md border border-white/80 shadow-2xl text-[#1a3c6a] space-y-2">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#009539]">
-                <Sparkles className="w-4 h-4" />
-                <span>Complejo de Producción de Sal Solar Los Olivitos</span>
-              </div>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#009539] block">
+                Complejo de Producción de Sal Solar Los Olivitos
+              </span>
               <h4 className="text-xl sm:text-2xl font-black text-[#1a3c6a]">
                 Una de las plantas salinas por evaporación solar más modernas del mundo
               </h4>

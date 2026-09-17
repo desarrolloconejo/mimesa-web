@@ -63,7 +63,7 @@ export function TwoColumnTimeline() {
                 <span className="text-3xl sm:text-4xl font-black text-[#1a3c6a] tracking-tight">
                   {activeMilestone.year}
                 </span>
-                <span className="px-3 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-[#02afab]/10 text-[#02afab] border border-[#02afab]/20">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab]">
                   {activeMilestone.badge}
                 </span>
               </div>

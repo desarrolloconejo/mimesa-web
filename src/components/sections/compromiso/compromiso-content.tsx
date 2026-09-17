@@ -3,7 +3,7 @@
 import React from "react";
 import { COMPROMISO_DATA } from "./compromiso-data";
 import { ParallaxElement } from "@/components/ui/parallax-element";
-import { Sparkles } from "lucide-react";
+
 
 export function CompromisoContent() {
   return (
@@ -102,12 +102,10 @@ export function CompromisoContent() {
       {/* 5. Central Editorial Typography with Scroll Fade In-Out */}
       <div className="relative z-20 max-w-4xl mx-auto px-6 sm:px-8 text-center space-y-5 sm:space-y-6">
         
-        {/* Category Badge */}
         <ParallaxElement speed={0.22} fadeEffect="in-out" fadeIntensity={1.05}>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#16365f]/5 border border-[#16365f]/10 text-[#16365f] text-xs font-extrabold uppercase tracking-widest mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#009539]" />
-            <span>{COMPROMISO_DATA.badge}</span>
-          </div>
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block mb-2">
+            {COMPROMISO_DATA.badge}
+          </span>
         </ParallaxElement>
 
         {/* Headline: "Compromiso que heredamos" */}
