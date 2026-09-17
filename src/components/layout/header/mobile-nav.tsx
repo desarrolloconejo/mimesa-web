@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
-import { X, Menu, ArrowRight, Lock, Mail } from "lucide-react";
+import { X, Menu, ArrowRight, Lock, Mail, ChevronDown } from "lucide-react";
 
 interface NavItem {
   name: string;
@@ -17,6 +17,7 @@ interface MobileNavProps {
 
 export function MobileNav({ navItems }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [productsExpanded, setProductsExpanded] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -78,41 +79,80 @@ export function MobileNav({ navItems }: MobileNavProps) {
           </div>
 
           {/* Nav Links */}
-          <nav className="mt-8 space-y-2">
-            {navItems.map((item, idx) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                style={{
-                  transitionDelay: `${idx * 30}ms`,
-                }}
-                className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold text-[#1a3c6a] hover:bg-[#02afab]/10 hover:text-[#02afab] transition-all duration-200 group ${
-                  isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
-                }`}
-              >
-                <span>{item.name}</span>
-                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#02afab] group-hover:translate-x-1 transition-all" />
-              </Link>
-            ))}
+          <nav className="mt-8 space-y-1.5 overflow-y-auto max-h-[60vh] pr-1">
+            {navItems.map((item, idx) => {
+              if (item.name === "Productos") {
+                return (
+                  <div key={item.name} className="space-y-1">
+                    <button
+                      type="button"
+                      onClick={() => setProductsExpanded(!productsExpanded)}
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold text-[#1a3c6a] hover:bg-[#02afab]/10 hover:text-[#02afab] transition-all duration-200 group text-left"
+                    >
+                      <span className="flex items-center gap-2">
+                        <span>{item.name}</span>
+                        <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#02afab]/15 text-[#02afab]">
+                          Marcas
+                        </span>
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+                          productsExpanded ? "rotate-180 text-[#02afab]" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Expandable Accordion Panel */}
+                    {productsExpanded && (
+                      <div className="pl-4 pr-2 py-2 space-y-1 bg-gray-50/80 rounded-2xl border border-gray-100 animate-fade-in text-xs">
+                        <Link
+                          href="/#productos"
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2 rounded-xl text-gray-700 hover:text-[#02afab] font-medium"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#009539]" />
+                          <span>Alimentos</span>
+                        </Link>
+                        <Link
+                          href="/#productos"
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2 rounded-xl text-gray-700 hover:text-[#02afab] font-medium"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#02afab]" />
+                          <span>Produsal</span>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  style={{
+                    transitionDelay: `${idx * 30}ms`,
+                  }}
+                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold text-[#1a3c6a] hover:bg-[#02afab]/10 hover:text-[#02afab] transition-all duration-200 group ${
+                    isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+                  }`}
+                >
+                  <span>{item.name}</span>
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#02afab] group-hover:translate-x-1 transition-all" />
+                </Link>
+              );
+            })}
           </nav>
         </div>
 
-        {/* Action Buttons at Bottom */}
+        {/* Action Button at Bottom */}
         <div className="pt-6 border-t border-gray-100 space-y-3">
-          <Link
-            href="#intranet"
-            onClick={() => setIsOpen(false)}
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold border border-[#1a3c6a]/20 text-[#1a3c6a] hover:bg-[#1a3c6a]/5 transition-colors shadow-xs"
-          >
-            <Lock className="w-4 h-4 text-[#02afab]" />
-            <span>Intranet corporativa</span>
-          </Link>
-
           <Link
             href="#contacto"
             onClick={() => setIsOpen(false)}
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-[#02afab] to-[#009539] text-white hover:opacity-90 transition-all duration-300 shadow-md shadow-[#02afab]/25"
+            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-[#02afab] hover:bg-[#94c11e] hover:text-[#0a182b] text-white transition-all duration-300 shadow-md shadow-[#02afab]/25"
           >
             <Mail className="w-4 h-4" />
             <span>Contáctanos</span>

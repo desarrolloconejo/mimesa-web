@@ -58,29 +58,33 @@ export function ParallaxElement({
         let opacity = 1;
 
         if (fadeEffect === "in-out") {
-          // Stay solid through core of viewport; gentle dissolve at extreme edges
+          // Stay solid through core of viewport; gentle, calm, gradual dissolve over a wide scroll range
           const distFromCenter = Math.abs(progress);
-          if (distFromCenter <= 0.70) {
+          if (distFromCenter <= 0.40) {
             opacity = 1;
           } else {
-            const edgeRatio = (distFromCenter - 0.70) / 0.30;
-            opacity = Math.max(0, Math.min(1, 1 - edgeRatio * 0.85 * fadeIntensity));
+            // Calm cosine curve over wide 0.40 - 1.15 range for velvety entrance and exit
+            const ratio = Math.min(1, Math.max(0, (distFromCenter - 0.40) / 0.72));
+            const smoothFade = (1 + Math.cos(ratio * Math.PI)) / 2;
+            opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
           }
         } else if (fadeEffect === "fade-out") {
-          // For Hero: Stay solid until scrolled significantly down, then gently dissolve
-          if (progress >= -0.40) {
+          // For Hero: Stay solid until scrolled down, then gently dissolve calmly
+          if (progress >= -0.25) {
             opacity = 1;
           } else {
-            const exitRatio = (Math.abs(progress) - 0.40) / 0.60;
-            opacity = Math.max(0, Math.min(1, 1 - exitRatio * 0.80 * fadeIntensity));
+            const exitRatio = Math.min(1, Math.max(0, (Math.abs(progress) - 0.25) / 0.75));
+            const smoothFade = (1 + Math.cos(exitRatio * Math.PI)) / 2;
+            opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
           }
         } else if (fadeEffect === "fade-in") {
           // Smooth fade in from bottom
-          if (progress <= 0.40) {
+          if (progress <= 0.25) {
             opacity = 1;
           } else {
-            const enterRatio = (progress - 0.40) / 0.60;
-            opacity = Math.max(0, Math.min(1, 1 - enterRatio * 0.80 * fadeIntensity));
+            const enterRatio = Math.min(1, Math.max(0, (progress - 0.25) / 0.75));
+            const smoothFade = (1 + Math.cos(enterRatio * Math.PI)) / 2;
+            opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
           }
         }
 
@@ -107,7 +111,7 @@ export function ParallaxElement({
   return (
     <div
       ref={elementRef}
-      className={`will-change-transform transition-transform duration-75 ease-out ${className}`}
+      className={`will-change-transform transition-[transform,opacity] duration-150 ease-out ${className}`}
       style={{
         ...style,
         transform: transformStyle || undefined,

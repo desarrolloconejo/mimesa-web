@@ -1,0 +1,147 @@
+import { Wheat, Utensils, Droplet, Sparkles, Mountain, Factory, Sun } from "lucide-react";
+
+export interface BrandItem {
+  id: string;
+  name: string;
+  category: string;
+  tagline: string;
+  badge?: string;
+  href: string;
+  logoColor: string;
+  logoBg: string;
+  logoText: string;
+  logoSub?: string;
+  logoUrl?: string; // Ruta de imagen para cuando el cliente suministre los logos oficiales
+}
+
+export interface CategoryGroup {
+  id: string;
+  name: string;
+  icon: typeof Wheat;
+  color: string;
+  lightBg: string;
+  brands: BrandItem[];
+}
+
+export const PRODUCTOS_INTRO = {
+  badge: "Nuestros Negocios",
+  title: "Nuestros negocios y marcas",
+  description:
+    "Nuestra organización posee dos grandes negocios, y desde el negocio de la alimentación, contamos con las principales marcas de nuestra empresa, con ellas aportamos valor a las mesas de todos los venezolanos, desde los alimentos, la sal industrial y la nutrición animal. Poseemos marcas B2C y B2B, que son perfectas para cada una de las audiencias. Nuestro foco fue, es y será ofrecer productos de calidad para cada uno de los hogares, manteniendo nuestra esencia y calidad distintiva.",
+};
+
+export const ALIMENTOS_BRANDS: BrandItem[] = [
+  {
+    id: "blancaflor",
+    name: "BlancaFlor",
+    category: "Harinas",
+    tagline: "Tradición y pureza para la repostería y panes de la familia",
+    badge: "Líder en Harinas",
+    href: "/en-construccion",
+    logoColor: "#1a3c6a",
+    logoBg: "bg-blue-50/60",
+    logoText: "BlancaFlor",
+    logoSub: "Harina de Trigo",
+  },
+  {
+    id: "ronco",
+    name: "Ronco",
+    category: "Pastas",
+    tagline: "El sabor inconfundible y punto perfecto en cada plato",
+    badge: "Sabor Venezolano",
+    href: "/en-construccion",
+    logoColor: "#c8102e",
+    logoBg: "bg-red-50/60",
+    logoText: "RONCO",
+    logoSub: "Pastas de Calidad",
+  },
+  {
+    id: "fiorentina",
+    name: "Fiorentina",
+    category: "Pastas",
+    tagline: "Calidad premium inspirada en la auténtica cocina italiana",
+    badge: "Selección Especial",
+    href: "/en-construccion",
+    logoColor: "#007a3d",
+    logoBg: "bg-emerald-50/60",
+    logoText: "Fiorentina",
+    logoSub: "Pasta Premium",
+  },
+  {
+    id: "vatel",
+    name: "Vatel",
+    category: "Aceites",
+    tagline: "El aceite de siempre que resalta el sabor de tus comidas",
+    badge: "Tradición Culinaria",
+    href: "/en-construccion",
+    logoColor: "#d97706",
+    logoBg: "bg-amber-50/60",
+    logoText: "VATEL",
+    logoSub: "Aceite 100% Puro",
+  },
+  {
+    id: "purilev",
+    name: "Purilev",
+    category: "Aceites",
+    tagline: "Ligereza, salud y máxima pureza para el bienestar del hogar",
+    badge: "Salud y Pureza",
+    href: "/en-construccion",
+    logoColor: "#02afab",
+    logoBg: "bg-teal-50/60",
+    logoText: "Purilev",
+    logoSub: "Aceite Vegetal",
+  },
+  {
+    id: "los-3-cochinitos",
+    name: "Los 3 cochinitos",
+    category: "Grasas",
+    tagline: "Rendimiento y sazón tradicional para preparaciones auténticas",
+    badge: "Rendimiento y Sabor",
+    href: "/en-construccion",
+    logoColor: "#e11d48",
+    logoBg: "bg-rose-50/60",
+    logoText: "Los 3 Cochinitos",
+    logoSub: "Manteca y Grasas",
+  },
+  {
+    id: "truvia",
+    name: "truvia",
+    category: "Endulzantes",
+    tagline: "Dulzura natural de origen vegetal sin calorías añadidas",
+    badge: "Origen Natural",
+    href: "/en-construccion",
+    logoColor: "#65a30d",
+    logoBg: "bg-lime-50/60",
+    logoText: "truvía",
+    logoSub: "Endulzante Natural",
+  },
+];
+
+export const PRODUSAL_DATA = {
+  title: "Produsal",
+  subtitle: "Principal productora de sal de Venezuela",
+  tagline: "Sal solar de calidad excepcional mediante procesos 100% naturales",
+  description:
+    "Produsal es la principal productora de sal de Venezuela. Por año, genera más de 650.000 toneladas de sal. El complejo de producción de sal solar, ubicado en Los Olivitos, Municipio Miranda del estado Zulia, incluye una de las más recientes y modernas plantas salinas por evaporación solar del mundo. Produce sal solar de calidad, mediante un proceso totalmente natural.",
+  metrics: [
+    {
+      value: "+650.000",
+      unit: "Toneladas / año",
+      label: "Capacidad de producción líder en la región",
+      icon: Mountain,
+    },
+    {
+      value: "100%",
+      unit: "Evaporación Solar",
+      label: "Proceso totalmente ecológico y natural",
+      icon: Sun,
+    },
+    {
+      value: "Los Olivitos",
+      unit: "Miranda, Edo. Zulia",
+      label: "Una de las plantas más modernas del mundo",
+      icon: Factory,
+    },
+  ],
+  href: "/en-construccion",
+};

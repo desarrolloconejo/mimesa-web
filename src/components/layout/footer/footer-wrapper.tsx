@@ -9,8 +9,7 @@ import {
 export function FooterWrapper() {
   return (
     <footer
-      id="contacto"
-      className="relative bg-gradient-to-b from-[#1a3c6a] via-[#102747] to-[#0a182b] text-white overflow-hidden"
+      className="relative bg-[#0c223f] text-white overflow-hidden"
     >
       {/* Decorative Glow Orbs & Brand Shapes in Background */}
       <GlowOrb color="cyan" className="-top-32 -left-20 w-96 h-96 opacity-30" />

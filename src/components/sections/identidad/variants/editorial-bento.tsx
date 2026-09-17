@@ -20,6 +20,7 @@ import {
   MimesaLeafLime,
   MimesaLeafGreen,
 } from "@/components/ui/organic-shapes";
+import { ParallaxElement } from "@/components/ui/parallax-element";
 
 // Helper function to calculate SVG arc segment for thick donut quadrants
 function getArcSvgPath(
@@ -140,23 +141,29 @@ export function EditorialBento() {
         {/* Centered Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 py-24 sm:py-32">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-widest text-[#30deda]">
-            <Sparkles className="w-3.5 h-3.5 text-[#94c11e]" />
-            <span>{proposito.kicker}</span>
-          </div>
+          <ParallaxElement speed={0.20} fadeEffect="in-out">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-widest text-[#30deda]">
+              <Sparkles className="w-3.5 h-3.5 text-[#94c11e]" />
+              <span>{proposito.kicker}</span>
+            </div>
+          </ParallaxElement>
 
           {/* Centered Title */}
-          <h2 className="text-4xl sm:text-6xl xl:text-7xl font-black text-white tracking-tight leading-[1.05]">
-            {proposito.titleLine1}{" "}
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#30deda] via-[#94c11e] to-white">
-              {proposito.titleLine2}
-            </span>
-          </h2>
+          <ParallaxElement speed={0.15} fadeEffect="in-out" fadeIntensity={1.0}>
+            <h2 className="text-4xl sm:text-6xl xl:text-7xl font-black text-white tracking-tight leading-[1.05]">
+              {proposito.titleLine1}{" "}
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#30deda] via-[#94c11e] to-white">
+                {proposito.titleLine2}
+              </span>
+            </h2>
+          </ParallaxElement>
 
           {/* Centered Description */}
-          <p className="text-base sm:text-lg md:text-xl text-gray-200 font-light leading-relaxed max-w-2xl mx-auto">
-            {proposito.description}
-          </p>
+          <ParallaxElement speed={0.10} fadeEffect="in-out" fadeIntensity={1.0}>
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 font-light leading-relaxed max-w-2xl mx-auto">
+              {proposito.description}
+            </p>
+          </ParallaxElement>
         </div>
       </div>
 
@@ -182,40 +189,55 @@ export function EditorialBento() {
             
             {/* Left (7 cols): Nuestro Negocio */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#30deda]">
-                <Sparkles className="w-3.5 h-3.5 text-[#94c11e]" />
-                <span>{negocio.badge}</span>
-              </div>
+              <ParallaxElement speed={0.24} fadeEffect="in-out">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#30deda]">
+                  <Sparkles className="w-3.5 h-3.5 text-[#94c11e]" />
+                  <span>{negocio.badge}</span>
+                </div>
+              </ParallaxElement>
 
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
-                Creamos marcas fuertes para proveer{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#30deda] via-[#94c11e] to-white">
-                  soluciones nutricionales y de salud
-                </span>
-              </h3>
+              <ParallaxElement speed={0.18} fadeEffect="in-out">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+                  Creamos marcas fuertes para proveer{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#30deda] via-[#94c11e] to-white">
+                    soluciones nutricionales y de salud
+                  </span>
+                </h3>
+              </ParallaxElement>
 
-              <p className="text-base sm:text-lg text-gray-200 font-light leading-relaxed max-w-xl">
-                Proveemos soluciones integrales que brindan bienestar a las familias venezolanas y máxima rentabilidad a la agroindustria.
-              </p>
+              <ParallaxElement speed={0.12} fadeEffect="in-out">
+                <p className="text-base sm:text-lg text-gray-200 font-light leading-relaxed max-w-xl">
+                  Proveemos soluciones integrales que brindan bienestar a las familias venezolanas y máxima rentabilidad a la agroindustria.
+                </p>
+              </ParallaxElement>
             </div>
 
             {/* Right (5 cols): Lo Que Nos Hace Únicos */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl p-7 sm:p-9 bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#94c11e]/20 text-[#94c11e] text-xs font-extrabold uppercase tracking-wider">
-                    <Award className="w-3.5 h-3.5" />
-                    <span>{negocio.uniqueBadge}</span>
-                  </span>
-                  <div className="p-2 rounded-xl bg-white/10 text-white">
-                    <MimesaSprout size={24} />
-                  </div>
-                </div>
-
-                <h4 className="text-xl sm:text-2xl font-black text-white leading-snug">
-                  {negocio.uniqueText}
-                </h4>
+              {/* Floating Sprout sobresaliendo over Top-Right of Card */}
+              <div className="absolute -top-8 -right-6 z-20 pointer-events-none hidden sm:block">
+                <ParallaxElement speed={0.32} rotateSpeed={0.25} fadeEffect="in-out">
+                  <MimesaLeafLime size={80} />
+                </ParallaxElement>
               </div>
+
+              <ParallaxElement speed={0.08} fadeEffect="in-out">
+                <div className="relative rounded-3xl p-7 sm:p-9 bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#94c11e]/20 text-[#94c11e] text-xs font-extrabold uppercase tracking-wider">
+                      <Award className="w-3.5 h-3.5" />
+                      <span>{negocio.uniqueBadge}</span>
+                    </span>
+                    <div className="p-2 rounded-xl bg-white/10 text-white">
+                      <MimesaSprout size={24} />
+                    </div>
+                  </div>
+
+                  <h4 className="text-xl sm:text-2xl font-black text-white leading-snug">
+                    {negocio.uniqueText}
+                  </h4>
+                </div>
+              </ParallaxElement>
             </div>
 
           </div>
@@ -224,229 +246,243 @@ export function EditorialBento() {
           <div className="space-y-10">
             
             {/* Header */}
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold uppercase tracking-widest text-[#30deda]">
-                <span>Nuestra Oferta de Valor</span>
+            <ParallaxElement speed={0.16} fadeEffect="in-out">
+              <div className="text-center max-w-2xl mx-auto space-y-3">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold uppercase tracking-widest text-[#30deda]">
+                  <span>Nuestra Oferta de Valor</span>
+                </div>
+                <h4 className="text-3xl sm:text-4xl font-black text-white">
+                  Rueda de Valor Cuatripartita
+                </h4>
               </div>
-              <h4 className="text-3xl sm:text-4xl font-black text-white">
-                Rueda de Valor Cuatripartita
-              </h4>
-            </div>
+            </ParallaxElement>
 
             {/* Interactive Stage: Circle on Left + Active Spotlight on Right (items-start for zero vertical shift) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start relative">
               
-              {/* Left (5 cols): The Thick 4-Quadrant Circle Ring */}
-              <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
-                
-                <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-square flex items-center justify-center select-none">
-                  
-                  {/* SVG Wheel with 4 Thick Segments */}
-                  <svg
-                    viewBox="0 0 360 360"
-                    className="w-full h-full drop-shadow-2xl"
-                  >
-                    <defs>
-                      <filter id="active-glow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="8" result="blur" />
-                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                      </filter>
-                    </defs>
+              {/* Left (5 cols): The Thick 4-Quadrant Circle Ring with Differential Parallax */}
+              <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
+                {/* Floating organic leaf sobresaliendo */}
+                <div className="absolute -bottom-8 -left-6 z-20 pointer-events-none hidden sm:block">
+                  <ParallaxElement speed={0.34} rotateSpeed={-0.3} fadeEffect="in-out">
+                    <MimesaLeafGreen size={85} />
+                  </ParallaxElement>
+                </div>
 
-                    {PILARES_RUEDA.map((pilar, idx) => {
-                      const isActive = activePilarIndex === idx;
-                      // Path with cx=180, cy=180, rInner=105, rOuter=160 (55px thick ring!)
-                      const pathData = getArcSvgPath(
-                        180,
-                        180,
-                        105,
-                        160,
-                        pilar.startAngle,
-                        pilar.endAngle
-                      );
-
-                      // Text coordinates at midpoint of arc (radius 132px)
-                      const rad = ((pilar.midAngle - 90) * Math.PI) / 180;
-                      const textX = 180 + 132 * Math.cos(rad);
-                      const textY = 180 + 132 * Math.sin(rad);
-
-                      return (
-                        <g
-                          key={pilar.id}
-                          onClick={() => setActivePilarIndex(idx)}
-                          className="cursor-pointer transition-all duration-300"
-                        >
-                          {/* Segment Arc */}
-                          <path
-                            d={pathData}
-                            fill={pilar.color}
-                            filter={isActive ? "url(#active-glow)" : undefined}
-                            className={`transition-all duration-300 ${
-                              isActive
-                                ? "opacity-100"
-                                : "opacity-30 hover:opacity-60"
-                            }`}
-                          />
-
-                          {/* Number text on segment */}
-                          <text
-                            x={textX}
-                            y={textY + 4}
-                            textAnchor="middle"
-                            fill={isActive ? "#0a182b" : "#ffffff"}
-                            fontSize="13"
-                            fontWeight="900"
-                            className="pointer-events-none select-none"
-                          >
-                            {pilar.num}
-                          </text>
-                        </g>
-                      );
-                    })}
-
-                    {/* Subtle Dividing Lines across circle center */}
-                    <line
-                      x1="180"
-                      y1="10"
-                      x2="180"
-                      y2="350"
-                      stroke="#102746"
-                      strokeWidth="6"
-                      className="pointer-events-none opacity-80"
-                    />
-                    <line
-                      x1="10"
-                      y1="180"
-                      x2="350"
-                      y2="180"
-                      stroke="#102746"
-                      strokeWidth="6"
-                      className="pointer-events-none opacity-80"
-                    />
-                  </svg>
-
-                  {/* Inner Lens Hole in the Donut Center */}
-                  <div className="absolute w-44 h-44 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-[#102746] to-[#0a182b] border-2 border-white/20 shadow-inner flex flex-col items-center justify-center p-4 text-center pointer-events-none">
-                    <div
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center mb-1.5 transition-colors duration-300"
-                      style={{
-                        backgroundColor: `${activePilar.color}25`,
-                        color: activePilar.color,
-                      }}
+                <ParallaxElement speed={0.16} fadeEffect="in-out" className="w-full flex items-center justify-center">
+                  <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-square flex items-center justify-center select-none">
+                    
+                    {/* SVG Wheel with 4 Thick Segments */}
+                    <svg
+                      viewBox="0 0 360 360"
+                      className="w-full h-full drop-shadow-2xl"
                     >
-                      <ActiveIcon className="w-6 h-6" />
+                      <defs>
+                        <filter id="active-glow" x="-20%" y="-20%" width="140%" height="140%">
+                          <feGaussianBlur stdDeviation="8" result="blur" />
+                          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                      </defs>
+
+                      {PILARES_RUEDA.map((pilar, idx) => {
+                        const isActive = activePilarIndex === idx;
+                        // Path with cx=180, cy=180, rInner=105, rOuter=160 (55px thick ring!)
+                        const pathData = getArcSvgPath(
+                          180,
+                          180,
+                          105,
+                          160,
+                          pilar.startAngle,
+                          pilar.endAngle
+                        );
+
+                        // Text coordinates at midpoint of arc (radius 132px)
+                        const rad = ((pilar.midAngle - 90) * Math.PI) / 180;
+                        const textX = 180 + 132 * Math.cos(rad);
+                        const textY = 180 + 132 * Math.sin(rad);
+
+                        return (
+                          <g
+                            key={pilar.id}
+                            onClick={() => setActivePilarIndex(idx)}
+                            className="cursor-pointer transition-all duration-300"
+                          >
+                            {/* Segment Arc */}
+                            <path
+                              d={pathData}
+                              fill={pilar.color}
+                              filter={isActive ? "url(#active-glow)" : undefined}
+                              className={`transition-all duration-300 ${
+                                isActive
+                                  ? "opacity-100"
+                                  : "opacity-30 hover:opacity-60"
+                              }`}
+                            />
+
+                            {/* Number text on segment */}
+                            <text
+                              x={textX}
+                              y={textY + 4}
+                              textAnchor="middle"
+                              fill={isActive ? "#0a182b" : "#ffffff"}
+                              fontSize="13"
+                              fontWeight="900"
+                              className="pointer-events-none select-none"
+                            >
+                              {pilar.num}
+                            </text>
+                          </g>
+                        );
+                      })}
+
+                      {/* Subtle Dividing Lines across circle center */}
+                      <line
+                        x1="180"
+                        y1="10"
+                        x2="180"
+                        y2="350"
+                        stroke="#102746"
+                        strokeWidth="6"
+                        className="pointer-events-none opacity-80"
+                      />
+                      <line
+                        x1="10"
+                        y1="180"
+                        x2="350"
+                        y2="180"
+                        stroke="#102746"
+                        strokeWidth="6"
+                        className="pointer-events-none opacity-80"
+                      />
+                    </svg>
+
+                    {/* Inner Lens Hole in the Donut Center */}
+                    <div className="absolute w-44 h-44 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-[#102746] to-[#0a182b] border-2 border-white/20 shadow-inner flex flex-col items-center justify-center p-4 text-center pointer-events-none">
+                      <div
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center mb-1.5 transition-colors duration-300"
+                        style={{
+                          backgroundColor: `${activePilar.color}25`,
+                          color: activePilar.color,
+                        }}
+                      >
+                        <ActiveIcon className="w-6 h-6" />
+                      </div>
+
+                      <span
+                        className="text-[10px] font-black uppercase tracking-widest block transition-colors duration-300"
+                        style={{ color: activePilar.color }}
+                      >
+                        Pilar {activePilar.num}
+                      </span>
+
+                      <span className="text-xs font-bold text-white leading-tight mt-0.5 line-clamp-1 h-4 flex items-center">
+                        {activePilar.title}
+                      </span>
                     </div>
 
-                    <span
-                      className="text-[10px] font-black uppercase tracking-widest block transition-colors duration-300"
-                      style={{ color: activePilar.color }}
-                    >
-                      Pilar {activePilar.num}
-                    </span>
-
-                    <span className="text-xs font-bold text-white leading-tight mt-0.5 line-clamp-1 h-4 flex items-center">
-                      {activePilar.title}
-                    </span>
                   </div>
-
-                </div>
+                </ParallaxElement>
 
               </div>
 
-              {/* Right (7 cols): Active Spotlight Display & Tab Selectors */}
+              {/* Right (7 cols): Active Spotlight Display & Tab Selectors with Differential Speeds */}
               <div className="lg:col-span-7 space-y-6">
                 
-                {/* Active Card Card Display (consistent min-height to eliminate CLS) */}
-                <div
-                  className="min-h-[290px] sm:min-h-[270px] lg:min-h-[290px] p-8 sm:p-10 rounded-3xl bg-white/10 backdrop-blur-xl border shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between space-y-5"
-                  style={{
-                    borderColor: `${activePilar.color}50`,
-                  }}
-                >
-                  {/* Subtle Background Accent Glow */}
+                {/* Active Card Card Display with its own Parallax */}
+                <ParallaxElement speed={0.08} fadeEffect="in-out">
                   <div
-                    className="absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl opacity-25 pointer-events-none transition-colors duration-500"
-                    style={{ backgroundColor: activePilar.color }}
-                  />
-
-                  {/* Top Badge & Number */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <span
-                        className="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black text-[#0a182b] transition-colors duration-300"
-                        style={{ backgroundColor: activePilar.color }}
-                      >
-                        {activePilar.num}
-                      </span>
-                      <span
-                        className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 border border-white/15"
-                        style={{ color: activePilar.color }}
-                      >
-                        {activePilar.tag}
-                      </span>
-                    </div>
-
+                    className="min-h-[290px] sm:min-h-[270px] lg:min-h-[290px] p-8 sm:p-10 rounded-3xl bg-white/10 backdrop-blur-xl border shadow-2xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between space-y-5"
+                    style={{
+                      borderColor: `${activePilar.color}50`,
+                    }}
+                  >
+                    {/* Subtle Background Accent Glow */}
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300"
-                      style={{
-                        backgroundColor: `${activePilar.color}20`,
-                        color: activePilar.color,
-                      }}
-                    >
-                      <ActiveIcon className="w-5 h-5" />
-                    </div>
-                  </div>
+                      className="absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl opacity-25 pointer-events-none transition-colors duration-500"
+                      style={{ backgroundColor: activePilar.color }}
+                    />
 
-                  {/* Title & Subtitle (Consistent Height) */}
-                  <div className="space-y-1 min-h-[4rem] flex flex-col justify-center">
-                    <h4 className="text-2xl sm:text-3xl font-black text-white leading-tight">
-                      {activePilar.title}
-                    </h4>
-                    <p
-                      className="text-sm font-semibold transition-colors duration-300"
-                      style={{ color: activePilar.color }}
-                    >
-                      {activePilar.subtitle}
-                    </p>
-                  </div>
+                    {/* Top Badge & Number */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <span
+                          className="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black text-[#0a182b] transition-colors duration-300"
+                          style={{ backgroundColor: activePilar.color }}
+                        >
+                          {activePilar.num}
+                        </span>
+                        <span
+                          className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 border border-white/15"
+                          style={{ color: activePilar.color }}
+                        >
+                          {activePilar.tag}
+                        </span>
+                      </div>
 
-                  {/* Detailed Explanation (Consistent Height) */}
-                  <p className="text-sm sm:text-base text-gray-200 font-light leading-relaxed min-h-[4.5rem]">
-                    {activePilar.detailedStory}
-                  </p>
-                </div>
-
-                {/* 4 Interactive Selector Buttons (Synced with Wheel, zero scale shift) */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                  {PILARES_RUEDA.map((pilar, idx) => {
-                    const isActive = activePilarIndex === idx;
-
-                    return (
-                      <button
-                        key={pilar.id}
-                        onClick={() => setActivePilarIndex(idx)}
-                        className={`p-3 rounded-2xl text-left transition-all duration-200 border cursor-pointer ${
-                          isActive
-                            ? "bg-white/20 shadow-lg ring-1 ring-white/30"
-                            : "bg-white/5 hover:bg-white/10 border-white/10"
-                        }`}
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300"
                         style={{
-                          borderColor: isActive ? pilar.color : undefined,
+                          backgroundColor: `${activePilar.color}20`,
+                          color: activePilar.color,
                         }}
                       >
-                        <span
-                          className="text-[10px] font-black uppercase tracking-wider block mb-1"
-                          style={{ color: pilar.color }}
+                        <ActiveIcon className="w-5 h-5" />
+                      </div>
+                    </div>
+
+                    {/* Title & Subtitle (Consistent Height) */}
+                    <div className="space-y-1 min-h-[4rem] flex flex-col justify-center">
+                      <h4 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                        {activePilar.title}
+                      </h4>
+                      <p
+                        className="text-sm font-semibold transition-colors duration-300"
+                        style={{ color: activePilar.color }}
+                      >
+                        {activePilar.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Detailed Explanation (Consistent Height) */}
+                    <p className="text-sm sm:text-base text-gray-200 font-light leading-relaxed min-h-[4.5rem]">
+                      {activePilar.detailedStory}
+                    </p>
+                  </div>
+                </ParallaxElement>
+
+                {/* 4 Interactive Selector Buttons with its own subtle Parallax */}
+                <ParallaxElement speed={0.03} fadeEffect="in-out">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                    {PILARES_RUEDA.map((pilar, idx) => {
+                      const isActive = activePilarIndex === idx;
+
+                      return (
+                        <button
+                          key={pilar.id}
+                          onClick={() => setActivePilarIndex(idx)}
+                          className={`p-3 rounded-2xl text-left transition-all duration-200 border cursor-pointer ${
+                            isActive
+                              ? "bg-white/20 shadow-lg ring-1 ring-white/30"
+                              : "bg-white/5 hover:bg-white/10 border-white/10"
+                          }`}
+                          style={{
+                            borderColor: isActive ? pilar.color : undefined,
+                          }}
                         >
-                          Pilar {pilar.num}
-                        </span>
-                        <p className="text-xs font-bold text-white truncate">
-                          {pilar.title}
-                        </p>
-                      </button>
-                    );
-                  })}
-                </div>
+                          <span
+                            className="text-[10px] font-black uppercase tracking-wider block mb-1"
+                            style={{ color: pilar.color }}
+                          >
+                            Pilar {pilar.num}
+                          </span>
+                          <p className="text-xs font-bold text-white truncate">
+                            {pilar.title}
+                          </p>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </ParallaxElement>
 
               </div>
 
@@ -469,124 +505,149 @@ export function EditorialBento() {
         <div id="valores-mimesa" className="space-y-10">
           
           {/* Header */}
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a3c6a]/5 border border-[#1a3c6a]/10 text-xs font-black uppercase tracking-widest text-[#1a3c6a]">
-              <span>Principios Inmutables</span>
+          <ParallaxElement speed={0.16} fadeEffect="in-out">
+            <div className="text-center max-w-2xl mx-auto space-y-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a3c6a]/5 border border-[#1a3c6a]/10 text-xs font-black uppercase tracking-widest text-[#1a3c6a]">
+                <span>Principios Inmutables</span>
+              </div>
+              <h3 className="text-3xl sm:text-5xl font-black text-[#1a3c6a] tracking-tight">
+                Nuestros Valores
+              </h3>
+              <p className="text-sm sm:text-base text-gray-500 font-light">
+                Cuatro pilares éticos que rigen nuestras relaciones humanas y nuestro compromiso con Venezuela.
+              </p>
             </div>
-            <h3 className="text-3xl sm:text-5xl font-black text-[#1a3c6a] tracking-tight">
-              Nuestros Valores
-            </h3>
-            <p className="text-sm sm:text-base text-gray-500 font-light">
-              Cuatro pilares éticos que rigen nuestras relaciones humanas y nuestro compromiso con Venezuela.
-            </p>
-          </div>
+          </ParallaxElement>
 
           {/* Tier 1: Asymmetric Row (7 cols + 5 cols) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            {/* VALOR 1: INTEGRIDAD (7 cols) */}
-            <div className="lg:col-span-7 relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-[#1a3c6a] via-[#142e52] to-[#0c1c33] text-white shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-              <div className="absolute right-6 -bottom-6 text-[120px] font-black text-white/[0.04] pointer-events-none select-none">
-                01
-              </div>
+            {/* VALOR 1: INTEGRIDAD (7 cols) - Moves faster (0.16) */}
+            <div className="lg:col-span-7 h-full">
+              <ParallaxElement speed={0.16} fadeEffect="in-out" className="h-full">
+                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-[#1a3c6a] via-[#142e52] to-[#0c1c33] text-white shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute right-6 -bottom-6 text-[120px] font-black text-white/[0.04] pointer-events-none select-none">
+                    01
+                  </div>
 
-              <div className="flex items-center justify-between mb-8">
-                <span className="px-3.5 py-1 rounded-full bg-white/10 text-xs font-bold uppercase tracking-wider text-[#30deda] border border-white/10">
-                  01 • Coherencia y Ética
-                </span>
-                <div className="w-12 h-12 rounded-2xl bg-[#02afab]/20 text-[#30deda] flex items-center justify-center">
-                  <ShieldCheck className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="px-3.5 py-1 rounded-full bg-white/10 text-xs font-bold uppercase tracking-wider text-[#30deda] border border-white/10">
+                      01 • Coherencia y Ética
+                    </span>
+                    <div className="w-12 h-12 rounded-2xl bg-[#02afab]/20 text-[#30deda] flex items-center justify-center">
+                      <ShieldCheck className="w-6 h-6" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 my-auto">
+                    <h4 className="text-3xl sm:text-4xl font-black text-white">
+                      {valores[0].title}
+                    </h4>
+                    <p className="text-base sm:text-lg text-gray-200 font-light leading-relaxed max-w-xl">
+                      {valores[0].description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="space-y-3 my-auto">
-                <h4 className="text-3xl sm:text-4xl font-black text-white">
-                  {valores[0].title}
-                </h4>
-                <p className="text-base sm:text-lg text-gray-200 font-light leading-relaxed max-w-xl">
-                  {valores[0].description}
-                </p>
-              </div>
+              </ParallaxElement>
             </div>
 
-            {/* VALOR 2: AGILIDAD (5 cols) */}
-            <div className="lg:col-span-5 relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#fafdf5] to-[#f2fbe7] border-2 border-[#94c11e]/40 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-              <div className="absolute right-4 -bottom-4 text-[110px] font-black text-[#94c11e]/10 pointer-events-none select-none">
-                02
-              </div>
+            {/* VALOR 2: AGILIDAD (5 cols) - Moves calmer (0.06) */}
+            <div className="lg:col-span-5 h-full">
+              <ParallaxElement speed={0.06} fadeEffect="in-out" className="h-full">
+                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#fafdf5] to-[#f2fbe7] border-2 border-[#94c11e]/40 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute right-4 -bottom-4 text-[110px] font-black text-[#94c11e]/10 pointer-events-none select-none">
+                    02
+                  </div>
 
-              <div className="flex items-center justify-between mb-8">
-                <span className="px-3.5 py-1 rounded-full bg-[#94c11e]/15 text-xs font-bold uppercase tracking-wider text-[#009539] border border-[#94c11e]/30">
-                  02 • Dinamismo y Adaptabilidad
-                </span>
-                <div className="w-12 h-12 rounded-2xl bg-[#94c11e]/20 text-[#009539] flex items-center justify-center">
-                  <Zap className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="px-3.5 py-1 rounded-full bg-[#94c11e]/15 text-xs font-bold uppercase tracking-wider text-[#009539] border border-[#94c11e]/30">
+                      02 • Dinamismo y Adaptabilidad
+                    </span>
+                    <div className="w-12 h-12 rounded-2xl bg-[#94c11e]/20 text-[#009539] flex items-center justify-center">
+                      <Zap className="w-6 h-6" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 my-auto">
+                    <h4 className="text-3xl sm:text-4xl font-black text-[#1a3c6a]">
+                      {valores[1].title}
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
+                      {valores[1].description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="space-y-3 my-auto">
-                <h4 className="text-3xl sm:text-4xl font-black text-[#1a3c6a]">
-                  {valores[1].title}
-                </h4>
-                <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-                  {valores[1].description}
-                </p>
-              </div>
+              </ParallaxElement>
             </div>
 
+          </div>
+
+          {/* Floating Sprout Accent sobresaliendo between Tier 1 and Tier 2 */}
+          <div className="relative w-full flex justify-end pr-12 -my-6 pointer-events-none select-none z-20 hidden sm:flex">
+            <ParallaxElement speed={0.32} rotateSpeed={0.25} fadeEffect="in-out">
+              <MimesaLeafLime size={80} />
+            </ParallaxElement>
           </div>
 
           {/* Tier 2: Inverted Asymmetric Row (5 cols + 7 cols) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            {/* VALOR 3: RESPETO (5 cols) */}
-            <div className="lg:col-span-5 relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#f4faf6] to-[#eaf5ee] border-2 border-[#009539]/30 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-              <div className="absolute right-4 -bottom-4 text-[110px] font-black text-[#009539]/10 pointer-events-none select-none">
-                03
-              </div>
+            {/* VALOR 3: RESPETO (5 cols) - Moves at 0.14 */}
+            <div className="lg:col-span-5 h-full">
+              <ParallaxElement speed={0.14} fadeEffect="in-out" className="h-full">
+                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#f4faf6] to-[#eaf5ee] border-2 border-[#009539]/30 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute right-4 -bottom-4 text-[110px] font-black text-[#009539]/10 pointer-events-none select-none">
+                    03
+                  </div>
 
-              <div className="flex items-center justify-between mb-8">
-                <span className="px-3.5 py-1 rounded-full bg-[#009539]/10 text-xs font-bold uppercase tracking-wider text-[#009539] border border-[#009539]/20">
-                  03 • Las Personas Primero
-                </span>
-                <div className="w-12 h-12 rounded-2xl bg-[#009539]/15 text-[#009539] flex items-center justify-center">
-                  <HeartHandshake className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="px-3.5 py-1 rounded-full bg-[#009539]/10 text-xs font-bold uppercase tracking-wider text-[#009539] border border-[#009539]/20">
+                      03 • Las Personas Primero
+                    </span>
+                    <div className="w-12 h-12 rounded-2xl bg-[#009539]/15 text-[#009539] flex items-center justify-center">
+                      <HeartHandshake className="w-6 h-6" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 my-auto">
+                    <h4 className="text-3xl sm:text-4xl font-black text-[#1a3c6a]">
+                      {valores[2].title}
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
+                      {valores[2].description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="space-y-3 my-auto">
-                <h4 className="text-3xl sm:text-4xl font-black text-[#1a3c6a]">
-                  {valores[2].title}
-                </h4>
-                <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-                  {valores[2].description}
-                </p>
-              </div>
+              </ParallaxElement>
             </div>
 
-            {/* VALOR 4: RESPONSABILIDAD (7 cols) */}
-            <div className="lg:col-span-7 relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#f3f9f9] to-[#e8f6f6] border-2 border-[#02afab]/30 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-              <div className="absolute right-6 -bottom-6 text-[120px] font-black text-[#02afab]/10 pointer-events-none select-none">
-                04
-              </div>
+            {/* VALOR 4: RESPONSABILIDAD (7 cols) - Moves at 0.05 */}
+            <div className="lg:col-span-7 h-full">
+              <ParallaxElement speed={0.05} fadeEffect="in-out" className="h-full">
+                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#f3f9f9] to-[#e8f6f6] border-2 border-[#02afab]/30 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute right-6 -bottom-6 text-[120px] font-black text-[#02afab]/10 pointer-events-none select-none">
+                    04
+                  </div>
 
-              <div className="flex items-center justify-between mb-8">
-                <span className="px-3.5 py-1 rounded-full bg-[#02afab]/10 text-xs font-bold uppercase tracking-wider text-[#02afab] border border-[#02afab]/20">
-                  04 • Resultados y Compromiso
-                </span>
-                <div className="w-12 h-12 rounded-2xl bg-[#02afab]/15 text-[#02afab] flex items-center justify-center">
-                  <CheckCircle2 className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="px-3.5 py-1 rounded-full bg-[#02afab]/10 text-xs font-bold uppercase tracking-wider text-[#02afab] border border-[#02afab]/20">
+                      04 • Resultados y Compromiso
+                    </span>
+                    <div className="w-12 h-12 rounded-2xl bg-[#02afab]/15 text-[#02afab] flex items-center justify-center">
+                      <CheckCircle2 className="w-6 h-6" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 my-auto">
+                    <h4 className="text-3xl sm:text-4xl font-black text-[#1a3c6a]">
+                      {valores[3].title}
+                    </h4>
+                    <p className="text-base sm:text-lg text-gray-700 font-light leading-relaxed max-w-xl">
+                      {valores[3].description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="space-y-3 my-auto">
-                <h4 className="text-3xl sm:text-4xl font-black text-[#1a3c6a]">
-                  {valores[3].title}
-                </h4>
-                <p className="text-base sm:text-lg text-gray-700 font-light leading-relaxed max-w-xl">
-                  {valores[3].description}
-                </p>
-              </div>
+              </ParallaxElement>
             </div>
 
           </div>
@@ -607,31 +668,53 @@ export function EditorialBento() {
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[620px] lg:min-h-[760px] items-stretch">
           
-          {/* Left Column (Text): Aligned with generous editorial padding */}
+          {/* Left Column (Text): Individual Parallax Elements */}
           <div className="lg:col-span-6 xl:col-span-7 flex items-center py-16 sm:py-20 lg:py-24 px-6 sm:px-12 lg:pl-16 xl:pl-28 lg:pr-12 relative z-10">
-            <div className="max-w-2xl space-y-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#009539]/10 text-[#009539] text-xs font-extrabold uppercase tracking-wider w-fit">
-                <span>{filosofia.badge}</span>
-              </div>
+            <div className="max-w-2xl space-y-6">
+              <ParallaxElement speed={0.24} fadeEffect="in-out">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#009539]/10 text-[#009539] text-xs font-extrabold uppercase tracking-wider w-fit">
+                  <span>{filosofia.badge}</span>
+                </div>
+              </ParallaxElement>
 
-              <h3 className="text-3xl sm:text-5xl xl:text-6xl font-black text-[#1a3c6a] leading-[1.1] tracking-tight">
-                {filosofia.title}
-              </h3>
+              <ParallaxElement speed={0.18} fadeEffect="in-out">
+                <h3 className="text-3xl sm:text-5xl xl:text-6xl font-black text-[#1a3c6a] leading-[1.1] tracking-tight">
+                  {filosofia.title}
+                </h3>
+              </ParallaxElement>
 
-              <div className="space-y-6 text-base sm:text-lg text-gray-600 font-light leading-relaxed">
-                <p>
+              <ParallaxElement speed={0.12} fadeEffect="in-out">
+                <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed">
                   {filosofia.paragraph1}
                 </p>
-                <p>
+              </ParallaxElement>
+
+              <ParallaxElement speed={0.07} fadeEffect="in-out">
+                <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed">
                   {filosofia.paragraph2}
                 </p>
-              </div>
+              </ParallaxElement>
             </div>
           </div>
 
-          {/* Right Column (Images): Big, Expansive, Bleeding 100% to Right Edge */}
+          {/* Right Column (Images): Stacked with Floating Frosted Glass Badge sobresaliendo */}
           <div className="lg:col-span-6 xl:col-span-5 relative min-h-[500px] sm:min-h-[600px] lg:min-h-full overflow-hidden flex flex-col">
             
+            {/* Floating Glass Badge sobresaliendo between the two photos */}
+            <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-8 z-30 pointer-events-none">
+              <ParallaxElement speed={0.30} fadeEffect="in-out">
+                <div className="glass-panel p-4 rounded-2xl shadow-2xl border border-white/80 flex items-center gap-3 bg-white/95 text-[#1a3c6a]">
+                  <div className="p-2.5 rounded-xl bg-[#009539] text-white shadow-xs">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-black text-[#1a3c6a]">Ciencia & Vanguardia</p>
+                    <p className="text-[11px] text-gray-500 font-medium">Control y desarrollo agroindustrial</p>
+                  </div>
+                </div>
+              </ParallaxElement>
+            </div>
+
             {/* Top Image: Talento Humano y Laboratorio (50% height) */}
             <div className="relative h-1/2 w-full overflow-hidden">
               <Image
