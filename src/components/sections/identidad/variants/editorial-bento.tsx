@@ -2,17 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  Sparkles,
-  ShieldCheck,
-  Zap,
-  HeartHandshake,
-  CheckCircle2,
-  TrendingUp,
-  Cpu,
-  Search,
-  Check,
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { IDENTIDAD_DATA } from "../identidad-data";
 import {
   MimesaSprout,
@@ -44,9 +34,15 @@ function getArcSvgPath(
   const x4 = cx + rInner * Math.cos(startRad);
   const y4 = cy + rInner * Math.sin(startRad);
 
-  const largeArc = endAngleDeg - startAngleDeg > 180 ? 1 : 0;
+  const largeArcFlag = endAngleDeg - startAngleDeg <= 180 ? "0" : "1";
 
-  return `M ${x1} ${y1} A ${rOuter} ${rOuter} 0 ${largeArc} 1 ${x2} ${y2} L ${x3} ${y3} A ${rInner} ${rInner} 0 ${largeArc} 0 ${x4} ${y4} Z`;
+  return [
+    `M ${x1} ${y1}`,
+    `A ${rOuter} ${rOuter} 0 ${largeArcFlag} 1 ${x2} ${y2}`,
+    `L ${x3} ${y3}`,
+    `A ${rInner} ${rInner} 0 ${largeArcFlag} 0 ${x4} ${y4}`,
+    "Z",
+  ].join(" ");
 }
 
 // 4 Pillars definition for the 4-Quadrant Ring
@@ -59,7 +55,6 @@ const PILARES_RUEDA = [
     detailedStory:
       "Operamos bajo estrictos protocolos de calidad e inocuidad alimentaria. Nuestra logística integrada asegura abastecimiento continuo y relaciones de mutua confianza con cada socio.",
     color: "#30deda",
-    icon: ShieldCheck,
     startAngle: 3,
     endAngle: 87,
     midAngle: 45,
@@ -73,7 +68,6 @@ const PILARES_RUEDA = [
     detailedStory:
       "Formulamos soluciones nutricionales de máxima conversión y rendimiento. Cada producto está testeado para superar los estándares de la industria agroalimentaria nacional.",
     color: "#94c11e",
-    icon: Cpu,
     startAngle: 93,
     endAngle: 177,
     midAngle: 135,
@@ -87,7 +81,6 @@ const PILARES_RUEDA = [
     detailedStory:
       "Ponemos a disposición de nuestros clientes un equipo multidisciplinario de ingenieros y especialistas que asesoran en campo y planta para optimizar cada proceso productivo.",
     color: "#009539",
-    icon: Sparkles,
     startAngle: 183,
     endAngle: 267,
     midAngle: 225,
@@ -101,7 +94,6 @@ const PILARES_RUEDA = [
     detailedStory:
       "Fomentamos una cultura de comunicación abierta, trazabilidad completa de materias primas y acuerdos justos que consolidan alianzas sólidas y duraderas.",
     color: "#38bdf8",
-    icon: Search,
     startAngle: 273,
     endAngle: 357,
     midAngle: 315,
@@ -114,7 +106,6 @@ export function EditorialBento() {
   const [activePilarIndex, setActivePilarIndex] = useState<number>(0);
 
   const activePilar = PILARES_RUEDA[activePilarIndex];
-  const ActiveIcon = activePilar.icon;
 
   return (
     <div className="w-full space-y-0">
@@ -224,9 +215,6 @@ export function EditorialBento() {
                     <span className="text-xs font-extrabold uppercase tracking-widest text-[#94c11e] block">
                       {negocio.uniqueBadge}
                     </span>
-                    <div className="p-2 rounded-xl bg-white/10 text-white">
-                      <MimesaSprout size={24} />
-                    </div>
                   </div>
 
                   <h4 className="text-xl sm:text-2xl font-black text-white leading-snug">
@@ -353,26 +341,22 @@ export function EditorialBento() {
                     </svg>
 
                     {/* Inner Lens Hole in the Donut Center */}
-                    <div className="absolute w-44 h-44 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-[#102746] to-[#0a182b] border-2 border-white/20 shadow-inner flex flex-col items-center justify-center p-4 text-center pointer-events-none">
-                      <div
-                        className="w-12 h-12 rounded-2xl flex items-center justify-center mb-1.5 transition-colors duration-300"
-                        style={{
-                          backgroundColor: `${activePilar.color}25`,
-                          color: activePilar.color,
-                        }}
-                      >
-                        <ActiveIcon className="w-6 h-6" />
-                      </div>
-
+                    <div className="absolute w-44 h-44 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-[#102746] to-[#0a182b] border-2 border-white/20 shadow-inner flex flex-col items-center justify-center p-5 text-center pointer-events-none space-y-1.5">
                       <span
-                        className="text-[10px] font-black uppercase tracking-widest block transition-colors duration-300"
+                        className="text-xs sm:text-sm font-black uppercase tracking-widest block transition-colors duration-300"
                         style={{ color: activePilar.color }}
                       >
                         Pilar {activePilar.num}
                       </span>
 
-                      <span className="text-xs font-bold text-white leading-tight mt-0.5 line-clamp-1 h-4 flex items-center">
+                      <span className="text-sm sm:text-base font-black text-white leading-tight max-w-[150px] transition-colors duration-300">
                         {activePilar.title}
+                      </span>
+
+                      <span
+                        className="text-[11px] font-semibold text-gray-300 block max-w-[140px] opacity-80"
+                      >
+                        {activePilar.tag}
                       </span>
                     </div>
 
@@ -413,16 +397,6 @@ export function EditorialBento() {
                         >
                           {activePilar.tag}
                         </span>
-                      </div>
-
-                      <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300"
-                        style={{
-                          backgroundColor: `${activePilar.color}20`,
-                          color: activePilar.color,
-                        }}
-                      >
-                        <ActiveIcon className="w-5 h-5" />
                       </div>
                     </div>
 
@@ -530,9 +504,6 @@ export function EditorialBento() {
                     <span className="px-3.5 py-1 rounded-full bg-white/10 text-xs font-bold uppercase tracking-wider text-[#30deda] border border-white/10">
                       01 • Coherencia y Ética
                     </span>
-                    <div className="w-12 h-12 rounded-2xl bg-[#02afab]/20 text-[#30deda] flex items-center justify-center">
-                      <ShieldCheck className="w-6 h-6" />
-                    </div>
                   </div>
 
                   <div className="space-y-3 my-auto">
@@ -559,9 +530,6 @@ export function EditorialBento() {
                     <span className="px-3.5 py-1 rounded-full bg-[#94c11e]/15 text-xs font-bold uppercase tracking-wider text-[#009539] border border-[#94c11e]/30">
                       02 • Dinamismo y Adaptabilidad
                     </span>
-                    <div className="w-12 h-12 rounded-2xl bg-[#94c11e]/20 text-[#009539] flex items-center justify-center">
-                      <Zap className="w-6 h-6" />
-                    </div>
                   </div>
 
                   <div className="space-y-3 my-auto">
@@ -600,9 +568,6 @@ export function EditorialBento() {
                     <span className="px-3.5 py-1 rounded-full bg-[#009539]/10 text-xs font-bold uppercase tracking-wider text-[#009539] border border-[#009539]/20">
                       03 • Las Personas Primero
                     </span>
-                    <div className="w-12 h-12 rounded-2xl bg-[#009539]/15 text-[#009539] flex items-center justify-center">
-                      <HeartHandshake className="w-6 h-6" />
-                    </div>
                   </div>
 
                   <div className="space-y-3 my-auto">
@@ -629,9 +594,6 @@ export function EditorialBento() {
                     <span className="px-3.5 py-1 rounded-full bg-[#02afab]/10 text-xs font-bold uppercase tracking-wider text-[#02afab] border border-[#02afab]/20">
                       04 • Resultados y Compromiso
                     </span>
-                    <div className="w-12 h-12 rounded-2xl bg-[#02afab]/15 text-[#02afab] flex items-center justify-center">
-                      <CheckCircle2 className="w-6 h-6" />
-                    </div>
                   </div>
 
                   <div className="space-y-3 my-auto">

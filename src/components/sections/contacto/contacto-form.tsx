@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { CONTACTO_DATA } from "./contacto-data";
 import { CheckCircle2, Loader2, ArrowRight } from "lucide-react";
 import { CustomSelect } from "@/components/ui/custom-select";
@@ -28,6 +29,7 @@ export function ContactoForm({
     telefono: "",
     asunto: CONTACTO_DATA.formSubjects[0],
     mensaje: "",
+    aceptoPolitica: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,6 +37,7 @@ export function ContactoForm({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.aceptoPolitica) return;
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
@@ -49,6 +52,7 @@ export function ContactoForm({
       telefono: "",
       asunto: CONTACTO_DATA.formSubjects[0],
       mensaje: "",
+      aceptoPolitica: false,
     });
     setIsSubmitted(false);
   };
@@ -208,6 +212,39 @@ export function ContactoForm({
             onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
             className={textareaClasses}
           />
+        </div>
+
+        {/* Consentimiento de Privacidad */}
+        <div className="flex items-start gap-3 pt-1">
+          <input
+            type="checkbox"
+            id={`contacto-consent-${variant}`}
+            required
+            checked={formData.aceptoPolitica}
+            onChange={(e) => setFormData({ ...formData, aceptoPolitica: e.target.checked })}
+            className={`mt-1 h-4 w-4 shrink-0 rounded cursor-pointer transition-colors ${
+              isLight
+                ? "accent-[#02afab] border-slate-300 text-[#02afab] focus:ring-[#02afab]"
+                : "accent-[#02afab] bg-white/10 border-white/20 text-[#02afab] focus:ring-[#02afab]"
+            }`}
+          />
+          <label
+            htmlFor={`contacto-consent-${variant}`}
+            className={`text-xs leading-relaxed cursor-pointer select-none ${
+              isLight ? "text-gray-600" : "text-gray-300"
+            }`}
+          >
+            He leído y acepto la{" "}
+            <Link
+              href="/politica-de-privacidad"
+              className={`font-semibold underline underline-offset-2 hover:opacity-80 transition-opacity ${
+                isLight ? "text-[#02afab]" : "text-[#30deda]"
+              }`}
+            >
+              Política de Privacidad
+            </Link>{" "}
+            y autorizo el tratamiento de mis datos de contacto para atender mi consulta.
+          </label>
         </div>
       </div>
 

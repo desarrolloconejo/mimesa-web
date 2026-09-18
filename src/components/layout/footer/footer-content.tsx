@@ -41,7 +41,6 @@ export function FooterContent() {
     { name: "Inicio", href: "/" },
     { name: "Sobre nosotros", href: "/sobre-nosotros" },
     { name: "Productos", href: "/productos" },
-    { name: "Compromiso Social", href: "/#compromiso" },
     { name: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
     { name: "Contacto", href: "/contacto" },
   ];
@@ -108,12 +107,12 @@ export function FooterContent() {
             </div>
           </div>
 
-          {/* Col 2: Precise Navigation Links (4 cols) */}
-          <div className="md:col-span-4 space-y-3">
+          {/* Col 2: Precise Navigation Links (Single Column, 3 cols) */}
+          <div className="md:col-span-3 space-y-3">
             <h4 className="text-xs uppercase tracking-widest font-bold text-[#30deda]">
               Navegación
             </h4>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:text-sm text-gray-300">
+            <ul className="flex flex-col space-y-2.5 text-xs sm:text-sm text-gray-300">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -127,8 +126,8 @@ export function FooterContent() {
             </ul>
           </div>
 
-          {/* Col 3: Direct Contact (3 cols) */}
-          <div className="md:col-span-3 space-y-3">
+          {/* Col 3: Direct Contact (4 cols) */}
+          <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs uppercase tracking-widest font-bold text-[#30deda]">
               Contacto
             </h4>
@@ -180,12 +179,21 @@ export function FooterContent() {
           <p>
             Copyright © {new Date().getFullYear()} MIMESA ALIMENTOS C.A. RIF J-07032176-8. Todos los derechos reservados.
           </p>
-          <p className="flex items-center gap-1 justify-center">
-            <span>Desarrollado by</span>
-            <span className="font-medium text-white hover:text-[#30deda] transition-colors">
-              El Conejo Del Sombrero
-            </span>
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <Link
+              href="/politica-de-privacidad"
+              className="text-gray-400 hover:text-[#30deda] transition-colors underline-offset-4 hover:underline"
+            >
+              Política de Privacidad
+            </Link>
+            <span className="text-gray-600 hidden sm:inline">•</span>
+            <p className="flex items-center gap-1 justify-center">
+              <span>Desarrollado by</span>
+              <span className="font-medium text-white hover:text-[#30deda] transition-colors">
+                El Conejo Del Sombrero
+              </span>
+            </p>
+          </div>
         </div>
       </div>
 

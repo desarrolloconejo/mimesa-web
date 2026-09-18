@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { CheckCircle2, Loader2, ArrowRight, Upload, Mail } from "lucide-react";
 import { CustomSelect } from "@/components/ui/custom-select";
 import { TRABAJA_DATA } from "./trabaja-data";
@@ -24,6 +25,7 @@ export function TrabajaForm({
     area: TRABAJA_DATA.formAreas[0],
     perfilLink: "",
     experiencia: "",
+    aceptoPolitica: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,6 +33,7 @@ export function TrabajaForm({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.aceptoPolitica) return;
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
@@ -47,6 +50,7 @@ export function TrabajaForm({
       area: TRABAJA_DATA.formAreas[0],
       perfilLink: "",
       experiencia: "",
+      aceptoPolitica: false,
     });
     setIsSubmitted(false);
   };
@@ -187,6 +191,31 @@ export function TrabajaForm({
             onChange={(e) => setFormData({ ...formData, experiencia: e.target.value })}
             className={textareaClasses}
           />
+        </div>
+
+        {/* Consentimiento de Privacidad y Selección */}
+        <div className="flex items-start gap-3 pt-1">
+          <input
+            type="checkbox"
+            id="trabaja-consent"
+            required
+            checked={formData.aceptoPolitica}
+            onChange={(e) => setFormData({ ...formData, aceptoPolitica: e.target.checked })}
+            className="mt-1 h-4 w-4 shrink-0 rounded accent-[#02afab] border-slate-300 text-[#02afab] focus:ring-[#02afab] cursor-pointer"
+          />
+          <label
+            htmlFor="trabaja-consent"
+            className="text-xs text-gray-600 leading-relaxed cursor-pointer select-none"
+          >
+            He leído y acepto la{" "}
+            <Link
+              href="/politica-de-privacidad"
+              className="font-semibold text-[#02afab] underline underline-offset-2 hover:opacity-80 transition-opacity"
+            >
+              Política de Privacidad
+            </Link>{" "}
+            y autorizo el tratamiento de mis datos personales y perfil profesional para los procesos de selección de talento humano de Grupo Mimesa.
+          </label>
         </div>
       </div>
 

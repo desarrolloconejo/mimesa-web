@@ -20,9 +20,9 @@ export function ContactoContent() {
         </ParallaxElement>
       </div>
 
-      {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[#02afab]/10 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] rounded-full bg-[#94c11e]/8 blur-3xl pointer-events-none" />
+      {/* Background Ambient Glows (positioned at outer edges to avoid bleed-through on cards) */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#02afab]/10 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#94c11e]/8 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         
@@ -61,7 +61,7 @@ export function ContactoContent() {
               LEFT COLUMN: Corporate Contact Information Card
              ======================================================== */}
           <div className="lg:col-span-5 h-full relative">
-            <ParallaxElement speed={0.06} fadeEffect="in-out" className="h-full">
+            <ParallaxElement speed={0.06} className="h-full">
               <div className="h-full flex flex-col justify-between p-8 sm:p-10 rounded-3xl bg-white/[0.04] border border-white/10 backdrop-blur-2xl shadow-2xl shadow-black/30 space-y-8">
             
             <div className="space-y-6">
@@ -154,7 +154,7 @@ export function ContactoContent() {
               RIGHT COLUMN: Dark Glass Contact Form (Balanced Height)
              ======================================================== */}
           <div className="lg:col-span-7 h-full">
-            <ParallaxElement speed={0.08} fadeEffect="in-out" className="h-full">
+            <ParallaxElement speed={0.06} className="h-full">
               <ContactoForm />
             </ParallaxElement>
           </div>
