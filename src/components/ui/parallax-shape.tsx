@@ -39,31 +39,48 @@ export function ParallaxShape({
     const element = outerRef.current;
     if (!element) return;
 
+    let isVisible = false;
+
+    const updateShape = () => {
+      if (!outerRef.current || !isVisible) return;
+      const scrollY = window.scrollY;
+      const offsetY = scrollY * speed;
+      const offsetX = horizontalSpeed ? scrollY * horizontalSpeed : 0;
+      const rotate = rotateSpeed ? scrollY * rotateSpeed : 0;
+
+      outerRef.current.style.transform = `translate3d(${offsetX.toFixed(
+        1
+      )}px, ${offsetY.toFixed(1)}px, 0px) ${
+        rotate ? `rotate(${rotate.toFixed(1)}deg)` : ""
+      }`;
+    };
+
     const handleScroll = () => {
       if (rafId.current !== null) return;
 
       rafId.current = requestAnimationFrame(() => {
-        if (!outerRef.current) return;
-        const scrollY = window.scrollY;
-        const offsetY = scrollY * speed;
-        const offsetX = horizontalSpeed ? scrollY * horizontalSpeed : 0;
-        const rotate = rotateSpeed ? scrollY * rotateSpeed : 0;
-
-        outerRef.current.style.transform = `translate3d(${offsetX.toFixed(
-          1
-        )}px, ${offsetY.toFixed(1)}px, 0px) ${
-          rotate ? `rotate(${rotate.toFixed(1)}deg)` : ""
-        }`;
-
+        updateShape();
         rafId.current = null;
       });
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          updateShape();
+        }
+      },
+      { rootMargin: "150px" }
+    );
+
+    observer.observe(element);
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Initial position
-    handleScroll();
+    updateShape();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
       if (rafId.current !== null) {
         cancelAnimationFrame(rafId.current);

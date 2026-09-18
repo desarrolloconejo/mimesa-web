@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 export type FadeEffectType = "none" | "in-out" | "fade-out" | "fade-in";
 
@@ -30,34 +30,34 @@ export function ParallaxElement({
   disableOnMobile = true,
 }: ParallaxElementProps) {
   const elementRef = useRef<HTMLDivElement>(null);
-  const [transformStyle, setTransformStyle] = useState("");
-  const [opacityStyle, setOpacityStyle] = useState<number | undefined>(undefined);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      const mobile = window.innerWidth < 1024;
-      setIsMobile(mobile);
-      if (mobile && disableOnMobile) {
-        setTransformStyle("");
-        setOpacityStyle(undefined);
-      }
-      return mobile;
-    };
+    if (typeof window === "undefined") return;
 
-    checkMobile();
+    // Check user preference
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
 
-    let animationFrameId: number;
+    const el = elementRef.current;
+    if (!el) return;
 
-    const handleScroll = () => {
-      if (!elementRef.current) return;
-      if (disableOnMobile && window.innerWidth < 1024) {
-        setTransformStyle("");
-        setOpacityStyle(undefined);
+    let isVisible = false;
+    let rafId: number | null = null;
+
+    const isMobile = () => window.innerWidth < 1024;
+
+    const updatePosition = () => {
+      if (!el) return;
+
+      if (disableOnMobile && isMobile()) {
+        el.style.transform = "";
+        if (fadeEffect !== "none") el.style.opacity = "";
         return;
       }
 
-      const rect = elementRef.current.getBoundingClientRect();
+      if (!isVisible) return;
+
+      const rect = el.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
       // Relative progress from center of screen (-1.0 = top exit, 0 = viewport center, 1.0 = bottom entry)
@@ -70,27 +70,22 @@ export function ParallaxElement({
       const rotation = rotateSpeed !== 0 ? progress * rotateSpeed * 18 : 0;
       const scale = scaleSpeed !== 0 ? 1 + progress * scaleSpeed * 0.08 : 1;
 
-      setTransformStyle(
-        `translate3d(${translateX.toFixed(1)}px, ${translateY.toFixed(1)}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`
-      );
+      el.style.transform = `translate3d(${translateX.toFixed(1)}px, ${translateY.toFixed(1)}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
 
-      // Dynamic appear & disappear scroll opacity for multi-layer construction
+      // Dynamic appear & disappear scroll opacity
       if (fadeEffect !== "none") {
         let opacity = 1;
 
         if (fadeEffect === "in-out") {
-          // Stay solid through core of viewport; gentle, calm, gradual dissolve over a wide scroll range
           const distFromCenter = Math.abs(progress);
           if (distFromCenter <= 0.55) {
             opacity = 1;
           } else {
-            // Calm cosine curve over wide 0.55 - 1.25 range for velvety entrance and exit
             const ratio = Math.min(1, Math.max(0, (distFromCenter - 0.55) / 0.70));
             const smoothFade = (1 + Math.cos(ratio * Math.PI)) / 2;
             opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
           }
         } else if (fadeEffect === "fade-out") {
-          // For Hero: Stay solid until scrolled down, then gently dissolve calmly
           if (progress >= -0.30) {
             opacity = 1;
           } else {
@@ -99,7 +94,6 @@ export function ParallaxElement({
             opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
           }
         } else if (fadeEffect === "fade-in") {
-          // Smooth fade in from bottom
           if (progress <= 0.30) {
             opacity = 1;
           } else {
@@ -109,54 +103,55 @@ export function ParallaxElement({
           }
         }
 
-        setOpacityStyle(Number(opacity.toFixed(2)));
+        el.style.opacity = String(Number(opacity.toFixed(2)));
       }
     };
 
     const onScroll = () => {
-      cancelAnimationFrame(animationFrameId);
-      animationFrameId = requestAnimationFrame(handleScroll);
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        updatePosition();
+        rafId = null;
+      });
     };
 
-    const onResize = () => {
-      checkMobile();
-      onScroll();
-    };
+    // IntersectionObserver: Only compute and update when visible in viewport
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          updatePosition();
+        }
+      },
+      { rootMargin: "150px" }
+    );
+
+    observer.observe(el);
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize, { passive: true });
-    handleScroll();
+    window.addEventListener("resize", onScroll, { passive: true });
+
+    // Initial position
+    updatePosition();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", onScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, [speed, rotateSpeed, scaleSpeed, horizontalSpeed, fadeEffect, fadeIntensity, disableOnMobile]);
-
-  const activeTransform = !isMobile || !disableOnMobile ? transformStyle : undefined;
-  const activeOpacity =
-    !isMobile || !disableOnMobile
-      ? opacityStyle !== undefined
-        ? opacityStyle
-        : style.opacity
-      : style.opacity;
 
   return (
     <div
       ref={elementRef}
-      className={`${
-        !isMobile || !disableOnMobile
-          ? "will-change-transform transition-[transform,opacity] duration-150 ease-out"
-          : ""
-      } ${className}`}
+      className={`will-change-transform ${className}`}
       style={{
         ...style,
-        transform: activeTransform || undefined,
-        opacity: activeOpacity,
       }}
     >
       {children}
     </div>
   );
 }
+

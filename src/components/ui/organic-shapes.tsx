@@ -169,6 +169,7 @@ export function GlowOrb({
   return (
     <div
       className={`absolute rounded-full pointer-events-none blur-3xl bg-gradient-to-tr ${glowColors[color]} ${className}`}
+      style={{ transform: "translate3d(0, 0, 0)", willChange: "transform" }}
       aria-hidden="true"
     />
   );
