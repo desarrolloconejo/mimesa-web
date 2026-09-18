@@ -63,7 +63,7 @@ export function ProductosContent() {
       </div>
 
       {/* ========================================================
-          2. Chapter 01: Negocio de Alimentación (Marcas B2C & B2B)
+          2. Chapter 01: Negocio de Alimentación (Marcas de Consumo e Industriales)
          ======================================================== */}
       <div className="relative z-10">
         <AlimentosEditorial />

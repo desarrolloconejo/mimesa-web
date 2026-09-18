@@ -2,10 +2,29 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { ALIMENTOS_BRANDS } from "@/components/sections/productos/productos-data";
 
-export function ProductsDropdown() {
+interface ProductsDropdownProps {
+  isActive?: boolean;
+}
+
+export function ProductsDropdown({ isActive: propIsActive }: ProductsDropdownProps = {}) {
+  const pathname = usePathname();
+  const isActive =
+    propIsActive !== undefined
+      ? propIsActive
+      : Boolean(
+          pathname === "/productos" ||
+          pathname?.startsWith("/productos/") ||
+          pathname === "/alimentos" ||
+          pathname === "/produsal"
+        );
+  const isAlimentosActive = pathname === "/productos/alimentos" || pathname === "/alimentos";
+  const isProdusalActive = pathname === "/productos/produsal" || pathname === "/produsal";
+
   const [isOpen, setIsOpen] = useState(false);
   const [isAlimentosOpen, setIsAlimentosOpen] = useState(false);
 
@@ -72,17 +91,27 @@ export function ProductsDropdown() {
       <Link
         href="/productos"
         onClick={closeMenu}
-        className={`whitespace-nowrap inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] xl:text-sm font-medium rounded-lg transition-colors cursor-pointer ${
-          isOpen
-            ? "text-[#02afab] font-semibold bg-[#02afab]/8"
-            : "text-[#1a3c6a] hover:text-[#02afab] hover:bg-[#02afab]/5"
+        className={`whitespace-nowrap inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 text-[13px] xl:text-sm font-semibold rounded-lg transition-all duration-200 cursor-pointer relative group ${
+          isOpen || isActive
+            ? "text-[#02afab] bg-[#02afab]/10 font-bold"
+            : "text-[#1a3c6a] hover:text-[#02afab] hover:bg-[#02afab]/8 font-medium"
         }`}
         aria-expanded={isOpen}
+        aria-current={isActive ? "page" : undefined}
       >
         <span>Productos</span>
         <ChevronDown
           className={`w-3.5 h-3.5 transition-transform duration-200 ${
-            isOpen ? "rotate-180 text-[#02afab]" : "text-gray-400"
+            isOpen
+              ? "rotate-180 text-[#02afab]"
+              : isActive
+              ? "text-[#02afab]"
+              : "text-gray-400 group-hover:text-[#02afab]"
+          }`}
+        />
+        <span
+          className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-[#02afab] rounded-full transition-all duration-300 ${
+            isActive ? "w-3/4" : "w-0 group-hover:w-3/4"
           }`}
         />
       </Link>
@@ -114,26 +143,32 @@ export function ProductsDropdown() {
                 onMouseEnter={handleAlimentosEnter}
                 onMouseLeave={handleAlimentosLeave}
                 className={`flex items-center justify-between px-3.5 py-3 cursor-pointer transition-all duration-150 border-l-[3px] ${
-                  isAlimentosOpen
+                  isAlimentosOpen || isAlimentosActive
                     ? "bg-slate-50/90 border-[#009539]"
                     : "border-transparent hover:bg-slate-50/70 hover:border-[#009539]"
                 }`}
               >
                 <Link
-                  href="/#productos"
+                  href="/productos/alimentos"
                   onClick={closeMenu}
                   className="flex-1 min-w-0"
                 >
                   <div className="flex items-center gap-2">
                     <p
                       className={`text-[13px] font-bold leading-tight transition-colors ${
-                        isAlimentosOpen ? "text-[#009539]" : "text-[#1a3c6a]"
+                        isAlimentosOpen || isAlimentosActive ? "text-[#009539]" : "text-[#1a3c6a]"
                       }`}
                     >
                       Alimentos
                     </p>
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#009539]/10 text-[#009539] leading-none">
-                      7 marcas
+                    <span
+                      className={`text-[10px] font-bold px-1.5 py-0.5 rounded leading-none transition-colors ${
+                        isAlimentosActive
+                          ? "bg-[#009539] text-white"
+                          : "bg-[#009539]/10 text-[#009539]"
+                      }`}
+                    >
+                      Marcas
                     </span>
                   </div>
                   <p className="text-[11px] text-gray-500 font-normal truncate mt-1">
@@ -142,7 +177,9 @@ export function ProductsDropdown() {
                 </Link>
                 <ChevronRight
                   className={`w-4 h-4 transition-transform duration-150 shrink-0 ml-1.5 ${
-                    isAlimentosOpen ? "text-[#009539] translate-x-0.5" : "text-slate-300"
+                    isAlimentosOpen || isAlimentosActive
+                      ? "text-[#009539] translate-x-0.5"
+                      : "text-slate-300"
                   }`}
                 />
               </div>
@@ -152,19 +189,33 @@ export function ProductsDropdown() {
 
               {/* Opción 2: Produsal con badges y micro-detalles */}
               <Link
-                href="/#productos"
+                href="/productos/produsal"
                 onClick={closeMenu}
                 onMouseEnter={() => {
                   if (alimentosTimeoutRef.current) clearTimeout(alimentosTimeoutRef.current);
                   setIsAlimentosOpen(false);
                 }}
-                className="block px-3.5 py-3 border-l-[3px] border-transparent hover:border-[#02afab] hover:bg-slate-50/70 transition-all duration-150 cursor-pointer group"
+                className={`block px-3.5 py-3 border-l-[3px] transition-all duration-150 cursor-pointer group ${
+                  isProdusalActive
+                    ? "border-[#02afab] bg-slate-50/90"
+                    : "border-transparent hover:border-[#02afab] hover:bg-slate-50/70"
+                }`}
               >
                 <div className="flex items-center gap-2">
-                  <p className="text-[13px] font-bold leading-tight text-[#1a3c6a] group-hover:text-[#02afab] transition-colors">
+                  <p
+                    className={`text-[13px] font-bold leading-tight transition-colors ${
+                      isProdusalActive ? "text-[#02afab]" : "text-[#1a3c6a] group-hover:text-[#02afab]"
+                    }`}
+                  >
                     Produsal
                   </p>
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#02afab]/10 text-[#02afab] leading-none">
+                  <span
+                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded leading-none transition-colors ${
+                      isProdusalActive
+                        ? "bg-[#02afab] text-white"
+                        : "bg-[#02afab]/10 text-[#02afab]"
+                    }`}
+                  >
                     Sal Solar
                   </span>
                 </div>
@@ -198,20 +249,31 @@ export function ProductsDropdown() {
               </span>
             </div>
 
-            {/* Lista detallada de las 7 marcas con acentos de color, categoría y hover micro-chevron */}
+            {/* Lista detallada de las marcas con acentos de color, categoría y hover micro-chevron */}
             <div className="py-1 divide-y divide-slate-50">
               {ALIMENTOS_BRANDS.map((brand) => (
                 <Link
                   key={brand.id}
-                  href="/#productos"
+                  href={`/productos/alimentos/${brand.id}`}
                   onClick={closeMenu}
                   className="group/brand flex items-center justify-between px-4 py-2 text-xs transition-all duration-150 hover:bg-[#f4faf6] cursor-pointer"
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <span
-                      className="w-2 h-2 rounded-full shrink-0 transition-transform duration-150 group-hover/brand:scale-125"
-                      style={{ backgroundColor: brand.logoColor || "#009539" }}
-                    />
+                    {brand.logoUrl ? (
+                      <div className="w-6 h-4 relative shrink-0">
+                        <Image
+                          src={brand.logoUrl}
+                          alt={brand.name}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <span
+                        className="w-2 h-2 rounded-full shrink-0 transition-transform duration-150 group-hover/brand:scale-125"
+                        style={{ backgroundColor: brand.logoColor || "#009539" }}
+                      />
+                    )}
                     <span className="font-bold text-slate-700 group-hover/brand:text-[#009539] transition-colors truncate text-[12px]">
                       {brand.name}
                     </span>

@@ -14,7 +14,17 @@ import {
 import { HeaderWrapper } from "@/components/layout/header/header-wrapper";
 import { FooterWrapper } from "@/components/layout/footer/footer-wrapper";
 import { ContactoForm } from "@/components/sections/contacto/contacto-form";
-import { GlowOrb } from "@/components/ui/organic-shapes";
+import {
+  GlowOrb,
+  MimesaLeafLime,
+  MimesaLeafGreen,
+  MimesaDotCyan,
+  MimesaDotGreen,
+  MimesaDotLime,
+  MimesaSprout,
+} from "@/components/ui/organic-shapes";
+import { ParallaxShape } from "@/components/ui/parallax-shape";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export const metadata = {
   title: "Productos | Grupo Mimesa",
@@ -25,7 +35,7 @@ export const metadata = {
 const ALIMENTOS_PREVIEW_BRANDS = [
   { name: "BlancaFlor", color: "#1a3c6a" },
   { name: "Ronco", color: "#c8102e" },
-  { name: "Fiorentina", color: "#007a3d" },
+  { name: "Fiorentina", color: "#00387b" },
   { name: "Vatel", color: "#d97706" },
   { name: "Purilev", color: "#02afab" },
   { name: "Los 3 Cochinitos", color: "#e11d48" },
@@ -45,32 +55,97 @@ export default function ProductosPage() {
       {/* Header Corporativo */}
       <HeaderWrapper />
 
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full relative overflow-hidden">
+        {/* Parallax Floating Organic Brand Elements across the page */}
+        <ParallaxShape
+          speed={-0.12}
+          floatAnimation="gentle"
+          className="top-28 right-8 lg:right-16 hidden lg:block opacity-35 z-20"
+        >
+          <MimesaLeafLime size={110} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.16}
+          floatAnimation="reverse"
+          className="top-48 left-8 hidden lg:block opacity-35 z-20"
+        >
+          <MimesaDotCyan size={42} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.18}
+          floatAnimation="sway"
+          className="top-[35%] -left-6 hidden lg:block opacity-45"
+        >
+          <MimesaLeafGreen size={105} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.2}
+          floatAnimation="reverse"
+          className="top-[42%] right-8 hidden lg:block opacity-45"
+        >
+          <MimesaDotLime size={40} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.14}
+          floatAnimation="gentle"
+          className="top-[60%] left-10 hidden lg:block opacity-40"
+        >
+          <MimesaDotGreen size={38} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.22}
+          floatAnimation="sway"
+          className="top-[68%] -right-6 hidden lg:block opacity-40"
+        >
+          <MimesaLeafLime size={95} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.12}
+          floatAnimation="reverse"
+          className="bottom-32 left-12 hidden lg:block opacity-45"
+        >
+          <MimesaDotCyan size={44} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.05}
+          floatAnimation="none"
+          className="top-[50%] right-1/4 hidden xl:block opacity-[0.03]"
+        >
+          <MimesaSprout size={520} />
+        </ParallaxShape>
         {/* ========================================================
-            1. HERO: Título centrado "Productos", fondo oscuro con imagen
+            1. HERO: Título "Productos" de gran altura, alineado a la izquierda (como Sobre Nosotros)
            ======================================================== */}
-        <section className="relative min-h-[440px] sm:min-h-[500px] lg:min-h-[540px] flex items-center justify-center overflow-hidden bg-[#0c223f] text-white">
-          {/* Imagen de fondo con overlay oscuro */}
+        <section className="relative min-h-[580px] sm:min-h-[660px] lg:min-h-[740px] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 lg:pb-36 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#0c223f] text-white">
+          {/* Imagen de fondo con overlay oscuro direccionado hacia la derecha */}
           <div className="absolute inset-0 z-0 overflow-hidden">
             <Image
               src="/images/hero-production.webp"
               alt="Instalaciones productivas de Grupo Mimesa"
               fill
               priority
-              className="object-cover opacity-25 scale-105"
+              className="object-cover object-right sm:object-center opacity-30 scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0c223f]/95 via-[#0c223f]/80 to-[#0c223f]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0c223f] via-[#0c223f]/90 to-[#0c223f]/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0c223f] via-transparent to-[#0c223f]/70" />
           </div>
 
           {/* Ambient Lighting Orbs */}
           <GlowOrb color="cyan" className="top-1/4 -left-48 w-[600px] h-[600px] opacity-20" />
-          <GlowOrb color="green" className="bottom-1/4 -right-48 w-[550px] h-[550px] opacity-20" />
+          <GlowOrb color="green" className="bottom-1/4 right-0 w-[550px] h-[550px] opacity-20" />
 
-          {/* Contenido Centrado */}
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-36 text-center space-y-5">
-            {/* Breadcrumb centrado: Solo texto y color */}
+          {/* Contenido Alineado a la Izquierda dentro del contenedor global max-w-7xl */}
+          <div className="relative z-10 max-w-7xl mx-auto w-full">
+            {/* Breadcrumb a la izquierda con separación amplia */}
             <nav
-              className="inline-flex items-center gap-2 text-xs font-semibold text-gray-300 select-none"
+              className="flex items-center gap-2 text-xs font-semibold text-gray-300 mb-8 sm:mb-12 select-none"
               aria-label="Ruta de navegación"
             >
               <Link href="/" className="hover:text-[#30deda] transition-colors">
@@ -80,20 +155,22 @@ export default function ProductosPage() {
               <span className="text-[#30deda] font-bold">Productos</span>
             </nav>
 
-            {/* Título Monumental Centrado */}
-            <div className="space-y-2">
-              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-[#30deda] block">
-                Portafolio de Alimentos & Complejo Salinero
-              </span>
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white drop-shadow-md">
-                Productos
-              </h1>
-            </div>
+            <FadeIn className="max-w-3xl sm:max-w-4xl space-y-6 sm:space-y-8 text-left">
+              {/* Kicker y Título Monumental a la Izquierda */}
+              <div className="space-y-3">
+                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-[#30deda] block">
+                  Portafolio de Alimentos & Complejo Salinero
+                </span>
+                <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white drop-shadow-md">
+                  Productos
+                </h1>
+              </div>
 
-            {/* Subtítulo Equilibrado */}
-            <p className="text-base sm:text-xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
-              Nuestras unidades estratégicas de negocio: alimentos de consumo masivo que acompañan a la familia y el complejo salinero solar más importante de Venezuela.
-            </p>
+              {/* Subtítulo con lectura limpia y espaciosa */}
+              <p className="text-base sm:text-xl text-gray-300 font-light leading-relaxed max-w-2xl pt-1">
+                Nuestras unidades estratégicas de negocio: alimentos de consumo masivo que acompañan a la familia y el complejo salinero solar más importante de Venezuela.
+              </p>
+            </FadeIn>
           </div>
         </section>
 
@@ -105,10 +182,11 @@ export default function ProductosPage() {
           {/* ----------------------------------------------------
               CATEGORÍA 01: DIVISIÓN ALIMENTOS (Layout Horizontal)
              ---------------------------------------------------- */}
-          <div
-            id="categoria-alimentos"
-            className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
-          >
+          <FadeIn>
+            <div
+              id="categoria-alimentos"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+            >
             {/* Columna Texto & Marcas (7 cols) */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
               <div className="space-y-3">
@@ -126,7 +204,7 @@ export default function ProductosPage() {
                 </p>
               </div>
 
-              {/* Showcase de las 7 Marcas con Pips Oficiales de Color */}
+              {/* Showcase de Marcas con Pips Oficiales de Color */}
               <div className="space-y-3 pt-2">
                 <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block">
                   Marcas que integran la división
@@ -147,10 +225,10 @@ export default function ProductosPage() {
                 </div>
               </div>
 
-              {/* Botón de Enlace a la Página en Construcción */}
+              {/* Botón de Enlace a la División Alimentos */}
               <div className="pt-2">
                 <Link
-                  href="/en-construccion"
+                  href="/productos/alimentos"
                   className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#009539] hover:bg-[#007a3d] text-white font-bold text-sm shadow-xl shadow-[#009539]/25 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
                 >
                   <span>Explorar categoría Alimentos</span>
@@ -173,7 +251,7 @@ export default function ProductosPage() {
                 {/* Badge Flotante Superior */}
                 <div className="absolute top-5 left-5">
                   <span className="px-4 py-2 rounded-2xl bg-white/95 backdrop-blur-md text-[#009539] text-xs font-extrabold uppercase tracking-wider shadow-lg border border-white/60">
-                    7 Marcas Familiares
+                    Marcas Familiares
                   </span>
                 </div>
 
@@ -189,10 +267,12 @@ export default function ProductosPage() {
               </div>
             </div>
           </div>
+        </FadeIn>
 
-          {/* ----------------------------------------------------
-              CATEGORÍA 02: DIVISIÓN PRODUSAL (Layout Horizontal Invertido)
-             ---------------------------------------------------- */}
+        {/* ----------------------------------------------------
+            CATEGORÍA 02: DIVISIÓN PRODUSAL (Layout Horizontal Invertido)
+           ---------------------------------------------------- */}
+        <FadeIn>
           <div
             id="categoria-produsal"
             className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
@@ -235,9 +315,19 @@ export default function ProductosPage() {
                   <span>02 • Sal Solar & Industria</span>
                 </span>
                 
-                <h2 className="text-3xl sm:text-5xl font-black text-[#1a3c6a] tracking-tight leading-tight">
-                  División Produsal
-                </h2>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <h2 className="text-3xl sm:text-5xl font-black text-[#1a3c6a] tracking-tight leading-tight">
+                    División Produsal
+                  </h2>
+                  <div className="h-10 w-36 bg-white rounded-xl p-1.5 border border-slate-200/80 shadow-xs relative overflow-hidden shrink-0">
+                    <Image
+                      src="/images/productos/PRODUSAL-LOGO.webp"
+                      alt="Logo Oficial Produsal"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
 
                 <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed">
                   Operamos uno de los complejos de evaporación solar marina más modernos de Latinoamérica. Aprovechamos la radiación solar y los vientos alisios del Zulia para cosechar sal marina de máxima pureza, abasteciendo tanto a los hogares como a las principales industrias químicas y alimentarias del país.
@@ -265,10 +355,10 @@ export default function ProductosPage() {
                 </div>
               </div>
 
-              {/* Botón de Enlace a la Página en Construcción */}
+              {/* Botón de Enlace a la División Produsal */}
               <div className="pt-2">
                 <Link
-                  href="/en-construccion"
+                  href="/productos/produsal"
                   className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#02afab] hover:bg-[#009539] text-white font-bold text-sm shadow-xl shadow-[#02afab]/25 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
                 >
                   <span>Explorar categoría Produsal</span>
@@ -277,6 +367,7 @@ export default function ProductosPage() {
               </div>
             </div>
           </div>
+        </FadeIn>
 
         </section>
 
@@ -284,7 +375,7 @@ export default function ProductosPage() {
             3. SECCIÓN DE CONTACTO: Diseño Completo y Equilibrado
            ======================================================== */}
         <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#f4f8fb] via-white to-[#f7faf8] border-t border-slate-200/80">
-          <div className="max-w-7xl mx-auto space-y-12">
+          <FadeIn className="max-w-7xl mx-auto space-y-12">
             {/* Encabezado de la sección */}
             <div className="max-w-2xl space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
@@ -388,7 +479,7 @@ export default function ProductosPage() {
               </div>
 
             </div>
-          </div>
+          </FadeIn>
         </section>
       </main>
 

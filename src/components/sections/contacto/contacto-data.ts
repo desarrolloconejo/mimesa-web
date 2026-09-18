@@ -25,7 +25,7 @@ export const CONTACTO_DATA = {
     {
       title: "Distribución Nacional",
       detail: "Presencia en los 24 estados del país",
-      subdetail: "Red logística B2B y B2C integrada",
+      subdetail: "Red logística y distribución nacional integrada",
       icon: "Truck",
     },
   ],

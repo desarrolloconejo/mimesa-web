@@ -9,8 +9,14 @@ import { TRABAJA_DATA } from "@/components/sections/trabaja-con-nosotros/trabaja
 import {
   GlowOrb,
   MimesaLeafLime,
+  MimesaLeafGreen,
   MimesaDotCyan,
+  MimesaDotGreen,
+  MimesaDotLime,
+  MimesaSprout,
 } from "@/components/ui/organic-shapes";
+import { ParallaxShape } from "@/components/ui/parallax-shape";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export const metadata = {
   title: "Trabaja con nosotros | Grupo Mimesa - Talento y Oportunidades",
@@ -30,20 +36,69 @@ export default function TrabajaConNosotrosPage() {
         <GlowOrb color="green" className="top-1/3 -right-48 w-[600px] h-[600px] opacity-15" />
         <GlowOrb color="lime" className="bottom-20 left-1/4 w-[550px] h-[550px] opacity-15" />
 
-        {/* Floating Organic Brand Elements */}
-        <div className="absolute top-28 right-8 pointer-events-none hidden xl:block opacity-45">
-          <MimesaLeafLime size={110} />
-        </div>
-        <div className="absolute top-1/2 left-6 pointer-events-none hidden xl:block opacity-50">
-          <MimesaDotCyan size={42} />
-        </div>
+        {/* Parallax Floating Organic Brand Elements */}
+        <ParallaxShape
+          speed={-0.14}
+          floatAnimation="gentle"
+          className="top-24 right-8 lg:right-16 hidden lg:block opacity-45"
+        >
+          <MimesaLeafLime size={115} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.18}
+          floatAnimation="reverse"
+          className="top-36 left-10 hidden lg:block opacity-40"
+        >
+          <MimesaDotGreen size={36} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.16}
+          floatAnimation="reverse"
+          className="top-[46%] left-6 hidden lg:block opacity-50"
+        >
+          <MimesaDotCyan size={44} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.2}
+          floatAnimation="sway"
+          className="top-[54%] -right-4 hidden lg:block opacity-40"
+        >
+          <MimesaLeafGreen size={100} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.1}
+          floatAnimation="gentle"
+          className="bottom-40 left-10 hidden lg:block opacity-35"
+        >
+          <MimesaLeafLime size={85} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.15}
+          floatAnimation="reverse"
+          className="bottom-28 right-12 hidden lg:block opacity-45"
+        >
+          <MimesaDotLime size={38} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.06}
+          floatAnimation="none"
+          className="top-[40%] right-1/4 hidden xl:block opacity-[0.04]"
+        >
+          <MimesaSprout size={460} />
+        </ParallaxShape>
 
         {/* ========================================================
-            1. HERO HEADER: Editorial, Espacioso y con Mayor Margen a la Derecha
+            1. HERO HEADER: Misma Altura y Espacio Generoso que Sobre Nosotros y Productos
            ======================================================== */}
-        <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
+        <section className="relative min-h-[580px] sm:min-h-[660px] lg:min-h-[740px] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 lg:pb-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs font-semibold text-gray-400 mb-10 select-none">
+          <nav className="flex items-center gap-2 text-xs font-semibold text-gray-400 mb-8 sm:mb-12 select-none">
             <Link href="/" className="hover:text-[#02afab] transition-colors">
               Inicio
             </Link>
@@ -51,7 +106,7 @@ export default function TrabajaConNosotrosPage() {
             <span className="text-[#1a3c6a] font-bold">Trabaja con nosotros</span>
           </nav>
 
-          <div className="max-w-4xl space-y-6 sm:space-y-8">
+          <FadeIn className="max-w-4xl space-y-6 sm:space-y-8">
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block">
               {TRABAJA_DATA.badge}
             </span>
@@ -68,7 +123,7 @@ export default function TrabajaConNosotrosPage() {
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 font-light leading-relaxed max-w-xl pt-1">
               En Grupo Mimesa creemos en el poder transformador de las personas. Fomentamos un entorno de trabajo colaborativo, de constante aprendizaje y orientado al mérito, donde cada talento suma al bienestar y la nutrición de nuestro país.
             </p>
-          </div>
+          </FadeIn>
         </section>
 
         {/* ========================================================
@@ -78,7 +133,7 @@ export default function TrabajaConNosotrosPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
             
             {/* Columna Izquierda: Información de Oportunidades y Canales (Mismo tamaño que el formulario) */}
-            <div className="w-full flex flex-col justify-between space-y-8 py-2">
+            <FadeIn direction="right" className="w-full flex flex-col justify-between space-y-8 py-2">
               <div className="space-y-3 pr-4 sm:pr-8 lg:pr-10">
                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539]">
                   Oportunidades de Empleo
@@ -151,12 +206,12 @@ export default function TrabajaConNosotrosPage() {
                 </div>
               </div>
 
-            </div>
+            </FadeIn>
 
             {/* Columna Derecha: Formulario de Postulación de Talento (Mismo tamaño que la izquierda) */}
-            <div className="w-full h-full">
+            <FadeIn direction="left" delay={100} className="w-full h-full">
               <TrabajaForm className="h-full" />
-            </div>
+            </FadeIn>
 
           </div>
         </section>

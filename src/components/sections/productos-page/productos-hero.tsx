@@ -53,7 +53,7 @@ export function ProductosHero({ activeCategory, onSelectCategory }: ProductosHer
 
           <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed max-w-3xl">
             Nuestra organización posee dos grandes negocios: la división de{" "}
-            <strong className="font-semibold text-gray-900">Alimentos de consumo masivo</strong>, con 7 marcas de
+            <strong className="font-semibold text-gray-900">Alimentos de consumo masivo</strong>, con marcas de
             arraigo en la familia, y la división{" "}
             <strong className="font-semibold text-gray-900">Produsal</strong>, el complejo salinero solar de Los
             Olivitos que abastece a la industria y al consumo nacional.
@@ -63,9 +63,9 @@ export function ProductosHero({ activeCategory, onSelectCategory }: ProductosHer
         {/* Highlights Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-2">
           <div className="p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-xs">
-            <span className="text-xl sm:text-2xl font-black text-[#009539] block">7 Marcas</span>
+            <span className="text-xl sm:text-2xl font-black text-[#009539] block">Marcas</span>
             <span className="text-[11px] text-gray-500 font-medium leading-tight block mt-0.5">
-              Consumo Masivo B2C
+              Consumo Masivo
             </span>
           </div>
           <div className="p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-xs">
@@ -127,7 +127,7 @@ export function ProductosHero({ activeCategory, onSelectCategory }: ProductosHer
                   activeCategory === "alimentos" ? "bg-white/20 text-white" : "bg-[#009539]/10 text-[#009539]"
                 }`}
               >
-                7 marcas
+                Marcas
               </span>
             </button>
 

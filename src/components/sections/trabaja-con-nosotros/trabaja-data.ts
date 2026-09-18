@@ -57,7 +57,7 @@ export const TRABAJA_DATA = {
       detail: "Distribución nacional, almacenamiento estratégico, flota y despacho a los 24 estados.",
     },
     {
-      name: "Comercial, Ventas B2B & B2C",
+      name: "Comercial, Ventas y Distribución",
       detail: "Atención a distribuidores mayoristas, cadenas de retail e industrias alimentarias.",
     },
     {

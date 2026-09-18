@@ -110,6 +110,46 @@ export function MimesaDotCyan({ className = "", size = 50, opacity = 1 }: BrandS
 }
 
 /**
+ * Individual Green Dot (#009539)
+ */
+export function MimesaDotGreen({ className = "", size = 44, opacity = 1 }: BrandShapeProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`inline-block select-none pointer-events-none drop-shadow-sm ${className}`}
+      style={{ opacity }}
+      aria-hidden="true"
+    >
+      <circle cx="20" cy="20" r="18" fill="#009539" />
+    </svg>
+  );
+}
+
+/**
+ * Individual Lime Dot (#94c11e)
+ */
+export function MimesaDotLime({ className = "", size = 40, opacity = 1 }: BrandShapeProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`inline-block select-none pointer-events-none drop-shadow-sm ${className}`}
+      style={{ opacity }}
+      aria-hidden="true"
+    >
+      <circle cx="20" cy="20" r="18" fill="#94c11e" />
+    </svg>
+  );
+}
+
+/**
  * Ambient Glow Orb
  */
 export function GlowOrb({

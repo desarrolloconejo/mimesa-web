@@ -34,15 +34,15 @@ export function AlimentosEditorial() {
             </h3>
           </ParallaxElement>
           <ParallaxElement speed={0.12} fadeEffect="in-out">
-            <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-              Una selección líder de marcas B2C y B2B que aportan sabor, nutrición y calidad garantizada en cada mesa venezolana.
+            <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
+              Una selección líder de marcas de consumo y soluciones industriales que aportan sabor, nutrición y calidad garantizada en cada mesa venezolana.
             </p>
           </ParallaxElement>
         </div>
 
         <ParallaxElement speed={0.06}>
           <Link
-            href="/en-construccion"
+            href="/productos/alimentos"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1a3c6a]/5 hover:bg-[#1a3c6a] text-[#1a3c6a] hover:text-white text-xs sm:text-sm font-bold transition-all duration-300 w-fit group shadow-xs hover:-translate-y-0.5 cursor-pointer"
           >
             <span>Ver catálogo de marcas</span>
@@ -69,7 +69,7 @@ export function AlimentosEditorial() {
                 </span>
               </div>
               <span className="text-[11px] font-bold text-[#02afab] bg-[#02afab]/10 px-2.5 py-0.5 rounded-full shrink-0">
-                7 Marcas
+                Marcas Líderes
               </span>
             </div>
           </ParallaxElement>
@@ -198,7 +198,7 @@ export function AlimentosEditorial() {
                   </p>
                 </div>
                 <Link
-                  href="/en-construccion"
+                  href="/productos/alimentos"
                   className="p-2 sm:p-2.5 rounded-xl bg-[#02afab] hover:bg-[#009539] text-white transition-colors shadow-md cursor-pointer shrink-0 ml-2"
                   aria-label="Ver productos"
                 >

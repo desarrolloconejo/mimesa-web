@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
-import { X, Menu, ArrowRight, Lock, Mail, ChevronDown } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { X, Menu, ArrowRight, Lock, Mail, ChevronDown, MessageCircle } from "lucide-react";
 import { ALIMENTOS_BRANDS } from "@/components/sections/productos/productos-data";
 
 interface NavItem {
@@ -17,33 +18,68 @@ interface MobileNavProps {
 }
 
 export function MobileNav({ navItems }: MobileNavProps) {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [productsExpanded, setProductsExpanded] = useState(false);
   const [alimentosExpanded, setAlimentosExpanded] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  const isItemActive = (href: string) => {
+    if (!pathname) return false;
+    if (href === "/") {
+      return pathname === "/";
+    }
+    if (href === "/productos") {
+      return (
+        pathname === "/productos" ||
+        pathname.startsWith("/productos/") ||
+        pathname === "/alimentos" ||
+        pathname === "/produsal"
+      );
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const isAlimentosActive = pathname === "/productos/alimentos" || pathname === "/alimentos";
+  const isProdusalActive = pathname === "/productos/produsal" || pathname === "/produsal";
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Prevent background scroll when mobile menu is open
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  // Prevent background scroll when mobile menu is open without layout shift
   useEffect(() => {
     if (isOpen) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
     } else {
       document.body.style.overflow = "unset";
+      document.body.style.paddingRight = "unset";
     }
     return () => {
       document.body.style.overflow = "unset";
+      document.body.style.paddingRight = "unset";
     };
   }, [isOpen]);
 
   const menuDrawer = (
-    <>
+    <div
+      className={`fixed inset-0 z-[9999] overflow-hidden transition-all duration-300 ${
+        isOpen ? "pointer-events-auto visible" : "pointer-events-none invisible"
+      }`}
+    >
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-[9998] bg-[#0a182b]/80 backdrop-blur-md transition-opacity duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`absolute inset-0 bg-[#0a182b]/80 backdrop-blur-md transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "opacity-0"
         }`}
         onClick={() => setIsOpen(false)}
         aria-hidden="true"
@@ -51,7 +87,7 @@ export function MobileNav({ navItems }: MobileNavProps) {
 
       {/* Fullscreen Animated Drawer */}
       <div
-        className={`fixed inset-y-0 right-0 z-[9999] w-full max-w-[320px] sm:max-w-sm bg-white shadow-2xl flex flex-col justify-between p-6 transition-transform duration-300 ease-out transform ${
+        className={`absolute inset-y-0 right-0 w-full max-w-[320px] sm:max-w-sm bg-white shadow-2xl flex flex-col justify-between p-6 transition-transform duration-300 ease-out transform overflow-hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
@@ -80,32 +116,64 @@ export function MobileNav({ navItems }: MobileNavProps) {
             </button>
           </div>
 
-          {/* Nav Links */}
-          <nav className="mt-8 space-y-1.5 overflow-y-auto max-h-[60vh] pr-1">
+          {/* Nav Links sin barras de scroll antiestéticas */}
+          <nav className="mt-8 space-y-1.5 overflow-y-auto max-h-[62vh] pr-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {navItems.map((item, idx) => {
+              const isActive = isItemActive(item.href);
+
               if (item.name === "Productos") {
                 return (
                   <div key={item.name} className="space-y-1">
-                    <div className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl hover:bg-[#02afab]/10 transition-colors group">
+                    <div
+                      className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl transition-all duration-200 group ${
+                        isActive
+                          ? "bg-[#02afab]/12 border border-[#02afab]/25 shadow-xs"
+                          : "hover:bg-[#02afab]/10 border border-transparent"
+                      }`}
+                    >
                       <Link
                         href="/productos"
                         onClick={() => setIsOpen(false)}
-                        className="flex items-center gap-2 flex-1 text-base font-semibold text-[#1a3c6a] group-hover:text-[#02afab] transition-colors"
+                        className={`flex items-center gap-2 flex-1 text-base font-bold transition-colors ${
+                          isActive
+                            ? "text-[#02afab]"
+                            : "text-[#1a3c6a] group-hover:text-[#02afab]"
+                        }`}
+                        aria-current={isActive ? "page" : undefined}
                       >
-                        <span>{item.name}</span>
-                        <span className="text-[10px] uppercase font-extrabold tracking-widest text-[#02afab] bg-[#02afab]/10 px-2 py-0.5 rounded-md">
+                        <span className="flex items-center gap-2">
+                          {item.name}
+                          {isActive && (
+                            <span className="w-2 h-2 rounded-full bg-[#02afab] inline-block animate-pulse" />
+                          )}
+                        </span>
+                        <span
+                          className={`text-[10px] uppercase font-extrabold tracking-widest px-2 py-0.5 rounded-md transition-colors ${
+                            isActive
+                              ? "text-white bg-[#02afab] shadow-xs"
+                              : "text-[#02afab] bg-[#02afab]/10"
+                          }`}
+                        >
                           Ver Todo
                         </span>
                       </Link>
                       <button
                         type="button"
                         onClick={() => setProductsExpanded(!productsExpanded)}
-                        className="p-2 text-gray-400 hover:text-[#02afab] rounded-lg transition-colors cursor-pointer"
+                        className={`p-2 rounded-lg transition-colors cursor-pointer ${
+                          isActive
+                            ? "text-[#02afab] hover:bg-[#02afab]/10"
+                            : "text-gray-400 hover:text-[#02afab]"
+                        }`}
                         aria-label="Desplegar marcas de Productos"
                       >
                         <ChevronDown
                           className={`w-4 h-4 transition-transform duration-200 ${
-                            productsExpanded ? "rotate-180 text-[#02afab]" : ""
+                            productsExpanded
+                              ? "rotate-180 text-[#02afab]"
+                              : isActive
+                              ? "text-[#02afab]"
+                              : ""
                           }`}
                         />
                       </button>
@@ -116,11 +184,18 @@ export function MobileNav({ navItems }: MobileNavProps) {
                       <div className="pl-3 pr-2 py-2 space-y-1.5 bg-gray-50/90 rounded-2xl border border-gray-100 animate-fade-in text-xs">
                         {/* Sub-Accordion: Alimentos with Brands */}
                         <div className="space-y-1">
-                          <div className="flex items-center justify-between px-3 py-2 rounded-xl text-gray-800 hover:text-[#009539] font-semibold text-xs">
+                          <div
+                            className={`flex items-center justify-between px-3 py-2 rounded-xl font-semibold text-xs transition-colors ${
+                              isAlimentosActive
+                                ? "bg-[#009539]/12 text-[#009539] font-bold border border-[#009539]/20"
+                                : "text-gray-800 hover:text-[#009539] hover:bg-gray-100/60"
+                            }`}
+                          >
                             <Link
-                              href="/#productos"
+                              href="/productos/alimentos"
                               onClick={() => setIsOpen(false)}
                               className="flex-1"
+                              aria-current={isAlimentosActive ? "page" : undefined}
                             >
                               Alimentos
                             </Link>
@@ -144,11 +219,31 @@ export function MobileNav({ navItems }: MobileNavProps) {
                               {ALIMENTOS_BRANDS.map((brand) => (
                                 <Link
                                   key={brand.id}
-                                  href="/#productos"
+                                  href={`/productos/alimentos/${brand.id}`}
                                   onClick={() => setIsOpen(false)}
-                                  className="block px-3 py-1.5 rounded-lg text-gray-700 hover:text-[#009539] hover:bg-gray-50 text-xs font-medium"
+                                  className="flex items-center justify-between px-3 py-1.5 rounded-lg text-gray-700 hover:text-[#009539] hover:bg-gray-50 text-xs font-medium transition-colors"
                                 >
-                                  {brand.name}
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    {brand.logoUrl ? (
+                                      <div className="w-5 h-3.5 relative shrink-0">
+                                        <Image
+                                          src={brand.logoUrl}
+                                          alt={brand.name}
+                                          fill
+                                          className="object-contain"
+                                        />
+                                      </div>
+                                    ) : (
+                                      <span
+                                        className="w-1.5 h-1.5 rounded-full shrink-0"
+                                        style={{ backgroundColor: brand.logoColor || "#009539" }}
+                                      />
+                                    )}
+                                    <span className="truncate">{brand.name}</span>
+                                  </div>
+                                  <span className="text-[10px] text-gray-400 font-normal shrink-0 ml-2">
+                                    {brand.category}
+                                  </span>
                                 </Link>
                               ))}
                             </div>
@@ -157,9 +252,14 @@ export function MobileNav({ navItems }: MobileNavProps) {
 
                         {/* Produsal: Direct link, NO dropdown */}
                         <Link
-                          href="/#productos"
+                          href="/productos/produsal"
                           onClick={() => setIsOpen(false)}
-                          className="block px-3 py-2 rounded-xl text-gray-800 hover:text-[#02afab] font-semibold text-xs"
+                          className={`block px-3 py-2 rounded-xl font-semibold text-xs transition-colors ${
+                            isProdusalActive
+                              ? "bg-[#02afab]/12 text-[#02afab] font-bold border border-[#02afab]/20"
+                              : "text-gray-800 hover:text-[#02afab] hover:bg-gray-100/60"
+                          }`}
+                          aria-current={isProdusalActive ? "page" : undefined}
                         >
                           Produsal
                         </Link>
@@ -177,35 +277,50 @@ export function MobileNav({ navItems }: MobileNavProps) {
                   style={{
                     transitionDelay: `${idx * 30}ms`,
                   }}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold text-[#1a3c6a] hover:bg-[#02afab]/10 hover:text-[#02afab] transition-all duration-200 group ${
+                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold transition-all duration-200 group ${
+                    isActive
+                      ? "bg-[#02afab]/12 text-[#02afab] border border-[#02afab]/25 shadow-xs"
+                      : "text-[#1a3c6a] hover:bg-[#02afab]/10 hover:text-[#02afab] border border-transparent font-semibold"
+                  } ${
                     isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
                   }`}
+                  aria-current={isActive ? "page" : undefined}
                 >
-                  <span>{item.name}</span>
-                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#02afab] group-hover:translate-x-1 transition-all" />
+                  <span className="flex items-center gap-2">
+                    {item.name}
+                    {isActive && (
+                      <span className="w-2 h-2 rounded-full bg-[#02afab] inline-block animate-pulse" />
+                    )}
+                  </span>
+                  <ArrowRight
+                    className={`w-4 h-4 transition-all ${
+                      isActive
+                        ? "text-[#02afab] translate-x-0.5"
+                        : "text-gray-400 group-hover:text-[#02afab] group-hover:translate-x-1"
+                    }`}
+                  />
                 </Link>
               );
             })}
           </nav>
         </div>
 
-        {/* Action Button at Bottom */}
+        {/* Action Button at Bottom (WhatsApp) */}
         <div className="pt-6 border-t border-gray-100 space-y-3">
           <Link
-            href="/contacto"
+            href="https://wa.me/584120000000"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
             className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-[#02afab] hover:bg-[#94c11e] hover:text-[#0a182b] text-white transition-all duration-300 shadow-md shadow-[#02afab]/25"
           >
-            <Mail className="w-4 h-4" />
+            <MessageCircle className="w-4 h-4" />
             <span>Contáctanos</span>
           </Link>
 
-          <p className="text-center text-xs text-gray-400 pt-2 font-light">
-            MIMESA Alimentos C.A.
-          </p>
         </div>
       </div>
-    </>
+    </div>
   );
 
   return (

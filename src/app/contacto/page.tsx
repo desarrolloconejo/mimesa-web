@@ -13,8 +13,14 @@ import { ContactoForm } from "@/components/sections/contacto/contacto-form";
 import {
   GlowOrb,
   MimesaLeafLime,
+  MimesaLeafGreen,
   MimesaDotCyan,
+  MimesaDotGreen,
+  MimesaDotLime,
+  MimesaSprout,
 } from "@/components/ui/organic-shapes";
+import { ParallaxShape } from "@/components/ui/parallax-shape";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export const metadata = {
   title: "Contacto | Grupo Mimesa - Producción y Distribución de Alimentos",
@@ -34,20 +40,69 @@ export default function ContactoPage() {
         <GlowOrb color="green" className="top-1/3 -right-48 w-[600px] h-[600px] opacity-15" />
         <GlowOrb color="lime" className="bottom-20 left-1/4 w-[550px] h-[550px] opacity-15" />
 
-        {/* Floating Organic Brand Elements */}
-        <div className="absolute top-28 right-8 pointer-events-none hidden xl:block opacity-45">
-          <MimesaLeafLime size={110} />
-        </div>
-        <div className="absolute top-1/2 left-6 pointer-events-none hidden xl:block opacity-50">
-          <MimesaDotCyan size={42} />
-        </div>
+        {/* Parallax Floating Organic Brand Elements */}
+        <ParallaxShape
+          speed={-0.12}
+          floatAnimation="gentle"
+          className="top-24 right-8 lg:right-16 hidden lg:block opacity-45"
+        >
+          <MimesaLeafLime size={115} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.16}
+          floatAnimation="reverse"
+          className="top-40 left-8 hidden lg:block opacity-40"
+        >
+          <MimesaDotGreen size={38} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.18}
+          floatAnimation="reverse"
+          className="top-[45%] left-6 hidden lg:block opacity-50"
+        >
+          <MimesaDotCyan size={46} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.22}
+          floatAnimation="sway"
+          className="top-[52%] -right-4 hidden lg:block opacity-40"
+        >
+          <MimesaLeafGreen size={105} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.1}
+          floatAnimation="gentle"
+          className="bottom-48 left-12 hidden lg:block opacity-35"
+        >
+          <MimesaLeafLime size={90} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.14}
+          floatAnimation="reverse"
+          className="bottom-32 right-14 hidden lg:block opacity-45"
+        >
+          <MimesaDotLime size={36} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.05}
+          floatAnimation="none"
+          className="top-[35%] right-1/4 hidden xl:block opacity-[0.04]"
+        >
+          <MimesaSprout size={480} />
+        </ParallaxShape>
 
         {/* ========================================================
-            1. HERO HEADER: Amplio, Editorial y con Espacio Generoso
+            1. HERO HEADER: Misma Altura y Espacio Generoso que Sobre Nosotros y Productos
            ======================================================== */}
-        <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
+        <section className="relative min-h-[580px] sm:min-h-[660px] lg:min-h-[740px] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 lg:pb-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs font-semibold text-gray-400 mb-10 select-none">
+          <nav className="flex items-center gap-2 text-xs font-semibold text-gray-400 mb-8 sm:mb-12 select-none">
             <Link href="/" className="hover:text-[#02afab] transition-colors">
               Inicio
             </Link>
@@ -55,25 +110,25 @@ export default function ContactoPage() {
             <span className="text-[#1a3c6a] font-bold">Contacto</span>
           </nav>
 
-          <div className="max-w-4xl space-y-6 sm:space-y-8">
-            {/* Kicker Editorial: Solo Color y Texto */}
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
-              Canales de Atención Directa
-            </span>
-
-            {/* Título Principal con Espacio Respirable */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#1a3c6a] tracking-tight leading-[1.06]">
-              Ponte en contacto <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#02afab] via-[#009539] to-[#94c11e]">
-                con Grupo Mimesa
+            <FadeIn className="max-w-4xl space-y-6 sm:space-y-8">
+              {/* Kicker Editorial: Solo Color y Texto */}
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+                Canales de Atención Directa
               </span>
-            </h1>
 
-            {/* Texto Descriptivo con Mayor Separación */}
-            <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-2xl pt-2">
-              Nuestro equipo comercial, agroindustrial y administrativo está a tu entera disposición para atender requerimientos comerciales, distribución nacional o alianzas estratégicas en toda Venezuela.
-            </p>
-          </div>
+              {/* Título Principal con Espacio Respirable */}
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#1a3c6a] tracking-tight leading-[1.06]">
+                Ponte en contacto <br className="hidden sm:inline" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#02afab] via-[#009539] to-[#94c11e]">
+                  con Grupo Mimesa
+                </span>
+              </h1>
+
+              {/* Texto Descriptivo con Mayor Separación */}
+              <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-2xl pt-2">
+                Nuestro equipo comercial, agroindustrial y administrativo está a tu entera disposición para atender requerimientos comerciales, distribución nacional o alianzas estratégicas en toda Venezuela.
+              </p>
+            </FadeIn>
         </section>
 
         {/* ========================================================
@@ -83,7 +138,7 @@ export default function ContactoPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left Column: Canales Oficiales en Formato Editorial Abierto (Sin cajas ni bordes) */}
-            <div className="lg:col-span-5 space-y-10 py-2">
+            <FadeIn direction="right" className="lg:col-span-5 space-y-10 py-2">
               <div className="space-y-2">
                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab]">
                   Información Institucional
@@ -176,20 +231,19 @@ export default function ContactoPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Right Column: Formulario con Diseño Suave y Elevado (Sin bordes duros) */}
-            <div className="lg:col-span-7">
+            <FadeIn direction="left" delay={100} className="lg:col-span-7">
               <ContactoForm
                 variant="light"
                 title="Formulario de Contacto"
                 subtitle="Selecciona tu área de interés y completa tus datos. Te contactaremos oportunamente."
               />
-            </div>
+            </FadeIn>
 
           </div>
         </section>
-
 
       </main>
 

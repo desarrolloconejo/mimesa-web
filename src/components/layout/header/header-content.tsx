@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Lock, Mail, ChevronRight } from "lucide-react";
 import { MobileNav } from "./mobile-nav";
 import { ProductsDropdown } from "./products-dropdown";
@@ -20,6 +21,24 @@ interface HeaderContentProps {
 }
 
 export function HeaderContent({ isScrolled }: HeaderContentProps) {
+  const pathname = usePathname();
+
+  const isItemActive = (href: string) => {
+    if (!pathname) return false;
+    if (href === "/") {
+      return pathname === "/";
+    }
+    if (href === "/productos") {
+      return (
+        pathname === "/productos" ||
+        pathname.startsWith("/productos/") ||
+        pathname === "/alimentos" ||
+        pathname === "/produsal"
+      );
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between h-16 md:h-20 gap-3 xl:gap-4 transition-all duration-300">
@@ -46,26 +65,41 @@ export function HeaderContent({ isScrolled }: HeaderContentProps) {
           className="hidden lg:flex items-center gap-1 xl:gap-2 whitespace-nowrap flex-shrink min-w-0"
           aria-label="Navegación principal"
         >
-          {NAV_ITEMS.map((item) =>
-            item.name === "Productos" ? (
-              <ProductsDropdown key={item.name} />
-            ) : (
+          {NAV_ITEMS.map((item) => {
+            const isActive = isItemActive(item.href);
+
+            if (item.name === "Productos") {
+              return <ProductsDropdown key={item.name} isActive={isActive} />;
+            }
+
+            return (
               <Link
                 key={item.name}
                 href={item.href}
-                className="whitespace-nowrap px-2.5 xl:px-3 py-1.5 text-[13px] xl:text-sm font-medium text-[#1a3c6a] hover:text-[#02afab] hover:bg-[#02afab]/8 rounded-lg transition-all duration-200 relative group"
+                className={`whitespace-nowrap px-2.5 xl:px-3 py-1.5 text-[13px] xl:text-sm font-semibold rounded-lg transition-all duration-200 relative group ${
+                  isActive
+                    ? "text-[#02afab] bg-[#02afab]/10 font-bold"
+                    : "text-[#1a3c6a] hover:text-[#02afab] hover:bg-[#02afab]/8 font-medium"
+                }`}
+                aria-current={isActive ? "page" : undefined}
               >
                 {item.name}
-                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#02afab] rounded-full transition-all duration-300 group-hover:w-3/4" />
+                <span
+                  className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-[#02afab] rounded-full transition-all duration-300 ${
+                    isActive ? "w-3/4" : "w-0 group-hover:w-3/4"
+                  }`}
+                />
               </Link>
-            )
-          )}
+            );
+          })}
         </nav>
 
-        {/* Desktop CTA Action Button */}
+        {/* Desktop CTA Action Button (WhatsApp) */}
         <div className="hidden lg:flex items-center flex-shrink-0 whitespace-nowrap">
           <Link
-            href="/contacto"
+            href="https://wa.me/584120000000"
+            target="_blank"
+            rel="noopener noreferrer"
             id="btn-contactanos"
             className="group whitespace-nowrap flex items-center gap-1.5 px-5 py-2 rounded-full text-xs xl:text-sm font-semibold text-white bg-[#02afab] hover:bg-[#94c11e] hover:text-[#0a182b] transition-all duration-300 shadow-sm shadow-[#02afab]/25 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
           >

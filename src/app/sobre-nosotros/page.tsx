@@ -19,8 +19,14 @@ import { IDENTIDAD_DATA } from "@/components/sections/identidad/identidad-data";
 import {
   GlowOrb,
   MimesaLeafLime,
+  MimesaLeafGreen,
   MimesaDotCyan,
+  MimesaDotGreen,
+  MimesaDotLime,
+  MimesaSprout,
 } from "@/components/ui/organic-shapes";
+import { ParallaxShape } from "@/components/ui/parallax-shape";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export const metadata = {
   title: "Sobre nosotros | Grupo Mimesa - Tradición, Propósito y Futuro",
@@ -42,36 +48,70 @@ export default function SobreNosotrosPage() {
         <GlowOrb color="green" className="top-1/3 -right-48 w-[600px] h-[600px] opacity-15" />
         <GlowOrb color="lime" className="bottom-20 left-1/4 w-[550px] h-[550px] opacity-15" />
 
-        {/* Floating Organic Brand Elements */}
-        <div className="absolute top-28 right-8 pointer-events-none hidden xl:block opacity-45">
-          <MimesaLeafLime size={110} />
-        </div>
-        <div className="absolute top-1/2 left-6 pointer-events-none hidden xl:block opacity-50">
-          <MimesaDotCyan size={42} />
-        </div>
+        {/* Parallax Floating Organic Brand Elements */}
+        <ParallaxShape
+          speed={-0.14}
+          floatAnimation="gentle"
+          className="top-24 right-8 lg:right-16 hidden lg:block opacity-45"
+        >
+          <MimesaLeafLime size={115} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.16}
+          floatAnimation="reverse"
+          className="top-36 left-10 hidden lg:block opacity-40"
+        >
+          <MimesaDotGreen size={38} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.18}
+          floatAnimation="reverse"
+          className="top-[38%] left-6 hidden lg:block opacity-50"
+        >
+          <MimesaDotCyan size={44} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.22}
+          floatAnimation="sway"
+          className="top-[45%] -right-4 hidden lg:block opacity-40"
+        >
+          <MimesaLeafGreen size={105} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.12}
+          floatAnimation="gentle"
+          className="top-[68%] left-8 hidden lg:block opacity-35"
+        >
+          <MimesaLeafLime size={90} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={0.15}
+          floatAnimation="reverse"
+          className="bottom-36 right-12 hidden lg:block opacity-45"
+        >
+          <MimesaDotLime size={36} />
+        </ParallaxShape>
+
+        <ParallaxShape
+          speed={-0.05}
+          floatAnimation="none"
+          className="top-[32%] right-1/4 hidden xl:block opacity-[0.04]"
+        >
+          <MimesaSprout size={500} />
+        </ParallaxShape>
 
         {/* ========================================================
-            1. HERO INSTITUCIONAL: Mayor Altura, Fondo Fotográfico Nítido y Título en 2 Líneas
+            1. HERO INSTITUCIONAL: Editorial, Limpio y con Misma Altura que los demás
            ======================================================== */}
-        <section className="relative min-h-[580px] sm:min-h-[660px] lg:min-h-[740px] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 lg:pb-36 px-4 sm:px-6 lg:px-8 overflow-hidden z-10">
-          {/* Fotografía de Fondo con Overlay Transparente Más Liviano */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/agro-campo.jpg"
-              alt="Campos agrícolas de Grupo Mimesa en Venezuela"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="100vw"
-            />
-            {/* Gradiente multi-capa con menor opacidad blanca para mayor visibilidad del paisaje */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent sm:to-black/5" />
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/25" />
-          </div>
-
+        <section className="relative min-h-[580px] sm:min-h-[660px] lg:min-h-[740px] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 lg:pb-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full z-10">
           <div className="relative z-10 max-w-7xl mx-auto w-full">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-xs font-semibold text-gray-600 mb-8 sm:mb-12 select-none">
+            <nav className="flex items-center gap-2 text-xs font-semibold text-gray-400 mb-8 sm:mb-12 select-none">
               <Link href="/" className="hover:text-[#02afab] transition-colors">
                 Inicio
               </Link>
@@ -79,7 +119,7 @@ export default function SobreNosotrosPage() {
               <span className="text-[#1a3c6a] font-bold">Sobre nosotros</span>
             </nav>
 
-            <div className="max-w-4xl space-y-6 sm:space-y-8">
+            <FadeIn className="max-w-4xl space-y-6 sm:space-y-8">
               {/* Kicker Editorial: Solo Color y Texto */}
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
                 Tradición & Excelencia Agroalimentaria
@@ -94,10 +134,10 @@ export default function SobreNosotrosPage() {
               </h1>
 
               {/* Texto Descriptivo con Espacio Respirable a la Derecha */}
-              <p className="text-base sm:text-lg lg:text-xl text-gray-800 font-medium leading-relaxed max-w-2xl pr-4 sm:pr-8 pt-1">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 font-light leading-relaxed max-w-2xl pr-4 sm:pr-8 pt-1">
                 Somos un grupo empresarial venezolano especializado en la producción, transformación y comercialización de alimentos esenciales. Unimos la fuerza productiva de nuestros campos con infraestructura industrial de vanguardia para llevar nutrición y confianza a cada hogar del país.
               </p>
-            </div>
+            </FadeIn>
           </div>
         </section>
 
@@ -112,7 +152,7 @@ export default function SobreNosotrosPage() {
           <div className="relative z-10 max-w-7xl mx-auto space-y-14 sm:space-y-18">
             
             {/* Cabecera de Propósito */}
-            <div className="max-w-3xl space-y-3">
+            <FadeIn className="max-w-3xl space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda]">
                 Nuestra Esencia y Propósito
               </span>
@@ -125,39 +165,42 @@ export default function SobreNosotrosPage() {
               <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed pt-1">
                 {IDENTIDAD_DATA.proposito.description}
               </p>
-            </div>
+            </FadeIn>
 
             {/* 4 Valores en Tarjetas Flotantes en Tonos Oscuros */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {IDENTIDAD_DATA.valores.map((valor, idx) => {
                 const IconComponent = valorIcons[idx] ?? Shield;
                 return (
-                  <div
+                  <FadeIn
                     key={valor.id}
-                    className="p-6 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-[#02afab]/40 transition-all duration-300 space-y-4 group shadow-sm"
+                    delay={idx * 90}
+                    className="p-6 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-[#02afab]/40 transition-all duration-300 space-y-4 group shadow-sm flex flex-col justify-between"
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-white/10 group-hover:bg-[#02afab] text-[#30deda] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm">
-                        <IconComponent className="w-5 h-5" />
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-2xl bg-white/10 group-hover:bg-[#02afab] text-[#30deda] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm">
+                          <IconComponent className="w-5 h-5" />
+                        </div>
+                        <span className="text-2xl font-black text-white/20 group-hover:text-[#30deda] transition-colors">
+                          {valor.number}
+                        </span>
                       </div>
-                      <span className="text-2xl font-black text-white/20 group-hover:text-[#30deda] transition-colors">
-                        {valor.number}
-                      </span>
-                    </div>
 
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#4ade80] block">
-                        {valor.shortTag}
-                      </span>
-                      <h3 className="text-xl font-bold text-white group-hover:text-[#30deda] transition-colors">
-                        {valor.title}
-                      </h3>
-                    </div>
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#4ade80] block">
+                          {valor.shortTag}
+                        </span>
+                        <h3 className="text-xl font-bold text-white group-hover:text-[#30deda] transition-colors">
+                          {valor.title}
+                        </h3>
+                      </div>
 
-                    <p className="text-sm text-slate-300 font-light leading-relaxed">
-                      {valor.description}
-                    </p>
-                  </div>
+                      <p className="text-sm text-slate-300 font-light leading-relaxed">
+                        {valor.description}
+                      </p>
+                    </div>
+                  </FadeIn>
                 );
               })}
             </div>
@@ -172,7 +215,7 @@ export default function SobreNosotrosPage() {
           <div className="space-y-12 sm:space-y-16">
             
             {/* Cabecera de Trayectoria */}
-            <div className="text-center max-w-2xl mx-auto space-y-3">
+            <FadeIn className="text-center max-w-2xl mx-auto space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539]">
                 Nuestra Historia
               </span>
@@ -185,10 +228,12 @@ export default function SobreNosotrosPage() {
               <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
                 Descubre cada etapa de nuestro crecimiento: desde las primeras moliendas en 1978 hasta consolidarnos como un grupo agroalimentario integral al servicio de toda Venezuela.
               </p>
-            </div>
+            </FadeIn>
 
             {/* Componente de Línea de Tiempo Completa */}
-            <TimelineFull />
+            <FadeIn delay={120}>
+              <TimelineFull />
+            </FadeIn>
 
           </div>
         </section>
@@ -200,7 +245,7 @@ export default function SobreNosotrosPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
             
             {/* Columna Izquierda: Presencia y Canales Oficiales */}
-            <div className="w-full flex flex-col justify-between space-y-8 py-2">
+            <FadeIn direction="right" className="w-full flex flex-col justify-between space-y-8 py-2">
               <div className="space-y-3 pr-4 sm:pr-8">
                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab]">
                   Conexión Institucional
@@ -287,17 +332,17 @@ export default function SobreNosotrosPage() {
                 </div>
               </div>
 
-            </div>
+            </FadeIn>
 
             {/* Columna Derecha: Formulario Reutilizable de Contacto (Mismo tamaño) */}
-            <div className="w-full h-full">
+            <FadeIn direction="left" delay={100} className="w-full h-full">
               <ContactoForm
                 variant="light"
                 title="Ponte en contacto"
                 subtitle="Envíanos tus requerimientos o solicitudes y nuestro equipo responderá a la brevedad."
                 className="h-full"
               />
-            </div>
+            </FadeIn>
 
           </div>
         </section>

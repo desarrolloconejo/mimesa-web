@@ -29,7 +29,7 @@ export function DualShowcase({ onSelectCategory }: DualShowcaseProps) {
                 <span>01 • Consumo Masivo</span>
               </span>
               <span className="text-xs font-bold text-gray-500 bg-slate-100 px-2.5 py-1 rounded-full">
-                7 Marcas Líderes
+                Marcas Líderes
               </span>
             </div>
 

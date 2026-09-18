@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Check, Utensils, Sparkles, Heart } from "lucide-react";
 import { ALIMENTOS_BRANDS, BrandItem } from "../productos/productos-data";
 
@@ -82,6 +83,14 @@ export function AlimentosCatalog() {
       ? ALIMENTOS_BRANDS
       : ALIMENTOS_BRANDS.filter((brand) => brand.category === selectedCategory);
 
+  const handleCategoryChange = (catId: string) => {
+    const currentY = window.scrollY;
+    setSelectedCategory(catId);
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: currentY, behavior: "instant" });
+    });
+  };
+
   return (
     <section id="seccion-alimentos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       {/* Section Header */}
@@ -91,7 +100,7 @@ export function AlimentosCatalog() {
             01 • Portafolio de Alimentos
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
-            Nuestras 7 Marcas de Consumo Masivo
+            Nuestras Marcas de Consumo Masivo
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
             Una selección de marcas icónicas que forman parte de la mesa de las familias venezolanas, combinando tecnología de molienda y empaque con los más altos estándares de calidad e inocuidad.
@@ -104,7 +113,7 @@ export function AlimentosCatalog() {
             <button
               key={cat.id}
               type="button"
-              onClick={() => setSelectedCategory(cat.id)}
+              onClick={() => handleCategoryChange(cat.id)}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all duration-150 cursor-pointer ${
                 selectedCategory === cat.id
                   ? "bg-[#009539] text-white shadow-xs"
@@ -124,8 +133,8 @@ export function AlimentosCatalog() {
         </div>
       </div>
 
-      {/* Brands Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
+      {/* Brands Cards Grid con min-height estable para prevenir colapso de scroll */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-10 min-h-[500px]">
         {filteredBrands.map((brand) => {
           const detail = BRAND_DETAILS[brand.id] || {
             specs: ["Calidad certificada Mimesa", "Consumo masivo", "Nutrición familiar"],
@@ -144,24 +153,35 @@ export function AlimentosCatalog() {
               />
 
               <div className="p-6 sm:p-7 space-y-5">
-                {/* Header: Brand Name + Category Badge */}
+                {/* Header: Brand Name / Logo + Category Badge */}
                 <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
+                    {brand.logoUrl ? (
+                      <div className="w-16 h-10 relative bg-slate-50 border border-slate-100 rounded-xl p-1 overflow-hidden shrink-0 shadow-2xs">
+                        <Image
+                          src={brand.logoUrl}
+                          alt={`Logo ${brand.name}`}
+                          fill
+                          className="object-contain p-0.5"
+                        />
+                      </div>
+                    ) : (
                       <span
                         className="w-2.5 h-2.5 rounded-full shrink-0"
                         style={{ backgroundColor: brand.logoColor || "#009539" }}
                       />
+                    )}
+                    <div>
                       <h3
                         className="text-2xl font-black tracking-tight transition-colors"
                         style={{ color: brand.logoColor || "#1a3c6a" }}
                       >
                         {brand.name}
                       </h3>
+                      <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mt-0.5">
+                        {brand.category} • {detail.origin}
+                      </span>
                     </div>
-                    <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mt-1">
-                      {brand.category} • {detail.origin}
-                    </span>
                   </div>
 
                   {brand.badge && (
@@ -199,7 +219,7 @@ export function AlimentosCatalog() {
                   Garantía Grupo Mimesa
                 </span>
                 <Link
-                  href="/en-construccion"
+                  href={`/productos/alimentos/${brand.id}`}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#009539] hover:text-[#007a3d] group/link transition-colors"
                 >
                   <span>Ficha de producto</span>
