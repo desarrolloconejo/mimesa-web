@@ -46,12 +46,17 @@ export function ParallaxElement({
 
     const isMobile = () => window.innerWidth < 1024;
 
+    let currentTranslateY = 0;
+    let currentTranslateX = 0;
+
     const updatePosition = () => {
       if (!el) return;
 
       if (disableOnMobile && isMobile()) {
         el.style.transform = "";
         if (fadeEffect !== "none") el.style.opacity = "";
+        currentTranslateY = 0;
+        currentTranslateX = 0;
         return;
       }
 
@@ -60,8 +65,9 @@ export function ParallaxElement({
       const rect = el.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Relative progress from center of screen (-1.0 = top exit, 0 = viewport center, 1.0 = bottom entry)
-      const centerY = rect.top + rect.height / 2;
+      // Subtract currently applied translations to obtain the TRUE untransformed layout position
+      const actualTop = rect.top - currentTranslateY;
+      const centerY = actualTop + rect.height / 2;
       const progress = (centerY - windowHeight / 2) / (windowHeight / 2);
 
       // Deep, fluid, responsive parallax translation
@@ -69,6 +75,9 @@ export function ParallaxElement({
       const translateX = horizontalSpeed !== 0 ? progress * horizontalSpeed * 75 : 0;
       const rotation = rotateSpeed !== 0 ? progress * rotateSpeed * 18 : 0;
       const scale = scaleSpeed !== 0 ? 1 + progress * scaleSpeed * 0.08 : 1;
+
+      currentTranslateY = translateY;
+      currentTranslateX = translateX;
 
       el.style.transform = `translate3d(${translateX.toFixed(1)}px, ${translateY.toFixed(1)}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
     };
@@ -113,6 +122,7 @@ export function ParallaxElement({
       ref={elementRef}
       className={`will-change-transform ${className}`}
       style={{
+        overflowAnchor: "none",
         ...style,
       }}
     >

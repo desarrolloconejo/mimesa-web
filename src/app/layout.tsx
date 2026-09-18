@@ -67,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${outfit.variable} ${montserrat.variable} scroll-smooth`}>
+    <html lang="es" className={`${outfit.variable} ${montserrat.variable}`}>
       <body className="min-h-screen bg-white text-[#0a1118] antialiased selection:bg-[#02afab] selection:text-white">
         {children}
       </body>

@@ -40,26 +40,20 @@ export function ProductosContent() {
       </div>
 
       {/* ========================================================
-          1. General Institutional Header with Layered Parallax
+          1. General Institutional Header
          ======================================================== */}
       <div className="relative z-10 max-w-4xl space-y-5">
-        <ParallaxElement speed={0.22} fadeEffect="in-out">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
-            {PRODUCTOS_INTRO.badge}
-          </span>
-        </ParallaxElement>
+        <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+          {PRODUCTOS_INTRO.badge}
+        </span>
 
-        <ParallaxElement speed={0.16} fadeEffect="in-out">
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#1a3c6a] tracking-tight leading-[1.08]">
-            {PRODUCTOS_INTRO.title}
-          </h2>
-        </ParallaxElement>
+        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#1a3c6a] tracking-tight leading-[1.08]">
+          {PRODUCTOS_INTRO.title}
+        </h2>
 
-        <ParallaxElement speed={0.10} fadeEffect="in-out">
-          <p className="text-base sm:text-xl text-gray-700 font-light leading-relaxed">
-            {PRODUCTOS_INTRO.description}
-          </p>
-        </ParallaxElement>
+        <p className="text-base sm:text-xl text-gray-700 font-light leading-relaxed">
+          {PRODUCTOS_INTRO.description}
+        </p>
       </div>
 
       {/* ========================================================

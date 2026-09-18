@@ -4,7 +4,7 @@ import { MimesaLeafLime } from "@/components/ui/organic-shapes";
 export function AtributosFixedBg() {
   return (
     <div
-      className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0"
+      className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0"
       aria-hidden="true"
     >
       {/* 

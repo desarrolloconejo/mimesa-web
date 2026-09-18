@@ -6,11 +6,13 @@ export function AtributosCtaWrapper() {
   return (
     <section
       id="atributos"
-      className="relative overflow-hidden bg-[#16365f] text-white"
+      className="relative overflow-hidden bg-[#16365f] text-white [clip-path:inset(0_0_0_0)]"
+      style={{ clipPath: "inset(0 0 0 0)" }}
     >
       {/* 
         Fixed Background Canvas:
-        Stays locked to the screen viewport while the user scrolls through this section.
+        Stays 100% locked to the screen viewport via native CSS clip-path windowing.
+        Zero JS, zero scroll lag, zero seams on fast scroll.
       */}
       <AtributosFixedBg />
 

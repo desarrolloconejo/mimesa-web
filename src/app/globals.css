@@ -17,7 +17,9 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+    overflow-anchor: none;
+    overscroll-behavior-y: none;
     font-family: var(--font-outfit), "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
     color: var(--brand-black);
     background-color: #0c223f;
@@ -26,6 +28,8 @@
 
   body {
     overflow-x: clip;
+    overflow-anchor: none;
+    overscroll-behavior-y: none;
   }
 
   ::selection {

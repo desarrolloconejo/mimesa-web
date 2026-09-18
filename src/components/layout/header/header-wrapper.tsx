@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { HeaderContent } from "./header-content";
 
 export function HeaderWrapper() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     let ticking = false;
@@ -17,23 +17,24 @@ export function HeaderWrapper() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           if (currentScrollY > 30) {
-            setIsScrolled(true);
+            setIsScrolled((prev) => (!prev ? true : prev));
           } else {
-            setIsScrolled(false);
+            setIsScrolled((prev) => (prev ? false : prev));
           }
 
           // Smart auto-hide on scroll down, show on scroll up
+          const prevY = lastScrollY.current;
           if (currentScrollY <= 30) {
             setIsVisible(true);
-          } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          } else if (currentScrollY > prevY && currentScrollY > 100) {
             // Scrolling down -> desacoplar (hide smoothly)
             setIsVisible(false);
-          } else if (currentScrollY < lastScrollY) {
-            // Scrolling up -> acoplar (show)
+          } else if (currentScrollY < prevY - 10) {
+            // Scrolling up (with minimum threshold to prevent jitter) -> acoplar (show)
             setIsVisible(true);
           }
 
-          setLastScrollY(currentScrollY);
+          lastScrollY.current = currentScrollY;
           ticking = false;
         });
         ticking = true;
@@ -42,7 +43,7 @@ export function HeaderWrapper() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header
