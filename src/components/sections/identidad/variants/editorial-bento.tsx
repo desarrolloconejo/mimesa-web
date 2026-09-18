@@ -123,7 +123,7 @@ export function EditorialBento() {
           1. HERO DE PROPÓSITO: Imagen fixed al ancho completo y centrado
          ======================================================== */}
       <div
-        className="relative w-full min-h-[500px] sm:min-h-[580px] lg:min-h-[640px] flex items-center justify-center bg-fixed bg-center bg-cover overflow-hidden"
+        className="relative w-full min-h-[500px] sm:min-h-[580px] lg:min-h-[640px] flex items-center justify-center bg-center bg-cover overflow-hidden"
         style={{ backgroundImage: "url('/images/agro-campo.jpg')" }}
       >
         {/* Ambient Dark Gradient Overlay for Maximum Legibility & Warmth */}

@@ -71,40 +71,6 @@ export function ParallaxElement({
       const scale = scaleSpeed !== 0 ? 1 + progress * scaleSpeed * 0.08 : 1;
 
       el.style.transform = `translate3d(${translateX.toFixed(1)}px, ${translateY.toFixed(1)}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
-
-      // Dynamic appear & disappear scroll opacity
-      if (fadeEffect !== "none") {
-        let opacity = 1;
-
-        if (fadeEffect === "in-out") {
-          const distFromCenter = Math.abs(progress);
-          if (distFromCenter <= 0.55) {
-            opacity = 1;
-          } else {
-            const ratio = Math.min(1, Math.max(0, (distFromCenter - 0.55) / 0.70));
-            const smoothFade = (1 + Math.cos(ratio * Math.PI)) / 2;
-            opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
-          }
-        } else if (fadeEffect === "fade-out") {
-          if (progress >= -0.30) {
-            opacity = 1;
-          } else {
-            const exitRatio = Math.min(1, Math.max(0, (Math.abs(progress) - 0.30) / 0.75));
-            const smoothFade = (1 + Math.cos(exitRatio * Math.PI)) / 2;
-            opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
-          }
-        } else if (fadeEffect === "fade-in") {
-          if (progress <= 0.30) {
-            opacity = 1;
-          } else {
-            const enterRatio = Math.min(1, Math.max(0, (progress - 0.30) / 0.75));
-            const smoothFade = (1 + Math.cos(enterRatio * Math.PI)) / 2;
-            opacity = Math.max(0, Math.min(1, smoothFade ** (fadeIntensity || 1)));
-          }
-        }
-
-        el.style.opacity = String(Number(opacity.toFixed(2)));
-      }
     };
 
     const onScroll = () => {

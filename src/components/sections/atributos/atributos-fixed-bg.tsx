@@ -1,61 +1,17 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { MimesaLeafLime } from "@/components/ui/organic-shapes";
 
 export function AtributosFixedBg() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [offsetY, setOffsetY] = useState(0);
-
-  useEffect(() => {
-    let animationFrameId: number;
-
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const parent = containerRef.current.parentElement;
-      if (!parent) return;
-
-      const rect = parent.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Only calculate counter-translation when section is visible or nearby
-      if (rect.bottom >= -150 && rect.top <= windowHeight + 150) {
-        setOffsetY(-rect.top);
-      }
-    };
-
-    const onScroll = () => {
-      cancelAnimationFrame(animationFrameId);
-      animationFrameId = requestAnimationFrame(handleScroll);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
     <div
-      ref={containerRef}
       className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0"
       aria-hidden="true"
     >
       {/* 
-        This inner viewport canvas stays 100% FIXED to the screen via counter-translation,
-        while being clipped to the bounds of the section container.
+        Full-bleed solid corporate background canvas:
+        Always covers 100% of the section area. Zero lag, zero gaps on fast scroll, always present.
       */}
-      <div
-        className="w-full h-screen relative will-change-transform"
-        style={{
-          transform: `translate3d(0, ${offsetY}px, 0)`,
-        }}
-      >
+      <div className="w-full h-full relative">
         {/* Solid Corporate Navy Base */}
         <div className="absolute inset-0 bg-[#16365f]" />
         <div className="absolute inset-0 bg-radial from-transparent via-transparent to-black/25 pointer-events-none" />
@@ -81,7 +37,7 @@ export function AtributosFixedBg() {
           <MimesaLeafLime size={75} />
         </div>
 
-        {/* 4. Elegant Orbital Arc Vectors (Fixed across screen) */}
+        {/* 4. Elegant Orbital Arc Vectors (Across section) */}
         <svg
           viewBox="0 0 1440 900"
           fill="none"
