@@ -17,13 +17,13 @@ export function AtributosCtaContent() {
   return (
     <div className="relative z-10 w-full min-h-[480px] sm:min-h-[560px] md:min-h-[640px] flex flex-col items-center justify-center px-4 sm:px-6 py-28 sm:py-36 md:py-44 overflow-hidden">
       
-      {/* Floating Organic Leaf Accents sobresaliendo on the sides */}
+      {/* Floating Powdery White Leaf Accents on the sides */}
       <div className="absolute top-12 left-8 lg:left-16 pointer-events-none select-none hidden sm:block z-10">
-        <MimesaLeafLime size={95} />
+        <MimesaLeafLime size={95} variant="white" />
       </div>
 
       <div className="absolute bottom-12 right-8 lg:right-16 pointer-events-none select-none hidden sm:block z-10">
-        <MimesaLeafGreen size={90} />
+        <MimesaLeafGreen size={90} variant="white" />
       </div>
 
       {/* Core Typography: Solid, Permanent, Clean */}
@@ -47,7 +47,7 @@ export function AtributosCtaContent() {
           <span className="text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-white/50 group-hover:text-[#30deda] transition-colors duration-300">
             Descubrir
           </span>
-          <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-white/15 border border-white/10 group-hover:border-[#02afab] flex items-center justify-center transition-all duration-300 shadow-sm group-hover:scale-110">
+          <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-white/15 border border-white/10 group-hover:border-[#02aeaa] flex items-center justify-center transition-all duration-300 shadow-sm group-hover:scale-110">
             <ChevronDown className="w-4 h-4 text-[#30deda] group-hover:translate-y-0.5 transition-transform duration-300" />
           </div>
         </a>

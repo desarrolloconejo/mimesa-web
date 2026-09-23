@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/organic-shapes";
 import { ParallaxShape } from "@/components/ui/parallax-shape";
 import { FadeIn } from "@/components/ui/fade-in";
+import { ProductosHero } from "@/components/sections/productos/productos-hero";
 
 export const metadata = {
   title: "Productos | Grupo Mimesa",
@@ -33,146 +34,33 @@ export const metadata = {
 };
 
 const ALIMENTOS_PREVIEW_BRANDS = [
-  { name: "BlancaFlor", color: "#1a3c6a" },
+  { name: "BlancaFlor", color: "#183c6b" },
   { name: "Ronco", color: "#c8102e" },
   { name: "Fiorentina", color: "#00387b" },
   { name: "Vatel", color: "#d97706" },
-  { name: "Purilev", color: "#02afab" },
+  { name: "Purilev", color: "#02aeaa" },
   { name: "Los 3 Cochinitos", color: "#e11d48" },
   { name: "truvía", color: "#65a30d" },
 ];
 
 const PRODUSAL_PREVIEW_LINES = [
-  { name: "Sal Fina de Mesa", dotColor: "#02afab" },
-  { name: "Sal Marina Parrillera", dotColor: "#02afab" },
-  { name: "Grado Industrial & Químico", dotColor: "#1a3c6a" },
-  { name: "Nutrición Animal & Forraje", dotColor: "#94c11e" },
+  { name: "Sal Fina de Mesa", dotColor: "#02aeaa" },
+  { name: "Sal Marina Parrillera", dotColor: "#02aeaa" },
+  { name: "Grado Industrial & Químico", dotColor: "#183c6b" },
+  { name: "Nutrición Animal & Forraje", dotColor: "#95c11e" },
 ];
 
 export default function ProductosPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white selection:bg-[#02afab] selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white selection:bg-[#02aeaa] selection:text-white">
       {/* Header Corporativo */}
       <HeaderWrapper />
 
       <main className="flex-1 w-full relative overflow-hidden">
-        {/* Parallax Floating Organic Brand Elements across the page */}
-        <ParallaxShape
-          speed={-0.12}
-          floatAnimation="gentle"
-          className="top-28 right-8 lg:right-16 hidden lg:block opacity-35 z-20"
-        >
-          <MimesaLeafLime size={110} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.16}
-          floatAnimation="reverse"
-          className="top-48 left-8 hidden lg:block opacity-35 z-20"
-        >
-          <MimesaDotCyan size={42} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.18}
-          floatAnimation="sway"
-          className="top-[35%] -left-6 hidden lg:block opacity-45"
-        >
-          <MimesaLeafGreen size={105} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.2}
-          floatAnimation="reverse"
-          className="top-[42%] right-8 hidden lg:block opacity-45"
-        >
-          <MimesaDotLime size={40} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.14}
-          floatAnimation="gentle"
-          className="top-[60%] left-10 hidden lg:block opacity-40"
-        >
-          <MimesaDotGreen size={38} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.22}
-          floatAnimation="sway"
-          className="top-[68%] -right-6 hidden lg:block opacity-40"
-        >
-          <MimesaLeafLime size={95} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.12}
-          floatAnimation="reverse"
-          className="bottom-32 left-12 hidden lg:block opacity-45"
-        >
-          <MimesaDotCyan size={44} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.05}
-          floatAnimation="none"
-          className="top-[50%] right-1/4 hidden xl:block opacity-[0.03]"
-        >
-          <MimesaSprout size={520} />
-        </ParallaxShape>
         {/* ========================================================
-            1. HERO: Título "Productos" de gran altura, alineado a la izquierda (como Sobre Nosotros)
+            1. HERO CIANOTIPIA (Slide 11, 12, 15)
            ======================================================== */}
-        <section className="relative min-h-[580px] sm:min-h-[660px] lg:min-h-[740px] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 lg:pb-36 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#0c223f] text-white">
-          {/* Imagen de fondo con overlay oscuro direccionado hacia la derecha */}
-          <div className="absolute inset-0 z-0 overflow-hidden">
-            <Image
-              src="/images/hero-production.webp"
-              alt="Instalaciones productivas de Grupo Mimesa"
-              fill
-              priority
-              className="object-cover object-right sm:object-center opacity-30 scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0c223f] via-[#0c223f]/90 to-[#0c223f]/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0c223f] via-transparent to-[#0c223f]/70" />
-          </div>
-
-          {/* Ambient Lighting Orbs */}
-          <GlowOrb color="cyan" className="top-1/4 -left-48 w-[600px] h-[600px] opacity-20" />
-          <GlowOrb color="green" className="bottom-1/4 right-0 w-[550px] h-[550px] opacity-20" />
-
-          {/* Contenido Alineado a la Izquierda dentro del contenedor global max-w-7xl */}
-          <div className="relative z-10 max-w-7xl mx-auto w-full">
-            {/* Breadcrumb a la izquierda con separación amplia */}
-            <nav
-              className="flex items-center gap-2 text-xs font-semibold text-gray-300 mb-8 sm:mb-12 select-none"
-              aria-label="Ruta de navegación"
-            >
-              <Link href="/" className="hover:text-[#30deda] transition-colors">
-                Inicio
-              </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
-              <span className="text-[#30deda] font-bold">Productos</span>
-            </nav>
-
-            <FadeIn className="max-w-3xl sm:max-w-4xl space-y-6 sm:space-y-8 text-left">
-              {/* Kicker y Título Monumental a la Izquierda */}
-              <div className="space-y-3">
-                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-[#30deda] block">
-                  Portafolio de Alimentos & Complejo Salinero
-                </span>
-                <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white drop-shadow-md">
-                  Productos
-                </h1>
-              </div>
-
-              {/* Subtítulo con lectura limpia y espaciosa */}
-              <p className="text-base sm:text-xl text-gray-300 font-light leading-relaxed max-w-2xl pt-1">
-                Nuestras unidades estratégicas de negocio: alimentos de consumo masivo que acompañan a la familia y el complejo salinero solar más importante de Venezuela.
-              </p>
-            </FadeIn>
-          </div>
-        </section>
+        <ProductosHero />
 
         {/* ========================================================
             2. PRESENTACIÓN EDITORIAL PANORÁMICA DE LAS CATEGORÍAS
@@ -195,7 +83,7 @@ export default function ProductosPage() {
                   <span>01 • Consumo Masivo</span>
                 </span>
                 
-                <h2 className="text-3xl sm:text-5xl font-black text-[#1a3c6a] tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-5xl font-black text-[#183c6b] tracking-tight leading-tight">
                   División Alimentos
                 </h2>
 
@@ -290,7 +178,7 @@ export default function ProductosPage() {
                 
                 {/* Badge Flotante Superior */}
                 <div className="absolute top-5 left-5">
-                  <span className="px-4 py-2 rounded-2xl bg-white/95 backdrop-blur-md text-[#02afab] text-xs font-extrabold uppercase tracking-wider shadow-lg border border-white/60">
+                  <span className="px-4 py-2 rounded-2xl bg-white/95 backdrop-blur-md text-[#02aeaa] text-xs font-extrabold uppercase tracking-wider shadow-lg border border-white/60">
                     Parque Salinero Los Olivitos
                   </span>
                 </div>
@@ -310,13 +198,13 @@ export default function ProductosPage() {
             {/* Columna Texto & Aplicaciones (7 cols) - Order 1 en móvil, Order 2 en escritorio */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 order-1 lg:order-2">
               <div className="space-y-3">
-                <span className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[#02afab]">
+                <span className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[#02aeaa]">
                   <Waves className="w-3.5 h-3.5" />
                   <span>02 • Sal Solar & Industria</span>
                 </span>
                 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <h2 className="text-3xl sm:text-5xl font-black text-[#1a3c6a] tracking-tight leading-tight">
+                  <h2 className="text-3xl sm:text-5xl font-black text-[#183c6b] tracking-tight leading-tight">
                     División Produsal
                   </h2>
                   <div className="h-10 w-36 bg-white rounded-xl p-1.5 border border-slate-200/80 shadow-xs relative overflow-hidden shrink-0">
@@ -343,7 +231,7 @@ export default function ProductosPage() {
                   {PRODUSAL_PREVIEW_LINES.map((line) => (
                     <div
                       key={line.name}
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#02afab]/40 hover:shadow-md transition-all duration-200"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs hover:border-[#02aeaa]/40 hover:shadow-md transition-all duration-200"
                     >
                       <span
                         className="w-2.5 h-2.5 rounded-full shrink-0"
@@ -359,7 +247,7 @@ export default function ProductosPage() {
               <div className="pt-2">
                 <Link
                   href="/productos/produsal"
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#02afab] hover:bg-[#009539] text-white font-bold text-sm shadow-xl shadow-[#02afab]/25 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#02aeaa] hover:bg-[#009539] text-white font-bold text-sm shadow-xl shadow-[#02aeaa]/25 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
                 >
                   <span>Explorar categoría Produsal</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -378,10 +266,10 @@ export default function ProductosPage() {
           <FadeIn className="max-w-7xl mx-auto space-y-12">
             {/* Encabezado de la sección */}
             <div className="max-w-2xl space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
                 Atención Comercial & Ventas
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
                 Ponte en contacto con nuestro equipo
               </h2>
               <p className="text-base text-gray-600 font-light leading-relaxed">
@@ -397,15 +285,15 @@ export default function ProductosPage() {
                 <div className="space-y-6">
                   {/* Sede Corporativa */}
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-2xl bg-[#02afab]/10 text-[#02afab] flex items-center justify-center shrink-0 group-hover:bg-[#02afab] group-hover:text-white transition-all duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center shrink-0 group-hover:bg-[#02aeaa] group-hover:text-white transition-all duration-300">
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-sm font-bold text-[#1a3c6a]">Sede Principal</h3>
+                      <h3 className="text-sm font-bold text-[#183c6b]">Sede Principal</h3>
                       <p className="text-sm text-gray-600 leading-relaxed">
                         Zona Industrial, Caracas, Miranda, Venezuela.
                       </p>
-                      <span className="text-xs text-[#02afab] font-medium block">
+                      <span className="text-xs text-[#02aeaa] font-medium block">
                         Logística y despacho a nivel nacional
                       </span>
                     </div>
@@ -417,7 +305,7 @@ export default function ProductosPage() {
                       <Phone className="w-5 h-5" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-sm font-bold text-[#1a3c6a]">Atención Telefónica</h3>
+                      <h3 className="text-sm font-bold text-[#183c6b]">Atención Telefónica</h3>
                       <p className="text-base font-bold text-gray-800">
                         +58 (212) 000-0000
                       </p>
@@ -429,21 +317,21 @@ export default function ProductosPage() {
 
                   {/* Correos Institucionales */}
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-2xl bg-[#94c11e]/15 text-[#009539] flex items-center justify-center shrink-0 group-hover:bg-[#009539] group-hover:text-white transition-all duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-[#95c11e]/15 text-[#009539] flex items-center justify-center shrink-0 group-hover:bg-[#009539] group-hover:text-white transition-all duration-300">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div className="space-y-1.5">
-                      <h3 className="text-sm font-bold text-[#1a3c6a]">Correos Oficiales</h3>
+                      <h3 className="text-sm font-bold text-[#183c6b]">Correos Oficiales</h3>
                       <div className="space-y-1 text-sm">
                         <a
                           href="mailto:contacto@grupomimesa.com"
-                          className="block text-[#02afab] hover:underline font-semibold"
+                          className="block text-[#02aeaa] hover:underline font-semibold"
                         >
                           contacto@grupomimesa.com
                         </a>
                         <a
                           href="mailto:ventas@grupomimesa.com"
-                          className="block text-gray-600 hover:text-[#02afab] transition-colors"
+                          className="block text-gray-600 hover:text-[#02aeaa] transition-colors"
                         >
                           ventas@grupomimesa.com
                         </a>
@@ -453,11 +341,11 @@ export default function ProductosPage() {
 
                   {/* Horario de Atención */}
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-2xl bg-[#1a3c6a]/8 text-[#1a3c6a] flex items-center justify-center shrink-0 group-hover:bg-[#1a3c6a] group-hover:text-white transition-all duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-[#183c6b]/8 text-[#183c6b] flex items-center justify-center shrink-0 group-hover:bg-[#183c6b] group-hover:text-white transition-all duration-300">
                       <Clock className="w-5 h-5" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-sm font-bold text-[#1a3c6a]">Horario de Atención</h3>
+                      <h3 className="text-sm font-bold text-[#183c6b]">Horario de Atención</h3>
                       <p className="text-sm text-gray-700">
                         Lunes a Viernes: 8:00 AM – 5:00 PM
                       </p>

@@ -43,6 +43,7 @@ export function FooterContent() {
     { name: "Productos", href: "/productos" },
     { name: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
     { name: "Contacto", href: "/contacto" },
+    { name: "Política de Privacidad", href: "/politica-de-privacidad" },
   ];
 
   const socialLinks = [
@@ -64,31 +65,25 @@ export function FooterContent() {
   ];
 
   return (
-    <div className="w-full bg-[#0c223f] text-white relative select-none">
-      
-      {/* Top Divider connecting with Contacto */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-t border-white/10" />
-      </div>
-
+    <div className="w-full bg-transparent text-white relative select-none">
       {/* Main Footer Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-16 sm:pb-20">
         
-        {/* Simple & Precise Grid */}
+        {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           
           {/* Col 1: Brand Logo & Short Info (5 cols) */}
           <div className="md:col-span-5 space-y-4">
-            <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 inline-block transition-transform duration-300 hover:scale-105">
+            <Link href="/" className="inline-block transition-transform duration-300 hover:scale-105">
               <Image
                 src="/LOGOMIMESA.webp"
                 alt="Logo Grupo Mimesa"
-                width={220}
-                height={68}
-                className="h-11 sm:h-12 md:h-14 w-auto brightness-0 invert object-contain"
+                width={200}
+                height={60}
+                className="h-10 sm:h-12 w-auto brightness-0 invert object-contain"
               />
-            </div>
-            <p className="text-sm text-gray-300 font-light max-w-sm leading-relaxed">
+            </Link>
+            <p className="text-sm text-slate-200 font-normal max-w-sm leading-relaxed">
               Empresa líder en producción y distribución agroalimentaria en Venezuela.
             </p>
             <div className="flex items-center gap-2 pt-1">
@@ -99,7 +94,7 @@ export function FooterContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visitar ${social.name} de Grupo Mimesa`}
-                  className="w-8 h-8 rounded-xl flex items-center justify-center bg-white/10 hover:bg-[#02afab] hover:text-[#0c223f] text-white transition-all duration-300 border border-white/10"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center bg-white/10 hover:bg-[#02aeaa] hover:text-[#0c223f] text-white transition-all duration-300 border border-white/15"
                 >
                   {social.icon}
                 </a>
@@ -107,17 +102,17 @@ export function FooterContent() {
             </div>
           </div>
 
-          {/* Col 2: Precise Navigation Links (Single Column, 3 cols) */}
-          <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs uppercase tracking-widest font-bold text-[#30deda]">
+          {/* Col 2: Navigation Links (3 cols) */}
+          <div className="md:col-span-3 space-y-3.5">
+            <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#95c11e]">
               Navegación
             </h4>
-            <ul className="flex flex-col space-y-2.5 text-xs sm:text-sm text-gray-300">
+            <ul className="flex flex-col space-y-2.5 text-sm text-slate-200 font-medium">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="hover:text-[#30deda] transition-colors inline-block"
+                    className="hover:text-[#02aeaa] transition-colors inline-block"
                   >
                     {link.name}
                   </Link>
@@ -127,32 +122,32 @@ export function FooterContent() {
           </div>
 
           {/* Col 3: Direct Contact (4 cols) */}
-          <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs uppercase tracking-widest font-bold text-[#30deda]">
+          <div className="md:col-span-4 space-y-3.5">
+            <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#95c11e]">
               Contacto
             </h4>
-            <div className="space-y-2 text-xs sm:text-sm text-gray-300">
-              <p className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#30deda] shrink-0" />
+            <div className="space-y-2.5 text-sm text-slate-200 font-medium">
+              <p className="flex items-center gap-2.5">
+                <MapPin className="w-4 h-4 text-[#02aeaa] shrink-0" />
                 <span>Caracas, Venezuela</span>
               </p>
-              <p className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#30deda] shrink-0" />
+              <p className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-[#02aeaa] shrink-0" />
                 <a
                   href="mailto:contacto@grupomimesa.com"
-                  className="hover:text-[#30deda] transition-colors"
+                  className="hover:text-[#02aeaa] transition-colors"
                 >
                   contacto@grupomimesa.com
                 </a>
               </p>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-3">
               <button
                 type="button"
                 id="btn-scroll-to-top"
                 onClick={scrollToTop}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-white/10 hover:bg-[#02afab] text-white hover:text-[#0c223f] border border-white/20 transition-all duration-300 group cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-white/10 hover:bg-[#02aeaa] text-white hover:text-[#0c223f] border border-white/20 transition-all duration-300 group cursor-pointer"
               >
                 <span>Volver al inicio</span>
                 <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -162,38 +157,38 @@ export function FooterContent() {
 
         </div>
 
-        {/* ========================================================
-            "GRUPO MIMESA" Typography - Clearly Visible, Centered & Responsive
-           ======================================================== */}
-        <div className="pt-6 pb-2 text-center overflow-hidden">
-          <h3 className="font-black text-white/20 tracking-tight uppercase text-2xl sm:text-4xl md:text-5xl lg:text-6xl select-none pointer-events-none">
-            GRUPO MIMESA
-          </h3>
-        </div>
-
       </div>
 
-      {/* Bottom Copyright Bar */}
-      <div className="w-full bg-[#0c223f] border-t border-white/10 py-5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400 text-center sm:text-left">
-          <p>
-            Copyright © {new Date().getFullYear()} MIMESA ALIMENTOS C.A. RIF J-07032176-8. Todos los derechos reservados.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <Link
-              href="/politica-de-privacidad"
-              className="text-gray-400 hover:text-[#30deda] transition-colors underline-offset-4 hover:underline"
-            >
-              Política de Privacidad
-            </Link>
-            <span className="text-gray-600 hidden sm:inline">•</span>
-            <p className="flex items-center gap-1 justify-center">
-              <span>Desarrollado by</span>
-              <span className="font-medium text-white hover:text-[#30deda] transition-colors">
-                El Conejo Del Sombrero
-              </span>
-            </p>
+      {/* Bottom Copyright Bar - Coherent Font Size & Cyan Glow Line */}
+      <div className="relative w-full bg-[#050e19] border-t border-white/10 py-4 sm:py-4">
+        {/* Subtle top cyan light-line gradient */}
+        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#02aeaa]/40 to-transparent pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-300 text-center md:text-left">
+          
+          {/* Left: Copyright & RIF with Coherent Text Size */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1 text-xs text-slate-300 font-normal">
+            <span>Copyright © {new Date().getFullYear()}</span>
+            <strong className="font-heading font-extrabold text-white tracking-wide">
+              MIMESA ALIMENTOS C.A.
+            </strong>
+            <span className="text-gray-500 hidden sm:inline">•</span>
+            <span className="text-[#02aeaa] font-semibold text-xs tracking-wider">
+              RIF J-07032176-8
+            </span>
+            <span className="text-gray-500 hidden sm:inline">•</span>
+            <span className="text-slate-300">Todos los derechos reservados.</span>
           </div>
+
+          {/* Right: Developer Credit */}
+          <div className="flex items-center gap-1.5 text-xs text-slate-300 pt-1 md:pt-0">
+            <span>Desarrollado por</span>
+            <span className="font-bold text-white hover:text-[#02aeaa] transition-colors cursor-pointer flex items-center gap-1.5">
+              <span>El Conejo Del Sombrero</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#95c11e] animate-pulse inline-block" />
+            </span>
+          </div>
+
         </div>
       </div>
 

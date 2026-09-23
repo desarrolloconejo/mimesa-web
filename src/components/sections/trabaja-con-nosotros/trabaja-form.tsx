@@ -64,17 +64,17 @@ export function TrabajaForm({
           <CheckCircle2 className="w-8 h-8 text-[#009539]" />
         </div>
         <div className="space-y-2">
-          <h3 className="text-2xl sm:text-3xl font-black text-[#1a3c6a] tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-black text-[#183c6b] tracking-tight">
             Postulación recibida con éxito
           </h3>
           <p className="text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
-            Gracias por tu interés en formar parte de Grupo Mimesa. Tus datos han sido registrados en nuestro banco de talento para los procesos de selección activos y futuros.
+            Gracias por tu interés en formar parte de <strong className="font-heading font-semibold text-[#183c6b]">Grupo Mimesa</strong>. Tus datos han sido registrados en nuestro banco de talento para los procesos de selección activos y futuros.
           </p>
         </div>
         <button
           type="button"
           onClick={handleReset}
-          className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#1a3c6a] hover:bg-[#02afab] text-white text-xs font-bold transition-all shadow-md hover:shadow-lg focus:outline-none cursor-pointer"
+          className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#183c6b] hover:bg-[#02aeaa] text-white text-xs font-bold transition-all shadow-md hover:shadow-lg focus:outline-none cursor-pointer"
         >
           Enviar otra postulación
         </button>
@@ -82,11 +82,11 @@ export function TrabajaForm({
     );
   }
 
-  const labelClasses = "block text-xs font-bold text-[#1a3c6a] uppercase tracking-wider";
+  const labelClasses = "block text-xs font-bold text-[#183c6b] uppercase tracking-wider";
   const inputClasses =
-    "w-full px-4 py-3.5 rounded-2xl bg-[#f8fafc] border border-slate-200/70 text-[#1a3c6a] placeholder-slate-400 text-sm focus:outline-none focus:bg-white focus:border-[#02afab] focus:ring-4 focus:ring-[#02afab]/10 transition-all duration-200";
+    "w-full px-4 py-3.5 rounded-2xl bg-[#f8fafc] border border-slate-200/70 text-[#183c6b] placeholder-slate-400 text-sm focus:outline-none focus:bg-white focus:border-[#02aeaa] focus:ring-4 focus:ring-[#02aeaa]/10 transition-all duration-200";
   const textareaClasses =
-    "w-full px-4 py-3.5 rounded-2xl bg-[#f8fafc] border border-slate-200/70 text-[#1a3c6a] placeholder-slate-400 text-sm focus:outline-none focus:bg-white focus:border-[#02afab] focus:ring-4 focus:ring-[#02afab]/10 transition-all duration-200 resize-none";
+    "w-full px-4 py-3.5 rounded-2xl bg-[#f8fafc] border border-slate-200/70 text-[#183c6b] placeholder-slate-400 text-sm focus:outline-none focus:bg-white focus:border-[#02aeaa] focus:ring-4 focus:ring-[#02aeaa]/10 transition-all duration-200 resize-none";
 
   return (
     <form
@@ -97,7 +97,7 @@ export function TrabajaForm({
         <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block">
           Formulario de Postulación
         </span>
-        <h3 className="text-2xl sm:text-3xl font-black text-[#1a3c6a] tracking-tight">{title}</h3>
+        <h3 className="text-2xl sm:text-3xl font-black text-[#183c6b] tracking-tight">{title}</h3>
         <p className="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-lg">{subtitle}</p>
       </div>
 
@@ -201,7 +201,7 @@ export function TrabajaForm({
             required
             checked={formData.aceptoPolitica}
             onChange={(e) => setFormData({ ...formData, aceptoPolitica: e.target.checked })}
-            className="mt-1 h-4 w-4 shrink-0 rounded accent-[#02afab] border-slate-300 text-[#02afab] focus:ring-[#02afab] cursor-pointer"
+            className="mt-1 h-4 w-4 shrink-0 rounded accent-[#02aeaa] border-slate-300 text-[#02aeaa] focus:ring-[#02aeaa] cursor-pointer"
           />
           <label
             htmlFor="trabaja-consent"
@@ -210,11 +210,11 @@ export function TrabajaForm({
             He leído y acepto la{" "}
             <Link
               href="/politica-de-privacidad"
-              className="font-semibold text-[#02afab] underline underline-offset-2 hover:opacity-80 transition-opacity"
+              className="font-semibold text-[#02aeaa] underline underline-offset-2 hover:opacity-80 transition-opacity"
             >
               Política de Privacidad
             </Link>{" "}
-            y autorizo el tratamiento de mis datos personales y perfil profesional para los procesos de selección de talento humano de Grupo Mimesa.
+            y autorizo el tratamiento de mis datos personales y perfil profesional para los procesos de selección de talento humano de <strong className="font-heading font-semibold text-[#183c6b]">Grupo Mimesa</strong>.
           </label>
         </div>
       </div>
@@ -224,7 +224,7 @@ export function TrabajaForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full bg-gradient-to-r from-[#02afab] to-[#009539] hover:from-[#009539] hover:to-[#02afab] text-white text-sm font-black shadow-xl shadow-[#02afab]/20 hover:shadow-2xl hover:shadow-[#02afab]/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 disabled:opacity-50 focus:outline-none cursor-pointer"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full bg-[#009539] hover:bg-[#007a3d] text-white text-sm font-heading font-bold shadow-xl shadow-[#009539]/20 hover:shadow-2xl hover:shadow-[#009539]/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 disabled:opacity-50 focus:outline-none cursor-pointer"
         >
           {isSubmitting ? (
             <>
@@ -240,12 +240,12 @@ export function TrabajaForm({
         </button>
 
         <p className="text-xs text-gray-500 font-light flex items-center gap-1.5 pt-1">
-          <Mail className="w-3.5 h-3.5 text-[#02afab] shrink-0" />
+          <Mail className="w-3.5 h-3.5 text-[#02aeaa] shrink-0" />
           <span>
             ¿Prefieres adjuntar tu CV en PDF? Escríbenos directamente a{" "}
             <a
               href={`mailto:${TRABAJA_DATA.email}?subject=Postulaci%C3%B3n%20Laboral%20-%20Grupo%20Mimesa`}
-              className="text-[#02afab] font-bold hover:underline"
+              className="text-[#02aeaa] font-bold hover:underline"
             >
               {TRABAJA_DATA.email}
             </a>

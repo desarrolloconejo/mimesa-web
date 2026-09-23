@@ -120,7 +120,7 @@ export function ParallaxElement({
   return (
     <div
       ref={elementRef}
-      className={`will-change-transform ${className}`}
+      className={className}
       style={{
         overflowAnchor: "none",
         ...style,

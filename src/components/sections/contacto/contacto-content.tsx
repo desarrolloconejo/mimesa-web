@@ -1,28 +1,58 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { CONTACTO_DATA } from "./contacto-data";
 import { ContactoForm } from "./contacto-form";
 import { ParallaxElement } from "@/components/ui/parallax-element";
-import { MapPin, Phone, Mail, Clock, ShieldCheck } from "lucide-react";
-import { MimesaLeafLime } from "@/components/ui/organic-shapes";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MimesaLeafLime, MimesaLeafGreen, MimesaSprout } from "@/components/ui/organic-shapes";
 
-export function ContactoContent() {
+interface ContactoContentProps {
+  showBackground?: boolean;
+}
+
+export function ContactoContent({ showBackground = false }: ContactoContentProps) {
   return (
-    <div className="w-full bg-[#0c223f] relative overflow-hidden text-white select-none py-20 sm:py-24 lg:py-28">
+    <div className={`w-full relative overflow-hidden text-white select-none py-16 sm:py-20 lg:py-24 ${showBackground ? "bg-[#0e2440]" : "bg-transparent"}`}>
       
+      {/* Authentic Cyanotype Smooth Texture Background Layer (Only rendered if showBackground is true) */}
+      {showBackground && (
+        <>
+          <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+            <Image
+              src="/images/textures/cyanotype-smooth.jpg"
+              alt=""
+              aria-hidden="true"
+              fill
+              priority
+              className="object-cover object-center w-full h-full opacity-90 mix-blend-normal"
+            />
+          </div>
+          <div
+            className="absolute inset-0 opacity-[0.14] mix-blend-overlay pointer-events-none z-0 bg-repeat"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              backgroundSize: "160px 160px",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0e2440]/80 via-[#183c6b]/50 to-[#0e2440]/90 pointer-events-none z-0" />
+        </>
+      )}
+
+      {/* Powdery White Ambient Sprout Background Accent */}
+      <div className="absolute -top-16 -right-16 opacity-15 pointer-events-none hidden lg:block z-0">
+        <MimesaSprout size={450} variant="white" />
+      </div>
+
       {/* Colossal Parallax Watermark Text in Background */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0 overflow-hidden w-full text-center">
         <ParallaxElement speed={-0.3} horizontalSpeed={0.12} fadeEffect="in-out">
-          <span className="text-[100px] sm:text-[160px] md:text-[220px] font-black text-white/[0.02] uppercase tracking-tighter leading-none block">
+          <span className="text-[100px] sm:text-[160px] md:text-[220px] font-black text-white/[0.03] uppercase tracking-tighter leading-none block">
             CONECTA
           </span>
         </ParallaxElement>
       </div>
-
-      {/* Background Ambient Glows (positioned at outer edges to avoid bleed-through on cards) */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#02afab]/10 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#94c11e]/8 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         
@@ -41,7 +71,7 @@ export function ContactoContent() {
           </ParallaxElement>
 
           <ParallaxElement speed={0.12} fadeEffect="in-out">
-            <p className="text-sm sm:text-base text-gray-300 font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-200 font-normal leading-relaxed">
               {CONTACTO_DATA.description}
             </p>
           </ParallaxElement>
@@ -50,10 +80,17 @@ export function ContactoContent() {
         {/* Balanced Two-Column Layout: Information & Form with Equal Heights and Fade Effect */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch relative">
           
-          {/* Decorative Lime Leaf at Top-Left */}
+          {/* Decorative Powdery White Lime Leaf at Top-Left */}
           <div className="absolute -top-10 -left-6 z-20 pointer-events-none hidden sm:block">
             <ParallaxElement speed={-0.28} rotateSpeed={0.25} fadeEffect="in-out">
-              <MimesaLeafLime size={110} />
+              <MimesaLeafLime size={110} variant="white" />
+            </ParallaxElement>
+          </div>
+
+          {/* Decorative Powdery White Green Leaf at Bottom-Right */}
+          <div className="absolute -bottom-8 -right-6 z-20 pointer-events-none hidden sm:block">
+            <ParallaxElement speed={0.32} rotateSpeed={-0.2} fadeEffect="in-out">
+              <MimesaLeafGreen size={95} variant="white" />
             </ParallaxElement>
           </div>
 
@@ -77,7 +114,7 @@ export function ContactoContent() {
               <div className="space-y-5 pt-2">
                 {/* Sede Corporativa */}
                 <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-[#30deda] shrink-0 group-hover:bg-[#02afab]/20 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-[#30deda] shrink-0 group-hover:bg-[#02aeaa]/20 transition-colors">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -90,7 +127,7 @@ export function ContactoContent() {
 
                 {/* Atención Telefónica */}
                 <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-[#30deda] shrink-0 group-hover:bg-[#02afab]/20 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-[#30deda] shrink-0 group-hover:bg-[#02aeaa]/20 transition-colors">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -104,7 +141,7 @@ export function ContactoContent() {
 
                 {/* Correo Oficial */}
                 <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-[#30deda] shrink-0 group-hover:bg-[#02afab]/20 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-[#30deda] shrink-0 group-hover:bg-[#02aeaa]/20 transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -121,7 +158,7 @@ export function ContactoContent() {
 
                 {/* Horario de Atención */}
                 <div className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-[#30deda] shrink-0 group-hover:bg-[#02afab]/20 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-[#30deda] shrink-0 group-hover:bg-[#02aeaa]/20 transition-colors">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
@@ -138,8 +175,8 @@ export function ContactoContent() {
             {/* SLA / Quality Assurance Badge at bottom */}
             <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center gap-3">
               <span className="relative flex h-3 w-3 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#94c11e] opacity-75" />
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#94c11e]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#95c11e] opacity-75" />
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#95c11e]" />
               </span>
               <div className="text-xs">
                 <span className="font-bold text-white block">Atención comercial activa</span>

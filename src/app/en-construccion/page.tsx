@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function EnConstruccionPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#16365f] text-white selection:bg-[#02afab] selection:text-white">
+    <div className="flex flex-col min-h-screen bg-[#16365f] text-white selection:bg-[#02aeaa] selection:text-white">
       <HeaderWrapper />
 
       <main className="flex-1 relative flex items-center justify-center overflow-hidden py-32 sm:py-40 px-4 sm:px-6">
@@ -65,7 +65,7 @@ export default function EnConstruccionPage() {
           <div className="pt-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#02afab] to-[#009539] hover:from-[#30deda] hover:to-[#00b044] text-white font-bold text-sm sm:text-base shadow-xl shadow-[#02afab]/25 hover:shadow-2xl hover:shadow-[#02afab]/40 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#02aeaa] to-[#009539] hover:from-[#30deda] hover:to-[#00b044] text-white font-bold text-sm sm:text-base shadow-xl shadow-[#02aeaa]/25 hover:shadow-2xl hover:shadow-[#02aeaa]/40 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Volver al inicio</span>

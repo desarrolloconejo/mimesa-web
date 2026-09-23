@@ -126,7 +126,7 @@ export function TrabajaContent() {
                 </p>
                 <a
                   href={`mailto:${TRABAJA_DATA.email}?subject=Postulaci%C3%B3n%20Laboral%20-%20Grupo%20Mimesa`}
-                  className="inline-block text-base sm:text-lg lg:text-xl font-black text-[#16365f] hover:text-[#02afab] transition-colors focus:outline-none underline decoration-2 underline-offset-4"
+                  className="inline-block text-sm sm:text-base font-bold text-[#16365f] hover:text-[#02aeaa] transition-colors focus:outline-none underline decoration-2 underline-offset-4"
                 >
                   {TRABAJA_DATA.email}
                 </a>

@@ -78,7 +78,7 @@ export const FOOD_BRANDS: Record<string, FoodBrandDetail> = {
     category: "Harinas de Trigo",
     tagline: "Tradición y pureza para la repostería y panes de la familia",
     badge: "Líder en Harinas",
-    color: "#1a3c6a",
+    color: "#183c6b",
     lightBg: "bg-blue-50/60",
     borderColor: "border-blue-200/80",
     logoUrl: "/images/productos/BLANCAFLOR-LOGO.webp",

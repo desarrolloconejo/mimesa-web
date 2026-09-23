@@ -67,7 +67,7 @@ const PILARES_RUEDA = [
     subtitle: "Alta eficiencia nutricional e industrial",
     detailedStory:
       "Formulamos soluciones nutricionales de máxima conversión y rendimiento. Cada producto está testeado para superar los estándares de la industria agroalimentaria nacional.",
-    color: "#94c11e",
+    color: "#95c11e",
     startAngle: 93,
     endAngle: 177,
     midAngle: 135,
@@ -111,48 +111,54 @@ export function EditorialBento() {
     <div className="w-full space-y-0">
       
       {/* ========================================================
-          1. HERO DE PROPÓSITO: Imagen fixed al ancho completo y centrado
+          1. HERO DE PROPÓSITO: Sección Limpia sobre Fondo Blanco
          ======================================================== */}
-      <div
-        className="relative w-full min-h-[500px] sm:min-h-[580px] lg:min-h-[640px] flex items-center justify-center bg-center bg-cover overflow-hidden"
-        style={{ backgroundImage: "url('/images/agro-campo.jpg')" }}
-      >
-        {/* Ambient Dark Gradient Overlay for Maximum Legibility & Warmth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a3c6a]/90 via-[#0a182b]/85 to-[#0a182b]/95" />
-
-        {/* Floating Brand Elements in Background */}
-        <div className="absolute -top-16 -right-16 pointer-events-none opacity-15">
-          <MimesaSprout size={340} />
+      <div className="relative w-full min-h-[480px] sm:min-h-[540px] lg:min-h-[600px] flex items-center justify-center bg-white overflow-hidden py-24 sm:py-32 border-b border-slate-100">
+        
+        {/* Floating Brand Elements moving dynamically with scroll */}
+        <div className="absolute top-4 sm:top-6 -right-8 sm:-right-10 pointer-events-none opacity-25 hidden sm:block z-0">
+          <ParallaxElement speed={0.15} rotateSpeed={-0.12}>
+            <MimesaSprout size={360} />
+          </ParallaxElement>
         </div>
-        <div className="absolute bottom-8 left-10 pointer-events-none opacity-20 hidden sm:block">
-          <MimesaLeafLime size={120} />
+
+        <div className="absolute top-14 left-8 sm:left-16 pointer-events-none opacity-90 hidden sm:block z-10">
+          <ParallaxElement speed={0.18} rotateSpeed={0.25}>
+            <MimesaLeafLime size={110} />
+          </ParallaxElement>
+        </div>
+
+        <div className="absolute bottom-12 right-8 sm:right-16 pointer-events-none opacity-90 hidden sm:block z-10">
+          <ParallaxElement speed={-0.15} rotateSpeed={-0.2}>
+            <MimesaLeafGreen size={105} />
+          </ParallaxElement>
+        </div>
+
+        <div className="absolute bottom-14 left-12 pointer-events-none opacity-30 hidden sm:block z-0">
+          <ParallaxElement speed={0.20} rotateSpeed={0.15}>
+            <MimesaLeafLime size={80} />
+          </ParallaxElement>
         </div>
 
         {/* Centered Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 py-24 sm:py-32">
-          {/* Badge */}
-          <ParallaxElement speed={0.20} fadeEffect="in-out">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda] block">
-              {proposito.kicker}
-            </span>
-          </ParallaxElement>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          {/* Kicker Subtitle */}
+          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#009539] block">
+            {proposito.kicker}
+          </span>
 
           {/* Centered Title */}
-          <ParallaxElement speed={0.15} fadeEffect="in-out" fadeIntensity={1.0}>
-            <h2 className="text-4xl sm:text-6xl xl:text-7xl font-black text-white tracking-tight leading-[1.05]">
-              {proposito.titleLine1}{" "}
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#30deda] via-[#94c11e] to-white">
-                {proposito.titleLine2}
-              </span>
-            </h2>
-          </ParallaxElement>
+          <h2 className="text-4xl sm:text-6xl xl:text-7xl font-black text-[#0e2440] tracking-tight leading-[1.05]">
+            {proposito.titleLine1}{" "}
+            <span className="block text-[#02aeaa]">
+              {proposito.titleLine2}
+            </span>
+          </h2>
 
           {/* Centered Description */}
-          <ParallaxElement speed={0.10} fadeEffect="in-out" fadeIntensity={1.0}>
-            <p className="text-base sm:text-lg md:text-xl text-gray-200 font-light leading-relaxed max-w-2xl mx-auto">
-              {proposito.description}
-            </p>
-          </ParallaxElement>
+          <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
+            {proposito.description}
+          </p>
         </div>
       </div>
 
@@ -162,13 +168,38 @@ export function EditorialBento() {
              - Lo Que Nos Hace Únicos
              - Círculo Grueso Picado en 4 Cuadrantes Interactivos
          ======================================================== */}
-      <div className="relative w-full bg-gradient-to-b from-[#1a3c6a] via-[#102746] to-[#0a182b] text-white py-24 sm:py-32 overflow-hidden border-y border-white/10">
+      <div className="relative w-full bg-[#0e2440] text-white py-24 sm:py-32 overflow-hidden border-y border-white/10">
+        
+        {/* Authentic Cyanotype Splatters Texture Layer */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          <Image
+            src="/images/textures/cyanotype-splatters.jpg"
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            className="object-cover object-center w-full h-full opacity-90 mix-blend-normal"
+          />
+        </div>
+
+        {/* Fine Paper Grain Texture Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.14] mix-blend-overlay pointer-events-none z-0 bg-repeat"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundSize: "160px 160px",
+          }}
+        />
+
+        {/* Depth Vignette */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0e2440]/90 via-[#183c6b]/65 to-[#0e2440]/85 pointer-events-none z-0" />
         
         {/* Ambient Brand Glow Orbs */}
-        <div className="absolute top-1/4 -right-24 w-[550px] h-[550px] bg-[#02afab]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 -left-24 w-[550px] h-[550px] bg-[#94c11e]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -right-16 top-1/3 opacity-10 pointer-events-none hidden lg:block">
-          <MimesaSprout size={420} />
+        <div className="absolute top-1/4 -right-24 w-[550px] h-[550px] bg-[#02aeaa]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 -left-24 w-[550px] h-[550px] bg-[#95c11e]/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Ambient Powdery White Sprout Background Accent */}
+        <div className="absolute -right-16 top-1/3 opacity-20 pointer-events-none hidden lg:block">
+          <MimesaSprout size={420} variant="white" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-20">
@@ -177,42 +208,36 @@ export function EditorialBento() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pb-12 border-b border-white/15">
             
             {/* Left (7 cols): Nuestro Negocio */}
-            <div className="lg:col-span-7 space-y-5">
-              <ParallaxElement speed={0.24} fadeEffect="in-out">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda] block">
-                  {negocio.badge}
+            <div className="lg:col-span-7 space-y-5 relative z-10">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda] block">
+                {negocio.badge}
+              </span>
+
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+                Creamos marcas fuertes para proveer{" "}
+                <span className="text-[#95c11e]">
+                  soluciones nutricionales y de salud
                 </span>
-              </ParallaxElement>
+              </h3>
 
-              <ParallaxElement speed={0.18} fadeEffect="in-out">
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
-                  Creamos marcas fuertes para proveer{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#30deda] via-[#94c11e] to-white">
-                    soluciones nutricionales y de salud
-                  </span>
-                </h3>
-              </ParallaxElement>
-
-              <ParallaxElement speed={0.12} fadeEffect="in-out">
-                <p className="text-base sm:text-lg text-gray-200 font-light leading-relaxed max-w-xl">
-                  Proveemos soluciones integrales que brindan bienestar a las familias venezolanas y máxima rentabilidad a la agroindustria.
-                </p>
-              </ParallaxElement>
+              <p className="text-sm sm:text-base text-gray-200 font-normal leading-relaxed max-w-xl">
+                Proveemos soluciones integrales que brindan bienestar a las familias venezolanas y máxima rentabilidad a la agroindustria.
+              </p>
             </div>
 
             {/* Right (5 cols): Lo Que Nos Hace Únicos */}
             <div className="lg:col-span-5 relative">
-              {/* Floating Sprout sobresaliendo over Top-Right of Card */}
+              {/* Floating Powdery White Leaf sobresaliendo over Top-Right of Card */}
               <div className="absolute -top-8 -right-6 z-20 pointer-events-none hidden sm:block">
                 <ParallaxElement speed={0.32} rotateSpeed={0.25} fadeEffect="in-out">
-                  <MimesaLeafLime size={80} />
+                  <MimesaLeafLime size={80} variant="white" />
                 </ParallaxElement>
               </div>
 
               <ParallaxElement speed={0.08} fadeEffect="in-out">
                 <div className="relative rounded-3xl p-7 sm:p-9 bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-extrabold uppercase tracking-widest text-[#94c11e] block">
+                    <span className="text-xs font-extrabold uppercase tracking-widest text-[#95c11e] block">
                       {negocio.uniqueBadge}
                     </span>
                   </div>
@@ -246,10 +271,10 @@ export function EditorialBento() {
               
               {/* Left (5 cols): The Thick 4-Quadrant Circle Ring with Differential Parallax */}
               <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
-                {/* Floating organic leaf sobresaliendo */}
+                {/* Floating Powdery White Leaf sobresaliendo */}
                 <div className="absolute -bottom-8 -left-6 z-20 pointer-events-none hidden sm:block">
                   <ParallaxElement speed={0.34} rotateSpeed={-0.3} fadeEffect="in-out">
-                    <MimesaLeafGreen size={85} />
+                    <MimesaLeafGreen size={85} variant="white" />
                   </ParallaxElement>
                 </div>
 
@@ -477,10 +502,10 @@ export function EditorialBento() {
           {/* Header */}
           <ParallaxElement speed={0.16} fadeEffect="in-out">
             <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
                 Principios Inmutables
               </span>
-              <h3 className="text-3xl sm:text-5xl font-black text-[#1a3c6a] tracking-tight">
+              <h3 className="text-3xl sm:text-5xl font-black text-[#183c6b] tracking-tight">
                 Nuestros Valores
               </h3>
               <p className="text-sm sm:text-base text-gray-500 font-light">
@@ -495,22 +520,33 @@ export function EditorialBento() {
             {/* VALOR 1: INTEGRIDAD (7 cols) - Moves faster (0.16) */}
             <div className="lg:col-span-7 h-full">
               <ParallaxElement speed={0.16} fadeEffect="in-out" className="h-full">
-                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-[#1a3c6a] via-[#142e52] to-[#0c1c33] text-white shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-                  <div className="absolute right-6 -bottom-6 text-[120px] font-black text-white/[0.04] pointer-events-none select-none">
+                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-[#0e2440] text-white shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-white/10">
+                  {/* Texture Background */}
+                  <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                    <Image
+                      src="/images/textures/cyanotype-droplets.jpg"
+                      alt=""
+                      aria-hidden="true"
+                      fill
+                      className="object-cover object-center w-full h-full opacity-60 mix-blend-normal"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a182b]/80 via-[#0a182b]/40 to-[#0a182b]/50 pointer-events-none z-0" />
+                  <div className="absolute right-6 -bottom-6 text-[120px] font-black text-white/10 pointer-events-none select-none z-0">
                     01
                   </div>
 
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="px-3.5 py-1 rounded-full bg-white/10 text-xs font-bold uppercase tracking-wider text-[#30deda] border border-white/10">
+                  <div className="relative z-10 flex items-center justify-between mb-8">
+                    <span className="px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-[#30deda] border border-white/20">
                       01 • Coherencia y Ética
                     </span>
                   </div>
 
-                  <div className="space-y-3 my-auto">
-                    <h4 className="text-3xl sm:text-4xl font-black text-white">
+                  <div className="relative z-10 space-y-3 my-auto">
+                    <h4 className="text-3xl sm:text-4xl font-black text-white drop-shadow-sm">
                       {valores[0].title}
                     </h4>
-                    <p className="text-base sm:text-lg text-gray-200 font-light leading-relaxed max-w-xl">
+                    <p className="text-sm sm:text-base text-slate-100 font-normal leading-relaxed max-w-xl">
                       {valores[0].description}
                     </p>
                   </div>
@@ -521,22 +557,22 @@ export function EditorialBento() {
             {/* VALOR 2: AGILIDAD (5 cols) - Moves calmer (0.06) */}
             <div className="lg:col-span-5 h-full">
               <ParallaxElement speed={0.06} fadeEffect="in-out" className="h-full">
-                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#fafdf5] to-[#f2fbe7] border-2 border-[#94c11e]/40 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-                  <div className="absolute right-4 -bottom-4 text-[110px] font-black text-[#94c11e]/10 pointer-events-none select-none">
+                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#fafdf5] to-[#f2fbe7] border-2 border-[#95c11e]/40 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute right-4 -bottom-4 text-[110px] font-black text-[#95c11e]/10 pointer-events-none select-none">
                     02
                   </div>
 
                   <div className="flex items-center justify-between mb-8">
-                    <span className="px-3.5 py-1 rounded-full bg-[#94c11e]/15 text-xs font-bold uppercase tracking-wider text-[#009539] border border-[#94c11e]/30">
+                    <span className="px-3.5 py-1 rounded-full bg-[#95c11e]/15 text-xs font-bold uppercase tracking-wider text-[#009539] border border-[#95c11e]/30">
                       02 • Dinamismo y Adaptabilidad
                     </span>
                   </div>
 
                   <div className="space-y-3 my-auto">
-                    <h4 className="text-3xl sm:text-4xl font-black text-[#1a3c6a]">
+                    <h4 className="text-3xl sm:text-4xl font-black text-[#183c6b]">
                       {valores[1].title}
                     </h4>
-                    <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
                       {valores[1].description}
                     </p>
                   </div>
@@ -571,7 +607,7 @@ export function EditorialBento() {
                   </div>
 
                   <div className="space-y-3 my-auto">
-                    <h4 className="text-3xl sm:text-4xl font-black text-[#1a3c6a]">
+                    <h4 className="text-3xl sm:text-4xl font-black text-[#183c6b]">
                       {valores[2].title}
                     </h4>
                     <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
@@ -585,22 +621,22 @@ export function EditorialBento() {
             {/* VALOR 4: RESPONSABILIDAD (7 cols) - Moves at 0.05 */}
             <div className="lg:col-span-7 h-full">
               <ParallaxElement speed={0.05} fadeEffect="in-out" className="h-full">
-                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#f3f9f9] to-[#e8f6f6] border-2 border-[#02afab]/30 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-                  <div className="absolute right-6 -bottom-6 text-[120px] font-black text-[#02afab]/10 pointer-events-none select-none">
+                <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#f3f9f9] to-[#e8f6f6] border-2 border-[#02aeaa]/30 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                  <div className="absolute right-6 -bottom-6 text-[120px] font-black text-[#02aeaa]/10 pointer-events-none select-none">
                     04
                   </div>
 
                   <div className="flex items-center justify-between mb-8">
-                    <span className="px-3.5 py-1 rounded-full bg-[#02afab]/10 text-xs font-bold uppercase tracking-wider text-[#02afab] border border-[#02afab]/20">
+                    <span className="px-3.5 py-1 rounded-full bg-[#02aeaa]/10 text-xs font-bold uppercase tracking-wider text-[#02aeaa] border border-[#02aeaa]/20">
                       04 • Resultados y Compromiso
                     </span>
                   </div>
 
                   <div className="space-y-3 my-auto">
-                    <h4 className="text-3xl sm:text-4xl font-black text-[#1a3c6a]">
+                    <h4 className="text-3xl sm:text-4xl font-black text-[#183c6b]">
                       {valores[3].title}
                     </h4>
-                    <p className="text-base sm:text-lg text-gray-700 font-light leading-relaxed max-w-xl">
+                    <p className="text-sm sm:text-base text-gray-700 font-normal leading-relaxed max-w-xl">
                       {valores[3].description}
                     </p>
                   </div>
@@ -636,19 +672,19 @@ export function EditorialBento() {
               </ParallaxElement>
 
               <ParallaxElement speed={0.18} fadeEffect="in-out">
-                <h3 className="text-3xl sm:text-5xl xl:text-6xl font-black text-[#1a3c6a] leading-[1.1] tracking-tight">
+                <h3 className="text-3xl sm:text-5xl xl:text-6xl font-black text-[#183c6b] leading-[1.1] tracking-tight">
                   {filosofia.title}
                 </h3>
               </ParallaxElement>
 
               <ParallaxElement speed={0.12} fadeEffect="in-out">
-                <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
                   {filosofia.paragraph1}
                 </p>
               </ParallaxElement>
 
               <ParallaxElement speed={0.07} fadeEffect="in-out">
-                <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
                   {filosofia.paragraph2}
                 </p>
               </ParallaxElement>
@@ -661,12 +697,12 @@ export function EditorialBento() {
             {/* Floating Glass Badge sobresaliendo between the two photos */}
             <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-8 z-30 pointer-events-none">
               <ParallaxElement speed={0.30} fadeEffect="in-out">
-                <div className="glass-panel p-4 rounded-2xl shadow-2xl border border-white/80 flex items-center gap-3 bg-white/95 text-[#1a3c6a]">
+                <div className="glass-panel p-4 rounded-2xl shadow-2xl border border-white/80 flex items-center gap-3 bg-white/95 text-[#183c6b]">
                   <div className="p-2.5 rounded-xl bg-[#009539] text-white shadow-xs">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-black text-[#1a3c6a]">Ciencia & Vanguardia</p>
+                    <p className="text-xs font-black text-[#183c6b]">Ciencia & Vanguardia</p>
                     <p className="text-[11px] text-gray-500 font-medium">Control y desarrollo agroindustrial</p>
                   </div>
                 </div>

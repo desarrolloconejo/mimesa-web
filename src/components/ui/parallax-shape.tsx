@@ -100,7 +100,7 @@ export function ParallaxShape({
   return (
     <div
       ref={outerRef}
-      className={`absolute pointer-events-none will-change-transform z-0 select-none ${className}`}
+      className={`absolute pointer-events-none z-0 select-none ${className}`}
       style={{ transform: "translate3d(0, 0, 0)" }}
       aria-hidden="true"
     >

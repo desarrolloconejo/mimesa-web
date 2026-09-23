@@ -26,17 +26,17 @@ export function AlimentosEditorial() {
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block">
             01 • División Alimentos
           </span>
-          <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight leading-tight">
+          <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight leading-tight">
             Nuestras Marcas de Alimentos
           </h3>
-          <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
             Una selección líder de marcas de consumo y soluciones industriales que aportan sabor, nutrición y calidad garantizada en cada mesa venezolana.
           </p>
         </div>
 
         <Link
           href="/productos/alimentos"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1a3c6a]/5 hover:bg-[#1a3c6a] text-[#1a3c6a] hover:text-white text-xs sm:text-sm font-bold transition-all duration-300 w-fit group shadow-xs hover:-translate-y-0.5 cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#183c6b]/5 hover:bg-[#183c6b] text-[#183c6b] hover:text-white text-xs sm:text-sm font-bold transition-all duration-300 w-fit group shadow-xs hover:-translate-y-0.5 cursor-pointer"
         >
           <span>Ver catálogo de marcas</span>
           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -59,7 +59,7 @@ export function AlimentosEditorial() {
                 Portafolio líder en consumo masivo y nutrición
               </span>
             </div>
-            <span className="text-[11px] font-bold text-[#02afab] bg-[#02afab]/10 px-2.5 py-0.5 rounded-full shrink-0">
+            <span className="text-[11px] font-bold text-[#02aeaa] bg-[#02aeaa]/10 px-2.5 py-0.5 rounded-full shrink-0">
               Marcas Líderes
             </span>
           </div>
@@ -73,7 +73,7 @@ export function AlimentosEditorial() {
                 <Link
                   key={brand.id}
                   href={brand.href}
-                  className={`group relative p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 hover:border-[#02afab] shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between overflow-hidden cursor-pointer ${
+                  className={`group relative p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 hover:border-[#02aeaa] shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between overflow-hidden cursor-pointer ${
                     isLastOnMobile ? "col-span-2 sm:col-span-1" : ""
                   }`}
                 >
@@ -83,7 +83,7 @@ export function AlimentosEditorial() {
                   >
                     {/* Clean Category Badge */}
                     <div className="absolute top-2 left-2 pointer-events-none">
-                      <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/95 text-[#1a3c6a] shadow-xs">
+                      <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/95 text-[#183c6b] shadow-xs">
                         {brand.category}
                       </span>
                     </div>
@@ -118,10 +118,10 @@ export function AlimentosEditorial() {
                   <div className="pt-2.5 sm:pt-3 space-y-1 flex-1 flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between gap-1">
-                        <span className="text-xs sm:text-sm font-bold text-[#1a3c6a] group-hover:text-[#02afab] transition-colors truncate">
+                        <span className="text-xs sm:text-sm font-bold text-[#183c6b] group-hover:text-[#02aeaa] transition-colors truncate">
                           {brand.name}
                         </span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#02afab] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#02aeaa] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
                       </div>
                       <p className="text-[11px] sm:text-xs text-gray-500 font-light line-clamp-2 leading-relaxed mt-0.5">
                         {brand.tagline}
@@ -130,7 +130,7 @@ export function AlimentosEditorial() {
 
                     {brand.badge && (
                       <div className="pt-2 mt-2 border-t border-gray-100 flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-[#009539]">
-                        <Sparkles className="w-3 h-3 text-[#94c11e] shrink-0" />
+                        <Sparkles className="w-3 h-3 text-[#95c11e] shrink-0" />
                         <span className="truncate">{brand.badge}</span>
                       </div>
                     )}
@@ -146,7 +146,7 @@ export function AlimentosEditorial() {
               <Sparkles className="w-4 h-4 text-[#009539] shrink-0" />
               <span>Harinas, Pastas, Aceites, Grasas y Endulzantes con presencia en todo el país.</span>
             </span>
-            <span className="font-bold text-[#1a3c6a] hidden sm:inline shrink-0">Calidad Venezolana</span>
+            <span className="font-bold text-[#183c6b] hidden sm:inline shrink-0">Calidad Venezolana</span>
           </div>
         </div>
 
@@ -170,21 +170,21 @@ export function AlimentosEditorial() {
               sizes="(max-width: 1024px) 100vw, 40vw"
               priority={false}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a3c6a]/85 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/85 via-transparent to-transparent pointer-events-none" />
 
             {/* Bottom In-Photo Information */}
-            <div className="absolute bottom-3 sm:bottom-5 inset-x-3 sm:inset-x-5 z-10 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md border border-white/60 text-[#1a3c6a] flex items-center justify-between shadow-lg">
+            <div className="absolute bottom-3 sm:bottom-5 inset-x-3 sm:inset-x-5 z-10 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md border border-white/60 text-[#183c6b] flex items-center justify-between shadow-lg">
               <div className="space-y-0.5">
                 <p className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[#009539]">
                   Nutrición y Calidad
                 </p>
-                <p className="text-xs sm:text-sm font-black text-[#1a3c6a]">
+                <p className="text-xs sm:text-sm font-black text-[#183c6b]">
                   Presentes en cada hogar venezolano
                 </p>
               </div>
               <Link
                 href="/productos/alimentos"
-                className="p-2 sm:p-2.5 rounded-xl bg-[#02afab] hover:bg-[#009539] text-white transition-colors shadow-md cursor-pointer shrink-0 ml-2"
+                className="p-2 sm:p-2.5 rounded-xl bg-[#02aeaa] hover:bg-[#009539] text-white transition-colors shadow-md cursor-pointer shrink-0 ml-2"
                 aria-label="Ver productos"
               >
                 <ArrowUpRight className="w-4 h-4" />
@@ -199,7 +199,7 @@ export function AlimentosEditorial() {
                 <Utensils className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs font-black text-[#1a3c6a]">Tradición & Sabor</p>
+                <p className="text-xs font-black text-[#183c6b]">Tradición & Sabor</p>
                 <p className="text-[11px] text-gray-500 font-medium">Llegando a millones de mesas</p>
               </div>
             </div>

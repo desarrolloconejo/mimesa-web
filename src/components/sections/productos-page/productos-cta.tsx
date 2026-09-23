@@ -7,13 +7,13 @@ import { ArrowRight, Mail, PhoneCall, Building2 } from "lucide-react";
 export function ProductosCta() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28">
-      <div className="relative rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#0c223f] via-[#1a3c6a] to-[#0a182b] text-white p-8 sm:p-14 overflow-hidden border border-white/10 shadow-2xl">
+      <div className="relative rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-br from-[#0c223f] via-[#183c6b] to-[#0a182b] text-white p-8 sm:p-14 overflow-hidden border border-white/10 shadow-2xl">
         {/* Background Gradient Orbs */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#02afab]/20 blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#02aeaa]/20 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[#009539]/20 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl space-y-6">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda] block">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
             Atención a Distribuidores e Industria
           </span>
 
@@ -28,7 +28,7 @@ export function ProductosCta() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
             <Link
               href="/contacto"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#02afab] to-[#009539] hover:from-[#30deda] hover:to-[#00b044] text-white font-bold text-sm shadow-xl shadow-[#02afab]/25 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#02aeaa] hover:bg-[#009539] text-white font-heading font-bold text-sm shadow-xl shadow-[#02aeaa]/25 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               <span>Contactar a nuestro equipo comercial</span>
               <ArrowRight className="w-4 h-4" />
@@ -36,9 +36,9 @@ export function ProductosCta() {
 
             <Link
               href="/sobre-nosotros"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/15 transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/15 text-white font-heading font-bold text-sm border border-white/15 transition-all duration-300 cursor-pointer"
             >
-              <Building2 className="w-4 h-4 text-[#30deda]" />
+              <Building2 className="w-4 h-4 text-[#02aeaa]" />
               <span>Conocer nuestra empresa</span>
             </Link>
           </div>

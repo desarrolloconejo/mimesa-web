@@ -4,35 +4,50 @@ import { HeroContent } from "./hero-content";
 import { GlowOrb } from "@/components/ui/organic-shapes";
 import { ParallaxElement } from "@/components/ui/parallax-element";
 
+/**
+ * Root Home Hero Wrapper
+ *
+ * Implements:
+ * - Luminous, elegant white background
+ * - Organic brand shapes in their official corresponding colors (Lime #95c11e, Green #009539, Cyan #02aeaa)
+ */
 export function HeroWrapper() {
   return (
     <section
       id="inicio"
-      className="relative h-screen min-h-[660px] max-h-[1200px] w-full flex flex-col justify-between overflow-hidden bg-[#0a182b]"
+      className="relative h-screen min-h-[660px] max-h-[1200px] w-full flex flex-col justify-between overflow-hidden bg-white text-[#0e2440]"
     >
-      {/* Background Image with Subtle Parallax Movement */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <ParallaxElement speed={0.3} scaleSpeed={0.1} className="w-full h-[115%] -top-[7%] relative">
+      {/* 1. Base Clean White & Subtle Atmospheric Light Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#fcfefe] to-[#f8fbf9] -z-30" />
+
+      {/* 2. Very Subtle Agroindustrial Production Watermark Underlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-[0.06] mix-blend-multiply">
+        <ParallaxElement speed={0.15} scaleSpeed={0.04} className="w-full h-[115%] -top-[7%] relative">
           <Image
             src="/images/hero-production.webp"
             alt="Grupo Mimesa - Producción Agroindustrial en Venezuela"
             fill
             priority
-            className="object-cover object-center transform scale-105"
+            className="object-cover object-center scale-105"
           />
         </ParallaxElement>
       </div>
 
-      {/* Layered Gradient Overlays for Optimal Text Legibility & Brand Colors */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0a182b] via-[#0f2747]/90 to-[#009539]/35" />
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0a182b] via-transparent to-[#0a182b]/70" />
-      <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#02afab]/20 via-transparent to-transparent" />
+      {/* 3. Subtle Brand Ambient Glow Orbs */}
+      <GlowOrb color="cyan" className="-top-32 -left-32 w-[500px] h-[500px] opacity-15 z-0" />
+      <GlowOrb color="lime" className="bottom-0 right-0 w-[450px] h-[450px] opacity-12 z-0" />
 
-      {/* Ambient Lighting Orbs */}
-      <GlowOrb color="cyan" className="-top-32 -left-32 w-[500px] h-[500px] opacity-35 z-10" />
-      <GlowOrb color="lime" className="bottom-0 right-0 w-[450px] h-[450px] opacity-25 z-10" />
+      {/* 4. Subtle background micro-dot grid for corporate polish */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none z-0 bg-repeat"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, #0e2440 1px, transparent 0)",
+          backgroundSize: "32px 32px",
+        }}
+      />
 
-      {/* Hero Interactive & Editorial Content fitting exactly in Viewport */}
+      {/* 5. Hero Content with Brand Colored Elements */}
       <HeroContent />
     </section>
   );

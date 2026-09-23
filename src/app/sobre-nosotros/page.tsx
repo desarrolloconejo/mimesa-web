@@ -1,8 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import {
-  ChevronRight,
   Shield,
   Zap,
   Heart,
@@ -16,16 +14,7 @@ import { FooterWrapper } from "@/components/layout/footer/footer-wrapper";
 import { ContactoForm } from "@/components/sections/contacto/contacto-form";
 import { TimelineFull } from "@/components/sections/sobre-nosotros/timeline-full";
 import { IDENTIDAD_DATA } from "@/components/sections/identidad/identidad-data";
-import {
-  GlowOrb,
-  MimesaLeafLime,
-  MimesaLeafGreen,
-  MimesaDotCyan,
-  MimesaDotGreen,
-  MimesaDotLime,
-  MimesaSprout,
-} from "@/components/ui/organic-shapes";
-import { ParallaxShape } from "@/components/ui/parallax-shape";
+import { SobreNosotrosHero } from "@/components/sections/sobre-nosotros/sobre-nosotros-hero";
 import { FadeIn } from "@/components/ui/fade-in";
 
 export const metadata = {
@@ -38,136 +27,38 @@ export default function SobreNosotrosPage() {
   const valorIcons = [Shield, Zap, Heart, Target];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white selection:bg-[#02afab] selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white selection:bg-[#02aeaa] selection:text-white">
       {/* Header Corporativo */}
       <HeaderWrapper />
 
-      <main className="flex-1 w-full bg-gradient-to-b from-[#f4f8fb] via-white to-[#f7faf8] relative overflow-hidden">
-        {/* Ambient Lighting Orbs */}
-        <GlowOrb color="cyan" className="top-12 -left-48 w-[650px] h-[650px] opacity-20" />
-        <GlowOrb color="green" className="top-1/3 -right-48 w-[600px] h-[600px] opacity-15" />
-        <GlowOrb color="lime" className="bottom-20 left-1/4 w-[550px] h-[550px] opacity-15" />
-
-        {/* Parallax Floating Organic Brand Elements */}
-        <ParallaxShape
-          speed={-0.14}
-          floatAnimation="gentle"
-          className="top-24 right-8 lg:right-16 hidden lg:block opacity-45"
-        >
-          <MimesaLeafLime size={115} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.16}
-          floatAnimation="reverse"
-          className="top-36 left-10 hidden lg:block opacity-40"
-        >
-          <MimesaDotGreen size={38} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.18}
-          floatAnimation="reverse"
-          className="top-[38%] left-6 hidden lg:block opacity-50"
-        >
-          <MimesaDotCyan size={44} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.22}
-          floatAnimation="sway"
-          className="top-[45%] -right-4 hidden lg:block opacity-40"
-        >
-          <MimesaLeafGreen size={105} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.12}
-          floatAnimation="gentle"
-          className="top-[68%] left-8 hidden lg:block opacity-35"
-        >
-          <MimesaLeafLime size={90} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.15}
-          floatAnimation="reverse"
-          className="bottom-36 right-12 hidden lg:block opacity-45"
-        >
-          <MimesaDotLime size={36} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.05}
-          floatAnimation="none"
-          className="top-[32%] right-1/4 hidden xl:block opacity-[0.04]"
-        >
-          <MimesaSprout size={500} />
-        </ParallaxShape>
+      <main className="flex-1 w-full bg-white relative overflow-hidden">
+        {/* ========================================================
+            1. HERO INSTITUCIONAL CIANOTIPIA (Slide 11, 12, 15)
+           ======================================================== */}
+        <SobreNosotrosHero />
 
         {/* ========================================================
-            1. HERO INSTITUCIONAL: Editorial, Limpio y con Misma Altura que los demás
+            2. PROPÓSITO Y VALORES CORPORATIVOS (Diseño Editorial Claro)
            ======================================================== */}
-        <section className="relative min-h-[580px] sm:min-h-[660px] lg:min-h-[740px] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 lg:pb-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full z-10">
-          <div className="relative z-10 max-w-7xl mx-auto w-full">
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-xs font-semibold text-gray-400 mb-8 sm:mb-12 select-none">
-              <Link href="/" className="hover:text-[#02afab] transition-colors">
-                Inicio
-              </Link>
-              <ChevronRight className="w-3 h-3 text-gray-400" />
-              <span className="text-[#1a3c6a] font-bold">Sobre nosotros</span>
-            </nav>
-
-            <FadeIn className="max-w-4xl space-y-6 sm:space-y-8">
-              {/* Kicker Editorial: Solo Color y Texto */}
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
-                Tradición & Excelencia Agroalimentaria
-              </span>
-
-              {/* Título Principal en Exactamente Dos Líneas */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1a3c6a] tracking-tight leading-[1.12]">
-                <span className="block">Más de 45 años alimentando</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#02afab] via-[#009539] to-[#94c11e]">
-                  el porvenir de Venezuela
-                </span>
-              </h1>
-
-              {/* Texto Descriptivo con Espacio Respirable a la Derecha */}
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 font-light leading-relaxed max-w-2xl pr-4 sm:pr-8 pt-1">
-                Somos un grupo empresarial venezolano especializado en la producción, transformación y comercialización de alimentos esenciales. Unimos la fuerza productiva de nuestros campos con infraestructura industrial de vanguardia para llevar nutrición y confianza a cada hogar del país.
-              </p>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* ========================================================
-            2. PROPÓSITO Y VALORES CORPORATIVOS (Fondos en Tonos Oscuros Azules)
-           ======================================================== */}
-        <section className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#0c203b] via-[#163359] to-[#0d223d] text-white overflow-hidden z-10">
-          {/* Acentos de Luz Ambiental en el fondo oscuro */}
-          <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#02afab]/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#009539]/15 rounded-full blur-3xl pointer-events-none" />
-
+        <section className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] text-gray-900 overflow-hidden z-10 border-b border-gray-100">
           <div className="relative z-10 max-w-7xl mx-auto space-y-14 sm:space-y-18">
-            
-            {/* Cabecera de Propósito */}
+            {/* Cabecera de Propósito con Contraste Tipográfico Gilroy */}
             <FadeIn className="max-w-3xl space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#30deda]">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa]">
                 Nuestra Esencia y Propósito
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-                {IDENTIDAD_DATA.proposito.titleLine1}{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#30deda] via-[#4ade80] to-[#a3e635]">
+              <h2 className="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight leading-tight font-heading">
+                <span>{IDENTIDAD_DATA.proposito.titleLine1} </span>
+                <span className="text-[#02aeaa]">
                   {IDENTIDAD_DATA.proposito.titleLine2}
                 </span>
               </h2>
-              <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed pt-1">
+              <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed pt-1">
                 {IDENTIDAD_DATA.proposito.description}
               </p>
             </FadeIn>
 
-            {/* 4 Valores en Tarjetas Flotantes en Tonos Oscuros */}
+            {/* 4 Valores en Tarjetas Limpias */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {IDENTIDAD_DATA.valores.map((valor, idx) => {
                 const IconComponent = valorIcons[idx] ?? Shield;
@@ -175,28 +66,28 @@ export default function SobreNosotrosPage() {
                   <FadeIn
                     key={valor.id}
                     delay={idx * 90}
-                    className="p-6 sm:p-8 rounded-3xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-[#02afab]/40 transition-all duration-300 space-y-4 group shadow-sm flex flex-col justify-between"
+                    className="p-6 sm:p-8 rounded-3xl bg-white border border-gray-200/70 hover:border-[#02aeaa]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-4 group flex flex-col justify-between"
                   >
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <div className="w-12 h-12 rounded-2xl bg-white/10 group-hover:bg-[#02afab] text-[#30deda] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm">
+                        <div className="w-12 h-12 rounded-2xl bg-slate-50 group-hover:bg-[#02aeaa] text-[#02aeaa] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm border border-gray-100">
                           <IconComponent className="w-5 h-5" />
                         </div>
-                        <span className="text-2xl font-black text-white/20 group-hover:text-[#30deda] transition-colors">
+                        <span className="text-2xl font-black text-gray-200 group-hover:text-[#02aeaa] transition-colors font-heading">
                           {valor.number}
                         </span>
                       </div>
 
                       <div className="space-y-1">
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#4ade80] block">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#009539] block">
                           {valor.shortTag}
                         </span>
-                        <h3 className="text-xl font-bold text-white group-hover:text-[#30deda] transition-colors">
+                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#02aeaa] transition-colors font-heading">
                           {valor.title}
                         </h3>
                       </div>
 
-                      <p className="text-sm text-slate-300 font-light leading-relaxed">
+                      <p className="text-sm text-gray-600 font-normal leading-relaxed">
                         {valor.description}
                       </p>
                     </div>
@@ -204,7 +95,6 @@ export default function SobreNosotrosPage() {
                 );
               })}
             </div>
-
           </div>
         </section>
 
@@ -213,15 +103,14 @@ export default function SobreNosotrosPage() {
            ======================================================== */}
         <section className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 border-t border-slate-100">
           <div className="space-y-12 sm:space-y-16">
-            
             {/* Cabecera de Trayectoria */}
             <FadeIn className="text-center max-w-2xl mx-auto space-y-3">
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539]">
                 Nuestra Historia
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
-                Hitos que forjaron la{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#02afab] via-[#009539] to-[#94c11e]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#183c6b] tracking-tight font-heading">
+                <span className="font-light">Hitos que forjaron la </span>
+                <span className="font-extrabold text-[#183c6b]">
                   excelencia alimentaria
                 </span>
               </h2>
@@ -234,7 +123,6 @@ export default function SobreNosotrosPage() {
             <FadeIn delay={120}>
               <TimelineFull />
             </FadeIn>
-
           </div>
         </section>
 
@@ -243,15 +131,15 @@ export default function SobreNosotrosPage() {
            ======================================================== */}
         <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 border-t border-slate-100">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
-            
             {/* Columna Izquierda: Presencia y Canales Oficiales */}
             <FadeIn direction="right" className="w-full flex flex-col justify-between space-y-8 py-2">
               <div className="space-y-3 pr-4 sm:pr-8">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab]">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa]">
                   Conexión Institucional
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-black text-[#1a3c6a] tracking-tight">
-                  Construyamos juntos alianzas de valor
+                <h2 className="text-2xl sm:text-3xl text-[#183c6b] tracking-tight font-heading">
+                  <span className="font-light">Construyamos juntos </span>
+                  <span className="font-extrabold">alianzas de valor</span>
                 </h2>
                 <p className="text-sm text-gray-500 font-light leading-relaxed">
                   Ya sea para distribución comercial mayorista, provisión de materias primas o alianzas estratégicas, nuestro equipo corporativo está a tu entera disposición.
@@ -261,17 +149,17 @@ export default function SobreNosotrosPage() {
               {/* Canales Directos */}
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-2xl bg-[#02afab]/10 text-[#02afab] flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-2xl bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div className="space-y-0.5">
                     <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">
                       Sede Principal
                     </h4>
-                    <p className="text-sm font-semibold text-[#1a3c6a]">
+                    <p className="text-sm font-semibold text-[#183c6b]">
                       Zona Industrial, Caracas, Miranda, Venezuela
                     </p>
-                    <span className="text-xs text-[#02afab]">
+                    <span className="text-xs text-[#02aeaa]">
                       Despacho y logística en los 24 estados
                     </span>
                   </div>
@@ -287,7 +175,7 @@ export default function SobreNosotrosPage() {
                     </h4>
                     <a
                       href="mailto:contacto@grupomimesa.com"
-                      className="text-sm font-bold text-[#1a3c6a] hover:text-[#02afab] transition-colors"
+                      className="text-sm font-bold text-[#183c6b] hover:text-[#02aeaa] transition-colors"
                     >
                       contacto@grupomimesa.com
                     </a>
@@ -295,7 +183,7 @@ export default function SobreNosotrosPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-2xl bg-[#94c11e]/15 text-[#009539] flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-2xl bg-[#95c11e]/15 text-[#009539] flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="space-y-0.5">
@@ -304,7 +192,7 @@ export default function SobreNosotrosPage() {
                     </h4>
                     <a
                       href="tel:+582120000000"
-                      className="text-sm font-bold text-[#1a3c6a] hover:text-[#02afab] transition-colors"
+                      className="text-sm font-bold text-[#183c6b] hover:text-[#02aeaa] transition-colors"
                     >
                       +58 (212) 000-0000 / 0001
                     </a>
@@ -321,9 +209,9 @@ export default function SobreNosotrosPage() {
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a3c6a]/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/85 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 inset-x-4 text-white space-y-0.5">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#30deda]">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#02aeaa]">
                     Origen Nacional
                   </span>
                   <p className="text-xs font-semibold">
@@ -331,10 +219,9 @@ export default function SobreNosotrosPage() {
                   </p>
                 </div>
               </div>
-
             </FadeIn>
 
-            {/* Columna Derecha: Formulario Reutilizable de Contacto (Mismo tamaño) */}
+            {/* Columna Derecha: Formulario Reutilizable de Contacto */}
             <FadeIn direction="left" delay={100} className="w-full h-full">
               <ContactoForm
                 variant="light"
@@ -343,7 +230,6 @@ export default function SobreNosotrosPage() {
                 className="h-full"
               />
             </FadeIn>
-
           </div>
         </section>
       </main>

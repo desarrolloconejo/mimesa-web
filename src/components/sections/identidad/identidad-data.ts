@@ -31,8 +31,8 @@ export const IDENTIDAD_DATA = {
       description:
         "Hacemos lo correcto, siendo coherentes entre lo que decimos y lo que hacemos.",
       shortTag: "Coherencia y Ética",
-      color: "#02afab",
-      accentBg: "from-[#02afab]/10 to-transparent",
+      color: "#02aeaa",
+      accentBg: "from-[#02aeaa]/10 to-transparent",
     },
     {
       id: "agilidad",
@@ -41,8 +41,8 @@ export const IDENTIDAD_DATA = {
       description:
         "Pensamos y actuamos con rapidez y eficacia para lograr lo que nos proponemos. Nos adaptamos con facilidad al cambio y hacemos que las cosas pasen para que el cliente quede satisfecho.",
       shortTag: "Rapidez y Eficacia",
-      color: "#94c11e",
-      accentBg: "from-[#94c11e]/10 to-transparent",
+      color: "#95c11e",
+      accentBg: "from-[#95c11e]/10 to-transparent",
     },
     {
       id: "respeto",
@@ -61,8 +61,8 @@ export const IDENTIDAD_DATA = {
       description:
         "Nos hacemos cargos de nuestras tareas y compromisos, generando resultados de calidad y un impacto positivo en los demás.",
       shortTag: "Compromiso e Impacto",
-      color: "#1a3c6a",
-      accentBg: "from-[#1a3c6a]/10 to-transparent",
+      color: "#183c6b",
+      accentBg: "from-[#183c6b]/10 to-transparent",
     },
   ] as ValorItem[],
   negocio: {

@@ -99,7 +99,7 @@ export function AlimentosCatalog() {
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block">
             01 • Portafolio de Alimentos
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
             Nuestras Marcas de Consumo Masivo
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
@@ -174,7 +174,7 @@ export function AlimentosCatalog() {
                     <div>
                       <h3
                         className="text-2xl font-black tracking-tight transition-colors"
-                        style={{ color: brand.logoColor || "#1a3c6a" }}
+                        style={{ color: brand.logoColor || "#183c6b" }}
                       >
                         {brand.name}
                       </h3>
@@ -215,8 +215,8 @@ export function AlimentosCatalog() {
 
               {/* Card Footer: Action */}
               <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
-                <span className="text-[11px] font-semibold text-slate-400">
-                  Garantía Grupo Mimesa
+                <span className="text-xs text-slate-400">
+                  Garantía <span className="font-heading font-semibold text-slate-500">Grupo Mimesa</span>
                 </span>
                 <Link
                   href={`/productos/alimentos/${brand.id}`}

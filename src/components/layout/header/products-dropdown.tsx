@@ -91,29 +91,27 @@ export function ProductsDropdown({ isActive: propIsActive }: ProductsDropdownPro
       <Link
         href="/productos"
         onClick={closeMenu}
-        className={`whitespace-nowrap inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 text-[13px] xl:text-sm font-semibold rounded-lg transition-all duration-200 cursor-pointer relative group ${
+        className={`whitespace-nowrap inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-1 text-xs xl:text-[13px] font-semibold font-montserrat transition-colors duration-150 cursor-pointer relative ${
           isOpen || isActive
-            ? "text-[#02afab] bg-[#02afab]/10 font-bold"
-            : "text-[#1a3c6a] hover:text-[#02afab] hover:bg-[#02afab]/8 font-medium"
+            ? "text-[#02aeaa]"
+            : "text-[#183c6b] hover:text-[#02aeaa]"
         }`}
         aria-expanded={isOpen}
         aria-current={isActive ? "page" : undefined}
       >
-        <span>Productos</span>
+        <span className="font-montserrat">Productos</span>
         <ChevronDown
-          className={`w-3.5 h-3.5 transition-transform duration-200 ${
+          className={`w-3.5 h-3.5 transition-transform duration-150 ${
             isOpen
-              ? "rotate-180 text-[#02afab]"
+              ? "rotate-180 text-[#02aeaa]"
               : isActive
-              ? "text-[#02afab]"
-              : "text-gray-400 group-hover:text-[#02afab]"
+              ? "text-[#02aeaa]"
+              : "text-gray-400 group-hover:text-[#02aeaa]"
           }`}
         />
-        <span
-          className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-[#02afab] rounded-full transition-all duration-300 ${
-            isActive ? "w-3/4" : "w-0 group-hover:w-3/4"
-          }`}
-        />
+        {isActive && (
+          <span className="absolute -bottom-1 left-2.5 right-2.5 h-[2px] bg-[#02aeaa] rounded-full" />
+        )}
       </Link>
 
       {/* Menú Desplegable Principal con Bordes Pulidos y Mayor Detalle */}
@@ -135,7 +133,7 @@ export function ProductsDropdown({ isActive: propIsActive }: ProductsDropdownPro
             }`}
           >
             {/* Acento superior de borde: Gradiente de marca */}
-            <div className="h-[3px] bg-gradient-to-r from-[#009539] to-[#02afab] w-full" />
+            <div className="h-[3px] bg-gradient-to-r from-[#009539] to-[#02aeaa] w-full" />
 
             <div className="py-1">
               {/* Opción 1: Alimentos con badges y micro-detalles */}
@@ -155,8 +153,8 @@ export function ProductsDropdown({ isActive: propIsActive }: ProductsDropdownPro
                 >
                   <div className="flex items-center gap-2">
                     <p
-                      className={`text-[13px] font-bold leading-tight transition-colors ${
-                        isAlimentosOpen || isAlimentosActive ? "text-[#009539]" : "text-[#1a3c6a]"
+                      className={`text-[13px] font-bold font-heading leading-tight transition-colors ${
+                        isAlimentosOpen || isAlimentosActive ? "text-[#009539]" : "text-[#183c6b]"
                       }`}
                     >
                       Alimentos
@@ -197,14 +195,14 @@ export function ProductsDropdown({ isActive: propIsActive }: ProductsDropdownPro
                 }}
                 className={`block px-3.5 py-3 border-l-[3px] transition-all duration-150 cursor-pointer group ${
                   isProdusalActive
-                    ? "border-[#02afab] bg-slate-50/90"
-                    : "border-transparent hover:border-[#02afab] hover:bg-slate-50/70"
+                    ? "border-[#02aeaa] bg-slate-50/90"
+                    : "border-transparent hover:border-[#02aeaa] hover:bg-slate-50/70"
                 }`}
               >
                 <div className="flex items-center gap-2">
                   <p
-                    className={`text-[13px] font-bold leading-tight transition-colors ${
-                      isProdusalActive ? "text-[#02afab]" : "text-[#1a3c6a] group-hover:text-[#02afab]"
+                    className={`text-[13px] font-bold font-heading leading-tight transition-colors ${
+                      isProdusalActive ? "text-[#02aeaa]" : "text-[#183c6b] group-hover:text-[#02aeaa]"
                     }`}
                   >
                     Produsal
@@ -212,8 +210,8 @@ export function ProductsDropdown({ isActive: propIsActive }: ProductsDropdownPro
                   <span
                     className={`text-[10px] font-bold px-1.5 py-0.5 rounded leading-none transition-colors ${
                       isProdusalActive
-                        ? "bg-[#02afab] text-white"
-                        : "bg-[#02afab]/10 text-[#02afab]"
+                        ? "bg-[#02aeaa] text-white"
+                        : "bg-[#02aeaa]/10 text-[#02aeaa]"
                     }`}
                   >
                     Sal Solar
@@ -237,7 +235,7 @@ export function ProductsDropdown({ isActive: propIsActive }: ProductsDropdownPro
             }`}
           >
             {/* Acento superior de borde: Continuación del gradiente de marca */}
-            <div className="h-[3px] bg-gradient-to-r from-[#02afab] to-[#1a3c6a] w-full" />
+            <div className="h-[3px] bg-gradient-to-r from-[#02aeaa] to-[#183c6b] w-full" />
 
             {/* Cabecera sutil del submenú */}
             <div className="px-4 py-2 border-b border-slate-100/90 flex items-center justify-between bg-slate-50/50">
@@ -291,7 +289,7 @@ export function ProductsDropdown({ isActive: propIsActive }: ProductsDropdownPro
 
             {/* Pie sutil del submenú con detalle de calidad */}
             <div className="px-4 py-2 border-t border-slate-100/90 bg-slate-50/40 flex items-center justify-between text-[10px] text-slate-400 font-medium">
-              <span>Calidad garantizada Mimesa</span>
+              <span>Calidad garantizada <span className="font-heading font-semibold text-slate-500">Mimesa</span></span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#009539]" />
             </div>
           </div>

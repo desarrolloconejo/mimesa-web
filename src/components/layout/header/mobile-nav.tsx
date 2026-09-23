@@ -109,7 +109,7 @@ export function MobileNav({ navItems }: MobileNavProps) {
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 hover:text-[#1a3c6a] transition-colors cursor-pointer"
+              className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 hover:text-[#183c6b] transition-colors cursor-pointer"
               aria-label="Cerrar menú"
             >
               <X className="w-6 h-6" />
@@ -127,8 +127,8 @@ export function MobileNav({ navItems }: MobileNavProps) {
                     <div
                       className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl transition-all duration-200 group ${
                         isActive
-                          ? "bg-[#02afab]/12 border border-[#02afab]/25 shadow-xs"
-                          : "hover:bg-[#02afab]/10 border border-transparent"
+                          ? "bg-[#02aeaa]/12 border border-[#02aeaa]/25 shadow-xs"
+                          : "hover:bg-[#02aeaa]/10 border border-transparent"
                       }`}
                     >
                       <Link
@@ -136,22 +136,22 @@ export function MobileNav({ navItems }: MobileNavProps) {
                         onClick={() => setIsOpen(false)}
                         className={`flex items-center gap-2 flex-1 text-base font-bold transition-colors ${
                           isActive
-                            ? "text-[#02afab]"
-                            : "text-[#1a3c6a] group-hover:text-[#02afab]"
+                            ? "text-[#02aeaa]"
+                            : "text-[#183c6b] group-hover:text-[#02aeaa]"
                         }`}
                         aria-current={isActive ? "page" : undefined}
                       >
                         <span className="flex items-center gap-2">
                           {item.name}
                           {isActive && (
-                            <span className="w-2 h-2 rounded-full bg-[#02afab] inline-block animate-pulse" />
+                            <span className="w-2 h-2 rounded-full bg-[#02aeaa] inline-block animate-pulse" />
                           )}
                         </span>
                         <span
                           className={`text-[10px] uppercase font-extrabold tracking-widest px-2 py-0.5 rounded-md transition-colors ${
                             isActive
-                              ? "text-white bg-[#02afab] shadow-xs"
-                              : "text-[#02afab] bg-[#02afab]/10"
+                              ? "text-white bg-[#02aeaa] shadow-xs"
+                              : "text-[#02aeaa] bg-[#02aeaa]/10"
                           }`}
                         >
                           Ver Todo
@@ -162,17 +162,17 @@ export function MobileNav({ navItems }: MobileNavProps) {
                         onClick={() => setProductsExpanded(!productsExpanded)}
                         className={`p-2 rounded-lg transition-colors cursor-pointer ${
                           isActive
-                            ? "text-[#02afab] hover:bg-[#02afab]/10"
-                            : "text-gray-400 hover:text-[#02afab]"
+                            ? "text-[#02aeaa] hover:bg-[#02aeaa]/10"
+                            : "text-gray-400 hover:text-[#02aeaa]"
                         }`}
                         aria-label="Desplegar marcas de Productos"
                       >
                         <ChevronDown
                           className={`w-4 h-4 transition-transform duration-200 ${
                             productsExpanded
-                              ? "rotate-180 text-[#02afab]"
+                              ? "rotate-180 text-[#02aeaa]"
                               : isActive
-                              ? "text-[#02afab]"
+                              ? "text-[#02aeaa]"
                               : ""
                           }`}
                         />
@@ -256,8 +256,8 @@ export function MobileNav({ navItems }: MobileNavProps) {
                           onClick={() => setIsOpen(false)}
                           className={`block px-3 py-2 rounded-xl font-semibold text-xs transition-colors ${
                             isProdusalActive
-                              ? "bg-[#02afab]/12 text-[#02afab] font-bold border border-[#02afab]/20"
-                              : "text-gray-800 hover:text-[#02afab] hover:bg-gray-100/60"
+                              ? "bg-[#02aeaa]/12 text-[#02aeaa] font-bold border border-[#02aeaa]/20"
+                              : "text-gray-800 hover:text-[#02aeaa] hover:bg-gray-100/60"
                           }`}
                           aria-current={isProdusalActive ? "page" : undefined}
                         >
@@ -279,8 +279,8 @@ export function MobileNav({ navItems }: MobileNavProps) {
                   }}
                   className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold transition-all duration-200 group ${
                     isActive
-                      ? "bg-[#02afab]/12 text-[#02afab] border border-[#02afab]/25 shadow-xs"
-                      : "text-[#1a3c6a] hover:bg-[#02afab]/10 hover:text-[#02afab] border border-transparent font-semibold"
+                      ? "bg-[#02aeaa]/12 text-[#02aeaa] border border-[#02aeaa]/25 shadow-xs"
+                      : "text-[#183c6b] hover:bg-[#02aeaa]/10 hover:text-[#02aeaa] border border-transparent font-semibold"
                   } ${
                     isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
                   }`}
@@ -289,14 +289,14 @@ export function MobileNav({ navItems }: MobileNavProps) {
                   <span className="flex items-center gap-2">
                     {item.name}
                     {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-[#02afab] inline-block animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-[#02aeaa] inline-block animate-pulse" />
                     )}
                   </span>
                   <ArrowRight
                     className={`w-4 h-4 transition-all ${
                       isActive
-                        ? "text-[#02afab] translate-x-0.5"
-                        : "text-gray-400 group-hover:text-[#02afab] group-hover:translate-x-1"
+                        ? "text-[#02aeaa] translate-x-0.5"
+                        : "text-gray-400 group-hover:text-[#02aeaa] group-hover:translate-x-1"
                     }`}
                   />
                 </Link>
@@ -307,16 +307,29 @@ export function MobileNav({ navItems }: MobileNavProps) {
 
         {/* Action Button at Bottom (WhatsApp) */}
         <div className="pt-6 border-t border-gray-100 space-y-3">
-          <Link
-            href="https://wa.me/584120000000"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setIsOpen(false)}
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-[#02afab] hover:bg-[#94c11e] hover:text-[#0a182b] text-white transition-all duration-300 shadow-md shadow-[#02afab]/25"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Contáctanos</span>
-          </Link>
+          <div className="grid grid-cols-2 gap-2.5">
+            <Link
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(false);
+              }}
+              className="flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl text-sm font-heading font-bold text-[#183c6b] bg-slate-100 border border-slate-200 hover:bg-[#02aeaa]/10 hover:text-[#02aeaa] transition-all duration-300"
+            >
+              <Lock className="w-4 h-4 text-[#02aeaa]" />
+              <span>Intranet</span>
+            </Link>
+            <Link
+              href="https://wa.me/584120000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl text-sm font-heading font-bold bg-[#02aeaa] hover:bg-[#95c11e] hover:text-[#0e2440] text-white transition-all duration-300 shadow-md shadow-[#02aeaa]/25"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Contáctanos</span>
+            </Link>
+          </div>
 
         </div>
       </div>
@@ -330,7 +343,7 @@ export function MobileNav({ navItems }: MobileNavProps) {
         type="button"
         id="mobile-menu-toggle"
         onClick={() => setIsOpen(!isOpen)}
-        className="relative z-30 p-2.5 rounded-xl bg-white/90 border border-[#1a3c6a]/15 text-[#1a3c6a] hover:bg-[#1a3c6a] hover:text-white transition-colors duration-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-[#02afab] cursor-pointer"
+        className="relative z-30 p-2.5 rounded-xl bg-white/90 border border-[#183c6b]/15 text-[#183c6b] hover:bg-[#183c6b] hover:text-white transition-colors duration-300 shadow-xs focus:outline-none focus:ring-2 focus:ring-[#02aeaa] cursor-pointer"
         aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={isOpen}
       >

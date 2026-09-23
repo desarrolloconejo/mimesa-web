@@ -29,7 +29,7 @@ export const ALIMENTOS_EDITORIAL_BRANDS: BrandShowcaseItem[] = [
     category: "Harinas de Trigo",
     tagline: "Tradición y pureza para la repostería y panes de la familia",
     badge: "Líder en Harinas",
-    color: "#1a3c6a",
+    color: "#183c6b",
     lightBg: "bg-blue-50/50",
     borderColor: "border-blue-200/80",
     logoUrl: "/images/productos/BLANCAFLOR-LOGO.webp",
@@ -199,12 +199,12 @@ export function AlimentosCatalogView() {
          ======================================================== */}
       <div className="max-w-3xl space-y-3 text-left">
         <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block">
-          Portafolio de Alimentos Grupo Mimesa
+          Portafolio de Alimentos <span className="font-heading font-bold text-sm capitalize tracking-normal">Grupo Mimesa</span>
         </span>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight leading-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight leading-tight">
           Nuestras marcas líderes
         </h2>
-        <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed">
+        <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
           Cada una de nuestras marcas cuenta con una identidad propia, procesos certificados y un propósito común: llevar calidad, sabor y nutrición a cada rincón de Venezuela.
         </p>
       </div>
@@ -217,9 +217,9 @@ export function AlimentosCatalogView() {
           </span>
           <a
             href="#ingredientes"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-[#1a3c6a] hover:text-white text-slate-700 text-xs font-bold transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-[#183c6b] hover:text-white text-slate-700 text-xs font-bold transition-colors cursor-pointer"
           >
-            <Building2 className="w-3.5 h-3.5 text-[#02afab]" />
+            <Building2 className="w-3.5 h-3.5 text-[#02aeaa]" />
             <span>Ver ingredientes</span>
             <ArrowRight className="w-3 h-3" />
           </a>

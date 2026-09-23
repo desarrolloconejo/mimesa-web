@@ -1,18 +1,38 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-montserrat), sans-serif;
+  --font-gilroy: var(--font-gilroy), "Gilroy", sans-serif;
+  --font-heading: var(--font-gilroy), "Gilroy", sans-serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
+  --font-quesha: var(--font-gilroy), "Gilroy", sans-serif;
+
+  --color-brand-blue: #183c6b;
+  --color-brand-blue-dark: #0e2440;
+  --color-brand-blue-light: #22518e;
+  --color-brand-green: #009539;
+  --color-brand-green-dark: #00732c;
+  --color-brand-lime: #95c11e;
+  --color-brand-lime-light: #aee028;
+  --color-brand-cyan: #02aeaa;
+  --color-brand-cyan-light: #2cd4d0;
+  --color-brand-surface: #f8fafc;
+}
+
 @layer base {
   :root {
     --brand-white: #ffffff;
     --brand-black: #0a1118;
-    --brand-blue: #1a3c6a;
-    --brand-blue-dark: #0f233e;
-    --brand-blue-light: #255394;
-    --brand-cyan: #02afab;
-    --brand-cyan-light: #30deda;
-    --brand-lime: #94c11e;
-    --brand-lime-light: #b0e329;
-    --brand-green: #009539;
-    --brand-green-dark: #00702b;
+    /* Official Pantone Colors (Brand Manual Slide 11) */
+    --brand-blue: #183c6b;        /* PANTONE 541 C */
+    --brand-blue-dark: #0e2440;
+    --brand-blue-light: #22518e;
+    --brand-green: #009539;       /* PANTONE 355 C */
+    --brand-green-dark: #00732c;
+    --brand-lime: #95c11e;        /* PANTONE 375 C */
+    --brand-lime-light: #aee028;
+    --brand-cyan: #02aeaa;        /* PANTONE 326 C */
+    --brand-cyan-light: #2cd4d0;
     --brand-surface: #f8fafc;
   }
 
@@ -20,9 +40,10 @@
     scroll-behavior: auto;
     overflow-anchor: none;
     overscroll-behavior-y: none;
-    font-family: var(--font-outfit), "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
+    /* Slide 11: Montserrat for body text and digital UI */
+    font-family: var(--font-montserrat), sans-serif;
     color: var(--brand-black);
-    background-color: #0c223f;
+    background-color: #183c6b;
     overflow-x: clip;
   }
 
@@ -30,6 +51,91 @@
     overflow-x: clip;
     overflow-anchor: none;
     overscroll-behavior-y: none;
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  /* Slide 11: Gilroy for Headings, Subtitles, CTAs, Buttons and all Spans */
+  h1, h2, h3, h4, h5, h6,
+  span,
+  .font-heading,
+  .font-subheading,
+  .font-cta,
+  button,
+  [role="button"],
+  .cta-button {
+    font-family: var(--font-gilroy), "Gilroy", sans-serif;
+  }
+
+  /* All spans inside headings, buttons, and CTAs strictly inherit heading font family */
+  h1 span, h2 span, h3 span, h4 span, h5 span, h6 span,
+  .font-heading span,
+  .font-subheading span,
+  .font-cta span,
+  button span,
+  [role="button"] span,
+  .cta-button span,
+  span.font-heading,
+  span.font-gilroy,
+  span[class*="tracking-"],
+  span[class*="uppercase"],
+  span[class*="font-bold"],
+  span[class*="font-extrabold"],
+  span[class*="font-black"],
+  span[class*="font-semibold"],
+  span[class*="font-medium"] {
+    font-family: var(--font-gilroy), "Gilroy", sans-serif !important;
+  }
+
+  /* Harmonious semantic heading weights */
+  h1 {
+    font-weight: 900;
+    letter-spacing: -0.025em;
+  }
+  h2 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  h3 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+  h4, h5, h6 {
+    font-weight: 700;
+  }
+
+  /* Slide 11: Montserrat for Body text, Continuous Paragraphs, Lists & Forms */
+  p, li, input, textarea, select, label, .font-body {
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  /* Spans inside continuous paragraphs, lists, and forms inherit Montserrat from their container */
+  p span,
+  li span,
+  input span,
+  label span,
+  .font-body span {
+    font-family: inherit;
+  }
+
+  /* Except when explicitly marked with heading or bold classes */
+  p span.font-heading,
+  p span.font-gilroy,
+  p span[class*="font-black"],
+  p span[class*="font-extrabold"],
+  p span[class*="font-bold"] {
+    font-family: var(--font-gilroy), "Gilroy", sans-serif !important;
+  }
+
+  /* Balanced continuous paragraph sizing (slightly reduced for clean editorial flow) */
+  p {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.65;
+  }
+  @media (min-width: 640px) {
+    p {
+      font-size: 0.975rem; /* ~15.6px */
+      line-height: 1.7;
+    }
   }
 
   ::selection {
@@ -44,6 +150,118 @@
   [type="reset"] {
     cursor: pointer;
   }
+}
+
+/* Explicit Font-Face Fallback Declarations */
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/gilroy/Gilroy-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/gilroy/Gilroy-Extrabold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/gilroy/Gilroy-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/gilroy/Gilroy-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/gilroy/Gilroy-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/gilroy/Gilroy-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Universal direct Span rules to prevent system font fallbacks */
+span {
+  font-family: var(--font-gilroy), "Gilroy", sans-serif;
+}
+
+/* User preference: Use Gilroy for Grupo Mimesa / Mimesa */
+.font-quesha {
+  font-family: var(--font-gilroy), "Gilroy", sans-serif !important;
+  letter-spacing: -0.01em;
+}
+
+.font-gilroy,
+span.font-gilroy,
+.font-heading,
+span.font-heading {
+  font-family: var(--font-gilroy), "Gilroy", sans-serif !important;
+}
+
+.font-montserrat,
+span.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif !important;
+}
+
+.title-contrast strong,
+.title-contrast b,
+.title-contrast .contrast-bold {
+  font-weight: 800; /* Gilroy ExtraBold */
+}
+
+/* Slide 15 Authentic Cyanotype Background System */
+.bg-cyanotype {
+  background-color: #183c6b;
+  background-image: radial-gradient(circle at 50% 30%, rgba(34, 81, 142, 0.45) 0%, rgba(14, 36, 64, 0.85) 100%),
+                    url("/images/textures/cyanotype-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-cyanotype-blueprint {
+  background-color: #183c6b;
+  background-image: radial-gradient(circle at 60% 40%, rgba(34, 81, 142, 0.35) 0%, rgba(14, 36, 64, 0.9) 100%),
+                    url("/images/textures/blueprint-overlay.webp"),
+                    url("/images/textures/cyanotype-bg.webp");
+  background-size: cover, cover, cover;
+  background-position: center, center right, center;
+  background-repeat: no-repeat;
+  background-blend-mode: normal, screen, normal;
+}
+
+/* Slide 12 Soft Powdery White Elements on Cyanotype Backgrounds */
+.powdery-white-shape {
+  filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.75))
+          drop-shadow(0 0 8px rgba(255, 255, 255, 0.35))
+          drop-shadow(0 0 20px rgba(255, 255, 255, 0.15));
+}
+
+.powdery-white-dot {
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(0.5px);
 }
 
 /* Custom Utilities and Animations */
@@ -199,29 +417,29 @@
 }
 
 .glass-panel-dark {
-  background: rgba(26, 60, 106, 0.85);
+  background: rgba(24, 60, 107, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(2, 175, 171, 0.25);
+  border: 1px solid rgba(2, 174, 170, 0.25);
 }
 
 .glass-header {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(26, 60, 106, 0.08);
+  border-bottom: 1px solid rgba(24, 60, 107, 0.08);
 }
 
 .glow-cyan {
-  box-shadow: 0 0 45px -10px rgba(2, 175, 171, 0.45);
+  box-shadow: 0 0 45px -10px rgba(2, 174, 170, 0.45);
 }
 
 .glow-lime {
-  box-shadow: 0 0 45px -10px rgba(148, 193, 30, 0.45);
+  box-shadow: 0 0 45px -10px rgba(149, 193, 30, 0.45);
 }
 
 .glow-blue {
-  box-shadow: 0 20px 50px -15px rgba(26, 60, 106, 0.35);
+  box-shadow: 0 20px 50px -15px rgba(24, 60, 107, 0.35);
 }
 
 /* Botanical Organic Animations */
@@ -236,10 +454,10 @@
 
 @keyframes sapPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 4px rgba(2, 175, 171, 0.4));
+    filter: drop-shadow(0 0 4px rgba(2, 174, 170, 0.4));
   }
   50% {
-    filter: drop-shadow(0 0 12px rgba(148, 193, 30, 0.8));
+    filter: drop-shadow(0 0 12px rgba(149, 193, 30, 0.8));
   }
 }
 
@@ -274,10 +492,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1a3c6a;
+  background: #183c6b;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #02afab;
+  background: #02aeaa;
 }

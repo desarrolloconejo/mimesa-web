@@ -118,7 +118,7 @@ export function BrandProductsClient({ brand }: BrandProductsClientProps) {
           >
             Portafolio Oficial de Variedades
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
             Presentaciones y Empaques
           </h2>
           <p className="text-sm sm:text-base text-slate-500 font-light leading-relaxed">
@@ -151,7 +151,7 @@ export function BrandProductsClient({ brand }: BrandProductsClientProps) {
                   className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
                     isSelected
                       ? "text-white shadow-md scale-[1.02]"
-                      : "text-slate-600 hover:text-[#1a3c6a] hover:bg-white/60"
+                      : "text-slate-600 hover:text-[#183c6b] hover:bg-white/60"
                   }`}
                   style={{
                     backgroundColor: isSelected ? brand.color : "transparent",
@@ -263,7 +263,7 @@ export function BrandProductsClient({ brand }: BrandProductsClientProps) {
 
             {/* Información del Producto */}
             <div className="space-y-1.5 text-left">
-              <h3 className="text-base sm:text-lg font-black text-[#1a3c6a] tracking-tight group-hover:text-[#009539] transition-colors">
+              <h3 className="text-base sm:text-lg font-black text-[#183c6b] tracking-tight group-hover:text-[#009539] transition-colors">
                 {product.name}
               </h3>
               <p className="text-xs text-slate-500 font-light leading-relaxed">

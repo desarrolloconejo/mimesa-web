@@ -16,7 +16,7 @@ export function ProdusalEditorial() {
       {/* Chapter Watermark (Subtle Decorative Background) */}
       <div className="absolute -top-6 right-12 pointer-events-none select-none z-0 overflow-hidden text-right hidden md:block">
         <ParallaxElement speed={-0.15} horizontalSpeed={0.05}>
-          <span className="text-[70px] sm:text-[110px] lg:text-[150px] font-black text-[#02afab]/[0.03] uppercase tracking-tighter leading-none block">
+          <span className="text-[70px] sm:text-[110px] lg:text-[150px] font-black text-[#02aeaa]/[0.03] uppercase tracking-tighter leading-none block">
             PRODUSAL
           </span>
         </ParallaxElement>
@@ -25,20 +25,20 @@ export function ProdusalEditorial() {
       {/* Chapter 02 Header - Solid and Stable */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-gray-100 relative z-10">
         <div className="space-y-3 max-w-3xl">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
             02 • División Salina & Agroindustrial
           </span>
-          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight leading-tight">
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight leading-tight">
             {title}: {subtitle}
           </h3>
-          <p className="text-base text-gray-600 font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
             {description}
           </p>
         </div>
 
         <Link
           href={href}
-          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#02afab] hover:bg-[#009539] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#02afab]/20 hover:shadow-xl transition-all duration-300 w-fit group hover:-translate-y-0.5"
+          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#02aeaa] hover:bg-[#009539] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#02aeaa]/20 hover:shadow-xl transition-all duration-300 w-fit group hover:-translate-y-0.5"
         >
           <span>Conocer Complejo Produsal</span>
           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -52,10 +52,10 @@ export function ProdusalEditorial() {
           return (
             <div
               key={idx}
-              className="h-full p-6 sm:p-8 rounded-3xl bg-[#f8faf9] hover:bg-white border border-slate-150/70 hover:border-[#02afab]/40 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 space-y-3 group"
+              className="h-full p-6 sm:p-8 rounded-3xl bg-[#f8faf9] hover:bg-white border border-slate-150/70 hover:border-[#02aeaa]/40 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 space-y-3 group"
             >
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-[#02afab]/10 text-[#02afab] flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Icon className="w-6 h-6" />
                 </div>
                 <span className="text-[11px] font-extrabold uppercase tracking-wider text-gray-400">
@@ -64,7 +64,7 @@ export function ProdusalEditorial() {
               </div>
 
               <div className="space-y-1 pt-2">
-                <h4 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
+                <h4 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
                   {metric.value}
                 </h4>
                 <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
@@ -95,16 +95,16 @@ export function ProdusalEditorial() {
             sizes="100vw"
             priority={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1a3c6a]/80 via-[#1a3c6a]/15 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/80 via-[#183c6b]/15 to-transparent pointer-events-none" />
         </div>
 
         {/* Overhanging Protruding Floating Bottom Card */}
         <div className="absolute -bottom-4 sm:-bottom-6 inset-x-4 sm:inset-x-10 z-20 max-w-2xl pointer-events-auto">
-          <div className="p-6 sm:p-8 rounded-3xl bg-white/95 backdrop-blur-md border border-white/80 shadow-2xl text-[#1a3c6a] space-y-2">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white/95 backdrop-blur-md border border-white/80 shadow-2xl text-[#183c6b] space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#009539] block">
               Complejo de Producción de Sal Solar Los Olivitos
             </span>
-            <h4 className="text-xl sm:text-2xl font-black text-[#1a3c6a]">
+            <h4 className="text-xl sm:text-2xl font-black text-[#183c6b]">
               Una de las plantas salinas por evaporación solar más modernas del mundo
             </h4>
             <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">

@@ -50,7 +50,7 @@ export function ProdusalCatalog() {
       title: "Sal de Mesa & Hogar",
       badge: "Consumo Masivo",
       icon: UtensilsCrossed,
-      color: "#02afab",
+      color: "#02aeaa",
       description:
         "Sal marina fina refinada, yodada y fluorada, y sal parrillera de grano medio, diseñadas para potenciar el sabor de la cocina cotidiana y los asados familiares.",
       features: ["Pureza superior al 99.2%", "Grano fino corredizo", "Sal parrillera seleccionada"],
@@ -70,7 +70,7 @@ export function ProdusalCatalog() {
       title: "Industria Química & Cloro-Álcali",
       badge: "Grado Industrial",
       icon: FlaskConical,
-      color: "#1a3c6a",
+      color: "#183c6b",
       description:
         "Materia prima de máxima pureza para electrólisis, producción de cloro, soda cáustica, resinas, tratamiento de aguas potables e industriales y procesos petroleros.",
       features: ["Bajo contenido de calcio y magnesio", "Humedad controlada", "Logística de gran calado"],
@@ -80,7 +80,7 @@ export function ProdusalCatalog() {
       title: "Nutrición Animal & Ganadería",
       badge: "Agropecuario",
       icon: Beef,
-      color: "#94c11e",
+      color: "#95c11e",
       description:
         "Sal forrajera y bloques minerales formulados para el óptimo balance electrolítico y desarrollo del ganado bovino, porcino y equino en las zonas productoras del país.",
       features: ["Enriquecida con minerales traza", "Alta resistencia a la intemperie", "Aporte vital de sodio"],
@@ -95,10 +95,10 @@ export function ProdusalCatalog() {
          ======================================================== */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
         <div className="space-y-3 max-w-3xl">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
             02 • Complejo Salinero Produsal
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
             Parque Salinero Los Olivitos: Sal Solar de Alta Pureza
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
@@ -109,14 +109,14 @@ export function ProdusalCatalog() {
         {/* Technical Metric Pill */}
         <div className="p-4 rounded-2xl bg-teal-50/80 border border-teal-100 flex items-center gap-4 shrink-0">
           <div>
-            <span className="text-2xl font-black text-[#02afab] block">&gt;99.5%</span>
+            <span className="text-2xl font-black text-[#02aeaa] block">&gt;99.5%</span>
             <span className="text-[11px] text-gray-500 font-bold uppercase tracking-wider block">
               Pureza NaCl en Cosecha
             </span>
           </div>
           <div className="h-8 w-px bg-teal-200/80" />
           <div>
-            <span className="text-2xl font-black text-[#1a3c6a] block">+40.000</span>
+            <span className="text-2xl font-black text-[#183c6b] block">+40.000</span>
             <span className="text-[11px] text-gray-500 font-bold uppercase tracking-wider block">
               Hectáreas Salinas
             </span>
@@ -129,10 +129,10 @@ export function ProdusalCatalog() {
          ======================================================== */}
       <div className="space-y-8">
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
             Proceso de Producción Ecológica
           </span>
-          <h3 className="text-2xl sm:text-3xl font-black text-[#1a3c6a]">
+          <h3 className="text-2xl sm:text-3xl font-black text-[#183c6b]">
             El Ciclo de Cristalización Solar
           </h3>
           <p className="text-xs sm:text-sm text-gray-600 font-light">
@@ -146,22 +146,22 @@ export function ProdusalCatalog() {
             return (
               <div
                 key={step.number}
-                className="relative rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 space-y-4 shadow-sm hover:shadow-lg hover:border-[#02afab]/40 transition-all duration-300 group"
+                className="relative rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 space-y-4 shadow-sm hover:shadow-lg hover:border-[#02aeaa]/40 transition-all duration-300 group"
               >
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-teal-50 text-[#02afab] flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-teal-50 text-[#02aeaa] flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <span className="text-2xl font-black text-slate-200 group-hover:text-[#02afab]/30 transition-colors">
+                  <span className="text-2xl font-black text-slate-200 group-hover:text-[#02aeaa]/30 transition-colors">
                     {step.number}
                   </span>
                 </div>
 
                 <div className="space-y-1.5">
-                  <h4 className="text-lg font-bold text-[#1a3c6a] group-hover:text-[#02afab] transition-colors">
+                  <h4 className="text-lg font-bold text-[#183c6b] group-hover:text-[#02aeaa] transition-colors">
                     {step.title}
                   </h4>
-                  <p className="text-xs font-semibold text-[#02afab]">
+                  <p className="text-xs font-semibold text-[#02aeaa]">
                     {step.subtitle}
                   </p>
                 </div>
@@ -181,10 +181,10 @@ export function ProdusalCatalog() {
       <div className="space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="space-y-1.5">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
               Mercados y Aplicaciones
             </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-[#1a3c6a]">
+            <h3 className="text-2xl sm:text-3xl font-black text-[#183c6b]">
               Líneas de Sal Produsal
             </h3>
           </div>
@@ -199,7 +199,7 @@ export function ProdusalCatalog() {
             return (
               <div
                 key={line.id}
-                className="relative rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-8 space-y-5 shadow-sm hover:shadow-xl hover:border-[#02afab]/40 transition-all duration-300 flex flex-col justify-between group"
+                className="relative rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-8 space-y-5 shadow-sm hover:shadow-xl hover:border-[#02aeaa]/40 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -218,7 +218,7 @@ export function ProdusalCatalog() {
                   </div>
 
                   <div className="space-y-1">
-                    <h4 className="text-xl font-bold text-[#1a3c6a]">{line.title}</h4>
+                    <h4 className="text-xl font-bold text-[#183c6b]">{line.title}</h4>
                     <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
                       {line.description}
                     </p>
@@ -243,7 +243,7 @@ export function ProdusalCatalog() {
                   </span>
                   <Link
                     href="/contacto"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#02afab] hover:text-[#009539] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#02aeaa] hover:text-[#009539] transition-colors"
                   >
                     <span>Solicitar cotización</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -258,7 +258,7 @@ export function ProdusalCatalog() {
       {/* ========================================================
           4. COMPROMISO ECOLÓGICO Y REFUGIO DE FAUNA
          ======================================================== */}
-      <div className="relative rounded-3xl bg-gradient-to-r from-[#1a3c6a] via-[#16365f] to-[#0c223f] text-white p-8 sm:p-12 overflow-hidden shadow-xl">
+      <div className="relative rounded-3xl bg-gradient-to-r from-[#183c6b] via-[#16365f] to-[#0c223f] text-white p-8 sm:p-12 overflow-hidden shadow-xl">
         <div className="relative z-10 max-w-3xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#30deda] text-xs font-bold uppercase tracking-wider">
             <Leaf className="w-3.5 h-3.5" />

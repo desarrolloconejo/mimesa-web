@@ -1,23 +1,69 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Montserrat } from "next/font/google";
+import localFont from "next/font/local";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+// Brand Manual Slide 11: Gilroy for Headings & Communication
+const gilroy = localFont({
+  src: [
+    {
+      path: "../../public/fonts/gilroy/Gilroy-Light.woff",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/gilroy/Gilroy-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/gilroy/Gilroy-Medium.woff",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/gilroy/Gilroy-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/gilroy/Gilroy-Extrabold.woff",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/gilroy/Gilroy-Heavy.woff",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-gilroy",
   display: "swap",
 });
 
+// Brand Manual Slide 11: Quesha for Brand Descriptor "GRUPO"
+const quesha = localFont({
+  src: [
+    {
+      path: "../../public/fonts/quesha/Quesha-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-quesha",
+  display: "swap",
+});
+
+// Brand Manual Slide 11: Montserrat for Body & Digital UI
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#1a3c6a",
+  themeColor: "#183c6b", // Official Prussian Blue (PANTONE 541 C)
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -36,6 +82,8 @@ export const metadata: Metadata = {
     "Agroindustria Venezuela",
     "Harinas",
     "Granos",
+    "Produsal",
+    "Sal Marina",
   ],
   authors: [{ name: "Grupo Mimesa" }],
   openGraph: {
@@ -55,9 +103,14 @@ export const metadata: Metadata = {
     locale: "es_VE",
     type: "website",
   },
+  // Brand Manual Slide 17: Simplified white sprout isotipo in dark blue circle
   icons: {
-    icon: "/LOGOMIMESA.webp",
-    apple: "/LOGOMIMESA.webp",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+    shortcut: "/favicon.ico",
   },
 };
 
@@ -67,8 +120,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${outfit.variable} ${montserrat.variable}`}>
-      <body className="min-h-screen bg-white text-[#0a1118] antialiased selection:bg-[#02afab] selection:text-white">
+    <html
+      lang="es"
+      className={`${gilroy.variable} ${montserrat.variable} ${quesha.variable}`}
+    >
+      <body className="min-h-screen bg-white text-[#0a1118] antialiased selection:bg-[#02aeaa] selection:text-white">
         {children}
       </body>
     </html>

@@ -19,7 +19,7 @@ export function DualShowcase({ onSelectCategory }: DualShowcaseProps) {
            ======================================================== */}
         <div className="relative rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-b from-white via-white to-[#f4faf6] border border-slate-200/90 p-6 sm:p-10 flex flex-col justify-between shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:border-[#009539]/30 transition-all duration-300 group overflow-hidden">
           {/* Top Brand Stripe */}
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#009539] via-[#94c11e] to-[#02afab]" />
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#009539] via-[#95c11e] to-[#02aeaa]" />
 
           <div className="space-y-6 relative z-10">
             {/* Header & Badges */}
@@ -35,7 +35,7 @@ export function DualShowcase({ onSelectCategory }: DualShowcaseProps) {
 
             {/* Title & Description */}
             <div className="space-y-2">
-              <h2 className="text-2xl sm:text-4xl font-black text-[#1a3c6a] tracking-tight group-hover:text-[#009539] transition-colors">
+              <h2 className="text-2xl sm:text-4xl font-black text-[#183c6b] tracking-tight group-hover:text-[#009539] transition-colors">
                 División Alimentos
               </h2>
               <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
@@ -94,14 +94,14 @@ export function DualShowcase({ onSelectCategory }: DualShowcaseProps) {
         {/* ========================================================
             CARD 2: DIVISIÓN PRODUSAL (Sal Marina, Solar, Industrial)
            ======================================================== */}
-        <div className="relative rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-b from-white via-white to-[#f0faf9] border border-slate-200/90 p-6 sm:p-10 flex flex-col justify-between shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:border-[#02afab]/30 transition-all duration-300 group overflow-hidden">
+        <div className="relative rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-b from-white via-white to-[#f0faf9] border border-slate-200/90 p-6 sm:p-10 flex flex-col justify-between shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:border-[#02aeaa]/30 transition-all duration-300 group overflow-hidden">
           {/* Top Brand Stripe */}
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#02afab] via-[#30deda] to-[#1a3c6a]" />
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#02aeaa] via-[#30deda] to-[#183c6b]" />
 
           <div className="space-y-6 relative z-10">
             {/* Header & Badges */}
             <div className="flex items-center justify-between gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#02afab]/10 text-[#02afab]">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#02aeaa]/10 text-[#02aeaa]">
                 <Waves className="w-3.5 h-3.5" />
                 <span>02 • Sal Solar & Industria</span>
               </span>
@@ -112,7 +112,7 @@ export function DualShowcase({ onSelectCategory }: DualShowcaseProps) {
 
             {/* Title & Description */}
             <div className="space-y-2">
-              <h2 className="text-2xl sm:text-4xl font-black text-[#1a3c6a] tracking-tight group-hover:text-[#02afab] transition-colors">
+              <h2 className="text-2xl sm:text-4xl font-black text-[#183c6b] tracking-tight group-hover:text-[#02aeaa] transition-colors">
                 Complejo Salinero Produsal
               </h2>
               <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
@@ -137,16 +137,16 @@ export function DualShowcase({ onSelectCategory }: DualShowcaseProps) {
 
             {/* Category Tags Pills */}
             <div className="flex flex-wrap gap-2 pt-1">
-              <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-teal-50 text-[#02afab] border border-[#02afab]/20">
+              <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-teal-50 text-[#02aeaa] border border-[#02aeaa]/20">
                 Sal Fina de Mesa
               </span>
-              <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-teal-50 text-[#02afab] border border-[#02afab]/20">
+              <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-teal-50 text-[#02aeaa] border border-[#02aeaa]/20">
                 Sal Marina Parrillera
               </span>
-              <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-teal-50 text-[#02afab] border border-[#02afab]/20">
+              <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-teal-50 text-[#02aeaa] border border-[#02aeaa]/20">
                 Grado Industrial & Químico
               </span>
-              <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-teal-50 text-[#02afab] border border-[#02afab]/20">
+              <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-teal-50 text-[#02aeaa] border border-[#02aeaa]/20">
                 Nutrición y Ganadería
               </span>
             </div>
@@ -157,7 +157,7 @@ export function DualShowcase({ onSelectCategory }: DualShowcaseProps) {
             <button
               type="button"
               onClick={() => onSelectCategory("produsal")}
-              className="w-full inline-flex items-center justify-between px-6 py-3.5 rounded-xl bg-[#02afab] hover:bg-[#009539] text-white font-bold text-sm shadow-lg shadow-[#02afab]/20 hover:shadow-xl transition-all duration-300 group/btn cursor-pointer"
+              className="w-full inline-flex items-center justify-between px-6 py-3.5 rounded-xl bg-[#02aeaa] hover:bg-[#009539] text-white font-bold text-sm shadow-lg shadow-[#02aeaa]/20 hover:shadow-xl transition-all duration-300 group/btn cursor-pointer"
             >
               <span>Ver complejo y aplicaciones</span>
               <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

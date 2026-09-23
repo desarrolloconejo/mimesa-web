@@ -38,7 +38,7 @@ export const ALIMENTOS_BRANDS: BrandItem[] = [
     tagline: "Tradición y pureza para la repostería y panes de la familia",
     badge: "Líder en Harinas",
     href: "/productos/alimentos/blancaflor",
-    logoColor: "#1a3c6a",
+    logoColor: "#183c6b",
     logoBg: "bg-blue-50/60",
     logoText: "BlancaFlor",
     logoSub: "Harina de Trigo",

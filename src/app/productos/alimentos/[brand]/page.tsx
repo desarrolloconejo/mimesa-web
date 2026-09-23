@@ -257,7 +257,7 @@ export default async function BrandDetailPage({ params }: PageProps) {
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-xs" style={{ backgroundColor: brand.color }}>
                     <Award className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#1a3c6a] tracking-tight">
+                  <h3 className="text-2xl sm:text-3xl font-black text-[#183c6b] tracking-tight">
                     Atributos de {brand.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed">
@@ -289,7 +289,7 @@ export default async function BrandDetailPage({ params }: PageProps) {
                   <div className="w-12 h-12 rounded-2xl bg-[#009539] text-white flex items-center justify-center shadow-xs">
                     <Sparkles className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#1a3c6a] tracking-tight">
+                  <h3 className="text-2xl sm:text-3xl font-black text-[#183c6b] tracking-tight">
                     Beneficios para el Consumidor
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed">
@@ -333,9 +333,9 @@ export default async function BrandDetailPage({ params }: PageProps) {
         {brand.industrialRelation && (
           <section className="relative pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
             <FadeIn>
-              <div className="p-8 sm:p-12 rounded-[2.5rem] bg-gradient-to-r from-[#1a3c6a] to-[#0c223f] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xl">
+              <div className="p-8 sm:p-12 rounded-[2.5rem] bg-gradient-to-r from-[#183c6b] to-[#0c223f] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xl">
                 <div className="space-y-2 max-w-2xl">
-                  <span className="text-xs font-black uppercase tracking-widest text-[#02afab]">
+                  <span className="text-xs font-black uppercase tracking-widest text-[#02aeaa]">
                     Soluciones para Profesionales
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
@@ -348,7 +348,7 @@ export default async function BrandDetailPage({ params }: PageProps) {
 
                 <Link
                   href={brand.industrialRelation.href}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#02afab] hover:bg-[#94c11e] hover:text-[#0a182b] text-white text-xs sm:text-sm font-bold transition-all shadow-md shrink-0"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#02aeaa] hover:bg-[#95c11e] hover:text-[#0a182b] text-white text-xs sm:text-sm font-bold transition-all shadow-md shrink-0"
                 >
                   <span>{brand.industrialRelation.linkText}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -370,7 +370,7 @@ export default async function BrandDetailPage({ params }: PageProps) {
               <span className="text-xs font-extrabold uppercase tracking-widest block" style={{ color: brand.color }}>
                 Distribución Comercial • {brand.name}
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
                 Lleva {brand.name} a tus clientes
               </h2>
               <p className="text-base text-gray-600 font-light leading-relaxed">
@@ -390,7 +390,7 @@ export default async function BrandDetailPage({ params }: PageProps) {
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-sm font-bold text-[#1a3c6a]">Distribución Nacional</h3>
+                      <h3 className="text-sm font-bold text-[#183c6b]">Distribución Nacional</h3>
                       <p className="text-sm text-gray-600 leading-relaxed">
                         Despachos centralizados desde nuestras plantas y centros logísticos.
                       </p>
@@ -398,11 +398,11 @@ export default async function BrandDetailPage({ params }: PageProps) {
                   </div>
 
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-2xl bg-[#1a3c6a]/10 text-[#1a3c6a] flex items-center justify-center shrink-0 group-hover:bg-[#1a3c6a] group-hover:text-white transition-all duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-[#183c6b]/10 text-[#183c6b] flex items-center justify-center shrink-0 group-hover:bg-[#183c6b] group-hover:text-white transition-all duration-300">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-sm font-bold text-[#1a3c6a]">Atención Comercial Directa</h3>
+                      <h3 className="text-sm font-bold text-[#183c6b]">Atención Comercial Directa</h3>
                       <p className="text-base font-bold text-gray-800">
                         +58 (212) 000-0000
                       </p>
@@ -417,7 +417,7 @@ export default async function BrandDetailPage({ params }: PageProps) {
                       <Mail className="w-5 h-5" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-sm font-bold text-[#1a3c6a]">Correo de la Marca</h3>
+                      <h3 className="text-sm font-bold text-[#183c6b]">Correo de la Marca</h3>
                       <a
                         href="mailto:ventas@grupomimesa.com"
                         className="text-sm text-[#009539] hover:underline font-semibold block"

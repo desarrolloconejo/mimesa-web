@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/organic-shapes";
 import { ParallaxShape } from "@/components/ui/parallax-shape";
 import { FadeIn } from "@/components/ui/fade-in";
+import { CyanotypeHero } from "@/components/ui/cyanotype-hero";
 
 export const metadata = {
   title: "División Produsal | Parque Salinero Solar Los Olivitos | Grupo Mimesa",
@@ -45,21 +46,21 @@ const PRODUSAL_METRICS = [
     unit: "Toneladas / Año",
     label: "Capacidad instalada de producción líder en la región",
     icon: Mountain,
-    color: "#02afab",
+    color: "#02aeaa",
   },
   {
     value: "+40.000",
     unit: "Hectáreas",
     label: "Parque salinero solar en Los Olivitos, Edo. Zulia",
     icon: Factory,
-    color: "#1a3c6a",
+    color: "#183c6b",
   },
   {
     value: "100%",
     unit: "Evaporación Solar",
     label: "Proceso totalmente ecológico, impulsado por sol y vientos",
     icon: Sun,
-    color: "#02afab",
+    color: "#02aeaa",
   },
   {
     value: ">99.5%",
@@ -104,7 +105,7 @@ const LINEAS_SUMINISTRO = [
     description:
       "Sal marina refinada de grano uniforme, enriquecida con yodo y flúor según la normativa sanitaria venezolana. Presentaciones domésticas de 1 Kg y sacos institucionales.",
     badge: "Grado Alimenticio",
-    color: "#02afab",
+    color: "#02aeaa",
   },
   {
     title: "Sal Marina Parrillera & Gourmet",
@@ -112,7 +113,7 @@ const LINEAS_SUMINISTRO = [
     description:
       "Cristales de sal gruesa seleccionados para preservar jugos y realzar el sabor en asados y cocina de alta gama. Textura crujiente y disolución controlada.",
     badge: "Gourmet",
-    color: "#1a3c6a",
+    color: "#183c6b",
   },
   {
     title: "Sal Grado Industrial & Químico",
@@ -120,7 +121,7 @@ const LINEAS_SUMINISTRO = [
     description:
       "Materia prima de pureza superior a 99.5% NaCl para procesos de electrólisis, plantas de cloro-sosa, industria textil, curtidurías, ablandamiento y desalinización de aguas.",
     badge: "Alta Pureza Industrial",
-    color: "#02afab",
+    color: "#02aeaa",
   },
   {
     title: "Nutrición Animal & Suplemento Ganadero",
@@ -134,142 +135,38 @@ const LINEAS_SUMINISTRO = [
 
 export default function ProdusalPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white selection:bg-[#02afab] selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white selection:bg-[#02aeaa] selection:text-white">
       {/* Header Corporativo */}
       <HeaderWrapper />
 
       <main className="flex-1 w-full bg-gradient-to-b from-[#f4f8fb] via-white to-[#f7faf8] relative overflow-hidden">
-        {/* Ambient Lighting Orbs */}
-        <GlowOrb color="cyan" className="top-12 -left-48 w-[650px] h-[650px] opacity-15" />
-        <GlowOrb color="green" className="top-1/3 -right-48 w-[600px] h-[600px] opacity-15" />
-        <GlowOrb color="lime" className="bottom-20 left-1/4 w-[550px] h-[550px] opacity-15" />
-
-        {/* Parallax Floating Organic Brand Elements */}
-        <ParallaxShape
-          speed={-0.12}
-          floatAnimation="gentle"
-          className="top-24 right-8 lg:right-16 hidden lg:block opacity-45"
-        >
-          <MimesaLeafLime size={115} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.16}
-          floatAnimation="reverse"
-          className="top-36 left-8 hidden lg:block opacity-45"
-        >
-          <MimesaDotCyan size={42} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.18}
-          floatAnimation="sway"
-          className="top-[20%] -left-6 hidden lg:block opacity-40"
-        >
-          <MimesaLeafGreen size={100} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.2}
-          floatAnimation="reverse"
-          className="top-[28%] right-8 hidden lg:block opacity-40"
-        >
-          <MimesaDotLime size={38} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.16}
-          floatAnimation="gentle"
-          className="top-[45%] left-10 hidden lg:block opacity-40"
-        >
-          <MimesaDotGreen size={44} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.18}
-          floatAnimation="sway"
-          className="top-[54%] right-12 hidden lg:block opacity-45"
-        >
-          <MimesaLeafLime size={95} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.12}
-          floatAnimation="reverse"
-          className="top-[70%] left-8 hidden lg:block opacity-40"
-        >
-          <MimesaDotCyan size={40} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={0.15}
-          floatAnimation="gentle"
-          className="bottom-36 right-10 hidden lg:block opacity-40"
-        >
-          <MimesaDotGreen size={42} />
-        </ParallaxShape>
-
-        <ParallaxShape
-          speed={-0.05}
-          floatAnimation="none"
-          className="top-[40%] right-1/4 hidden xl:block opacity-[0.03]"
-        >
-          <MimesaSprout size={520} />
-        </ParallaxShape>
 
         {/* ========================================================
-            1. HERO: Altura estándar, alineado a la izquierda
+            1. HERO CIANOTIPIA (Slide 11, 12, 15)
            ======================================================== */}
-        <section className="relative min-h-[580px] sm:min-h-[660px] lg:min-h-[740px] flex flex-col justify-center pt-32 sm:pt-36 lg:pt-44 pb-24 sm:pb-32 lg:pb-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full z-10">
-          <div className="relative z-10 max-w-7xl mx-auto w-full">
-            {/* Breadcrumb: Solo texto y color */}
-            <nav
-              className="flex items-center gap-2 text-xs font-semibold text-gray-400 mb-8 sm:mb-12 select-none"
-              aria-label="Ruta de navegación"
-            >
-              <Link href="/" className="hover:text-[#02afab] transition-colors">
-                Inicio
-              </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
-              <Link href="/productos" className="hover:text-[#02afab] transition-colors">
-                Productos
-              </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
-              <span className="text-[#1a3c6a] font-bold">División Produsal</span>
-            </nav>
-
-            <FadeIn className="max-w-5xl space-y-6 sm:space-y-8 text-left">
-              {/* Logo Oficial Produsal */}
-              <div className="h-12 w-44 bg-white/95 backdrop-blur-md rounded-2xl p-2 border border-slate-200/90 shadow-xs relative overflow-hidden">
-                <Image
-                  src="/images/productos/PRODUSAL-LOGO.webp"
-                  alt="Logo Oficial Produsal"
-                  fill
-                  className="object-contain p-1"
-                  priority
-                />
-              </div>
-
-              {/* Kicker Editorial: Solo Color y Texto */}
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
-                Complejo Salinero Solar • Los Olivitos, Edo. Zulia
-              </span>
-
-              {/* Título Principal en Exactamente Dos Líneas */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-[3.85rem] font-black text-[#1a3c6a] tracking-tight leading-[1.12]">
-                <span className="block">Produsal: La principal</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#02afab] via-[#009539] to-[#94c11e]">
-                  productora de sal de Venezuela
-                </span>
-              </h1>
-
-              {/* Texto Descriptivo con Espacio Respirable */}
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 font-light leading-relaxed max-w-2xl pt-1">
-                Aprovechamos la fuerza natural del sol y los vientos alisios en más de 40.000 hectáreas del estado Zulia para cosechar más de 650.000 toneladas anuales de sal marina solar de máxima pureza, abasteciendo a los hogares, la agroindustria y los sectores químicos del país.
-              </p>
-            </FadeIn>
+        <CyanotypeHero
+          kicker="Complejo Salinero Solar • Los Olivitos, Edo. Zulia"
+          titleLine1="Produsal: La principal"
+          titleLine2={<><span className="text-[#02aeaa]">productora de sal</span> de <span className="text-[#95c11e]">Venezuela</span></>}
+          textureSrc="/images/textures/cyanotype-clouds.jpg"
+          description="Aprovechamos la fuerza natural del sol y los vientos alisios en más de 40.000 hectáreas del estado Zulia para cosechar más de 650.000 toneladas anuales de sal marina solar de máxima pureza, abasteciendo a los hogares, la agroindustria y los sectores químicos del país."
+          breadcrumbs={[
+            { label: "Inicio", href: "/" },
+            { label: "Productos", href: "/productos" },
+            { label: "División Produsal" },
+          ]}
+        >
+          {/* Logo Oficial Produsal */}
+          <div className="h-12 w-44 bg-white/95 backdrop-blur-md rounded-2xl p-2 border border-white/20 shadow-sm relative overflow-hidden">
+            <Image
+              src="/images/productos/PRODUSAL-LOGO.webp"
+              alt="Logo Oficial Produsal"
+              fill
+              className="object-contain p-1"
+              priority
+            />
           </div>
-        </section>
+        </CyanotypeHero>
 
         {/* ========================================================
             2. MÉTRICAS E INFRAESTRUCTURA DE GRAN ESCALA
@@ -291,7 +188,7 @@ export default function ProdusalPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <div className="text-3xl sm:text-4xl font-black text-[#1a3c6a] tracking-tight">
+                    <div className="text-3xl sm:text-4xl font-black text-[#183c6b] tracking-tight">
                       {m.value}
                     </div>
                     <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
@@ -326,7 +223,7 @@ export default function ProdusalPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c223f]/80 via-transparent to-transparent" />
                 
                 <div className="absolute top-5 left-5">
-                  <span className="px-4 py-2 rounded-2xl bg-white/95 backdrop-blur-md text-[#02afab] text-xs font-extrabold uppercase tracking-wider shadow-lg border border-white/60">
+                  <span className="px-4 py-2 rounded-2xl bg-white/95 backdrop-blur-md text-[#02aeaa] text-xs font-extrabold uppercase tracking-wider shadow-lg border border-white/60">
                     Costa Oriental del Lago de Maracaibo
                   </span>
                 </div>
@@ -345,10 +242,10 @@ export default function ProdusalPage() {
             {/* Narrativa Industrial (6 cols) */}
             <div className="lg:col-span-6 space-y-6">
               <div className="space-y-3">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
                   Infraestructura de Vanguardia
                 </span>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight leading-tight">
                   Una de las plantas de sal solar más modernas del mundo
                 </h2>
                 <p className="text-base text-gray-600 font-light leading-relaxed">
@@ -358,19 +255,19 @@ export default function ProdusalPage() {
 
               <div className="space-y-3 pt-2">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#02afab] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#02aeaa] shrink-0 mt-0.5" />
                   <p className="text-sm text-gray-700 font-medium">
                     Capacidad de cosecha superior a 650.000 toneladas métricas anuales.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#02afab] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#02aeaa] shrink-0 mt-0.5" />
                   <p className="text-sm text-gray-700 font-medium">
                     Proceso 100% natural, renovable y de mínimo impacto ambiental.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#02afab] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#02aeaa] shrink-0 mt-0.5" />
                   <p className="text-sm text-gray-700 font-medium">
                     Instalaciones de refinación y molienda certificadas para inocuidad alimentaria.
                   </p>
@@ -387,10 +284,10 @@ export default function ProdusalPage() {
       <section className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white border-y border-slate-200/80 z-10">
         <FadeIn className="max-w-7xl mx-auto space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa]">
               Ciclo Productivo Sustentable
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
               Cómo cosechamos la sal marina más pura
             </h2>
             <p className="text-base text-gray-600 font-light leading-relaxed">
@@ -404,10 +301,10 @@ export default function ProdusalPage() {
                 key={etapa.step}
                 className="p-7 rounded-[2rem] bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 space-y-4 relative group"
               >
-                <span className="text-4xl font-black text-[#02afab]/20 group-hover:text-[#02afab] transition-colors block">
+                <span className="text-4xl font-black text-[#02aeaa]/20 group-hover:text-[#02aeaa] transition-colors block">
                   {etapa.step}
                 </span>
-                <h3 className="text-lg font-bold text-[#1a3c6a] leading-snug">
+                <h3 className="text-lg font-bold text-[#183c6b] leading-snug">
                   {etapa.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
@@ -425,10 +322,10 @@ export default function ProdusalPage() {
       <section className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
         <FadeIn className="space-y-16">
           <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
               Portafolio de Soluciones
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
               Líneas de suministro para cada industria y el hogar
             </h2>
             <p className="text-base text-gray-600 font-light leading-relaxed">
@@ -455,7 +352,7 @@ export default function ProdusalPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-black text-[#1a3c6a] leading-snug">
+                  <h3 className="text-2xl font-black text-[#183c6b] leading-snug">
                     {linea.title}
                   </h3>
 
@@ -464,7 +361,7 @@ export default function ProdusalPage() {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#02afab]">
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#02aeaa]">
                   <span>Suministro a granel o ensacado</span>
                   <Layers className="w-4 h-4" />
                 </div>
@@ -519,10 +416,10 @@ export default function ProdusalPage() {
       <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200/80 relative z-10">
         <FadeIn className="max-w-7xl mx-auto space-y-12">
           <div className="max-w-2xl space-y-3">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
               Ventas Industriales & Contratos de Suministro
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a3c6a] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
               Solicita cotización de sal marina solar
             </h2>
             <p className="text-base text-gray-600 font-light leading-relaxed">
@@ -535,26 +432,26 @@ export default function ProdusalPage() {
             <div className="lg:col-span-5 space-y-8 py-2">
               <div className="space-y-6">
                 <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-2xl bg-[#02afab]/10 text-[#02afab] flex items-center justify-center shrink-0 group-hover:bg-[#02afab] group-hover:text-white transition-all duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center shrink-0 group-hover:bg-[#02aeaa] group-hover:text-white transition-all duration-300">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="text-sm font-bold text-[#1a3c6a]">Complejo Salinero Los Olivitos</h3>
+                    <h3 className="text-sm font-bold text-[#183c6b]">Complejo Salinero Los Olivitos</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       Municipio Miranda, Estado Zulia, Venezuela.
                     </p>
-                    <span className="text-xs text-[#02afab] font-medium block">
+                    <span className="text-xs text-[#02aeaa] font-medium block">
                       Despacho por vía marítima y terrestre
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-2xl bg-[#1a3c6a]/10 text-[#1a3c6a] flex items-center justify-center shrink-0 group-hover:bg-[#1a3c6a] group-hover:text-white transition-all duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-[#183c6b]/10 text-[#183c6b] flex items-center justify-center shrink-0 group-hover:bg-[#183c6b] group-hover:text-white transition-all duration-300">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="text-sm font-bold text-[#1a3c6a]">Atención Suministro Industrial</h3>
+                    <h3 className="text-sm font-bold text-[#183c6b]">Atención Suministro Industrial</h3>
                     <p className="text-base font-bold text-gray-800">
                       +58 (212) 000-0000
                     </p>
@@ -569,17 +466,17 @@ export default function ProdusalPage() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="space-y-1.5">
-                    <h3 className="text-sm font-bold text-[#1a3c6a]">Correos de la División</h3>
+                    <h3 className="text-sm font-bold text-[#183c6b]">Correos de la División</h3>
                     <div className="space-y-1 text-sm">
                       <a
                         href="mailto:produsal@grupomimesa.com"
-                        className="block text-[#02afab] hover:underline font-semibold"
+                        className="block text-[#02aeaa] hover:underline font-semibold"
                       >
                         produsal@grupomimesa.com
                       </a>
                       <a
                         href="mailto:ventas@grupomimesa.com"
-                        className="block text-gray-600 hover:text-[#02afab] transition-colors"
+                        className="block text-gray-600 hover:text-[#02aeaa] transition-colors"
                       >
                         ventas@grupomimesa.com
                       </a>
@@ -588,11 +485,11 @@ export default function ProdusalPage() {
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 group-hover:bg-[#1a3c6a] group-hover:text-white transition-all duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 group-hover:bg-[#183c6b] group-hover:text-white transition-all duration-300">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="text-sm font-bold text-[#1a3c6a]">Horario Operativo y Despachos</h3>
+                    <h3 className="text-sm font-bold text-[#183c6b]">Horario Operativo y Despachos</h3>
                     <p className="text-sm text-gray-700">
                       Lunes a Viernes: 8:00 AM – 5:00 PM (HLV)
                     </p>

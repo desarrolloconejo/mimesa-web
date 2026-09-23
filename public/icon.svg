@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 140" fill="none">
+  <!-- Official White Sprout Isotipo - Transparent background, elements only in pure white -->
+  <g transform="translate(2.5, 3.5)">
+    <!-- Leaf 1 (White) -->
+    <path d="M 175.02 69.75 C 175.02 69.75, 155.90 133.05, 64.25 111.18 C 64.25 111.18, 90.33 45.27, 175.02 69.75 Z" fill="#ffffff"/>
+    <!-- Leaf 2 (White) -->
+    <path d="M 7.44 41.95 C 19.75 37.18, 41.28 33.45, 66.54 49.00 C 84.66 60.14, 74.73 88.13, 53.68 85.06 C 39.88 83.06, 23.17 75.40, 4.50 56.52 C 0.00 51.97, 1.48 44.26, 7.44 41.95 Z" fill="#ffffff"/>
+    <!-- Leaf 3 (White) -->
+    <path d="M 93.06 13.86 C 92.08 14.61, 91.10 15.41, 90.11 16.25 C 73.32 30.75, 94.21 56.97, 112.07 43.83 C 113.03 43.13, 113.99 42.37, 114.95 41.57 C 132.47 26.97, 111.17 0.00, 93.06 13.86 Z" fill="#ffffff"/>
+  </g>
+</svg>

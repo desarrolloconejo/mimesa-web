@@ -34,24 +34,24 @@ export function ProductosHero({ activeCategory, onSelectCategory }: ProductosHer
           className="flex items-center gap-2 text-xs font-semibold text-gray-400 select-none"
           aria-label="Ruta de navegación"
         >
-          <Link href="/" className="hover:text-[#02afab] transition-colors">
+          <Link href="/" className="hover:text-[#02aeaa] transition-colors">
             Inicio
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
-          <span className="text-[#1a3c6a] font-bold">Productos</span>
+          <span className="text-[#183c6b] font-bold">Productos</span>
         </nav>
 
         {/* Header Kicker & Titles */}
         <div className="space-y-4">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
             Portafolio de Alimentos & Soluciones Salinas
           </span>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1a3c6a] tracking-tight leading-[1.12]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#183c6b] tracking-tight leading-[1.12]">
             Soluciones que nutren los hogares e impulsan la industria venezolana.
           </h1>
 
-          <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed max-w-3xl">
+          <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed max-w-3xl">
             Nuestra organización posee dos grandes negocios: la división de{" "}
             <strong className="font-semibold text-gray-900">Alimentos de consumo masivo</strong>, con marcas de
             arraigo en la familia, y la división{" "}
@@ -69,13 +69,13 @@ export function ProductosHero({ activeCategory, onSelectCategory }: ProductosHer
             </span>
           </div>
           <div className="p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-xs">
-            <span className="text-xl sm:text-2xl font-black text-[#02afab] block">+40.000 Ha</span>
+            <span className="text-xl sm:text-2xl font-black text-[#02aeaa] block">+40.000 Ha</span>
             <span className="text-[11px] text-gray-500 font-medium leading-tight block mt-0.5">
               Parque Salinero Solar
             </span>
           </div>
           <div className="p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-xs">
-            <span className="text-xl sm:text-2xl font-black text-[#1a3c6a] block">100% Solar</span>
+            <span className="text-xl sm:text-2xl font-black text-[#183c6b] block">100% Solar</span>
             <span className="text-[11px] text-gray-500 font-medium leading-tight block mt-0.5">
               Proceso Natural y Ecológico
             </span>
@@ -96,8 +96,8 @@ export function ProductosHero({ activeCategory, onSelectCategory }: ProductosHer
               onClick={() => onSelectCategory("all")}
               className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
                 activeCategory === "all"
-                  ? "bg-[#1a3c6a] text-white shadow-md shadow-[#1a3c6a]/20 scale-[1.02]"
-                  : "text-slate-600 hover:text-[#1a3c6a] hover:bg-white/60"
+                  ? "bg-[#183c6b] text-white shadow-md shadow-[#183c6b]/20 scale-[1.02]"
+                  : "text-slate-600 hover:text-[#183c6b] hover:bg-white/60"
               }`}
             >
               <Layers className="w-4 h-4" />
@@ -136,15 +136,15 @@ export function ProductosHero({ activeCategory, onSelectCategory }: ProductosHer
               onClick={() => onSelectCategory("produsal")}
               className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
                 activeCategory === "produsal"
-                  ? "bg-[#02afab] text-white shadow-md shadow-[#02afab]/20 scale-[1.02]"
-                  : "text-slate-600 hover:text-[#02afab] hover:bg-white/60"
+                  ? "bg-[#02aeaa] text-white shadow-md shadow-[#02aeaa]/20 scale-[1.02]"
+                  : "text-slate-600 hover:text-[#02aeaa] hover:bg-white/60"
               }`}
             >
               <Waves className="w-4 h-4" />
               <span>División Produsal</span>
               <span
                 className={`text-[10px] px-1.5 py-0.5 rounded-md font-extrabold ${
-                  activeCategory === "produsal" ? "bg-white/20 text-white" : "bg-[#02afab]/10 text-[#02afab]"
+                  activeCategory === "produsal" ? "bg-white/20 text-white" : "bg-[#02aeaa]/10 text-[#02aeaa]"
                 }`}
               >
                 Sal Solar

@@ -45,7 +45,7 @@ export function HeaderContent({ isScrolled }: HeaderContentProps) {
         {/* Brand Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#02afab] rounded-xl p-1 flex-shrink-0"
+          className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#02aeaa] rounded-xl p-1 flex-shrink-0"
           aria-label="Grupo Mimesa - Ir al inicio"
         >
           <div className="relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
@@ -60,9 +60,9 @@ export function HeaderContent({ isScrolled }: HeaderContentProps) {
           </div>
         </Link>
 
-        {/* Desktop Navigation Links (Direct on clean white header, strictly 1 line) */}
+        {/* Desktop Navigation Links (Explicit font-montserrat across ALL items) */}
         <nav
-          className="hidden lg:flex items-center gap-1 xl:gap-2 whitespace-nowrap flex-shrink min-w-0"
+          className="hidden lg:flex items-center gap-1 xl:gap-2 whitespace-nowrap flex-shrink min-w-0 font-montserrat"
           aria-label="Navegación principal"
         >
           {NAV_ITEMS.map((item) => {
@@ -76,32 +76,40 @@ export function HeaderContent({ isScrolled }: HeaderContentProps) {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`whitespace-nowrap px-2.5 xl:px-3 py-1.5 text-[13px] xl:text-sm font-semibold rounded-lg transition-all duration-200 relative group ${
+                className={`whitespace-nowrap px-2.5 xl:px-3 py-1 text-xs xl:text-[13px] font-semibold font-montserrat transition-colors duration-150 relative ${
                   isActive
-                    ? "text-[#02afab] bg-[#02afab]/10 font-bold"
-                    : "text-[#1a3c6a] hover:text-[#02afab] hover:bg-[#02afab]/8 font-medium"
+                    ? "text-[#02aeaa]"
+                    : "text-[#183c6b] hover:text-[#02aeaa]"
                 }`}
                 aria-current={isActive ? "page" : undefined}
               >
                 {item.name}
-                <span
-                  className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 bg-[#02afab] rounded-full transition-all duration-300 ${
-                    isActive ? "w-3/4" : "w-0 group-hover:w-3/4"
-                  }`}
-                />
+                {isActive && (
+                  <span className="absolute -bottom-1 left-2.5 right-2.5 h-[2px] bg-[#02aeaa] rounded-full" />
+                )}
               </Link>
             );
           })}
         </nav>
 
-        {/* Desktop CTA Action Button (WhatsApp) */}
-        <div className="hidden lg:flex items-center flex-shrink-0 whitespace-nowrap">
+        {/* Desktop CTA Action Buttons (Intranet & Contáctanos) */}
+        <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0 whitespace-nowrap">
+          <Link
+            href="#"
+            onClick={(e) => e.preventDefault()}
+            id="btn-intranet"
+            className="group whitespace-nowrap flex items-center gap-1.5 px-4 py-2 rounded-full text-xs xl:text-sm font-heading font-bold text-[#183c6b] bg-slate-50 hover:bg-[#02aeaa]/10 hover:text-[#02aeaa] border border-slate-200 hover:border-[#02aeaa]/40 transition-all duration-300"
+          >
+            <Lock className="w-3.5 h-3.5 text-[#02aeaa] group-hover:scale-110 transition-transform" />
+            <span>Intranet</span>
+          </Link>
+
           <Link
             href="https://wa.me/584120000000"
             target="_blank"
             rel="noopener noreferrer"
             id="btn-contactanos"
-            className="group whitespace-nowrap flex items-center gap-1.5 px-5 py-2 rounded-full text-xs xl:text-sm font-semibold text-white bg-[#02afab] hover:bg-[#94c11e] hover:text-[#0a182b] transition-all duration-300 shadow-sm shadow-[#02afab]/25 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+            className="group whitespace-nowrap flex items-center gap-1.5 px-5 py-2 rounded-full text-xs xl:text-sm font-heading font-bold text-white bg-[#02aeaa] hover:bg-[#95c11e] hover:text-[#0e2440] transition-all duration-300 shadow-sm shadow-[#02aeaa]/25 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
           >
             <span>Contáctanos</span>
             <ChevronRight className="w-3.5 h-3.5 opacity-80 group-hover:translate-x-0.5 transition-transform" />

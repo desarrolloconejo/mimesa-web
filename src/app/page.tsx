@@ -14,7 +14,7 @@ import { FooterWrapper } from "@/components/layout/footer/footer-wrapper";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white selection:bg-[#02afab] selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white selection:bg-[#02aeaa] selection:text-white">
       {/* Dynamic Header with Smart Pinning / Scroll Reveal */}
       <HeaderWrapper />
 
@@ -48,13 +48,10 @@ export default function Home() {
 
         {/* Section 10: Trabaja con nosotros (Reclutamiento y Oportunidades Laborales) */}
         <TrabajaWrapper />
-
-        {/* Section 11: Contacto (Formulario y Canales Oficiales en Fondo Azul) */}
-        <ContactoWrapper />
       </main>
 
-      {/* Corporate Footer with Full Links, Socials & Legal Copyright */}
-      <FooterWrapper />
+      {/* Corporate Footer & Contact Seamlessly Unified on Single Cyanotype Canvas */}
+      <FooterWrapper includeContact={true} />
     </div>
   );
 }

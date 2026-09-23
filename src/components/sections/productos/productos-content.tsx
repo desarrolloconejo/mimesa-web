@@ -14,7 +14,7 @@ export function ProductosContent() {
       {/* Colossal Parallax Watermark Text in Background */}
       <div className="absolute top-6 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0 overflow-hidden w-full text-center">
         <ParallaxElement speed={-0.35} horizontalSpeed={0.12} fadeEffect="in-out" fadeIntensity={0.9}>
-          <span className="text-[100px] sm:text-[160px] md:text-[230px] font-black text-[#1a3c6a]/[0.025] uppercase tracking-tighter leading-none block">
+          <span className="text-[100px] sm:text-[160px] md:text-[230px] font-black text-[#183c6b]/[0.025] uppercase tracking-tighter leading-none block">
             NEGOCIOS
           </span>
         </ParallaxElement>
@@ -43,15 +43,15 @@ export function ProductosContent() {
           1. General Institutional Header
          ======================================================== */}
       <div className="relative z-10 max-w-4xl space-y-5">
-        <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+        <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
           {PRODUCTOS_INTRO.badge}
         </span>
 
-        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#1a3c6a] tracking-tight leading-[1.08]">
+        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#183c6b] tracking-tight leading-[1.08]">
           {PRODUCTOS_INTRO.title}
         </h2>
 
-        <p className="text-base sm:text-xl text-gray-700 font-light leading-relaxed">
+        <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
           {PRODUCTOS_INTRO.description}
         </p>
       </div>

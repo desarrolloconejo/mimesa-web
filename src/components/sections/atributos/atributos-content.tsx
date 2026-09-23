@@ -28,13 +28,13 @@ export function AtributosContent() {
             {/* Header / Intro Badge */}
             <div className="space-y-4">
               <ParallaxElement speed={0.24} fadeEffect="in-out">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
                   Pilares de Acción
                 </span>
               </ParallaxElement>
 
               <ParallaxElement speed={0.18} fadeEffect="in-out">
-                <h3 className="text-3xl sm:text-5xl font-black text-[#1a3c6a] leading-[1.1] tracking-tight">
+                <h3 className="text-3xl sm:text-5xl font-black text-[#183c6b] leading-[1.1] tracking-tight">
                   Nuestros principios en cada paso
                 </h3>
               </ParallaxElement>
@@ -84,14 +84,14 @@ export function AtributosContent() {
                             </div>
                           </div>
 
-                          <span className="text-sm font-bold text-gray-400 group-hover:text-[#1a3c6a] transition-colors duration-300">
+                          <span className="text-sm font-bold text-gray-400 group-hover:text-[#183c6b] transition-colors duration-300">
                             {item.num}
                           </span>
                         </div>
 
                         {/* Title & Tagline */}
                         <div>
-                          <h4 className="text-2xl sm:text-3xl font-black text-[#1a3c6a] tracking-tight">
+                          <h4 className="text-2xl sm:text-3xl font-black text-[#183c6b] tracking-tight">
                             {item.title}
                           </h4>
                           <p className="text-xs sm:text-sm font-semibold text-gray-500 mt-1">
@@ -129,7 +129,7 @@ export function AtributosContent() {
               priority={false}
             />
             {/* Subtle Gradient Overlays for Depth and Contrast */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a3c6a]/40 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/40 via-transparent to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/15 pointer-events-none" />
           </div>
 
@@ -167,7 +167,7 @@ export function AtributosContent() {
                     <MimesaSprout size={36} />
                   </div>
                   <div>
-                    <p className="text-[11px] font-extrabold uppercase tracking-wider text-[#1a3c6a]">
+                    <p className="text-sm font-heading font-bold tracking-tight text-[#183c6b]">
                       Grupo Mimesa
                     </p>
                     <p className="text-xs sm:text-sm font-black text-[#009539]">

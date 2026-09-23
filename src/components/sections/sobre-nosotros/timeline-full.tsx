@@ -10,7 +10,7 @@ export function TimelineFull() {
       {/* Recorrido Cronológico Continuo y Completo (Sin pestañas, alternando izquierda y derecha) */}
       <div className="relative max-w-5xl mx-auto">
         {/* Línea Central Conectora (Desktop) / Lateral (Mobile) */}
-        <div className="absolute top-6 bottom-6 left-6 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#02afab] via-[#009539] to-[#94c11e] rounded-full opacity-35 pointer-events-none" />
+        <div className="absolute top-6 bottom-6 left-6 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#02aeaa] via-[#009539] to-[#95c11e] rounded-full opacity-35 pointer-events-none" />
 
         <div className="space-y-12 sm:space-y-16">
           {MILESTONES_DATA.map((milestone, idx) => {
@@ -25,7 +25,7 @@ export function TimelineFull() {
               >
                 {/* Marcador Central del Hito */}
                 <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
-                  <div className="w-9 h-9 rounded-full bg-white border-4 border-[#02afab] group-hover:border-[#009539] group-hover:scale-110 shadow-md flex items-center justify-center transition-all duration-300">
+                  <div className="w-9 h-9 rounded-full bg-white border-4 border-[#02aeaa] group-hover:border-[#009539] group-hover:scale-110 shadow-md flex items-center justify-center transition-all duration-300">
                     <div className="w-2.5 h-2.5 rounded-full bg-[#009539]" />
                   </div>
                 </div>
@@ -65,17 +65,17 @@ function MilestoneCard({
           isLeft ? "md:justify-end" : "justify-start"
         }`}
       >
-        <span className="text-3xl sm:text-4xl font-black text-[#1a3c6a] tracking-tight">
+        <span className="text-3xl sm:text-4xl font-black text-[#183c6b] tracking-tight">
           {milestone.year}
         </span>
-        <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab]">
+        <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa]">
           {milestone.badge}
         </span>
       </div>
 
       {/* Título y Subtítulo */}
       <div className={`space-y-1 ${isLeft ? "md:text-right" : "text-left"}`}>
-        <h3 className="text-lg sm:text-xl font-black text-[#1a3c6a] tracking-tight leading-snug">
+        <h3 className="text-lg sm:text-xl font-black text-[#183c6b] tracking-tight leading-snug">
           {milestone.title}
         </h3>
         <p className="text-xs font-semibold text-[#009539]">
@@ -95,7 +95,7 @@ function MilestoneCard({
       {/* Detalle Histórico Complementario */}
       {milestone.detailedStory && (
         <p
-          className={`text-xs text-slate-500 italic bg-slate-50 p-3 rounded-xl border-l-2 border-[#02afab] text-left`}
+          className={`text-xs text-slate-500 italic bg-slate-50 p-3 rounded-xl border-l-2 border-[#02aeaa] text-left`}
         >
           &ldquo;{milestone.detailedStory}&rdquo;
         </p>
@@ -107,13 +107,13 @@ function MilestoneCard({
           isLeft ? "md:flex-row-reverse" : "flex-row"
         }`}
       >
-        <div className="flex items-center gap-2 text-xs text-[#1a3c6a] font-medium">
+        <div className="flex items-center gap-2 text-xs text-[#183c6b] font-medium">
           <CheckCircle2 className="w-4 h-4 text-[#009539] shrink-0" />
           <span className="line-clamp-2">{milestone.achievement}</span>
         </div>
 
         <div className={`shrink-0 ${isLeft ? "md:text-left text-right" : "text-right"}`}>
-          <span className="text-sm font-black text-[#1a3c6a] block">
+          <span className="text-sm font-black text-[#183c6b] block">
             {milestone.metric}
           </span>
           <span className="text-[10px] text-gray-400 font-light block">

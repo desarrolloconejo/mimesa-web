@@ -16,7 +16,7 @@ export function TrayectoriaContent() {
       {/* Colossal Watermark Background Text */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-none select-none z-0 overflow-hidden w-full text-center">
         <ParallaxElement speed={-0.25} horizontalSpeed={0.08} fadeEffect="in-out" fadeIntensity={0.8}>
-          <span className="text-[100px] sm:text-[160px] md:text-[220px] font-black text-[#1a3c6a]/[0.025] uppercase tracking-tighter leading-none block">
+          <span className="text-[100px] sm:text-[160px] md:text-[220px] font-black text-[#183c6b]/[0.025] uppercase tracking-tighter leading-none block">
             HISTORIA
           </span>
         </ParallaxElement>
@@ -40,13 +40,13 @@ export function TrayectoriaContent() {
         
         {/* Category Pill & Main Title Parallax Layer */}
         <ParallaxElement speed={0.24} fadeEffect="in-out" fadeIntensity={1.05}>
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02afab] block mb-4">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block mb-4">
             Nuestra Trayectoria
           </span>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#1a3c6a] tracking-tight leading-[1.08]">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#183c6b] tracking-tight leading-[1.08]">
             Hitos que forjaron la{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#02afab] via-[#009539] to-[#94c11e]">
+            <span className="text-[#009539]">
               excelencia alimentaria
             </span>
           </h2>
@@ -54,7 +54,7 @@ export function TrayectoriaContent() {
 
         {/* Narrative Subtitle Parallax Layer */}
         <ParallaxElement speed={0.16} fadeEffect="in-out" fadeIntensity={1.0}>
-          <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed max-w-2xl mx-auto">
             Selecciona cada hito en la línea de tiempo para descubrir en detalle cómo hemos nutrido y
             acompañado la mesa de cada familia venezolana a lo largo de nuestra historia.
           </p>

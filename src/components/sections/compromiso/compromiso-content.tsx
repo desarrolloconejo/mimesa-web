@@ -19,8 +19,8 @@ export function CompromisoContent() {
       </div>
 
       {/* 1. Subtle Ambient Dynamic Glows */}
-      <div className="absolute top-1/4 left-1/4 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-[#94c11e]/10 via-[#02afab]/5 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[460px] h-[460px] rounded-full bg-gradient-to-bl from-[#02afab]/12 via-[#009539]/6 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-[#95c11e]/10 via-[#02aeaa]/5 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[460px] h-[460px] rounded-full bg-gradient-to-bl from-[#02aeaa]/12 via-[#009539]/6 to-transparent blur-3xl pointer-events-none" />
 
       {/* 2. Dynamic Orbital Rings (Slow Continuous Rotation) */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
@@ -35,7 +35,7 @@ export function CompromisoContent() {
             cx="600"
             cy="400"
             r="320"
-            stroke="#02afab"
+            stroke="#02aeaa"
             strokeWidth="1.2"
             strokeDasharray="6 8"
             strokeOpacity="0.45"
@@ -56,7 +56,7 @@ export function CompromisoContent() {
         </svg>
       </div>
 
-      {/* 3. Top-Left Organic Element: Deep Navy Curved Stem + Lime Sprouting Leaf (#94c11e) */}
+      {/* 3. Top-Left Organic Element: Deep Navy Curved Stem + Lime Sprouting Leaf (#95c11e) */}
       <div className="absolute top-0 -left-6 sm:-left-4 lg:left-0 z-10 pointer-events-none">
         <ParallaxElement speed={-0.2} rotateSpeed={0.08} fadeEffect="in-out">
           <svg
@@ -73,7 +73,7 @@ export function CompromisoContent() {
             />
             <path
               d="M10 95 C 20 40, 95 30, 200 42 C 220 95, 160 165, 80 165 C 35 165, 10 135, 10 95 Z"
-              fill="#94c11e"
+              fill="#95c11e"
             />
           </svg>
         </ParallaxElement>
@@ -102,35 +102,35 @@ export function CompromisoContent() {
       {/* 5. Central Editorial Typography with Scroll Fade In-Out */}
       <div className="relative z-20 max-w-4xl mx-auto px-6 sm:px-8 text-center space-y-5 sm:space-y-6">
         
-        <ParallaxElement speed={0.22} fadeEffect="in-out" fadeIntensity={1.05}>
+        <ParallaxElement speed={0.22}>
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block mb-2">
             {COMPROMISO_DATA.badge}
           </span>
         </ParallaxElement>
 
         {/* Headline: "Compromiso que heredamos" */}
-        <ParallaxElement speed={0.16} fadeEffect="in-out" fadeIntensity={1.0}>
+        <ParallaxElement speed={0.16}>
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black text-[#16365f] tracking-tight leading-[1.12]">
             {COMPROMISO_DATA.headline}
           </h2>
         </ParallaxElement>
 
-        {/* Subheadline lines */}
-        <ParallaxElement speed={0.10} fadeEffect="in-out" fadeIntensity={1.0}>
-          <div className="space-y-1 sm:space-y-1.5 text-lg sm:text-2xl md:text-3xl lg:text-[2.2rem] text-[#244b7a] font-light tracking-tight leading-relaxed max-w-3xl mx-auto">
+        {/* Subheadline lines - Standardized to text-sm sm:text-base font-normal */}
+        <ParallaxElement speed={0.10}>
+          <div className="space-y-1 text-sm sm:text-base text-[#244b7a] font-normal leading-relaxed max-w-2xl mx-auto">
             <p>{COMPROMISO_DATA.subheadlineLine1}</p>
-            <p className="font-normal text-[#16365f]">
+            <p className="font-semibold text-[#16365f]">
               {COMPROMISO_DATA.subheadlineLine2}
             </p>
           </div>
         </ParallaxElement>
 
         {/* Decorative Center Accent */}
-        <ParallaxElement speed={0.05} fadeEffect="in-out">
+        <ParallaxElement speed={0.05}>
           <div className="pt-4 sm:pt-6 flex items-center justify-center gap-2 text-xs text-gray-400">
-            <span className="w-8 h-px bg-gradient-to-r from-transparent to-[#02afab]" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#02afab] shadow-sm shadow-[#02afab]/50" />
-            <span className="w-8 h-px bg-gradient-to-l from-transparent to-[#02afab]" />
+            <span className="w-8 h-px bg-gradient-to-r from-transparent to-[#02aeaa]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#02aeaa] shadow-sm shadow-[#02aeaa]/50" />
+            <span className="w-8 h-px bg-gradient-to-l from-transparent to-[#02aeaa]" />
           </div>
         </ParallaxElement>
       </div>

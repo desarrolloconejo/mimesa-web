@@ -18,14 +18,14 @@ export function CompromisoSocialContent() {
       {/* Colossal Parallax Watermark Text in Background */}
       <div className="absolute top-10 right-6 sm:right-12 pointer-events-none select-none z-0 overflow-hidden text-right hidden sm:block">
         <ParallaxElement speed={-0.25} horizontalSpeed={-0.08} fadeEffect="in-out">
-          <span className="text-[80px] sm:text-[130px] md:text-[170px] font-black text-[#02afab]/[0.035] uppercase tracking-tighter leading-none block">
+          <span className="text-[80px] sm:text-[130px] md:text-[170px] font-black text-[#02aeaa]/[0.035] uppercase tracking-tighter leading-none block">
             VENEZUELA
           </span>
         </ParallaxElement>
       </div>
 
       {/* Ambient background brand aura */}
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-[#02afab]/5 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-[#02aeaa]/5 blur-3xl pointer-events-none" />
 
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[620px] lg:min-h-[720px] items-stretch">
         
@@ -79,7 +79,7 @@ export function CompromisoSocialContent() {
           <div className="absolute bottom-8 left-6 sm:left-10 z-30 pointer-events-none">
             <ParallaxElement speed={0.28} fadeEffect="in-out">
               <div className="p-4 rounded-2xl shadow-xl bg-white/95 backdrop-blur-md border border-white/80 flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-[#02afab] text-white shadow-xs">
+                <div className="p-2.5 rounded-xl bg-[#02aeaa] text-white shadow-xs">
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
@@ -124,7 +124,7 @@ export function CompromisoSocialContent() {
                 <button
                   type="button"
                   onClick={handleScrollTop}
-                  className="px-8 py-3 rounded-full bg-[#1b3c66] hover:bg-[#142e4e] text-white text-sm font-semibold shadow-md shadow-[#1b3c66]/20 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#02afab] cursor-pointer"
+                  className="px-8 py-3 rounded-full bg-[#1b3c66] hover:bg-[#142e4e] text-white text-sm font-semibold shadow-md shadow-[#1b3c66]/20 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#02aeaa] cursor-pointer"
                 >
                   {COMPROMISO_SOCIAL_DATA.ctaButtonText}
                 </button>

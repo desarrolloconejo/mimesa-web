@@ -21,9 +21,9 @@ export const ATRIBUTOS_CTA_DATA = {
   subtitle:
     "Valores forjados en más de 35 años de historia que guían nuestras decisiones diarias, unen a nuestro talento humano y garantizan la máxima calidad en los hogares de Venezuela.",
   pills: [
-    { label: "Fluidez Operativa", icon: Zap, color: "#02afab" },
+    { label: "Fluidez Operativa", icon: Zap, color: "#02aeaa" },
     { label: "Integridad Innegociable", icon: ShieldCheck, color: "#009539" },
-    { label: "+35 Años de Solidez", icon: Award, color: "#94c11e" },
+    { label: "+35 Años de Solidez", icon: Award, color: "#95c11e" },
   ],
   ctaButtonText: "Conoce nuestros atributos",
   ctaButtonLink: "#atributos-detalle",
@@ -38,9 +38,9 @@ export const ATRIBUTOS_ITEMS: AtributoItem[] = [
     description:
       "Confiamos en nuestros procesos y en su fluidez. Cada trabajador de esta empresa es parte de la razón por la cual somos líderes en nuestra industria. Sus conocimientos e ideas suman a que nuestros procesos sean lo más dinámicos, lo que da como resultado productos de excelente calidad que llegan a los venezolanos para enriquecer sus hogares.",
     icon: Zap,
-    color: "#02afab",
-    lightBg: "bg-[#02afab]/10",
-    borderColor: "hover:border-[#02afab]",
+    color: "#02aeaa",
+    lightBg: "bg-[#02aeaa]/10",
+    borderColor: "hover:border-[#02aeaa]",
     badge: "Fluidez & Innovación",
     highlightText: "Procesos dinámicos y calidad que enriquecen los hogares",
   },
@@ -66,9 +66,9 @@ export const ATRIBUTOS_ITEMS: AtributoItem[] = [
     description:
       "Somos una empresa que nace con más de 35 años de experiencia. Ahora, emprendemos un nuevo camino, con solidez y seguridad, así como la oportunidad de crecer más y a nuestra manera. Somos la misma gente, el mismo talento, con el compromiso de siempre.",
     icon: Award,
-    color: "#94c11e",
-    lightBg: "bg-[#94c11e]/15",
-    borderColor: "hover:border-[#94c11e]",
+    color: "#95c11e",
+    lightBg: "bg-[#95c11e]/15",
+    borderColor: "hover:border-[#95c11e]",
     badge: "Solidez & Trayectoria",
     highlightText: "35+ Años de experiencia con el mismo talento y pasión",
   },
