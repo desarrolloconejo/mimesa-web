@@ -10,8 +10,8 @@ interface ParallaxElementProps {
   rotateSpeed?: number;
   scaleSpeed?: number;
   horizontalSpeed?: number;
-  fadeEffect?: FadeEffectType; // Appear and disappear dynamically with scroll
-  fadeIntensity?: number; // 0.5 to 2.0 (default 1.0)
+  fadeEffect?: FadeEffectType;
+  fadeIntensity?: number;
   className?: string;
   style?: React.CSSProperties;
   disableOnMobile?: boolean;
@@ -23,8 +23,6 @@ export function ParallaxElement({
   rotateSpeed = 0,
   scaleSpeed = 0,
   horizontalSpeed = 0,
-  fadeEffect = "none",
-  fadeIntensity = 1.0,
   className = "",
   style = {},
   disableOnMobile = true,
@@ -34,7 +32,6 @@ export function ParallaxElement({
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Check user preference
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
 
@@ -46,38 +43,29 @@ export function ParallaxElement({
 
     const isMobile = () => window.innerWidth < 1024;
 
-    let currentTranslateY = 0;
-    let currentTranslateX = 0;
-
     const updatePosition = () => {
       if (!el) return;
 
       if (disableOnMobile && isMobile()) {
         el.style.transform = "";
-        if (fadeEffect !== "none") el.style.opacity = "";
-        currentTranslateY = 0;
-        currentTranslateX = 0;
         return;
       }
 
       if (!isVisible) return;
 
       const rect = el.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+      const windowHeight = window.innerHeight || 800;
 
-      // Subtract currently applied translations to obtain the TRUE untransformed layout position
-      const actualTop = rect.top - currentTranslateY;
-      const centerY = actualTop + rect.height / 2;
-      const progress = (centerY - windowHeight / 2) / (windowHeight / 2);
+      // Calculate progress relative to viewport center (-1 to +1)
+      const elementCenter = rect.top + rect.height / 2;
+      const viewportCenter = windowHeight / 2;
+      const progress = (elementCenter - viewportCenter) / (windowHeight / 2);
 
-      // Deep, fluid, responsive parallax translation
-      const translateY = progress * speed * 130;
-      const translateX = horizontalSpeed !== 0 ? progress * horizontalSpeed * 75 : 0;
-      const rotation = rotateSpeed !== 0 ? progress * rotateSpeed * 18 : 0;
-      const scale = scaleSpeed !== 0 ? 1 + progress * scaleSpeed * 0.08 : 1;
-
-      currentTranslateY = translateY;
-      currentTranslateX = translateX;
+      // Smooth, viewport-bound parallax translation (no teleports, no jumps)
+      const translateY = progress * speed * 50;
+      const translateX = horizontalSpeed !== 0 ? progress * horizontalSpeed * 35 : 0;
+      const rotation = rotateSpeed !== 0 ? progress * rotateSpeed * 12 : 0;
+      const scale = scaleSpeed !== 0 ? 1 + progress * scaleSpeed * 0.05 : 1;
 
       el.style.transform = `translate3d(${translateX.toFixed(1)}px, ${translateY.toFixed(1)}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
     };
@@ -90,7 +78,6 @@ export function ParallaxElement({
       });
     };
 
-    // IntersectionObserver: Only compute and update when visible in viewport
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
@@ -98,7 +85,7 @@ export function ParallaxElement({
           updatePosition();
         }
       },
-      { rootMargin: "150px" }
+      { rootMargin: "100px" }
     );
 
     observer.observe(el);
@@ -106,7 +93,6 @@ export function ParallaxElement({
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
 
-    // Initial position
     updatePosition();
 
     return () => {
@@ -115,7 +101,7 @@ export function ParallaxElement({
       window.removeEventListener("resize", onScroll);
       if (rafId !== null) cancelAnimationFrame(rafId);
     };
-  }, [speed, rotateSpeed, scaleSpeed, horizontalSpeed, fadeEffect, fadeIntensity, disableOnMobile]);
+  }, [speed, rotateSpeed, scaleSpeed, horizontalSpeed, disableOnMobile]);
 
   return (
     <div

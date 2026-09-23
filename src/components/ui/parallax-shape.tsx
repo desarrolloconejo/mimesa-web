@@ -14,8 +14,7 @@ interface ParallaxShapeProps {
 /**
  * ParallaxShape
  * A high-performance, GPU-accelerated parallax container for brand elements.
- * The outer container tracks page scroll via requestAnimationFrame (0 React re-renders),
- * while the inner child maintains continuous micro-floating physics.
+ * Calculates scroll position strictly relative to the viewport center.
  */
 export function ParallaxShape({
   children,
@@ -29,7 +28,6 @@ export function ParallaxShape({
   const rafId = useRef<number | null>(null);
 
   useEffect(() => {
-    // Respect user's motion preference
     if (typeof window === "undefined") return;
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -43,10 +41,18 @@ export function ParallaxShape({
 
     const updateShape = () => {
       if (!outerRef.current || !isVisible) return;
-      const scrollY = window.scrollY;
-      const offsetY = scrollY * speed;
-      const offsetX = horizontalSpeed ? scrollY * horizontalSpeed : 0;
-      const rotate = rotateSpeed ? scrollY * rotateSpeed : 0;
+
+      const rect = outerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight || 800;
+
+      // Calculate progress relative to viewport center (-1 to +1)
+      const elementCenter = rect.top + rect.height / 2;
+      const viewportCenter = windowHeight / 2;
+      const progress = (elementCenter - viewportCenter) / (windowHeight / 2);
+
+      const offsetY = progress * speed * 50;
+      const offsetX = horizontalSpeed ? progress * horizontalSpeed * 35 : 0;
+      const rotate = rotateSpeed ? progress * rotateSpeed * 12 : 0;
 
       outerRef.current.style.transform = `translate3d(${offsetX.toFixed(
         1
@@ -71,17 +77,19 @@ export function ParallaxShape({
           updateShape();
         }
       },
-      { rootMargin: "150px" }
+      { rootMargin: "100px" }
     );
 
     observer.observe(element);
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
     updateShape();
 
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
       if (rafId.current !== null) {
         cancelAnimationFrame(rafId.current);
       }
