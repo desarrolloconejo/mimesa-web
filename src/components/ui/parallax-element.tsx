@@ -51,8 +51,6 @@ export function ParallaxElement({
         return;
       }
 
-      if (!isVisible) return;
-
       const rect = el.getBoundingClientRect();
       const windowHeight = window.innerHeight || 800;
 
@@ -62,10 +60,10 @@ export function ParallaxElement({
       const progress = (elementCenter - viewportCenter) / (windowHeight / 2);
 
       // Smooth, viewport-bound parallax translation (no teleports, no jumps)
-      const translateY = progress * speed * 50;
-      const translateX = horizontalSpeed !== 0 ? progress * horizontalSpeed * 35 : 0;
-      const rotation = rotateSpeed !== 0 ? progress * rotateSpeed * 12 : 0;
-      const scale = scaleSpeed !== 0 ? 1 + progress * scaleSpeed * 0.05 : 1;
+      const translateY = progress * speed * 45;
+      const translateX = horizontalSpeed !== 0 ? progress * horizontalSpeed * 30 : 0;
+      const rotation = rotateSpeed !== 0 ? progress * rotateSpeed * 10 : 0;
+      const scale = scaleSpeed !== 0 ? 1 + progress * scaleSpeed * 0.04 : 1;
 
       el.style.transform = `translate3d(${translateX.toFixed(1)}px, ${translateY.toFixed(1)}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
     };
@@ -78,25 +76,13 @@ export function ParallaxElement({
       });
     };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-        if (isVisible) {
-          updatePosition();
-        }
-      },
-      { rootMargin: "1200px 0px" }
-    );
-
-    observer.observe(el);
-
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
 
+    // Pre-calculate immediately on mount so it is 100% positioned from frame 0
     updatePosition();
 
     return () => {
-      observer.disconnect();
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (rafId !== null) cancelAnimationFrame(rafId);

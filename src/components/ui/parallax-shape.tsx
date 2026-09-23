@@ -34,13 +34,8 @@ export function ParallaxShape({
     ).matches;
     if (prefersReducedMotion) return;
 
-    const element = outerRef.current;
-    if (!element) return;
-
-    let isVisible = false;
-
     const updateShape = () => {
-      if (!outerRef.current || !isVisible) return;
+      if (!outerRef.current) return;
 
       const rect = outerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight || 800;
@@ -50,9 +45,9 @@ export function ParallaxShape({
       const viewportCenter = windowHeight / 2;
       const progress = (elementCenter - viewportCenter) / (windowHeight / 2);
 
-      const offsetY = progress * speed * 50;
-      const offsetX = horizontalSpeed ? progress * horizontalSpeed * 35 : 0;
-      const rotate = rotateSpeed ? progress * rotateSpeed * 12 : 0;
+      const offsetY = progress * speed * 45;
+      const offsetX = horizontalSpeed ? progress * horizontalSpeed * 30 : 0;
+      const rotate = rotateSpeed ? progress * rotateSpeed * 10 : 0;
 
       outerRef.current.style.transform = `translate3d(${offsetX.toFixed(
         1
@@ -70,24 +65,11 @@ export function ParallaxShape({
       });
     };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-        if (isVisible) {
-          updateShape();
-        }
-      },
-      { rootMargin: "1200px 0px" }
-    );
-
-    observer.observe(element);
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
     updateShape();
 
     return () => {
-      observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
       if (rafId.current !== null) {
