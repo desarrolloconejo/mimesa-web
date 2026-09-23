@@ -77,7 +77,7 @@ export function ParallaxShape({
           updateShape();
         }
       },
-      { rootMargin: "100px" }
+      { rootMargin: "1200px 0px" }
     );
 
     observer.observe(element);
@@ -109,7 +109,7 @@ export function ParallaxShape({
     <div
       ref={outerRef}
       className={`absolute pointer-events-none z-0 select-none ${className}`}
-      style={{ transform: "translate3d(0, 0, 0)" }}
+      style={{ transform: "translate3d(0, 0, 0)", transition: "none" }}
       aria-hidden="true"
     >
       <div className={animClass}>{children}</div>

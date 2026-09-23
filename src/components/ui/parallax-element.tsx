@@ -85,7 +85,7 @@ export function ParallaxElement({
           updatePosition();
         }
       },
-      { rootMargin: "100px" }
+      { rootMargin: "1200px 0px" }
     );
 
     observer.observe(el);
@@ -109,6 +109,7 @@ export function ParallaxElement({
       className={className}
       style={{
         overflowAnchor: "none",
+        transition: "none",
         ...style,
       }}
     >
