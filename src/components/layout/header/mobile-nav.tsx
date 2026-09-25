@@ -5,8 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { X, Menu, ArrowRight, Lock, Mail, ChevronDown, MessageCircle } from "lucide-react";
-import { ALIMENTOS_BRANDS } from "@/components/sections/productos/productos-data";
+import { X, Menu, ArrowRight, ChevronRight, Lock, Mail, ChevronDown, ShoppingBag, Building2 } from "lucide-react";
 
 interface NavItem {
   name: string;
@@ -21,7 +20,6 @@ export function MobileNav({ navItems }: MobileNavProps) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [productsExpanded, setProductsExpanded] = useState(false);
-  const [alimentosExpanded, setAlimentosExpanded] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   const isItemActive = (href: string) => {
@@ -40,8 +38,7 @@ export function MobileNav({ navItems }: MobileNavProps) {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
-  const isAlimentosActive = pathname === "/productos/alimentos" || pathname === "/alimentos";
-  const isProdusalActive = pathname === "/productos/produsal" || pathname === "/produsal";
+
 
   useEffect(() => {
     setMounted(true);
@@ -147,15 +144,6 @@ export function MobileNav({ navItems }: MobileNavProps) {
                             <span className="w-2 h-2 rounded-full bg-[#02aeaa] inline-block animate-pulse" />
                           )}
                         </span>
-                        <span
-                          className={`text-[10px] uppercase font-extrabold tracking-widest px-2 py-0.5 rounded-md transition-colors ${
-                            isActive
-                              ? "text-white bg-[#02aeaa] shadow-xs"
-                              : "text-[#02aeaa] bg-[#02aeaa]/10"
-                          }`}
-                        >
-                          Ver Todo
-                        </span>
                       </Link>
                       <button
                         type="button"
@@ -165,7 +153,7 @@ export function MobileNav({ navItems }: MobileNavProps) {
                             ? "text-[#02aeaa] hover:bg-[#02aeaa]/10"
                             : "text-gray-400 hover:text-[#02aeaa]"
                         }`}
-                        aria-label="Desplegar marcas de Productos"
+                        aria-label="Desplegar categorías de Productos"
                       >
                         <ChevronDown
                           className={`w-4 h-4 transition-transform duration-200 ${
@@ -179,89 +167,51 @@ export function MobileNav({ navItems }: MobileNavProps) {
                       </button>
                     </div>
 
-                    {/* Expandable Accordion Panel */}
+                    {/* Expandable Accordion Panel: Solo las 2 Categorías Padre */}
                     {productsExpanded && (
-                      <div className="pl-3 pr-2 py-2 space-y-1.5 bg-gray-50/90 rounded-2xl border border-gray-100 animate-fade-in text-xs">
-                        {/* Sub-Accordion: Alimentos with Brands */}
-                        <div className="space-y-1">
-                          <div
-                            className={`flex items-center justify-between px-3 py-2 rounded-xl font-semibold text-xs transition-colors ${
-                              isAlimentosActive
-                                ? "bg-[#009539]/12 text-[#009539] font-bold border border-[#009539]/20"
-                                : "text-gray-800 hover:text-[#009539] hover:bg-gray-100/60"
-                            }`}
-                          >
-                            <Link
-                              href="/productos/alimentos"
-                              onClick={() => setIsOpen(false)}
-                              className="flex-1"
-                              aria-current={isAlimentosActive ? "page" : undefined}
-                            >
-                              Alimentos
-                            </Link>
-                            <button
-                              type="button"
-                              onClick={() => setAlimentosExpanded(!alimentosExpanded)}
-                              className="p-1 text-gray-400 hover:text-[#009539] cursor-pointer"
-                              aria-label="Desplegar marcas de Alimentos"
-                            >
-                              <ChevronDown
-                                className={`w-4 h-4 transition-transform duration-200 ${
-                                  alimentosExpanded ? "rotate-180 text-[#009539]" : ""
-                                }`}
-                              />
-                            </button>
-                          </div>
-
-                          {/* Nested Brands List */}
-                          {alimentosExpanded && (
-                            <div className="pl-3 pr-1 py-1 space-y-0.5 bg-white rounded-xl border border-gray-100/80 animate-fade-in">
-                              {ALIMENTOS_BRANDS.map((brand) => (
-                                <Link
-                                  key={brand.id}
-                                  href={`/productos/alimentos/${brand.id}`}
-                                  onClick={() => setIsOpen(false)}
-                                  className="flex items-center justify-between px-3 py-1.5 rounded-lg text-gray-700 hover:text-[#009539] hover:bg-gray-50 text-xs font-medium transition-colors"
-                                >
-                                  <div className="flex items-center gap-2 min-w-0">
-                                    {brand.logoUrl ? (
-                                      <div className="w-5 h-3.5 relative shrink-0">
-                                        <Image
-                                          src={brand.logoUrl}
-                                          alt={brand.name}
-                                          fill
-                                          className="object-contain"
-                                        />
-                                      </div>
-                                    ) : (
-                                      <span
-                                        className="w-1.5 h-1.5 rounded-full shrink-0"
-                                        style={{ backgroundColor: brand.logoColor || "#009539" }}
-                                      />
-                                    )}
-                                    <span className="truncate">{brand.name}</span>
-                                  </div>
-                                  <span className="text-[10px] text-gray-400 font-normal shrink-0 ml-2">
-                                    {brand.category}
-                                  </span>
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Produsal: Direct link, NO dropdown */}
+                      <div className="p-2 space-y-1.5 bg-gray-50/90 rounded-2xl border border-gray-100 animate-fade-in text-xs">
+                        {/* Item 1: Consumo Masivo */}
                         <Link
-                          href="/productos/produsal"
+                          href="/productos/consumo-masivo"
                           onClick={() => setIsOpen(false)}
-                          className={`block px-3 py-2 rounded-xl font-semibold text-xs transition-colors ${
-                            isProdusalActive
-                              ? "bg-[#02aeaa]/12 text-[#02aeaa] font-bold border border-[#02aeaa]/20"
-                              : "text-gray-800 hover:text-[#02aeaa] hover:bg-gray-100/60"
-                          }`}
-                          aria-current={isProdusalActive ? "page" : undefined}
+                          className="flex items-center gap-3 p-2.5 rounded-xl bg-white hover:bg-[#009539]/8 transition-all group/item border border-gray-100 shadow-2xs"
                         >
-                          Produsal
+                          <div className="w-8 h-8 rounded-lg bg-[#009539]/10 text-[#009539] flex items-center justify-center shrink-0 group-hover/item:bg-[#009539] group-hover/item:text-white transition-colors">
+                            <ShoppingBag className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-bold text-[#183c6b] group-hover/item:text-[#009539] transition-colors">
+                                Consumo Masivo
+                              </span>
+                              <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover/item:text-[#009539]" />
+                            </div>
+                            <p className="text-[11px] text-slate-400 font-normal truncate">
+                              Marcas líderes en la mesa venezolana
+                            </p>
+                          </div>
+                        </Link>
+
+                        {/* Item 2: Ingredientes */}
+                        <Link
+                          href="/productos/ingredientes"
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center gap-3 p-2.5 rounded-xl bg-white hover:bg-[#183c6b]/8 transition-all group/item border border-gray-100 shadow-2xs"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-[#183c6b]/10 text-[#183c6b] flex items-center justify-center shrink-0 group-hover/item:bg-[#183c6b] group-hover/item:text-white transition-colors">
+                            <Building2 className="w-4 h-4 text-[#02aeaa] group-hover/item:text-white" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-bold text-[#183c6b] group-hover/item:text-[#02aeaa] transition-colors">
+                                Ingredientes
+                              </span>
+                              <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover/item:text-[#02aeaa]" />
+                            </div>
+                            <p className="text-[11px] text-slate-400 font-normal truncate">
+                              Materias primas y soluciones industriales
+                            </p>
+                          </div>
                         </Link>
                       </div>
                     )}
@@ -269,11 +219,19 @@ export function MobileNav({ navItems }: MobileNavProps) {
                 );
               }
 
+              const isPending = item.href === "#";
+
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    if (isPending) {
+                      e.preventDefault();
+                    } else {
+                      setIsOpen(false);
+                    }
+                  }}
                   style={{
                     transitionDelay: `${idx * 30}ms`,
                   }}
@@ -309,24 +267,21 @@ export function MobileNav({ navItems }: MobileNavProps) {
         <div className="pt-6 border-t border-gray-100 space-y-3">
           <div className="grid grid-cols-2 gap-2.5">
             <Link
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsOpen(false);
-              }}
+              href="https://grupomimesa.sharepoint.com/sites/IntranetGrupoMimesa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
               className="flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl text-sm font-heading font-bold text-[#183c6b] bg-slate-100 border border-slate-200 hover:bg-[#02aeaa]/10 hover:text-[#02aeaa] transition-all duration-300"
             >
               <Lock className="w-4 h-4 text-[#02aeaa]" />
               <span>Intranet</span>
             </Link>
             <Link
-              href="https://wa.me/584120000000"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contacto"
               onClick={() => setIsOpen(false)}
               className="flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl text-sm font-heading font-bold bg-[#02aeaa] hover:bg-[#95c11e] hover:text-[#0e2440] text-white transition-all duration-300 shadow-md shadow-[#02aeaa]/25"
             >
-              <MessageCircle className="w-4 h-4" />
+              <Mail className="w-4 h-4" />
               <span>Contáctanos</span>
             </Link>
           </div>

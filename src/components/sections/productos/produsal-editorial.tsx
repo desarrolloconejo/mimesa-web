@@ -7,6 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PRODUSAL_DATA } from "./productos-data";
 import { ParallaxElement } from "@/components/ui/parallax-element";
 import { MimesaLeafLime } from "@/components/ui/organic-shapes";
+import { FadeIn, FadeInStagger } from "@/components/ui/fade-in";
 
 export function ProdusalEditorial() {
   const { title, subtitle, description, metrics, href } = PRODUSAL_DATA;
@@ -23,10 +24,10 @@ export function ProdusalEditorial() {
       </div>
 
       {/* Chapter 02 Header - Solid and Stable */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-gray-100 relative z-10">
+      <FadeIn direction="up" delay={0.08} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-gray-100 relative z-10">
         <div className="space-y-3 max-w-3xl">
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
-            02 • División Salina & Agroindustrial
+            División Salina & Agroindustrial
           </span>
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight leading-tight">
             {title}: {subtitle}
@@ -43,41 +44,42 @@ export function ProdusalEditorial() {
           <span>Conocer Complejo Produsal</span>
           <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </Link>
-      </div>
+      </FadeIn>
 
       {/* 3 Clean Metrics Cards - Stable 0-jitter layout */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 relative z-10">
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 relative z-10">
         {metrics.map((metric, idx) => {
           const Icon = metric.icon;
           return (
-            <div
-              key={idx}
-              className="h-full p-6 sm:p-8 rounded-3xl bg-[#f8faf9] hover:bg-white border border-slate-150/70 hover:border-[#02aeaa]/40 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 space-y-3 group"
-            >
-              <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Icon className="w-6 h-6" />
+            <FadeIn key={idx} direction="up">
+              <div
+                className="h-full p-6 sm:p-8 rounded-3xl bg-[#f8faf9] hover:bg-white border border-slate-150/70 hover:border-[#02aeaa]/40 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 space-y-3 group"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-2xl bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-gray-400">
+                    {metric.unit}
+                  </span>
                 </div>
-                <span className="text-[11px] font-extrabold uppercase tracking-wider text-gray-400">
-                  {metric.unit}
-                </span>
-              </div>
 
-              <div className="space-y-1 pt-2">
-                <h4 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
-                  {metric.value}
-                </h4>
-                <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
-                  {metric.label}
-                </p>
+                <div className="space-y-1 pt-2">
+                  <h4 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
+                    {metric.value}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                    {metric.label}
+                  </p>
+                </div>
               </div>
-            </div>
+            </FadeIn>
           );
         })}
-      </div>
+      </FadeInStagger>
 
       {/* Full-Width Panoramic Photography with Overhanging Card */}
-      <div className="relative w-full pt-4 pb-12">
+      <FadeIn direction="up" delay={0.16} className="relative w-full pt-4 pb-12">
         {/* Floating Lime Leaf at Top-Right (Decorative) */}
         <div className="absolute -top-6 -right-6 z-20 pointer-events-none hidden sm:block">
           <ParallaxElement speed={-0.20} rotateSpeed={-0.20}>
@@ -88,12 +90,13 @@ export function ProdusalEditorial() {
         {/* Panoramic Salinas Photo */}
         <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[560px] rounded-3xl lg:rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-white group">
           <Image
-            src="/images/produsal-salinas.webp"
-            alt="Complejo de sal solar Produsal en Los Olivitos Zulia"
+            src="/images/planta-molienda-industrial.webp"
+            alt="Complejo industrial y capacidad de producción Grupo Mimesa"
             fill
+            loading="eager"
+            priority
             className="object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out"
             sizes="100vw"
-            priority={false}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/80 via-[#183c6b]/15 to-transparent pointer-events-none" />
         </div>
@@ -112,7 +115,7 @@ export function ProdusalEditorial() {
             </p>
           </div>
         </div>
-      </div>
+      </FadeIn>
     </div>
   );
 }

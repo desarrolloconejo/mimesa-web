@@ -7,6 +7,7 @@ import {
   MimesaSprout,
   MimesaLeafLime,
 } from "@/components/ui/organic-shapes";
+import { FadeIn } from "@/components/ui/fade-in";
 import { TwoColumnTimeline } from "./two-column-timeline";
 
 export function TrayectoriaContent() {
@@ -36,7 +37,7 @@ export function TrayectoriaContent() {
       </div>
 
       {/* Section Header */}
-      <div className="relative z-10 max-w-3xl mx-auto text-center space-y-4">
+      <FadeIn direction="up" delay={0.08} className="relative z-10 max-w-3xl mx-auto text-center space-y-4">
         
         {/* Category Pill & Main Title Parallax Layer */}
         <ParallaxElement speed={0.24} fadeEffect="in-out" fadeIntensity={1.05}>
@@ -60,12 +61,12 @@ export function TrayectoriaContent() {
           </p>
         </ParallaxElement>
 
-      </div>
+      </FadeIn>
 
       {/* Two-Column Interactive Timeline (13 Milestones, User Selection, Sticky Explanatory Card) */}
-      <div className="relative z-10">
+      <FadeIn direction="up" delay={0.16} className="relative z-10">
         <TwoColumnTimeline />
-      </div>
+      </FadeIn>
 
     </div>
   );

@@ -96,7 +96,7 @@ export function ProdusalCatalog() {
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
         <div className="space-y-3 max-w-3xl">
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
-            02 • Complejo Salinero Produsal
+            Complejo Salinero Produsal
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
             Parque Salinero Los Olivitos: Sal Solar de Alta Pureza

@@ -81,8 +81,8 @@ export function ArchitecturalDossier() {
           <div className="lg:col-span-5 p-6 sm:p-8 bg-gray-50/40 flex flex-col justify-between space-y-6">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-gray-200">
               <Image
-                src="/images/agro-campo.jpg"
-                alt="Campo agroindustrial Mimesa"
+                src="/images/planta-la-encrucijada.webp"
+                alt="Planta agroindustrial Mimesa"
                 fill
                 className="object-cover"
               />
@@ -197,8 +197,8 @@ export function ArchitecturalDossier() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-gray-200">
               <Image
-                src="/images/talento-laboratorio.jpg"
-                alt="Talento humano Grupo Mimesa"
+                src="/images/linea-embotellado-krones.webp"
+                alt="Tecnología y talento humano Grupo Mimesa"
                 fill
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />

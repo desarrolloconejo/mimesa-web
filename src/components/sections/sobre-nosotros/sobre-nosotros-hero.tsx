@@ -24,7 +24,7 @@ export function SobreNosotrosHero() {
       {/* 2. Authentic Cyanotype Clouds Wash (Slide 15) - High Visibility (z-0) */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <Image
-          src="/images/textures/cyanotype-clouds.jpg"
+          src="/images/textures/TEXTURA2.webp"
           alt=""
           aria-hidden="true"
           fill
@@ -63,7 +63,7 @@ export function SobreNosotrosHero() {
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400/60 shrink-0" />
             <span className="text-[#02aeaa] font-semibold">
-              Sobre nosotros
+              Nosotros
             </span>
           </nav>
 

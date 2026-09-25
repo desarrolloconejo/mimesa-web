@@ -3,6 +3,7 @@
 import React from "react";
 import { COMPROMISO_DATA } from "./compromiso-data";
 import { ParallaxElement } from "@/components/ui/parallax-element";
+import { FadeIn } from "@/components/ui/fade-in";
 
 
 export function CompromisoContent() {
@@ -100,7 +101,7 @@ export function CompromisoContent() {
       </div>
 
       {/* 5. Central Editorial Typography with Scroll Fade In-Out */}
-      <div className="relative z-20 max-w-4xl mx-auto px-6 sm:px-8 text-center space-y-5 sm:space-y-6">
+      <FadeIn direction="up" delay={0.08} className="relative z-20 max-w-4xl mx-auto px-6 sm:px-8 text-center space-y-5 sm:space-y-6">
         
         <ParallaxElement speed={0.22}>
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block mb-2">
@@ -133,7 +134,7 @@ export function CompromisoContent() {
             <span className="w-8 h-px bg-gradient-to-l from-transparent to-[#02aeaa]" />
           </div>
         </ParallaxElement>
-      </div>
+      </FadeIn>
 
     </div>
   );

@@ -24,7 +24,7 @@ export function ContactoHero() {
       {/* 2. Authentic Cyanotype Smooth Wash Texture - High Visibility (z-0) */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <Image
-          src="/images/textures/cyanotype-smooth.jpg"
+          src="/images/textures/TEXTURA6.webp"
           alt=""
           aria-hidden="true"
           fill

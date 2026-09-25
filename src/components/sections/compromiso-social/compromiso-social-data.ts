@@ -9,7 +9,7 @@ export const COMPROMISO_SOCIAL_DATA = {
   programName: "Nutriendo la prosperidad (NLP)",
   partner: "Dividendo Voluntario para la Comunidad",
   image: {
-    src: "/images/talento-laboratorio.jpg",
-    alt: "Laboratorio de calidad e investigación nutricional Grupo Mimesa",
+    src: "/images/voluntario-juntos-alimentamos.webp",
+    alt: "Voluntariado Grupo Mimesa - Juntos alimentamos un futuro mejor",
   },
 };

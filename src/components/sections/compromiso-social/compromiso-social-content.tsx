@@ -6,6 +6,7 @@ import { Sparkles } from "lucide-react";
 import { COMPROMISO_SOCIAL_DATA } from "./compromiso-social-data";
 import { ParallaxElement } from "@/components/ui/parallax-element";
 import { MimesaSprout } from "@/components/ui/organic-shapes";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export function CompromisoSocialContent() {
   const handleScrollTop = () => {
@@ -47,8 +48,9 @@ export function CompromisoSocialContent() {
               src={COMPROMISO_SOCIAL_DATA.image.src}
               alt={COMPROMISO_SOCIAL_DATA.image.alt}
               fill
-              className="object-cover object-center"
+              className="object-cover object-top sm:object-center"
               sizes="(max-width: 1024px) 100vw, 42vw"
+              loading="eager"
               priority
             />
             {/* Subtle Gradient Overlays for Depth */}
@@ -94,7 +96,7 @@ export function CompromisoSocialContent() {
         {/* ========================================================
             RIGHT COLUMN: Editorial Copywriting (Stepped individual velocities)
            ======================================================== */}
-        <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center py-16 sm:py-24 lg:py-28 px-6 sm:px-12 lg:px-16 xl:px-24 relative z-10 order-1 lg:order-2">
+        <FadeIn direction="up" delay={0.08} className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center py-16 sm:py-24 lg:py-28 px-6 sm:px-12 lg:px-16 xl:px-24 relative z-10 order-1 lg:order-2">
           <div className="max-w-xl space-y-6 sm:space-y-7">
             
             {/* Main Headline */}
@@ -124,7 +126,7 @@ export function CompromisoSocialContent() {
                 <button
                   type="button"
                   onClick={handleScrollTop}
-                  className="px-8 py-3 rounded-full bg-[#1b3c66] hover:bg-[#142e4e] text-white text-sm font-semibold shadow-md shadow-[#1b3c66]/20 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#02aeaa] cursor-pointer"
+                  className="px-8 py-3 rounded-full bg-[#1b3c6b] hover:bg-[#142e4e] text-white text-sm font-semibold shadow-md shadow-[#1b3c6b]/20 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#02aeaa] cursor-pointer"
                 >
                   {COMPROMISO_SOCIAL_DATA.ctaButtonText}
                 </button>
@@ -132,7 +134,7 @@ export function CompromisoSocialContent() {
             </ParallaxElement>
 
           </div>
-        </div>
+        </FadeIn>
 
       </div>
     </div>

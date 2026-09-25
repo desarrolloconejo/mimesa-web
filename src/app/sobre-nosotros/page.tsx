@@ -108,21 +108,19 @@ export default function SobreNosotrosPage() {
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539]">
                 Nuestra Historia
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#183c6b] tracking-tight font-heading">
-                <span className="font-light">Hitos que forjaron la </span>
-                <span className="font-extrabold text-[#183c6b]">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight leading-tight">
+                Hitos que forjaron la{" "}
+                <span className="text-[#009539]">
                   excelencia alimentaria
                 </span>
               </h2>
-              <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
-                Descubre cada etapa de nuestro crecimiento: desde las primeras moliendas en 1978 hasta consolidarnos como un grupo agroalimentario integral al servicio de toda Venezuela.
+              <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
+                Descubre cada etapa de nuestro crecimiento: desde el inicio de nuestras operaciones en 1986 hasta consolidarnos como Grupo Mimesa al servicio de toda Venezuela.
               </p>
             </FadeIn>
 
-            {/* Componente de Línea de Tiempo Completa */}
-            <FadeIn delay={120}>
-              <TimelineFull />
-            </FadeIn>
+            {/* Componente de Línea de Tiempo Completa con animaciones individuales */}
+            <TimelineFull />
           </div>
         </section>
 
@@ -137,11 +135,13 @@ export default function SobreNosotrosPage() {
                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa]">
                   Conexión Institucional
                 </span>
-                <h2 className="text-2xl sm:text-3xl text-[#183c6b] tracking-tight font-heading">
-                  <span className="font-light">Construyamos juntos </span>
-                  <span className="font-extrabold">alianzas de valor</span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#183c6b] tracking-tight leading-tight">
+                  Construyamos juntos{" "}
+                  <span className="text-[#02aeaa]">
+                    alianzas de valor
+                  </span>
                 </h2>
-                <p className="text-sm text-gray-500 font-light leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
                   Ya sea para distribución comercial mayorista, provisión de materias primas o alianzas estratégicas, nuestro equipo corporativo está a tu entera disposición.
                 </p>
               </div>
@@ -203,8 +203,8 @@ export default function SobreNosotrosPage() {
               {/* Fotografía Documental de Apoyo */}
               <div className="relative rounded-3xl overflow-hidden shadow-lg border-2 border-white aspect-[16/9] w-full hidden sm:block">
                 <Image
-                  src="/images/agro-campo.jpg"
-                  alt="Campos de cultivo agrícola en Venezuela - Grupo Mimesa"
+                  src="/images/quienesomos-planta.webp"
+                  alt="Equipo y tecnología en planta de procesamiento agroindustrial - Grupo Mimesa"
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -212,10 +212,10 @@ export default function SobreNosotrosPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/85 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 inset-x-4 text-white space-y-0.5">
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#02aeaa]">
-                    Origen Nacional
+                    Capacidad Agroindustrial
                   </span>
                   <p className="text-xs font-semibold">
-                    Crecemos hombro a hombro junto a los productores del campo venezolano.
+                    Silos y molinos modernos para abastecer con eficiencia al país.
                   </p>
                 </div>
               </div>

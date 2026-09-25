@@ -73,7 +73,7 @@ export function InteractiveSplit() {
         <div className="lg:col-span-6 relative">
           <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-white aspect-[16/11]">
             <Image
-              src="/images/agro-campo.jpg"
+              src="/images/planta-la-encrucijada.webp"
               alt="Propósito y legado Grupo Mimesa"
               fill
               className="object-cover"
@@ -222,7 +222,7 @@ export function InteractiveSplit() {
         <div className="lg:col-span-5 relative">
           <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3]">
             <Image
-              src="/images/talento-laboratorio.jpg"
+              src="/images/linea-embotellado-krones.webp"
               alt="Filosofía y personas de Grupo Mimesa"
               fill
               className="object-cover"

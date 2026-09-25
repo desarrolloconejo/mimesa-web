@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUp, Mail, MapPin } from "lucide-react";
+import { FadeIn } from "@/components/ui/fade-in";
 
 function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -37,11 +38,18 @@ export function FooterContent() {
     });
   };
 
-  const navLinks = [
+  const navCol1 = [
     { name: "Inicio", href: "/" },
-    { name: "Sobre nosotros", href: "/sobre-nosotros" },
-    { name: "Productos", href: "/productos" },
+    { name: "Nosotros", href: "/sobre-nosotros" },
+    { name: "Consumo Masivo", href: "/productos/consumo-masivo" },
+    { name: "Ingredientes", href: "/productos/ingredientes" },
+    { name: "Produsal", href: "#" },
+  ];
+
+  const navCol2 = [
+    { name: "Programa NLP", href: "/programa-nlp" },
     { name: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
+    { name: "Blog", href: "/blog" },
     { name: "Contacto", href: "/contacto" },
     { name: "Política de Privacidad", href: "/politica-de-privacidad" },
   ];
@@ -67,19 +75,20 @@ export function FooterContent() {
   return (
     <div className="w-full bg-transparent text-white relative select-none">
       {/* Main Footer Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-16 sm:pb-20">
+      <FadeIn direction="up" delay={0.08} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-16 sm:pb-20">
         
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          {/* Col 1: Brand Logo & Short Info (5 cols) */}
-          <div className="md:col-span-5 space-y-4">
+          {/* Col 1: Brand Logo & Short Info (4 cols) */}
+          <div className="sm:col-span-2 md:col-span-4 space-y-4">
             <Link href="/" className="inline-block transition-transform duration-300 hover:scale-105">
               <Image
                 src="/LOGOMIMESA.webp"
                 alt="Logo Grupo Mimesa"
                 width={200}
                 height={60}
+                loading="eager"
                 className="h-10 sm:h-12 w-auto brightness-0 invert object-contain"
               />
             </Link>
@@ -94,7 +103,7 @@ export function FooterContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visitar ${social.name} de Grupo Mimesa`}
-                  className="w-9 h-9 rounded-xl flex items-center justify-center bg-white/10 hover:bg-[#02aeaa] hover:text-[#0c223f] text-white transition-all duration-300 border border-white/15"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center bg-white/10 hover:bg-white/20 text-white transition-all duration-300 border border-white/15"
                 >
                   {social.icon}
                 </a>
@@ -102,52 +111,90 @@ export function FooterContent() {
             </div>
           </div>
 
-          {/* Col 2: Navigation Links (3 cols) */}
-          <div className="md:col-span-3 space-y-3.5">
-            <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#95c11e]">
-              Navegación
-            </h4>
-            <ul className="flex flex-col space-y-2.5 text-sm text-slate-200 font-medium">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-[#02aeaa] transition-colors inline-block"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Col 2: Navegación dividida en 2 columnas (5 cols) */}
+          <div className="sm:col-span-2 md:col-span-5 space-y-3.5">
+            <div className="flex items-center gap-3">
+              <h4 className="text-xs uppercase tracking-widest font-extrabold text-white">
+                Navegación
+              </h4>
+              <div className="h-[1px] flex-1 bg-white/10" />
+            </div>
+            <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8 text-sm text-slate-300 font-medium">
+              <ul className="flex flex-col space-y-2.5">
+                {navCol1.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      onClick={link.href === "#" ? (e) => e.preventDefault() : undefined}
+                      className={`transition-colors inline-block ${
+                        link.href === "#"
+                          ? "text-slate-400 hover:text-slate-300 cursor-default"
+                          : "hover:text-white"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className="flex flex-col space-y-2.5">
+                {navCol2.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      onClick={link.href === "#" ? (e) => e.preventDefault() : undefined}
+                      className={`transition-colors inline-block ${
+                        link.href === "#"
+                          ? "text-slate-400 hover:text-slate-300 cursor-default"
+                          : "hover:text-white"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Col 3: Direct Contact (4 cols) */}
-          <div className="md:col-span-4 space-y-3.5">
-            <h4 className="text-xs uppercase tracking-widest font-extrabold text-[#95c11e]">
-              Contacto
-            </h4>
-            <div className="space-y-2.5 text-sm text-slate-200 font-medium">
+          {/* Col 3: Direct Contact (3 cols) */}
+          <div className="sm:col-span-2 md:col-span-3 space-y-3.5">
+            <div className="flex items-center gap-3">
+              <h4 className="text-xs uppercase tracking-widest font-extrabold text-white">
+                Contacto
+              </h4>
+              <div className="h-[1px] flex-1 bg-white/10" />
+            </div>
+            <div className="space-y-2.5 text-sm text-slate-300 font-medium">
               <p className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-[#02aeaa] shrink-0" />
+                <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
                 <span>Caracas, Venezuela</span>
               </p>
               <p className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#02aeaa] shrink-0" />
+                <Mail className="w-4 h-4 text-slate-400 shrink-0" />
                 <a
                   href="mailto:contacto@grupomimesa.com"
-                  className="hover:text-[#02aeaa] transition-colors"
+                  className="hover:text-white transition-colors"
                 >
                   contacto@grupomimesa.com
                 </a>
               </p>
+              <p className="pt-0.5">
+                <Link
+                  href="/contacto"
+                  className="text-xs font-semibold text-slate-300 hover:text-white transition-colors inline-block underline-offset-4 hover:underline"
+                >
+                  Escríbenos directamente →
+                </Link>
+              </p>
             </div>
 
-            <div className="pt-3">
+            <div className="pt-2">
               <button
                 type="button"
                 id="btn-scroll-to-top"
                 onClick={scrollToTop}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-white/10 hover:bg-[#02aeaa] text-white hover:text-[#0c223f] border border-white/20 transition-all duration-300 group cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all duration-300 group cursor-pointer"
               >
                 <span>Volver al inicio</span>
                 <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -157,35 +204,34 @@ export function FooterContent() {
 
         </div>
 
-      </div>
+      </FadeIn>
 
-      {/* Bottom Copyright Bar - Coherent Font Size & Cyan Glow Line */}
-      <div className="relative w-full bg-[#050e19] border-t border-white/10 py-4 sm:py-4">
-        {/* Subtle top cyan light-line gradient */}
-        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#02aeaa]/40 to-transparent pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-300 text-center md:text-left">
+      {/* Bottom Copyright Bar - Equilibrada y distribuida en 3 columnas */}
+      <div className="relative w-full bg-[#050e19] border-t border-white/10 py-4 sm:py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 text-xs text-slate-400 text-center md:text-left">
           
-          {/* Left: Copyright & RIF with Coherent Text Size */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1 text-xs text-slate-300 font-normal">
-            <span>Copyright © {new Date().getFullYear()}</span>
+          {/* Left: Empresa y RIF */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1">
+            <span>© {new Date().getFullYear()}</span>
             <strong className="font-heading font-extrabold text-white tracking-wide">
               MIMESA ALIMENTOS C.A.
             </strong>
-            <span className="text-gray-500 hidden sm:inline">•</span>
-            <span className="text-[#02aeaa] font-semibold text-xs tracking-wider">
+            <span className="text-slate-600 hidden sm:inline">•</span>
+            <span className="text-slate-300 font-medium tracking-wider">
               RIF J-07032176-8
             </span>
-            <span className="text-gray-500 hidden sm:inline">•</span>
-            <span className="text-slate-300">Todos los derechos reservados.</span>
           </div>
 
-          {/* Right: Developer Credit */}
-          <div className="flex items-center gap-1.5 text-xs text-slate-300 pt-1 md:pt-0">
+          {/* Center: Todos los derechos reservados */}
+          <div className="text-slate-400 font-normal">
+            <span>Todos los derechos reservados.</span>
+          </div>
+
+          {/* Right: Créditos Desarrollador */}
+          <div className="flex items-center justify-center md:justify-end gap-1.5 pt-0.5 md:pt-0">
             <span>Desarrollado por</span>
-            <span className="font-bold text-white hover:text-[#02aeaa] transition-colors cursor-pointer flex items-center gap-1.5">
-              <span>El Conejo Del Sombrero</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#95c11e] animate-pulse inline-block" />
+            <span className="font-bold text-white hover:text-slate-300 transition-colors cursor-pointer">
+              El Conejo Del Sombrero
             </span>
           </div>
 

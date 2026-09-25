@@ -15,7 +15,7 @@ export function HeroWrapper() {
   return (
     <section
       id="inicio"
-      className="relative h-screen min-h-[660px] max-h-[1200px] w-full flex flex-col justify-between overflow-hidden bg-white text-[#0e2440]"
+      className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-white text-[#0e2440]"
     >
       {/* 1. Base Clean White & Subtle Atmospheric Light Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#fcfefe] to-[#f8fbf9] -z-30" />
@@ -24,7 +24,7 @@ export function HeroWrapper() {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-[0.06] mix-blend-multiply">
         <ParallaxElement speed={0.15} scaleSpeed={0.04} className="w-full h-[115%] -top-[7%] relative">
           <Image
-            src="/images/hero-production.webp"
+            src="/images/planta-molienda-industrial.webp"
             alt="Grupo Mimesa - Producción Agroindustrial en Venezuela"
             fill
             priority

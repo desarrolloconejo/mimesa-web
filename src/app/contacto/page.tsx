@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   MapPin,
@@ -140,6 +141,26 @@ export default function ContactoPage() {
                       Hora local de Venezuela (HLV)
                     </span>
                   </div>
+                </div>
+              </div>
+
+              {/* Fotografía Institucional de Sede y Atención */}
+              <div className="relative rounded-3xl overflow-hidden shadow-lg border-2 border-white aspect-[4/3] w-full hidden sm:block">
+                <Image
+                  src="/images/atencion-mimesa-sede.webp"
+                  alt="Recepción y atención corporativa en sede Grupo Mimesa"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 inset-x-4 text-white space-y-0.5">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#02aeaa]">
+                    Atención Directa
+                  </span>
+                  <p className="text-xs font-semibold">
+                    Comprometidos con una atención cercana, ágil y personalizada.
+                  </p>
                 </div>
               </div>
             </FadeIn>

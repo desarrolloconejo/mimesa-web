@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function AlimentosRedirectPage() {
-  redirect("/productos/alimentos");
+  redirect("/productos/consumo-masivo");
 }

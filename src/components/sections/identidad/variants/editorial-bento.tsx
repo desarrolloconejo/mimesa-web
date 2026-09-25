@@ -10,6 +10,7 @@ import {
   MimesaLeafGreen,
 } from "@/components/ui/organic-shapes";
 import { ParallaxElement } from "@/components/ui/parallax-element";
+import { FadeIn, FadeInStagger } from "@/components/ui/fade-in";
 
 // Helper function to calculate SVG arc segment for thick donut quadrants
 function getArcSvgPath(
@@ -141,7 +142,7 @@ export function EditorialBento() {
         </div>
 
         {/* Centered Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <FadeIn direction="up" delay={0.08} className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           {/* Kicker Subtitle */}
           <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#009539] block">
             {proposito.kicker}
@@ -159,7 +160,7 @@ export function EditorialBento() {
           <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
             {proposito.description}
           </p>
-        </div>
+        </FadeIn>
       </div>
 
       {/* ========================================================
@@ -173,7 +174,7 @@ export function EditorialBento() {
         {/* Authentic Cyanotype Splatters Texture Layer */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <Image
-            src="/images/textures/cyanotype-splatters.jpg"
+            src="/images/textures/TEXTURA1.webp"
             alt=""
             aria-hidden="true"
             fill
@@ -500,34 +501,38 @@ export function EditorialBento() {
         <div id="valores-mimesa" className="space-y-10">
           
           {/* Header */}
-          <ParallaxElement speed={0.16} fadeEffect="in-out">
-            <div className="text-center max-w-2xl mx-auto space-y-3">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
-                Principios Inmutables
-              </span>
-              <h3 className="text-3xl sm:text-5xl font-black text-[#183c6b] tracking-tight">
-                Nuestros Valores
-              </h3>
-              <p className="text-sm sm:text-base text-gray-500 font-light">
-                Cuatro pilares éticos que rigen nuestras relaciones humanas y nuestro compromiso con Venezuela.
-              </p>
-            </div>
-          </ParallaxElement>
+          <FadeIn direction="up" delay={0.08}>
+            <ParallaxElement speed={0.16} fadeEffect="in-out">
+              <div className="text-center max-w-2xl mx-auto space-y-3">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
+                  Principios Inmutables
+                </span>
+                <h3 className="text-3xl sm:text-5xl font-black text-[#183c6b] tracking-tight">
+                  Nuestros Valores
+                </h3>
+                <p className="text-sm sm:text-base text-gray-500 font-light">
+                  Cuatro pilares éticos que rigen nuestras relaciones humanas y nuestro compromiso con Venezuela.
+                </p>
+              </div>
+            </ParallaxElement>
+          </FadeIn>
 
           {/* Tier 1: Asymmetric Row (7 cols + 5 cols) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <FadeInStagger className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
             {/* VALOR 1: INTEGRIDAD (7 cols) - Moves faster (0.16) */}
-            <div className="lg:col-span-7 h-full">
+            <FadeIn direction="up" className="lg:col-span-7 h-full">
               <ParallaxElement speed={0.16} fadeEffect="in-out" className="h-full">
                 <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-[#0e2440] text-white shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-white/10">
                   {/* Texture Background */}
                   <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
                     <Image
-                      src="/images/textures/cyanotype-droplets.jpg"
+                      src="/images/textures/TEXTURA3.webp"
                       alt=""
                       aria-hidden="true"
                       fill
+                      loading="eager"
+                      priority
                       className="object-cover object-center w-full h-full opacity-60 mix-blend-normal"
                     />
                   </div>
@@ -552,10 +557,10 @@ export function EditorialBento() {
                   </div>
                 </div>
               </ParallaxElement>
-            </div>
+            </FadeIn>
 
             {/* VALOR 2: AGILIDAD (5 cols) - Moves calmer (0.06) */}
-            <div className="lg:col-span-5 h-full">
+            <FadeIn direction="up" className="lg:col-span-5 h-full">
               <ParallaxElement speed={0.06} fadeEffect="in-out" className="h-full">
                 <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#fafdf5] to-[#f2fbe7] border-2 border-[#95c11e]/40 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
                   <div className="absolute right-4 -bottom-4 text-[110px] font-black text-[#95c11e]/10 pointer-events-none select-none">
@@ -578,9 +583,9 @@ export function EditorialBento() {
                   </div>
                 </div>
               </ParallaxElement>
-            </div>
+            </FadeIn>
 
-          </div>
+          </FadeInStagger>
 
           {/* Floating Sprout Accent sobresaliendo between Tier 1 and Tier 2 */}
           <div className="relative w-full flex justify-end pr-12 -my-6 pointer-events-none select-none z-20 hidden sm:flex">
@@ -590,10 +595,10 @@ export function EditorialBento() {
           </div>
 
           {/* Tier 2: Inverted Asymmetric Row (5 cols + 7 cols) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <FadeInStagger className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
             {/* VALOR 3: RESPETO (5 cols) - Moves at 0.14 */}
-            <div className="lg:col-span-5 h-full">
+            <FadeIn direction="up" className="lg:col-span-5 h-full">
               <ParallaxElement speed={0.14} fadeEffect="in-out" className="h-full">
                 <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#f4faf6] to-[#eaf5ee] border-2 border-[#009539]/30 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
                   <div className="absolute right-4 -bottom-4 text-[110px] font-black text-[#009539]/10 pointer-events-none select-none">
@@ -616,10 +621,10 @@ export function EditorialBento() {
                   </div>
                 </div>
               </ParallaxElement>
-            </div>
+            </FadeIn>
 
             {/* VALOR 4: RESPONSABILIDAD (7 cols) - Moves at 0.05 */}
-            <div className="lg:col-span-7 h-full">
+            <FadeIn direction="up" className="lg:col-span-7 h-full">
               <ParallaxElement speed={0.05} fadeEffect="in-out" className="h-full">
                 <div className="h-full relative rounded-[2.5rem] p-8 sm:p-12 bg-gradient-to-br from-white via-[#f3f9f9] to-[#e8f6f6] border-2 border-[#02aeaa]/30 shadow-2xl overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
                   <div className="absolute right-6 -bottom-6 text-[120px] font-black text-[#02aeaa]/10 pointer-events-none select-none">
@@ -642,9 +647,9 @@ export function EditorialBento() {
                   </div>
                 </div>
               </ParallaxElement>
-            </div>
+            </FadeIn>
 
-          </div>
+          </FadeInStagger>
 
         </div>
 
@@ -709,24 +714,28 @@ export function EditorialBento() {
               </ParallaxElement>
             </div>
 
-            {/* Top Image: Talento Humano y Laboratorio (50% height) */}
+            {/* Top Image: Presencia Comercial y Alianzas (50% height) */}
             <div className="relative h-1/2 w-full overflow-hidden">
               <Image
-                src="/images/talento-laboratorio.jpg"
-                alt="Talento humano y científicos agroalimentarios Grupo Mimesa"
+                src="/images/mimesa-stand-comercial.webp"
+                alt="Equipo y presencia comercial de Grupo Mimesa en el sector agroalimentario"
                 fill
+                loading="eager"
+                priority
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
             </div>
 
-            {/* Bottom Image: Cosechando Innovación y Materias Primas (50% height) */}
+            {/* Bottom Image: Tecnología y Envasado Automatizado (50% height) */}
             <div className="relative h-1/2 w-full overflow-hidden border-t-2 border-white/20">
               <Image
-                src="/images/food-innovation.webp"
-                alt="Innovación y control de calidad de materias primas Grupo Mimesa"
+                src="/images/linea-embotellado-krones.webp"
+                alt="Tecnología de envasado automatizado y control industrial Grupo Mimesa"
                 fill
+                loading="eager"
+                priority
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

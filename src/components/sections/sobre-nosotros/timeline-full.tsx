@@ -3,6 +3,7 @@
 import React from "react";
 import { CheckCircle2 } from "lucide-react";
 import { MILESTONES_DATA, MilestoneData } from "../trayectoria/trayectoria-data";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export function TimelineFull() {
   return (
@@ -24,20 +25,26 @@ export function TimelineFull() {
                 }`}
               >
                 {/* Marcador Central del Hito */}
-                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
+                <FadeIn
+                  direction="none"
+                  scale={true}
+                  className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20 flex items-center justify-center pointer-events-none"
+                >
                   <div className="w-9 h-9 rounded-full bg-white border-4 border-[#02aeaa] group-hover:border-[#009539] group-hover:scale-110 shadow-md flex items-center justify-center transition-all duration-300">
                     <div className="w-2.5 h-2.5 rounded-full bg-[#009539]" />
                   </div>
-                </div>
+                </FadeIn>
 
                 {/* Columna con Tarjeta del Hito (Izquierda si isLeft, Derecha si !isLeft) */}
-                <div
+                <FadeIn
+                  direction={isLeft ? "left" : "right"}
+                  distance={28}
                   className={`w-full md:w-1/2 pl-14 md:pl-0 ${
                     isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"
                   }`}
                 >
                   <MilestoneCard milestone={milestone} isLeft={isLeft} />
-                </div>
+                </FadeIn>
 
                 {/* Mitad Vacía en el lado opuesto para mantener la alternancia perfecta */}
                 <div className="hidden md:block md:w-1/2" />

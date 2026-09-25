@@ -148,7 +148,7 @@ export default function ProdusalPage() {
           kicker="Complejo Salinero Solar • Los Olivitos, Edo. Zulia"
           titleLine1="Produsal: La principal"
           titleLine2={<><span className="text-[#02aeaa]">productora de sal</span> de <span className="text-[#95c11e]">Venezuela</span></>}
-          textureSrc="/images/textures/cyanotype-clouds.jpg"
+          textureSrc="/images/textures/TEXTURA4.webp"
           description="Aprovechamos la fuerza natural del sol y los vientos alisios en más de 40.000 hectáreas del estado Zulia para cosechar más de 650.000 toneladas anuales de sal marina solar de máxima pureza, abasteciendo a los hogares, la agroindustria y los sectores químicos del país."
           breadcrumbs={[
             { label: "Inicio", href: "/" },
@@ -215,8 +215,8 @@ export default function ProdusalPage() {
             <div className="lg:col-span-6 relative">
               <div className="relative h-[380px] sm:h-[480px] w-full rounded-[2.5rem] overflow-hidden border border-slate-200/90 shadow-2xl group">
                 <Image
-                  src="/images/produsal-salinas.webp"
-                  alt="Lagunas de cristalización de sal marina en Produsal Los Olivitos"
+                  src="/images/mimesa-operaciones-7697.webp"
+                  alt="Instalaciones agroindustriales y capacidad productiva Grupo Mimesa"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />

@@ -4,6 +4,7 @@ import React from "react";
 import { ChevronDown } from "lucide-react";
 import { ParallaxElement } from "@/components/ui/parallax-element";
 import { MimesaLeafLime, MimesaLeafGreen } from "@/components/ui/organic-shapes";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export function AtributosCtaContent() {
   const scrollToDetalle = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -27,17 +28,17 @@ export function AtributosCtaContent() {
       </div>
 
       {/* Core Typography: Solid, Permanent, Clean */}
-      <div className="text-center max-w-4xl mx-auto select-none space-y-2 sm:space-y-3 relative z-20">
+      <FadeIn direction="up" delay={0.08} className="text-center max-w-4xl mx-auto select-none space-y-2 sm:space-y-3 relative z-20">
         <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] drop-shadow-md">
           Atributos que nos acompañan
         </h2>
         <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white/95 tracking-tight leading-[1.1]">
           en todo momento
         </p>
-      </div>
+      </FadeIn>
 
       {/* Minimalist Interactive Scroll Indicator */}
-      <div className="pt-12 sm:pt-16 relative z-20">
+      <FadeIn direction="up" delay={0.16} className="pt-12 sm:pt-16 relative z-20">
         <a
           href="#atributos-detalle"
           onClick={scrollToDetalle}
@@ -51,7 +52,7 @@ export function AtributosCtaContent() {
             <ChevronDown className="w-4 h-4 text-[#30deda] group-hover:translate-y-0.5 transition-transform duration-300" />
           </div>
         </a>
-      </div>
+      </FadeIn>
 
     </div>
   );

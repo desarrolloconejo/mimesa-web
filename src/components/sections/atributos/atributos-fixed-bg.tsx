@@ -12,7 +12,7 @@ export function AtributosFixedBg() {
         {/* 1. Authentic Cyanotype Clouds Texture Background Layer */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <Image
-            src="/images/textures/cyanotype-clouds.jpg"
+            src="/images/textures/TEXTURA4.webp"
             alt=""
             aria-hidden="true"
             fill

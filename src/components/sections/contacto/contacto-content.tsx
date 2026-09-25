@@ -7,6 +7,7 @@ import { ContactoForm } from "./contacto-form";
 import { ParallaxElement } from "@/components/ui/parallax-element";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { MimesaLeafLime, MimesaLeafGreen, MimesaSprout } from "@/components/ui/organic-shapes";
+import { FadeIn } from "@/components/ui/fade-in";
 
 interface ContactoContentProps {
   showBackground?: boolean;
@@ -21,7 +22,7 @@ export function ContactoContent({ showBackground = false }: ContactoContentProps
         <>
           <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
             <Image
-              src="/images/textures/cyanotype-smooth.jpg"
+              src="/images/textures/TEXTURA6.webp"
               alt=""
               aria-hidden="true"
               fill
@@ -57,7 +58,7 @@ export function ContactoContent({ showBackground = false }: ContactoContentProps
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         
         {/* Section Header with Stepped Velocities */}
-        <div className="max-w-2xl space-y-3">
+        <FadeIn direction="up" delay={0.08} className="max-w-2xl space-y-3">
           <ParallaxElement speed={0.24} fadeEffect="in-out">
             <span className="text-xs font-black uppercase tracking-widest text-[#30deda]">
               {CONTACTO_DATA.badge}
@@ -75,7 +76,7 @@ export function ContactoContent({ showBackground = false }: ContactoContentProps
               {CONTACTO_DATA.description}
             </p>
           </ParallaxElement>
-        </div>
+        </FadeIn>
 
         {/* Balanced Two-Column Layout: Information & Form with Equal Heights and Fade Effect */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch relative">
@@ -97,7 +98,7 @@ export function ContactoContent({ showBackground = false }: ContactoContentProps
           {/* ========================================================
               LEFT COLUMN: Corporate Contact Information Card
              ======================================================== */}
-          <div className="lg:col-span-5 h-full relative">
+          <FadeIn direction="up" delay={0.12} className="lg:col-span-5 h-full relative">
             <ParallaxElement speed={0.06} className="h-full">
               <div className="h-full flex flex-col justify-between p-8 sm:p-10 rounded-3xl bg-white/[0.04] border border-white/10 backdrop-blur-2xl shadow-2xl shadow-black/30 space-y-8">
             
@@ -185,16 +186,16 @@ export function ContactoContent({ showBackground = false }: ContactoContentProps
             </div>
             </div>
             </ParallaxElement>
-          </div>
+          </FadeIn>
 
           {/* ========================================================
               RIGHT COLUMN: Dark Glass Contact Form (Balanced Height)
              ======================================================== */}
-          <div className="lg:col-span-7 h-full">
+          <FadeIn direction="up" delay={0.16} className="lg:col-span-7 h-full">
             <ParallaxElement speed={0.06} className="h-full">
               <ContactoForm />
             </ParallaxElement>
-          </div>
+          </FadeIn>
 
         </div>
 

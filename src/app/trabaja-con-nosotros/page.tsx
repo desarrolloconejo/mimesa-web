@@ -101,19 +101,19 @@ export default function TrabajaConNosotrosPage() {
               {/* Tarjeta Fotográfica Documental de Laboratorio */}
               <div className="relative rounded-3xl overflow-hidden shadow-lg border-2 border-white aspect-[16/10] w-full hidden sm:block">
                 <Image
-                  src="/images/talento-laboratorio.jpg"
-                  alt="Equipo de científicos y analistas de calidad en Grupo Mimesa"
+                  src="/images/voluntarios-mimesa-sonrientes.webp"
+                  alt="Colaboradores y equipo humano en Grupo Mimesa"
                   fill
-                  className="object-cover object-center"
+                  className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 inset-x-4 text-white space-y-0.5">
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#30deda]">
-                    Rigor y Ciencia
+                    Talento y Cultura
                   </span>
                   <p className="text-xs font-semibold">
-                    Comprometidos con los más estrictos estándares de calidad agroalimentaria.
+                    Un ambiente inclusivo, cálido y enfocado en el crecimiento mutuo.
                   </p>
                 </div>
               </div>

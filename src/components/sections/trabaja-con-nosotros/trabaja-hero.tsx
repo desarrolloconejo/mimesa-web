@@ -24,7 +24,7 @@ export function TrabajaHero() {
       {/* 2. Authentic Cyanotype Droplets Wash (Slide 15) - High Visibility */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <Image
-          src="/images/textures/cyanotype-droplets.jpg"
+          src="/images/textures/TEXTURA3.webp"
           alt=""
           aria-hidden="true"
           fill

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ATRIBUTOS_ITEMS } from "./atributos-data";
 import { MimesaSprout, MimesaLeafLime, MimesaLeafGreen } from "@/components/ui/organic-shapes";
 import { ParallaxElement } from "@/components/ui/parallax-element";
+import { FadeIn, FadeInStagger } from "@/components/ui/fade-in";
 
 export function AtributosContent() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -26,7 +27,7 @@ export function AtributosContent() {
           <div className="max-w-2xl space-y-10">
             
             {/* Header / Intro Badge */}
-            <div className="space-y-4">
+            <FadeIn direction="up" delay={0.08} className="space-y-4">
               <ParallaxElement speed={0.24} fadeEffect="in-out">
                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#02aeaa] block">
                   Pilares de Acción
@@ -38,10 +39,10 @@ export function AtributosContent() {
                   Nuestros principios en cada paso
                 </h3>
               </ParallaxElement>
-            </div>
+            </FadeIn>
 
             {/* Atributos Cards Stack with Cascading Differential Parallax (se arma y desarma) */}
-            <div className="space-y-6">
+            <FadeInStagger className="space-y-6">
               {ATRIBUTOS_ITEMS.map((item, idx) => {
                 const Icon = item.icon;
                 const isHovered = hoveredId === item.id;
@@ -49,7 +50,8 @@ export function AtributosContent() {
                 const cardSpeed = 0.16 - idx * 0.06;
 
                 return (
-                  <ParallaxElement key={item.id} speed={cardSpeed} fadeEffect="in-out">
+                  <FadeIn key={item.id} direction="up">
+                    <ParallaxElement speed={cardSpeed} fadeEffect="in-out">
                     <div
                       onMouseEnter={() => setHoveredId(item.id)}
                       onMouseLeave={() => setHoveredId(null)}
@@ -106,9 +108,10 @@ export function AtributosContent() {
                       </div>
                     </div>
                   </ParallaxElement>
+                  </FadeIn>
                 );
               })}
-            </div>
+            </FadeInStagger>
 
           </div>
         </div>
@@ -118,18 +121,32 @@ export function AtributosContent() {
            ======================================================== */}
         <div className="lg:col-span-6 xl:col-span-5 relative min-h-[500px] sm:min-h-[600px] lg:min-h-full overflow-hidden flex flex-col bg-slate-100">
           
-          {/* Main Photo: Solid, crisp, static view without scroll fade/parallax */}
-          <div className="relative h-full w-full min-h-[500px] lg:min-h-full overflow-hidden">
+          {/* Dos imágenes pegadas verticalmente con la misma forma y máscara de ola */}
+          <div className="relative h-1/2 w-full min-h-[260px] sm:min-h-[320px] lg:min-h-0 overflow-hidden">
             <Image
-              src="/images/atributos-talento.webp"
-              alt="Talento humano y equipo de producción agroindustrial Grupo Mimesa"
+              src="/images/operadores-planta-mimesa.webp"
+              alt="Talento humano y operadores en planta de producción Grupo Mimesa"
               fill
+              loading="eager"
+              priority
               className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 45vw"
-              priority={false}
             />
-            {/* Subtle Gradient Overlays for Depth and Contrast */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/40 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/15 pointer-events-none" />
+          </div>
+
+          <div className="relative h-1/2 w-full min-h-[260px] sm:min-h-[320px] lg:min-h-0 overflow-hidden border-t-2 border-white/40">
+            <Image
+              src="/images/linea-envasado-vatel.webp"
+              alt="Operadores y control de calidad en línea de envasado Vatel Grupo Mimesa"
+              fill
+              loading="eager"
+              priority
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 100vw, 45vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/45 via-transparent to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/15 pointer-events-none" />
           </div>
 

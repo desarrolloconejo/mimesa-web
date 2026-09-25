@@ -10,8 +10,8 @@ export const TRABAJA_DATA = {
   invitationText: "Invítalo a enviar su resumen curricular a:",
   email: "reclutamiento_venezuela@grupomimesa.com",
   image: {
-    src: "/images/trabaja-equipo.jpg",
-    alt: "Equipo humano de Grupo Mimesa en jornada de trabajo y desarrollo corporativo",
+    src: "/images/voluntarios-mimesa-sonrientes.webp",
+    alt: "Equipo humano y ambiente colaborativo en Grupo Mimesa",
   },
   culturePillars: [
     {

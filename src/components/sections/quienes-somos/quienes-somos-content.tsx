@@ -17,6 +17,7 @@ import {
   MimesaLeafLime,
   MimesaLeafGreen,
 } from "@/components/ui/organic-shapes";
+import { FadeIn, FadeInStagger } from "@/components/ui/fade-in";
 
 export function QuienesSomosContent() {
   return (
@@ -37,7 +38,7 @@ export function QuienesSomosContent() {
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* Left: Text Box with Multi-Layer Parallax Reactions (6 cols) */}
-        <div className="lg:col-span-6 space-y-6">
+        <FadeIn direction="up" delay={0.08} className="lg:col-span-6 space-y-6">
           
           {/* Title Parallax Layer */}
           <ParallaxElement speed={0.28}>
@@ -58,33 +59,37 @@ export function QuienesSomosContent() {
 
           {/* Interactive Feature Panels Parallax Layer */}
           <ParallaxElement speed={0.12}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-5 rounded-2xl bg-white border border-[#183c6b]/10 shadow-xs hover:shadow-lg hover:border-[#02aeaa] transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center mb-3 group-hover:bg-[#02aeaa] group-hover:text-white transition-all duration-300">
-                  <Building2 className="w-6 h-6" />
+            <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <FadeIn direction="up">
+                <div className="p-5 rounded-2xl bg-white border border-[#183c6b]/10 shadow-xs hover:shadow-lg hover:border-[#02aeaa] transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center mb-3 group-hover:bg-[#02aeaa] group-hover:text-white transition-all duration-300">
+                    <Building2 className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#183c6b]">Diversas Unidades</h3>
+                  <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">
+                    Especializadas en toda la cadena de valor agroindustrial.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#183c6b]">Diversas Unidades</h3>
-                <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">
-                  Especializadas en toda la cadena de valor agroindustrial.
-                </p>
-              </div>
+              </FadeIn>
 
-              <div className="p-5 rounded-2xl bg-white border border-[#183c6b]/10 shadow-xs hover:shadow-lg hover:border-[#95c11e] transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-[#95c11e]/15 text-[#009539] flex items-center justify-center mb-3 group-hover:bg-[#009539] group-hover:text-white transition-all duration-300">
-                  <Wheat className="w-6 h-6" />
+              <FadeIn direction="up">
+                <div className="p-5 rounded-2xl bg-white border border-[#183c6b]/10 shadow-xs hover:shadow-lg hover:border-[#95c11e] transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-[#95c11e]/15 text-[#009539] flex items-center justify-center mb-3 group-hover:bg-[#009539] group-hover:text-white transition-all duration-300">
+                    <Wheat className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-base font-bold text-[#183c6b]">Impacto en Vidas</h3>
+                  <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">
+                    Nutrición y soluciones para enriquecer al país día a día.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#183c6b]">Impacto en Vidas</h3>
-                <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">
-                  Nutrición y soluciones para enriquecer al país día a día.
-                </p>
-              </div>
-            </div>
+              </FadeIn>
+            </FadeInStagger>
           </ParallaxElement>
 
-        </div>
+        </FadeIn>
 
         {/* Right: Solid High-Quality Image Card Framed by Mimesa Brand Symbol (6 cols) */}
-        <div className="lg:col-span-6 relative">
+        <FadeIn direction="up" delay={0.16} className="lg:col-span-6 relative">
           
           {/* Complete Mimesa Sprout floating at Top-Right */}
           <div className="absolute -top-12 -right-8 z-20 pointer-events-none hidden sm:block">
@@ -104,10 +109,12 @@ export function QuienesSomosContent() {
           <ParallaxElement speed={-0.08} fadeEffect="in-out" fadeIntensity={0.95}>
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
               <Image
-                src="/images/food-innovation.webp"
-                alt="Unidades de negocio y desarrollo de alimentos Grupo Mimesa"
+                src="/images/planta-encrucijada-exterior.webp"
+                alt="Complejo industrial y silos de producción Planta La Encrucijada Grupo Mimesa"
                 width={640}
-                height={480}
+                height={426}
+                loading="eager"
+                priority
                 className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
@@ -137,7 +144,7 @@ export function QuienesSomosContent() {
               </div>
             </ParallaxElement>
           </div>
-        </div>
+        </FadeIn>
       </div>
 
       {/* ========================================================
@@ -146,7 +153,7 @@ export function QuienesSomosContent() {
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* Left: Solid Crisp Family Table Visual with Brand Symbol (6 cols) */}
-        <div className="lg:col-span-6 relative order-2 lg:order-1">
+        <FadeIn direction="up" delay={0.16} className="lg:col-span-6 relative order-2 lg:order-1">
           
           {/* Subtle Parallax Mimesa Green Leaf Shape */}
           <div className="absolute -top-10 -right-6 z-20 pointer-events-none">
@@ -163,10 +170,12 @@ export function QuienesSomosContent() {
           <ParallaxElement speed={-0.08} fadeEffect="in-out" fadeIntensity={0.95}>
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
               <Image
-                src="/images/family-table.webp"
-                alt="Familia compartiendo en la mesa venezolana con productos Mimesa"
+                src="/images/home-vatel-operadores.webp"
+                alt="Operadores y marcas emblemáticas de Grupo Mimesa"
                 width={640}
                 height={480}
+                loading="eager"
+                priority
                 className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
               
@@ -204,10 +213,10 @@ export function QuienesSomosContent() {
               </div>
             </ParallaxElement>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Right: Story Narrative Box with Multi-Layer Parallax (6 cols) */}
-        <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
+        <FadeIn direction="up" delay={0.08} className="lg:col-span-6 space-y-6 order-1 lg:order-2">
           
           {/* Title Layer */}
           <ParallaxElement speed={0.28} fadeEffect="in-out" fadeIntensity={1.1}>
@@ -234,72 +243,80 @@ export function QuienesSomosContent() {
 
           {/* Pillars List Parallax Layer */}
           <ParallaxElement speed={0.12} fadeEffect="in-out" fadeIntensity={1.0}>
-            <div className="pt-2 space-y-3.5">
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/90 border border-[#183c6b]/10 hover:border-[#02aeaa] transition-all duration-300 shadow-xs">
-                <div className="w-8 h-8 rounded-full bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-xs font-bold">01</span>
+            <FadeInStagger className="pt-2 space-y-3.5">
+              <FadeIn direction="up">
+                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/90 border border-[#183c6b]/10 hover:border-[#02aeaa] transition-all duration-300 shadow-xs">
+                  <div className="w-8 h-8 rounded-full bg-[#02aeaa]/10 text-[#02aeaa] flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="text-xs font-bold">01</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#183c6b]">Historia y Reconocimiento</h3>
+                    <p className="text-xs text-gray-500 mt-0.5">Un legado que nació con nuestro primer gran producto.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold text-[#183c6b]">Historia y Reconocimiento</h3>
-                  <p className="text-xs text-gray-500 mt-0.5">Un legado que nació con nuestro primer gran producto.</p>
-                </div>
-              </div>
+              </FadeIn>
 
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/90 border border-[#183c6b]/10 hover:border-[#009539] transition-all duration-300 shadow-xs">
-                <div className="w-8 h-8 rounded-full bg-[#009539]/10 text-[#009539] flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-xs font-bold">02</span>
+              <FadeIn direction="up">
+                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/90 border border-[#183c6b]/10 hover:border-[#009539] transition-all duration-300 shadow-xs">
+                  <div className="w-8 h-8 rounded-full bg-[#009539]/10 text-[#009539] flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="text-xs font-bold">02</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#183c6b]">Un Solo Propósito</h3>
+                    <p className="text-xs text-gray-500 mt-0.5">Trabajamos juntos por el bienestar agroalimentario nacional.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold text-[#183c6b]">Un Solo Propósito</h3>
-                  <p className="text-xs text-gray-500 mt-0.5">Trabajamos juntos por el bienestar agroalimentario nacional.</p>
-                </div>
-              </div>
+              </FadeIn>
 
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/90 border border-[#183c6b]/10 hover:border-[#95c11e] transition-all duration-300 shadow-xs">
-                <div className="w-8 h-8 rounded-full bg-[#95c11e]/15 text-[#009539] flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-xs font-bold">03</span>
+              <FadeIn direction="up">
+                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/90 border border-[#183c6b]/10 hover:border-[#95c11e] transition-all duration-300 shadow-xs">
+                  <div className="w-8 h-8 rounded-full bg-[#95c11e]/15 text-[#009539] flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="text-xs font-bold">03</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#183c6b]">La Mesa de los Hogares</h3>
+                    <p className="text-xs text-gray-500 mt-0.5">El punto de encuentro donde nace la calidez de la familia.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold text-[#183c6b]">La Mesa de los Hogares</h3>
-                  <p className="text-xs text-gray-500 mt-0.5">El punto de encuentro donde nace la calidez de la familia.</p>
-                </div>
-              </div>
-            </div>
+              </FadeIn>
+            </FadeInStagger>
           </ParallaxElement>
 
-        </div>
+        </FadeIn>
       </div>
 
       {/* ========================================================
           BLOCK 3: Full-Width Corporate Statement Banner
          ======================================================== */}
-      <ParallaxElement speed={0.16} fadeEffect="in-out" fadeIntensity={0.9}>
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#183c6b] via-[#122b4d] to-[#0a182b] text-white p-8 sm:p-14 lg:p-18 shadow-2xl border border-white/10">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#02aeaa]/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#95c11e]/15 rounded-full blur-3xl pointer-events-none" />
+      <FadeIn direction="up" delay={0.1}>
+        <ParallaxElement speed={0.16} fadeEffect="in-out" fadeIntensity={0.9}>
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#183c6b] via-[#122b4d] to-[#0a182b] text-white p-8 sm:p-14 lg:p-18 shadow-2xl border border-white/10">
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#02aeaa]/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#95c11e]/15 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-4">
-              <h3 className="text-2xl sm:text-4xl font-black text-white leading-tight">
-                Construyendo un futuro más próspero en la mesa de cada familia venezolana.
-              </h3>
-              <p className="text-sm sm:text-base text-gray-200 max-w-2xl font-normal leading-relaxed">
-                Calidad que trasciende generaciones. Conoce cómo nuestras unidades de negocio trabajan en sincronía por Venezuela.
-              </p>
-            </div>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8 space-y-4">
+                <h3 className="text-2xl sm:text-4xl font-black text-white leading-tight">
+                  Construyendo un futuro más próspero en la mesa de cada familia venezolana.
+                </h3>
+                <p className="text-sm sm:text-base text-gray-200 max-w-2xl font-normal leading-relaxed">
+                  Calidad que trasciende generaciones. Conoce cómo nuestras unidades de negocio trabajan en sincronía por Venezuela.
+                </p>
+              </div>
 
-            <div className="lg:col-span-4 flex justify-start lg:justify-end">
-              <Link
-                href="/contacto"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-bold bg-[#02aeaa] hover:bg-[#95c11e] text-[#0a182b] transition-all duration-300 shadow-xl shadow-[#02aeaa]/25 hover:shadow-[#95c11e]/30 hover:-translate-y-1 active:translate-y-0"
-              >
-                <span>Contáctanos</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <div className="lg:col-span-4 flex justify-start lg:justify-end">
+                <Link
+                  href="/contacto"
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-bold bg-[#02aeaa] hover:bg-[#95c11e] text-[#0a182b] transition-all duration-300 shadow-xl shadow-[#02aeaa]/25 hover:shadow-[#95c11e]/30 hover:-translate-y-1 active:translate-y-0"
+                >
+                  <span>Contáctanos</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </ParallaxElement>
+        </ParallaxElement>
+      </FadeIn>
 
     </div>
   );

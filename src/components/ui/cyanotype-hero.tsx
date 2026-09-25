@@ -41,7 +41,7 @@ export function CyanotypeHero({
   titleAfter = "",
   titleLine1,
   titleLine2,
-  textureSrc = "/images/textures/cyanotype-smooth.jpg",
+  textureSrc = "/images/textures/TEXTURA1.webp",
   description,
   breadcrumbs,
   showSproutWatermark = true,

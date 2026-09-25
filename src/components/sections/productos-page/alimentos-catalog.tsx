@@ -40,14 +40,6 @@ const BRAND_DETAILS: Record<string, { specs: string[]; origin: string }> = {
     ],
     origin: "El aceite tradicional de los hogares",
   },
-  purilev: {
-    specs: [
-      "Ultra filtrado para máxima ligereza",
-      "0% colesterol y grasas trans",
-      "Ideal para ensaladas, salteados y cocina saludable",
-    ],
-    origin: "Bienestar y pureza diaria",
-  },
   "los-3-cochinitos": {
     specs: [
       "Grasa tradicional de alto punto de humo",
@@ -97,7 +89,7 @@ export function AlimentosCatalog() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-slate-200/80">
         <div className="space-y-3 max-w-2xl">
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#009539] block">
-            01 • Portafolio de Alimentos
+            Portafolio de Consumo Masivo
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#183c6b] tracking-tight">
             Nuestras Marcas de Consumo Masivo

@@ -6,6 +6,7 @@ import { Users } from "lucide-react";
 import { TRABAJA_DATA } from "./trabaja-data";
 import { ParallaxElement } from "@/components/ui/parallax-element";
 import { MimesaLeafLime } from "@/components/ui/organic-shapes";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export function TrabajaContent() {
   return (
@@ -41,6 +42,7 @@ export function TrabajaContent() {
               fill
               className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 42vw"
+              loading="eager"
               priority
             />
             {/* Subtle Gradient Overlays for Depth */}
@@ -86,7 +88,7 @@ export function TrabajaContent() {
         {/* ========================================================
             RIGHT COLUMN: Pure Editorial Copywriting & Bullets (Stepped velocities)
            ======================================================== */}
-        <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center py-16 sm:py-24 lg:py-28 px-6 sm:px-12 lg:px-16 xl:px-24 relative z-10 order-1 lg:order-2">
+        <FadeIn direction="up" delay={0.08} className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center py-16 sm:py-24 lg:py-28 px-6 sm:px-12 lg:px-16 xl:px-24 relative z-10 order-1 lg:order-2">
           <div className="max-w-xl space-y-7">
             
             {/* Headline strictly in two lines */}
@@ -134,7 +136,7 @@ export function TrabajaContent() {
             </ParallaxElement>
 
           </div>
-        </div>
+        </FadeIn>
 
       </div>
     </div>

@@ -11,6 +11,7 @@ import {
   MimesaDotCyan,
   BleedingBrandLeaves,
 } from "@/components/ui/organic-shapes";
+import { HeroBrandCarousel } from "./hero-brand-carousel";
 
 /**
  * Hero Content for Root Home Page (/)
@@ -45,15 +46,15 @@ export function HeroContent() {
         </ParallaxElement>
       </div>
 
-      <div className="absolute bottom-16 left-4 sm:left-10 lg:left-16 z-10 pointer-events-none hidden md:block">
+      <div className="absolute top-[48%] -left-4 sm:left-4 lg:left-8 z-0 pointer-events-none hidden lg:block opacity-70">
         <ParallaxElement speed={0.3} rotateSpeed={-0.2} fadeEffect="fade-out" fadeIntensity={1.2}>
-          <MimesaLeafGreen size={90} variant="brand" opacity={0.9} />
+          <MimesaLeafGreen size={75} variant="brand" opacity={0.8} />
         </ParallaxElement>
       </div>
 
-      <div className="absolute bottom-20 right-6 sm:right-14 z-10 pointer-events-none hidden xl:block">
+      <div className="absolute top-[52%] right-6 sm:right-12 z-0 pointer-events-none hidden xl:block opacity-75">
         <ParallaxElement speed={-0.2} rotateSpeed={0.2} fadeEffect="fade-out" fadeIntensity={1.4}>
-          <MimesaDotCyan size={38} variant="brand" opacity={0.85} />
+          <MimesaDotCyan size={32} variant="brand" opacity={0.8} />
         </ParallaxElement>
       </div>
 
@@ -80,21 +81,21 @@ export function HeroContent() {
             </p>
           </div>
 
-          {/* Centered Action Trigger Buttons (Gilroy Font & Bold Weight) */}
+          {/* Centered Action Trigger Buttons: Transaccionales (Ver Productos y Contáctanos al formulario) */}
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 pt-4 sm:pt-6 animate-hero-fade [animation-delay:350ms]">
             <Link
-              href="#quienes-somos"
-              id="hero-cta-descubre"
-              className="group inline-flex items-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-heading font-bold bg-[#02aeaa] text-white hover:bg-[#009539] transition-all duration-300 shadow-xl shadow-[#02aeaa]/25 hover:shadow-2xl hover:shadow-[#009539]/30 hover:-translate-y-1 active:translate-y-0"
+              href="/productos"
+              id="hero-cta-productos"
+              className="group inline-flex items-center gap-2.5 sm:gap-3 px-7 sm:px-9 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-heading font-bold bg-[#009539] text-white hover:bg-[#02aeaa] transition-all duration-300 shadow-xl shadow-[#009539]/25 hover:shadow-2xl hover:shadow-[#02aeaa]/30 hover:-translate-y-1 active:translate-y-0"
             >
-              <span>Conoce nuestra historia</span>
+              <span>Ver Productos</span>
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">
                 <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
               </div>
             </Link>
 
             <Link
-              href="/contacto"
+              href="#contacto"
               id="hero-cta-contacto"
               className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-heading font-bold text-[#0e2440] bg-slate-50 hover:bg-[#0e2440] hover:text-white border border-gray-200/80 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:translate-y-0"
             >
@@ -104,24 +105,9 @@ export function HeroContent() {
         </ParallaxElement>
       </div>
 
-      {/* Bottom Creative Bar: Origin Statement & Scroll Prompt */}
-      <div className="w-full pt-4 sm:pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm animate-hero-fade [animation-delay:500ms]">
-        
-        {/* Left: Origin Statement with Brand Pebble Dot */}
-        <div className="flex items-center gap-2.5 text-gray-500">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#95c11e] animate-pulse" />
-          <span className="font-medium tracking-wide">Tradición agroalimentaria con visión de futuro</span>
-        </div>
-
-        {/* Right: Scroll Indicator */}
-        <Link
-          href="#quienes-somos"
-          className="group inline-flex items-center gap-2.5 text-[11px] sm:text-xs uppercase tracking-widest font-bold text-gray-500 hover:text-[#02aeaa] transition-colors"
-          aria-label="Deslizar para explorar"
-        >
-          <span>Explora más</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#02aeaa] group-hover:scale-125 transition-transform" />
-        </Link>
+      {/* Bottom Brands Carousel (Solo carrusel continuo con logos destacados y espacio óptimo) */}
+      <div className="w-full pt-4 sm:pt-6 pb-2 animate-hero-fade [animation-delay:450ms]">
+        <HeroBrandCarousel />
       </div>
     </div>
   );

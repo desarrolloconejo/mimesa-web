@@ -38,7 +38,8 @@ const gilroy = localFont({
     },
   ],
   variable: "--font-gilroy",
-  display: "swap",
+  display: "block",
+  preload: true,
 });
 
 // Brand Manual Slide 11: Quesha for Brand Descriptor "GRUPO"
@@ -51,7 +52,7 @@ const quesha = localFont({
     },
   ],
   variable: "--font-quesha",
-  display: "swap",
+  display: "block",
 });
 
 // Brand Manual Slide 11: Montserrat for Body & Digital UI
@@ -59,7 +60,8 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
   weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
+  display: "block",
+  preload: true,
 });
 
 export const viewport: Viewport = {
@@ -94,7 +96,7 @@ export const metadata: Metadata = {
     siteName: "Grupo Mimesa",
     images: [
       {
-        url: "/images/hero-production.webp",
+        url: "/images/quienesomos-planta.webp",
         width: 1200,
         height: 630,
         alt: "Grupo Mimesa Alimentos",
@@ -124,6 +126,36 @@ export default function RootLayout({
       lang="es"
       className={`${gilroy.variable} ${montserrat.variable} ${quesha.variable}`}
     >
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/gilroy/Gilroy-Bold.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/gilroy/Gilroy-Regular.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/gilroy/Gilroy-Medium.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/gilroy/Gilroy-Extrabold.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-screen bg-white text-[#0a1118] antialiased selection:bg-[#02aeaa] selection:text-white">
         {children}
       </body>
