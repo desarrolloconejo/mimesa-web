@@ -127,8 +127,6 @@ export function AtributosContent() {
               src="/images/operadores-planta-mimesa.webp"
               alt="Talento humano y operadores en planta de producción Grupo Mimesa"
               fill
-              loading="eager"
-              priority
               className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 45vw"
             />
@@ -141,8 +139,6 @@ export function AtributosContent() {
               src="/images/linea-envasado-vatel.webp"
               alt="Operadores y control de calidad en línea de envasado Vatel Grupo Mimesa"
               fill
-              loading="eager"
-              priority
               className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 45vw"
             />

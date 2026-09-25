@@ -50,8 +50,6 @@ export function CompromisoSocialContent() {
               fill
               className="object-cover object-top sm:object-center"
               sizes="(max-width: 1024px) 100vw, 42vw"
-              loading="eager"
-              priority
             />
             {/* Subtle Gradient Overlays for Depth */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />

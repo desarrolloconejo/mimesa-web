@@ -113,8 +113,6 @@ export function QuienesSomosContent() {
                 alt="Complejo industrial y silos de producción Planta La Encrucijada Grupo Mimesa"
                 width={640}
                 height={426}
-                loading="eager"
-                priority
                 className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#183c6b]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
@@ -174,8 +172,6 @@ export function QuienesSomosContent() {
                 alt="Operadores y marcas emblemáticas de Grupo Mimesa"
                 width={640}
                 height={480}
-                loading="eager"
-                priority
                 className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
               

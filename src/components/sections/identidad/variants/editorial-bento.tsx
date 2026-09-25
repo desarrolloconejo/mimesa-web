@@ -178,7 +178,6 @@ export function EditorialBento() {
             alt=""
             aria-hidden="true"
             fill
-            priority
             className="object-cover object-center w-full h-full opacity-90 mix-blend-normal"
           />
         </div>
@@ -531,8 +530,6 @@ export function EditorialBento() {
                       alt=""
                       aria-hidden="true"
                       fill
-                      loading="eager"
-                      priority
                       className="object-cover object-center w-full h-full opacity-60 mix-blend-normal"
                     />
                   </div>
@@ -720,8 +717,6 @@ export function EditorialBento() {
                 src="/images/mimesa-stand-comercial.webp"
                 alt="Equipo y presencia comercial de Grupo Mimesa en el sector agroalimentario"
                 fill
-                loading="eager"
-                priority
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
@@ -734,8 +729,6 @@ export function EditorialBento() {
                 src="/images/linea-embotellado-krones.webp"
                 alt="Tecnología de envasado automatizado y control industrial Grupo Mimesa"
                 fill
-                loading="eager"
-                priority
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

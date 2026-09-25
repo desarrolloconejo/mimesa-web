@@ -16,7 +16,6 @@ export function AtributosFixedBg() {
             alt=""
             aria-hidden="true"
             fill
-            priority
             className="object-cover object-center w-full h-full opacity-90 mix-blend-normal"
           />
         </div>

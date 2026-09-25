@@ -93,8 +93,6 @@ export function ProdusalEditorial() {
             src="/images/planta-molienda-industrial.webp"
             alt="Complejo industrial y capacidad de producción Grupo Mimesa"
             fill
-            loading="eager"
-            priority
             className="object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out"
             sizes="100vw"
           />

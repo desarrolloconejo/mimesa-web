@@ -85,7 +85,6 @@ export function NLPStackingCards() {
                   src={hero.imageSrc}
                   alt="Identidad oficial del Programa NLP de Grupo Mimesa - Nutriendo la Prosperidad"
                   fill
-                  priority
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   className="object-cover object-center"
                 />
@@ -158,7 +157,6 @@ export function NLPStackingCards() {
                   src={alianza.imageSrc}
                   alt="Personal de Grupo Mimesa entregando canastas de víveres en operativo comunitario"
                   fill
-                  priority
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   className="object-cover object-center"
                 />
@@ -321,7 +319,6 @@ export function NLPStackingCards() {
                       src={item.src}
                       alt={item.alt}
                       fill
-                      priority
                       sizes="(max-width: 1440px) 33vw, 25vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
@@ -422,7 +419,6 @@ export function NLPStackingCards() {
               src={manifiesto.imageSrc}
               alt="Equipo de voluntarios y coordinadores de Grupo Mimesa en el Programa NLP - Juntos alimentamos un futuro mejor"
               fill
-              priority
               sizes="(max-width: 1200px) 100vw, 1000px"
               className="object-cover object-center"
             />

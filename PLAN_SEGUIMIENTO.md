@@ -90,3 +90,15 @@ A continuación se detalla el progreso paso a paso de las tareas solicitadas:
     - Botón secundario: **"Contáctanos"** con anclaje a `#contacto`, que realiza scroll suave directo al formulario de contacto de la página.
     - Se eliminaron todos los textos inferiores y la línea divisoria, otorgando todo el protagonismo y altura al carrusel de marcas sin comprometer el viewport.
 
+- [x] **9. Lazy Loading Inteligente y Optimización de Rendimiento en el Home**
+  - **Componente LazySection ([lazy-section.tsx](src/components/ui/lazy-section.tsx)):**
+    - Carga perezosa de secciones basada en `IntersectionObserver` con margen anticipado (`rootMargin: "350px 0px"`), permitiendo que la sección se monte y renderice antes de entrar al viewport, eliminando parpadeos.
+    - Soporte completo para navegación por anclas hash (p. ej. `#contacto`), revelando la sección de inmediato al hacer clic en los botones de navegación interna.
+    - Reserva de altura mínima (`minHeight`) para prevenir cualquier salto de diseño (CLS = 0).
+  - **Code Splitting Dinámico ([page.tsx](src/app/page.tsx)):**
+    - Separación en chunks bajo demanda mediante `next/dynamic` para todas las secciones *below-the-fold* (Trayectoria, Identidad, Atributos, Productos, Compromiso, Programa NLP, Trabaja con nosotros y Footer/Contacto).
+    - El Hero y Quiénes Somos se mantienen cargados de forma inmediata en el primer render para garantizar un LCP óptimo.
+    - Reducción del bundle inicial de la página a solo **30.4 kB** (156 kB First Load JS).
+  - **Saneamiento de Precargas de Imágenes:**
+    - Se removieron los atributos `priority` y `loading="eager"` de más de 12 imágenes secundarias ubicadas en secciones profundas (texturas decorativas, galerías y plantas industriales), permitiendo que el navegador use lazy loading nativo y no sature el ancho de banda del usuario en la carga inicial.
+
